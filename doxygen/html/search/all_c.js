@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['matsulib_20_2d_20a_20central_20pattern_20generator_20library_20for_20creative_20applications_2c_20based_20on_20matsuoka_27s_20neural_20oscillator',['MatsuLib - A Central Pattern Generator library for creative applications, based on Matsuoka&apos;s Neural Oscillator',['../index.html',1,'']]],
   ['mainpage_2edox',['mainpage.dox',['../mainpage_8dox.html',1,'']]],
   ['matsu_5fcalcs_2ecpp',['Matsu_calcs.cpp',['../Matsu__calcs_8cpp.html',1,'']]],
   ['matsu_5fcalcs_2eh',['Matsu_calcs.h',['../Matsu__calcs_8h.html',1,'']]],
