@@ -1,0 +1,5 @@
+A S\+T\+A\+T\+IC L\+I\+B\+R\+A\+RY for musical creativity with Central Pattern Generators
+
+Top level class for most purposes is \mbox{\hyperlink{classMatsuokaEngine}{Matsuoka\+Engine}} But may be useful to use other classes in isolation (e.\+g. \mbox{\hyperlink{classMatsuNode}{Matsu\+Node}} may be easier to use if you just want a single oscillator)
+
+Supports threadsafe operation -\/ parameter changes are queued for execution using the do\+Queued\+Actions() method So, for example, the G\+UI thread might call parameter update methods (marked Q\+U\+E\+U\+ED A\+C\+T\+I\+ON) as and when required, and these requests will be queued for actioning by the signal thread. They will only be actioned when do\+Queued\+Actions is called -\/ ideally in the D\+SP / signal-\/rate thread. I would suggest calling do\+Queued\+Actions at the start of each signal vector calculation. 

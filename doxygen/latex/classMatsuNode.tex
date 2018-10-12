@@ -1,0 +1,914 @@
+\hypertarget{classMatsuNode}{}\section{Matsu\+Node Class Reference}
+\label{classMatsuNode}\index{Matsu\+Node@{Matsu\+Node}}
+
+
+Engine\+: Matsuoka Oscillator Node Class.  
+
+
+
+
+{\ttfamily \#include $<$matsu\+Node.\+h$>$}
+
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{classMatsuNode_abd587a4a72c6774f689d21c78a8bc239}{signal\+State}} \+: unsigned \{ \newline
+\mbox{\hyperlink{classMatsuNode_abd587a4a72c6774f689d21c78a8bc239a0bb1b43452dec8bd11b5e9890a7f7450}{signal\+State\+::non\+Significant}}, 
+\mbox{\hyperlink{classMatsuNode_abd587a4a72c6774f689d21c78a8bc239a3f079b68569f500bc365cf6513c49faf}{signal\+State\+::zero\+Xup}}, 
+\mbox{\hyperlink{classMatsuNode_abd587a4a72c6774f689d21c78a8bc239a407fa5b9f845d5588e6c327b02619574}{signal\+State\+::zero\+Xdown}}, 
+\mbox{\hyperlink{classMatsuNode_abd587a4a72c6774f689d21c78a8bc239a29d72117a1b778320c35281a36df8c3b}{signal\+State\+::first\+Peak}}, 
+\newline
+\mbox{\hyperlink{classMatsuNode_abd587a4a72c6774f689d21c78a8bc239a9c831b3d9b2ac846c1900fca753db49a}{signal\+State\+::first\+Trough}}
+ \}
+\begin{DoxyCompactList}\small\item\em Describes firing states of the node. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{classMatsuNode_aed801e1d0363292efc99bb02f1911386}{matsu\+Param}} \+: unsigned \{ \newline
+\mbox{\hyperlink{classMatsuNode_aed801e1d0363292efc99bb02f1911386ace499dea30cfce118f4fe85da0227e83}{matsu\+Param\+::\+T1}}, 
+\mbox{\hyperlink{classMatsuNode_aed801e1d0363292efc99bb02f1911386a71d2c46af01feeea54a0f541243e297b}{matsu\+Param\+::\+T2}}, 
+\mbox{\hyperlink{classMatsuNode_aed801e1d0363292efc99bb02f1911386ab9ece18c950afbfa6b0fdbfa4ff731d3}{matsu\+Param\+::T}}, 
+\mbox{\hyperlink{classMatsuNode_aed801e1d0363292efc99bb02f1911386a082a8ec4c12853282b09b34982d82a23}{matsu\+Param\+::\+T2\+Over\+T1}}, 
+\newline
+\mbox{\hyperlink{classMatsuNode_aed801e1d0363292efc99bb02f1911386a1a2ddc2db4693cfd16d534cde5572cc1}{matsu\+Param\+::\+C1}}, 
+\mbox{\hyperlink{classMatsuNode_aed801e1d0363292efc99bb02f1911386af1a543f5a2c5d49bc5dde298fcf716e4}{matsu\+Param\+::\+C2}}, 
+\mbox{\hyperlink{classMatsuNode_aed801e1d0363292efc99bb02f1911386a0d61f8370cad1d412f80b84d143e1257}{matsu\+Param\+::C}}, 
+\mbox{\hyperlink{classMatsuNode_aed801e1d0363292efc99bb02f1911386a9d5ed678fe57bcca610140957afab571}{matsu\+Param\+::B}}, 
+\newline
+\mbox{\hyperlink{classMatsuNode_aed801e1d0363292efc99bb02f1911386adfcf28d0734569a6a693bc8194de62bf}{matsu\+Param\+::G}}
+ \}
+\begin{DoxyCompactList}\small\item\em Equation Parameter names for Matsuoka Oscillator. \{\mbox{\hyperlink{classMatsuNode_aed801e1d0363292efc99bb02f1911386}{matsu\+Param}}\}. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{classMatsuNode_a5899aeb63b46cd45b1dc825ad518289a}{matsu\+Internal}} \+: unsigned \{ \mbox{\hyperlink{classMatsuNode_a5899aeb63b46cd45b1dc825ad518289aabb7f5ae6220c9828e5ec91faf054197c}{matsu\+Internal\+::\+X1}}, 
+\mbox{\hyperlink{classMatsuNode_a5899aeb63b46cd45b1dc825ad518289aa54105bddbfe3f639d49cbe8f5182c958}{matsu\+Internal\+::\+X2}}, 
+\mbox{\hyperlink{classMatsuNode_a5899aeb63b46cd45b1dc825ad518289aab4daca084ad9eabfc8de231929477ed6}{matsu\+Internal\+::\+V1}}, 
+\mbox{\hyperlink{classMatsuNode_a5899aeb63b46cd45b1dc825ad518289aaec765f1adc3b4253f2d3b131a4a8618f}{matsu\+Internal\+::\+V2}}
+ \}
+\begin{DoxyCompactList}\small\item\em Equation internal variable names for Matsuoka Oscillator. \{\mbox{\hyperlink{classMatsuNode_a5899aeb63b46cd45b1dc825ad518289a}{matsu\+Internal}}\}. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{classMatsuNode_a725e228db39b8842f851ddf88f640bed}{synch\+Mode}} \+: unsigned \{ \mbox{\hyperlink{classMatsuNode_a725e228db39b8842f851ddf88f640bedaaa2d6e4f578eb0cfaba23beef76c2194}{synch\+Mode\+::free}}, 
+\mbox{\hyperlink{classMatsuNode_a725e228db39b8842f851ddf88f640beda59d908622459f3f897e7d6226d290f4d}{synch\+Mode\+::synch\+Once}}, 
+\mbox{\hyperlink{classMatsuNode_a725e228db39b8842f851ddf88f640beda3aab546da7204817fc07ac7721d2cdd1}{synch\+Mode\+::synch\+Lock}}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classMatsuNode_ad0f98260ecf5e9b0173ace6ac087114e}{Matsu\+Node}} ()
+\begin{DoxyCompactList}\small\item\em Initialises a node with default parameters and id of 0. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classMatsuNode_a0c502c97d26d0e87831e70814d7f1576}{Matsu\+Node}} (unsigned id)
+\begin{DoxyCompactList}\small\item\em Initialises a node with default parameters and the provided node identifier. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classMatsuNode_a424409287edb672d04f85a6b842f1a07}{Matsu\+Node}} (unsigned id, double t1, double t2, double c1, double c2, double b, double g)
+\item 
+\mbox{\hyperlink{classMatsuNode_aef8572f9660b43e67d1c3fe83693eb96}{Matsu\+Node}} (unsigned id, double t1, double t2, double c, double b, double g)
+\item 
+void \mbox{\hyperlink{classMatsuNode_a10c0280241d0be2e50d89af136d279dc}{do\+Calc\+Step}} (bool basics\+Only=false, bool with\+Input=true)
+\begin{DoxyCompactList}\small\item\em Calculates the next state and output value for the Matsuoka oscillator at this node. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMatsuNode_a7a537f1cb21eee2652086d022ab41eb8}{do\+Auxiliary\+Step\+Actions}} ()
+\begin{DoxyCompactList}\small\item\em Empty method, be overriden by classes extending \mbox{\hyperlink{classMatsuNode}{Matsu\+Node}}. \end{DoxyCompactList}\item 
+unsigned \mbox{\hyperlink{classMatsuNode_ac0c4e1164c131fce54db22db8384ac7d}{get\+Identifier}} () const
+\begin{DoxyCompactList}\small\item\em Returns the identifier number of the node. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classMatsuNode_a15a4350b73d7466d8ff7565b19fd7cb5}{get\+Input}} () const
+\begin{DoxyCompactList}\small\item\em returns sum of weighted input signals to the node \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classMatsuNode_a7907676afb6f8d695c904ac1f8fc5798}{get\+Output}} (bool force\+State\+Val=false) const
+\begin{DoxyCompactList}\small\item\em returns output signal value for the node \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classMatsuNode_a049009ddb42ae27edf7e3e41a70799c7}{get\+Output}} (unsigned samples\+Delay, bool start\+At\+Phase\+Offset=false) const
+\begin{DoxyCompactList}\small\item\em returns output signal value for the node at indicated delay \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classMatsuNode_a5fa6c216b47aa2c433366093f48efe2a}{get\+Last\+Maxima}} () const
+\begin{DoxyCompactList}\small\item\em returns output signal value for the node at its most recent first local maximum after positive zero crossing \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classMatsuNode_acfa77ceec7938b33cada86bdf552d259}{get\+Last\+Minima}} () const
+\begin{DoxyCompactList}\small\item\em returns output signal value for the node at its most recent first local minimum after negative zero crossing \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classMatsuNode_abd587a4a72c6774f689d21c78a8bc239}{signal\+State}} \mbox{\hyperlink{classMatsuNode_a43082483deea988ef12dfe8d945c3122}{get\+Signal\+State}} () const
+\begin{DoxyCompactList}\small\item\em returns firing state of the node, this step. \mbox{\hyperlink{classMatsuNode_abd587a4a72c6774f689d21c78a8bc239}{See signal\+State}} \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classMatsuNode_a64c0041dc1101a030f2d4f83468592fa}{get\+Internal}} (\mbox{\hyperlink{classMatsuNode_a5899aeb63b46cd45b1dc825ad518289a}{matsu\+Internal}} param) const
+\begin{DoxyCompactList}\small\item\em Returns current value of named internal. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classMatsuNode_ad2e3306938c413010f706c96ab9a7653}{get\+Param}} (\mbox{\hyperlink{classMatsuNode_aed801e1d0363292efc99bb02f1911386}{matsu\+Param}} param) const
+\begin{DoxyCompactList}\small\item\em Returns value of named Matsuoka Oscilator parameter. \mbox{\hyperlink{classMatsuNode_aed801e1d0363292efc99bb02f1911386}{See matsu\+Param}}. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classMatsuNode_af302351e0775abe90c5e2eb40a5a9035}{get\+Frequency}} (unsigned sample\+Rate) const
+\item 
+std\+::vector$<$ unsigned $>$ \mbox{\hyperlink{classMatsuNode_a79c07be1208645ebf5b18677afc47c9f}{get\+Input\+Ids}} () const
+\begin{DoxyCompactList}\small\item\em Returns a vector of the identifiers of the nodes with input connections to this node. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classMatsuNode_ab6453259b47395fc6f32ccb35c130fd5}{get\+Input\+Weight}} (unsigned identifier) const
+\begin{DoxyCompactList}\small\item\em Returns the weight of the input to this node from the node whose identifier is provided. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classMatsuNode_a834a92cc0cb855666c9df1a679f461e4}{get\+Input\+Delay}} (unsigned identifier) const
+\begin{DoxyCompactList}\small\item\em Returns the delay of the input to this node from the node whose identifier is provided. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{classMatsuNode}{Matsu\+Node}} $\ast$ \mbox{\hyperlink{classMatsuNode_a4669072fc04e1bcfc8561c52af04abbf}{get\+Input\+Node}} (unsigned identifier) const
+\begin{DoxyCompactList}\small\item\em Returns read only pointer to the node whose identifier is provided. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classMatsuNode_a8af234bda8b179e1d3f7bb1a89377b43}{get\+Self\+Noise\+Amount}} () const
+\item 
+unsigned \mbox{\hyperlink{classMatsuNode_aaeed82f766fea6677f966b26f88b004d}{get\+Output\+Delay}} () const
+\item 
+unsigned \mbox{\hyperlink{classMatsuNode_acc0811649b340d1f2f0addede2f60e93}{get\+Delay\+Line\+Length}} () const
+\item 
+double \mbox{\hyperlink{classMatsuNode_a590a4f246adb14ac3e646289fabc7966}{get\+Freq\+Compensation}} () const
+\item 
+bool \mbox{\hyperlink{classMatsuNode_ae6b9a2f6b11ec66c1e1ee352532a8544}{is\+Input}} (unsigned identifier) const
+\item 
+void \mbox{\hyperlink{classMatsuNode_aff58c0ee6aaaaa21f3f8ef532728cacc}{set\+Identifier}} (unsigned id)
+\begin{DoxyCompactList}\small\item\em sets the identifier number of the node. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMatsuNode_aa207e9b0d5de53e9aa1c84f3aae46178}{set\+Param}} (\mbox{\hyperlink{classMatsuNode_aed801e1d0363292efc99bb02f1911386}{matsu\+Param}} param, double val)
+\begin{DoxyCompactList}\small\item\em Sets named Matsuoka Oscilator parameter to value provided. \mbox{\hyperlink{classMatsuNode_aed801e1d0363292efc99bb02f1911386}{See matsu\+Param}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMatsuNode_af68c93af36bc872c0b99c2060648fde5}{set\+\_\+t}} (double val)
+\item 
+void \mbox{\hyperlink{classMatsuNode_ae082ffc97e6744b6fce1d6bc94efbca2}{set\+\_\+t1}} (double val)
+\item 
+void \mbox{\hyperlink{classMatsuNode_ab2b901994e0811066e3c452414fcbad7}{set\+\_\+t2}} (double val)
+\item 
+void \mbox{\hyperlink{classMatsuNode_abc14c3e623fd341dc012a6640bbf1ebd}{set\+\_\+t2\+\_\+over\+\_\+t1}} (double val)
+\item 
+void \mbox{\hyperlink{classMatsuNode_a6d67de2da757be9edc89247e8c25b892}{set\+\_\+b}} (double val)
+\item 
+void \mbox{\hyperlink{classMatsuNode_a4ef14db52c49e5ad16c58f35e6356bd6}{set\+\_\+g}} (double val)
+\item 
+void \mbox{\hyperlink{classMatsuNode_a9b413bb1cfd2f899be5d6c795c2925d5}{set\+\_\+c}} (double val)
+\item 
+void \mbox{\hyperlink{classMatsuNode_ac73855b7037577ed6c06dce868d8ab5b}{set\+\_\+c1}} (double val)
+\item 
+void \mbox{\hyperlink{classMatsuNode_a6bea0b2a8d747f389ceaeb1374e96398}{set\+\_\+c2}} (double val)
+\item 
+void \mbox{\hyperlink{classMatsuNode_a15b6cfcaa1e20abf04c7c18da3881d60}{set\+Params}} (double t1, double t2, double c1, double c2, double b, double g)
+\begin{DoxyCompactList}\small\item\em Sets named Matsuoka Oscilator parameters to values provided. \mbox{\hyperlink{classMatsuNode_aed801e1d0363292efc99bb02f1911386}{See matsu\+Param}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMatsuNode_ab240f6a290cf33356d9df8fce58633ab}{set\+Params}} (double t1, double t2, double c, double b, double g)
+\item 
+void \mbox{\hyperlink{classMatsuNode_adb33b1e7dcfaf786be5d99627bca1c14}{set\+Frequency}} (double freq, unsigned sample\+Rate)
+\begin{DoxyCompactList}\small\item\em Sets frequency of Matsuoka Oscillator directly. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMatsuNode_a62c5dce090102df22142da5cdad313e1}{set\+Driven\+Mode}} (bool driven)
+\item 
+void \mbox{\hyperlink{classMatsuNode_a64f8db81c0a5df5d7261b36640b399d4}{drive\+Output}} (float val)
+\item 
+bool \mbox{\hyperlink{classMatsuNode_af8ebc02ac8a69c9ecbb41fa22434a986}{set\+Input\+Weight}} (\mbox{\hyperlink{classMatsuNode}{Matsu\+Node}} const \&node, double weight=0)
+\begin{DoxyCompactList}\small\item\em Returns frequency of Matsuoka Oscillator. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMatsuNode_a180df69fa13bbb8a0ad1ec56219b540c}{set\+Input\+Delay}} (\mbox{\hyperlink{classMatsuNode}{Matsu\+Node}} const \&node, unsigned delay)
+\item 
+void \mbox{\hyperlink{classMatsuNode_abc2600fa8de6d090296ee5f152a01916}{set\+Self\+Noise\+Amount}} (double weight)
+\item 
+bool \mbox{\hyperlink{classMatsuNode_a1eb3cb48dd269efdb5f629f363380fb6}{add\+Input}} (\mbox{\hyperlink{classMatsuNode}{Matsu\+Node}} const \&node)
+\item 
+bool \mbox{\hyperlink{classMatsuNode_a70d3d593cb1ebb8a909bfc743867d348}{remove\+Input}} (unsigned identifier)
+\begin{DoxyCompactList}\small\item\em Removes the input to this node from the node whose identifier is provided. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMatsuNode_a83d81a42f74cadc3f403b65e8b50461e}{clear\+Inputs}} ()
+\begin{DoxyCompactList}\small\item\em Removes all inputs to the node, if any exist. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMatsuNode_af1538d4e992122d520e221332f05a53e}{set\+External\+Input}} (double const \mbox{\hyperlink{MatsuokaEngine_8cpp_acf1d87f955cfce1c6b5df219f4c6b34a}{input}})
+\begin{DoxyCompactList}\small\item\em Sets pointer to external signal input. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classMatsuNode_a19e5a623c7627ab7f7c94dbd71b67554}{calc\+Freq\+Compensation}} (int cycle\+Count, int sample\+Rate)
+\begin{DoxyCompactList}\small\item\em runs node for required No of Cycles and returns the freq compensation amount \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMatsuNode_a800722180d2d170f80fd61e1db151c05}{set\+Freq\+Compensation}} (double comp)
+\begin{DoxyCompactList}\small\item\em Sets value for node frequency calculation compensation. \mbox{\hyperlink{classMatsuNode_adb33b1e7dcfaf786be5d99627bca1c14}{See set\+Frequency()}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMatsuNode_a131b380ea1f15f19ecc8c3fb4931f6dd}{reset\+Freq\+Compensation}} ()
+\begin{DoxyCompactList}\small\item\em Resets value for node frequency calculation compensation to default value. \mbox{\hyperlink{classMatsuNode_adb33b1e7dcfaf786be5d99627bca1c14}{See set\+Frequency()}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMatsuNode_a233ded2ac8a081385c56d52be06965b5}{reset}} ()
+\begin{DoxyCompactList}\small\item\em Resets node internal state and so output value to default initialisation values. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMatsuNode_a4649b0229d516bffa0129565b1805602}{reset}} (double x1, double x2, double v1, double v2)
+\begin{DoxyCompactList}\small\item\em Resets node internal state and so output value based on provided values. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMatsuNode_a155f3533b85aacccd528ce7b04e24289}{reset\+Change\+Flag\+\_\+\+Params}} ()
+\item 
+void \mbox{\hyperlink{classMatsuNode_a660a6945b92c6e50f8b17981f63ba6d4}{reset\+Change\+Flag\+\_\+\+Inputs}} ()
+\item 
+bool \mbox{\hyperlink{classMatsuNode_ac7db555868e678c3850e9835f22c54d7}{has\+Changed\+\_\+\+Params}} () const
+\item 
+bool \mbox{\hyperlink{classMatsuNode_a28d7cc7a1e352f941d5fa696031c4bbc}{has\+Changed\+\_\+\+Inputs}} () const
+\item 
+void \mbox{\hyperlink{classMatsuNode_a6b5b32c4489129fd184638a9c9ed36d4}{set\+Delay\+Line\+Length}} (unsigned length)
+\item 
+void \mbox{\hyperlink{classMatsuNode_ae4d26af98e34d1595cb9cc65a89ea8ff}{set\+Node\+Output\+Delay}} (unsigned samples)
+\item 
+void \mbox{\hyperlink{classMatsuNode_ab357c154c95d3e289921cc79ef8cf94e}{set\+Parent}} (unsigned node\+ID)
+\item 
+void \mbox{\hyperlink{classMatsuNode_aadd9d80a48b3c5f2bcfed3801f644e24}{remove\+Parent}} ()
+\item 
+bool \mbox{\hyperlink{classMatsuNode_a7056a59c333c238b2a583b59bcdb278d}{add\+Child}} (\mbox{\hyperlink{classMatsuNode}{Matsu\+Node}} \&node)
+\item 
+bool \mbox{\hyperlink{classMatsuNode_aa6251aafed3ea1af9ee0548a5707901c}{remove\+Child}} (unsigned node\+ID)
+\item 
+bool \mbox{\hyperlink{classMatsuNode_a0e170c6154bbc7ba1f668f7d0a9ac274}{remove\+Child}} (\mbox{\hyperlink{classMatsuNode}{Matsu\+Node}} \&node)
+\item 
+int \mbox{\hyperlink{classMatsuNode_a82424915e6d706f75287de36bac0e328}{get\+Parent\+ID}} () const
+\item 
+bool \mbox{\hyperlink{classMatsuNode_a19bac62758d1a610241672a2ef0a945a}{is\+Child}} (\mbox{\hyperlink{classMatsuNode}{Matsu\+Node}} \&node) const
+\item 
+bool \mbox{\hyperlink{classMatsuNode_a34f20a52ff0ac6a5119ed4a5439e03fc}{is\+Child}} (unsigned node\+ID) const
+\item 
+std\+::vector$<$ unsigned $>$ \mbox{\hyperlink{classMatsuNode_aa4a09dd1a86372a220a0549eac276e72}{get\+Child\+I\+Ds}} () const
+\item 
+unsigned \mbox{\hyperlink{classMatsuNode_ab05b1c63fa437472cdbbf5fa42337360}{get\+Child\+Count}} () const
+\item 
+bool \mbox{\hyperlink{classMatsuNode_a9d0ba571735d4e64323e859cec53761c}{is\+Active}} () const
+\item 
+void \mbox{\hyperlink{classMatsuNode_a120dfca98155fded8d1ccac0f5236ecd}{set\+Is\+Active}} (bool active)
+\item 
+void \mbox{\hyperlink{classMatsuNode_a31c979f10f4c1482204ec19a2868caf1}{set\+Synch\+Mode}} (\mbox{\hyperlink{classMatsuNode_a725e228db39b8842f851ddf88f640bed}{synch\+Mode}} do\+Sync)
+\item 
+\mbox{\hyperlink{classMatsuNode_a725e228db39b8842f851ddf88f640bed}{synch\+Mode}} \mbox{\hyperlink{classMatsuNode_a1529b4c1b11490c66f023d7afe55fae7}{get\+Synch\+Mode}} () const
+\item 
+void \mbox{\hyperlink{classMatsuNode_a540f3663464549a9dba2c4b41d9930de}{clone}} (\mbox{\hyperlink{classMatsuNode}{Matsu\+Node}} \&from)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Engine\+: Matsuoka Oscillator Node Class. 
+
+Matsuoka Oscillator Node class -\/ a single half-\/centre matsuoka oscillator, designed for use in an audiovisual installation, but built to be (hopefully) useful in other contexts too.
+
+Designed to be inherited from, so that use-\/case specific calculations and elements can be added. In the context of the installation engine, additional node-\/level characteristics are found in wrapper classes which inherit from this 
+
+\subsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{classMatsuNode_a5899aeb63b46cd45b1dc825ad518289a}\label{classMatsuNode_a5899aeb63b46cd45b1dc825ad518289a}} 
+\index{Matsu\+Node@{Matsu\+Node}!matsu\+Internal@{matsu\+Internal}}
+\index{matsu\+Internal@{matsu\+Internal}!Matsu\+Node@{Matsu\+Node}}
+\subsubsection{\texorpdfstring{matsu\+Internal}{matsuInternal}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{classMatsuNode_a5899aeb63b46cd45b1dc825ad518289a}{Matsu\+Node\+::matsu\+Internal}} \+: unsigned\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+Equation internal variable names for Matsuoka Oscillator. \{\mbox{\hyperlink{classMatsuNode_a5899aeb63b46cd45b1dc825ad518289a}{matsu\+Internal}}\}. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{X1@{X1}!Matsu\+Node@{Matsu\+Node}}\index{Matsu\+Node@{Matsu\+Node}!X1@{X1}}}\mbox{\Hypertarget{classMatsuNode_a5899aeb63b46cd45b1dc825ad518289aabb7f5ae6220c9828e5ec91faf054197c}\label{classMatsuNode_a5899aeb63b46cd45b1dc825ad518289aabb7f5ae6220c9828e5ec91faf054197c}} 
+X1&Membrane potential of Neuron 1 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{X2@{X2}!Matsu\+Node@{Matsu\+Node}}\index{Matsu\+Node@{Matsu\+Node}!X2@{X2}}}\mbox{\Hypertarget{classMatsuNode_a5899aeb63b46cd45b1dc825ad518289aa54105bddbfe3f639d49cbe8f5182c958}\label{classMatsuNode_a5899aeb63b46cd45b1dc825ad518289aa54105bddbfe3f639d49cbe8f5182c958}} 
+X2&Membrane potential of Neuron 2 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{V1@{V1}!Matsu\+Node@{Matsu\+Node}}\index{Matsu\+Node@{Matsu\+Node}!V1@{V1}}}\mbox{\Hypertarget{classMatsuNode_a5899aeb63b46cd45b1dc825ad518289aab4daca084ad9eabfc8de231929477ed6}\label{classMatsuNode_a5899aeb63b46cd45b1dc825ad518289aab4daca084ad9eabfc8de231929477ed6}} 
+V1&State of adaptation of Neuron 1 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{V2@{V2}!Matsu\+Node@{Matsu\+Node}}\index{Matsu\+Node@{Matsu\+Node}!V2@{V2}}}\mbox{\Hypertarget{classMatsuNode_a5899aeb63b46cd45b1dc825ad518289aaec765f1adc3b4253f2d3b131a4a8618f}\label{classMatsuNode_a5899aeb63b46cd45b1dc825ad518289aaec765f1adc3b4253f2d3b131a4a8618f}} 
+V2&State of adaptation of Neuron 2 \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{classMatsuNode_aed801e1d0363292efc99bb02f1911386}\label{classMatsuNode_aed801e1d0363292efc99bb02f1911386}} 
+\index{Matsu\+Node@{Matsu\+Node}!matsu\+Param@{matsu\+Param}}
+\index{matsu\+Param@{matsu\+Param}!Matsu\+Node@{Matsu\+Node}}
+\subsubsection{\texorpdfstring{matsu\+Param}{matsuParam}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{classMatsuNode_aed801e1d0363292efc99bb02f1911386}{Matsu\+Node\+::matsu\+Param}} \+: unsigned\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+Equation Parameter names for Matsuoka Oscillator. \{\mbox{\hyperlink{classMatsuNode_aed801e1d0363292efc99bb02f1911386}{matsu\+Param}}\}. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{T1@{T1}!Matsu\+Node@{Matsu\+Node}}\index{Matsu\+Node@{Matsu\+Node}!T1@{T1}}}\mbox{\Hypertarget{classMatsuNode_aed801e1d0363292efc99bb02f1911386ace499dea30cfce118f4fe85da0227e83}\label{classMatsuNode_aed801e1d0363292efc99bb02f1911386ace499dea30cfce118f4fe85da0227e83}} 
+T1&Time constant, reaction time of neuron 1. Determines frequency of oscillator. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{T2@{T2}!Matsu\+Node@{Matsu\+Node}}\index{Matsu\+Node@{Matsu\+Node}!T2@{T2}}}\mbox{\Hypertarget{classMatsuNode_aed801e1d0363292efc99bb02f1911386a71d2c46af01feeea54a0f541243e297b}\label{classMatsuNode_aed801e1d0363292efc99bb02f1911386a71d2c46af01feeea54a0f541243e297b}} 
+T2&Time constant, reaction time of neuron 2. See T1. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{T@{T}!Matsu\+Node@{Matsu\+Node}}\index{Matsu\+Node@{Matsu\+Node}!T@{T}}}\mbox{\Hypertarget{classMatsuNode_aed801e1d0363292efc99bb02f1911386ab9ece18c950afbfa6b0fdbfa4ff731d3}\label{classMatsuNode_aed801e1d0363292efc99bb02f1911386ab9ece18c950afbfa6b0fdbfa4ff731d3}} 
+T&Value for both T1 and T2. Allows setting of both to same val. For setter methods both T1 and T2 are affected. For access methods T1 is returned \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{T2\+Over\+T1@{T2\+Over\+T1}!Matsu\+Node@{Matsu\+Node}}\index{Matsu\+Node@{Matsu\+Node}!T2\+Over\+T1@{T2\+Over\+T1}}}\mbox{\Hypertarget{classMatsuNode_aed801e1d0363292efc99bb02f1911386a082a8ec4c12853282b09b34982d82a23}\label{classMatsuNode_aed801e1d0363292efc99bb02f1911386a082a8ec4c12853282b09b34982d82a23}} 
+T2\+Over\+T1&Ratio of T2\+:T1 -\/ Affects waveshape \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C1@{C1}!Matsu\+Node@{Matsu\+Node}}\index{Matsu\+Node@{Matsu\+Node}!C1@{C1}}}\mbox{\Hypertarget{classMatsuNode_aed801e1d0363292efc99bb02f1911386a1a2ddc2db4693cfd16d534cde5572cc1}\label{classMatsuNode_aed801e1d0363292efc99bb02f1911386a1a2ddc2db4693cfd16d534cde5572cc1}} 
+C1&Tonic excitatory input for neuron 1, determines amplitude and in relation to C2, the +/-\/ skew of waveform \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C2@{C2}!Matsu\+Node@{Matsu\+Node}}\index{Matsu\+Node@{Matsu\+Node}!C2@{C2}}}\mbox{\Hypertarget{classMatsuNode_aed801e1d0363292efc99bb02f1911386af1a543f5a2c5d49bc5dde298fcf716e4}\label{classMatsuNode_aed801e1d0363292efc99bb02f1911386af1a543f5a2c5d49bc5dde298fcf716e4}} 
+C2&Tonic excitatory input for neuron 2, see C1 \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C@{C}!Matsu\+Node@{Matsu\+Node}}\index{Matsu\+Node@{Matsu\+Node}!C@{C}}}\mbox{\Hypertarget{classMatsuNode_aed801e1d0363292efc99bb02f1911386a0d61f8370cad1d412f80b84d143e1257}\label{classMatsuNode_aed801e1d0363292efc99bb02f1911386a0d61f8370cad1d412f80b84d143e1257}} 
+C&In many uses C1==C2 -\/ this allows setting of both. For setter methods both C1 and C2 are affected. For access methods C1 is returned \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{B@{B}!Matsu\+Node@{Matsu\+Node}}\index{Matsu\+Node@{Matsu\+Node}!B@{B}}}\mbox{\Hypertarget{classMatsuNode_aed801e1d0363292efc99bb02f1911386a9d5ed678fe57bcca610140957afab571}\label{classMatsuNode_aed801e1d0363292efc99bb02f1911386a9d5ed678fe57bcca610140957afab571}} 
+B&Constant determining adaptation time of both neurons \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{G@{G}!Matsu\+Node@{Matsu\+Node}}\index{Matsu\+Node@{Matsu\+Node}!G@{G}}}\mbox{\Hypertarget{classMatsuNode_aed801e1d0363292efc99bb02f1911386adfcf28d0734569a6a693bc8194de62bf}\label{classMatsuNode_aed801e1d0363292efc99bb02f1911386adfcf28d0734569a6a693bc8194de62bf}} 
+G&Constant determining degree of adaptation of each neuron to the other \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{classMatsuNode_abd587a4a72c6774f689d21c78a8bc239}\label{classMatsuNode_abd587a4a72c6774f689d21c78a8bc239}} 
+\index{Matsu\+Node@{Matsu\+Node}!signal\+State@{signal\+State}}
+\index{signal\+State@{signal\+State}!Matsu\+Node@{Matsu\+Node}}
+\subsubsection{\texorpdfstring{signal\+State}{signalState}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{classMatsuNode_abd587a4a72c6774f689d21c78a8bc239}{Matsu\+Node\+::signal\+State}} \+: unsigned\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+Describes firing states of the node. 
+
+Firing is defined by the node\textquotesingle{}s output signal having crossed zero this calculation step. \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{non\+Significant@{non\+Significant}!Matsu\+Node@{Matsu\+Node}}\index{Matsu\+Node@{Matsu\+Node}!non\+Significant@{non\+Significant}}}\mbox{\Hypertarget{classMatsuNode_abd587a4a72c6774f689d21c78a8bc239a0bb1b43452dec8bd11b5e9890a7f7450}\label{classMatsuNode_abd587a4a72c6774f689d21c78a8bc239a0bb1b43452dec8bd11b5e9890a7f7450}} 
+non\+Significant&Node signal has not crossed zero this step. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{zero\+Xup@{zero\+Xup}!Matsu\+Node@{Matsu\+Node}}\index{Matsu\+Node@{Matsu\+Node}!zero\+Xup@{zero\+Xup}}}\mbox{\Hypertarget{classMatsuNode_abd587a4a72c6774f689d21c78a8bc239a3f079b68569f500bc365cf6513c49faf}\label{classMatsuNode_abd587a4a72c6774f689d21c78a8bc239a3f079b68569f500bc365cf6513c49faf}} 
+zero\+Xup&Node signal crossed zero, rising this step. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{zero\+Xdown@{zero\+Xdown}!Matsu\+Node@{Matsu\+Node}}\index{Matsu\+Node@{Matsu\+Node}!zero\+Xdown@{zero\+Xdown}}}\mbox{\Hypertarget{classMatsuNode_abd587a4a72c6774f689d21c78a8bc239a407fa5b9f845d5588e6c327b02619574}\label{classMatsuNode_abd587a4a72c6774f689d21c78a8bc239a407fa5b9f845d5588e6c327b02619574}} 
+zero\+Xdown&Node signal crossed zero, falling this step. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{first\+Peak@{first\+Peak}!Matsu\+Node@{Matsu\+Node}}\index{Matsu\+Node@{Matsu\+Node}!first\+Peak@{first\+Peak}}}\mbox{\Hypertarget{classMatsuNode_abd587a4a72c6774f689d21c78a8bc239a29d72117a1b778320c35281a36df8c3b}\label{classMatsuNode_abd587a4a72c6774f689d21c78a8bc239a29d72117a1b778320c35281a36df8c3b}} 
+first\+Peak&Node signal reached its first peak post positive zero crossing, prev step. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{first\+Trough@{first\+Trough}!Matsu\+Node@{Matsu\+Node}}\index{Matsu\+Node@{Matsu\+Node}!first\+Trough@{first\+Trough}}}\mbox{\Hypertarget{classMatsuNode_abd587a4a72c6774f689d21c78a8bc239a9c831b3d9b2ac846c1900fca753db49a}\label{classMatsuNode_abd587a4a72c6774f689d21c78a8bc239a9c831b3d9b2ac846c1900fca753db49a}} 
+first\+Trough&Node signal reached its first trough post negative zero crossing prev step. \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{classMatsuNode_a725e228db39b8842f851ddf88f640bed}\label{classMatsuNode_a725e228db39b8842f851ddf88f640bed}} 
+\index{Matsu\+Node@{Matsu\+Node}!synch\+Mode@{synch\+Mode}}
+\index{synch\+Mode@{synch\+Mode}!Matsu\+Node@{Matsu\+Node}}
+\subsubsection{\texorpdfstring{synch\+Mode}{synchMode}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{classMatsuNode_a725e228db39b8842f851ddf88f640bed}{Matsu\+Node\+::synch\+Mode}} \+: unsigned\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{free@{free}!Matsu\+Node@{Matsu\+Node}}\index{Matsu\+Node@{Matsu\+Node}!free@{free}}}\mbox{\Hypertarget{classMatsuNode_a725e228db39b8842f851ddf88f640bedaaa2d6e4f578eb0cfaba23beef76c2194}\label{classMatsuNode_a725e228db39b8842f851ddf88f640bedaaa2d6e4f578eb0cfaba23beef76c2194}} 
+free&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{synch\+Once@{synch\+Once}!Matsu\+Node@{Matsu\+Node}}\index{Matsu\+Node@{Matsu\+Node}!synch\+Once@{synch\+Once}}}\mbox{\Hypertarget{classMatsuNode_a725e228db39b8842f851ddf88f640beda59d908622459f3f897e7d6226d290f4d}\label{classMatsuNode_a725e228db39b8842f851ddf88f640beda59d908622459f3f897e7d6226d290f4d}} 
+synch\+Once&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{synch\+Lock@{synch\+Lock}!Matsu\+Node@{Matsu\+Node}}\index{Matsu\+Node@{Matsu\+Node}!synch\+Lock@{synch\+Lock}}}\mbox{\Hypertarget{classMatsuNode_a725e228db39b8842f851ddf88f640beda3aab546da7204817fc07ac7721d2cdd1}\label{classMatsuNode_a725e228db39b8842f851ddf88f640beda3aab546da7204817fc07ac7721d2cdd1}} 
+synch\+Lock&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classMatsuNode_ad0f98260ecf5e9b0173ace6ac087114e}\label{classMatsuNode_ad0f98260ecf5e9b0173ace6ac087114e}} 
+\index{Matsu\+Node@{Matsu\+Node}!Matsu\+Node@{Matsu\+Node}}
+\index{Matsu\+Node@{Matsu\+Node}!Matsu\+Node@{Matsu\+Node}}
+\subsubsection{\texorpdfstring{Matsu\+Node()}{MatsuNode()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily Matsu\+Node\+::\+Matsu\+Node (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Initialises a node with default parameters and id of 0. 
+
+\mbox{\Hypertarget{classMatsuNode_a0c502c97d26d0e87831e70814d7f1576}\label{classMatsuNode_a0c502c97d26d0e87831e70814d7f1576}} 
+\index{Matsu\+Node@{Matsu\+Node}!Matsu\+Node@{Matsu\+Node}}
+\index{Matsu\+Node@{Matsu\+Node}!Matsu\+Node@{Matsu\+Node}}
+\subsubsection{\texorpdfstring{Matsu\+Node()}{MatsuNode()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily Matsu\+Node\+::\+Matsu\+Node (\begin{DoxyParamCaption}\item[{unsigned}]{id }\end{DoxyParamCaption})}
+
+
+
+Initialises a node with default parameters and the provided node identifier. 
+
+Identifier is used to uniquely identify the node, eg. in identifying inputs Uniqueness of id should be enforced within a single network. \mbox{\Hypertarget{classMatsuNode_a424409287edb672d04f85a6b842f1a07}\label{classMatsuNode_a424409287edb672d04f85a6b842f1a07}} 
+\index{Matsu\+Node@{Matsu\+Node}!Matsu\+Node@{Matsu\+Node}}
+\index{Matsu\+Node@{Matsu\+Node}!Matsu\+Node@{Matsu\+Node}}
+\subsubsection{\texorpdfstring{Matsu\+Node()}{MatsuNode()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily Matsu\+Node\+::\+Matsu\+Node (\begin{DoxyParamCaption}\item[{unsigned}]{id,  }\item[{double}]{t1,  }\item[{double}]{t2,  }\item[{double}]{c1,  }\item[{double}]{c2,  }\item[{double}]{b,  }\item[{double}]{g }\end{DoxyParamCaption})}
+
+Initialises a node with provided parameters \mbox{\hyperlink{classMatsuNode_aed801e1d0363292efc99bb02f1911386}{see matsu\+Param}} \mbox{\Hypertarget{classMatsuNode_aef8572f9660b43e67d1c3fe83693eb96}\label{classMatsuNode_aef8572f9660b43e67d1c3fe83693eb96}} 
+\index{Matsu\+Node@{Matsu\+Node}!Matsu\+Node@{Matsu\+Node}}
+\index{Matsu\+Node@{Matsu\+Node}!Matsu\+Node@{Matsu\+Node}}
+\subsubsection{\texorpdfstring{Matsu\+Node()}{MatsuNode()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily Matsu\+Node\+::\+Matsu\+Node (\begin{DoxyParamCaption}\item[{unsigned}]{id,  }\item[{double}]{t1,  }\item[{double}]{t2,  }\item[{double}]{c,  }\item[{double}]{b,  }\item[{double}]{g }\end{DoxyParamCaption})}
+
+Initialises a node with provided parameters \mbox{\hyperlink{classMatsuNode_aed801e1d0363292efc99bb02f1911386}{see matsu\+Param}} 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classMatsuNode_a7056a59c333c238b2a583b59bcdb278d}\label{classMatsuNode_a7056a59c333c238b2a583b59bcdb278d}} 
+\index{Matsu\+Node@{Matsu\+Node}!add\+Child@{add\+Child}}
+\index{add\+Child@{add\+Child}!Matsu\+Node@{Matsu\+Node}}
+\subsubsection{\texorpdfstring{add\+Child()}{addChild()}}
+{\footnotesize\ttfamily bool Matsu\+Node\+::add\+Child (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMatsuNode}{Matsu\+Node}} \&}]{node }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classMatsuNode_a1eb3cb48dd269efdb5f629f363380fb6}\label{classMatsuNode_a1eb3cb48dd269efdb5f629f363380fb6}} 
+\index{Matsu\+Node@{Matsu\+Node}!add\+Input@{add\+Input}}
+\index{add\+Input@{add\+Input}!Matsu\+Node@{Matsu\+Node}}
+\subsubsection{\texorpdfstring{add\+Input()}{addInput()}}
+{\footnotesize\ttfamily bool Matsu\+Node\+::add\+Input (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMatsuNode}{Matsu\+Node}} const \&}]{node }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classMatsuNode_a19e5a623c7627ab7f7c94dbd71b67554}\label{classMatsuNode_a19e5a623c7627ab7f7c94dbd71b67554}} 
+\index{Matsu\+Node@{Matsu\+Node}!calc\+Freq\+Compensation@{calc\+Freq\+Compensation}}
+\index{calc\+Freq\+Compensation@{calc\+Freq\+Compensation}!Matsu\+Node@{Matsu\+Node}}
+\subsubsection{\texorpdfstring{calc\+Freq\+Compensation()}{calcFreqCompensation()}}
+{\footnotesize\ttfamily double Matsu\+Node\+::calc\+Freq\+Compensation (\begin{DoxyParamCaption}\item[{int}]{cycle\+Count,  }\item[{int}]{sample\+Rate }\end{DoxyParamCaption})}
+
+
+
+runs node for required No of Cycles and returns the freq compensation amount 
+
+\mbox{\Hypertarget{classMatsuNode_a83d81a42f74cadc3f403b65e8b50461e}\label{classMatsuNode_a83d81a42f74cadc3f403b65e8b50461e}} 
+\index{Matsu\+Node@{Matsu\+Node}!clear\+Inputs@{clear\+Inputs}}
+\index{clear\+Inputs@{clear\+Inputs}!Matsu\+Node@{Matsu\+Node}}
+\subsubsection{\texorpdfstring{clear\+Inputs()}{clearInputs()}}
+{\footnotesize\ttfamily void Matsu\+Node\+::clear\+Inputs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Removes all inputs to the node, if any exist. 
+
+\mbox{\Hypertarget{classMatsuNode_a540f3663464549a9dba2c4b41d9930de}\label{classMatsuNode_a540f3663464549a9dba2c4b41d9930de}} 
+\index{Matsu\+Node@{Matsu\+Node}!clone@{clone}}
+\index{clone@{clone}!Matsu\+Node@{Matsu\+Node}}
+\subsubsection{\texorpdfstring{clone()}{clone()}}
+{\footnotesize\ttfamily void Matsu\+Node\+::clone (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMatsuNode}{Matsu\+Node}} \&}]{from }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classMatsuNode_a7a537f1cb21eee2652086d022ab41eb8}\label{classMatsuNode_a7a537f1cb21eee2652086d022ab41eb8}} 
+\index{Matsu\+Node@{Matsu\+Node}!do\+Auxiliary\+Step\+Actions@{do\+Auxiliary\+Step\+Actions}}
+\index{do\+Auxiliary\+Step\+Actions@{do\+Auxiliary\+Step\+Actions}!Matsu\+Node@{Matsu\+Node}}
+\subsubsection{\texorpdfstring{do\+Auxiliary\+Step\+Actions()}{doAuxiliaryStepActions()}}
+{\footnotesize\ttfamily void Matsu\+Node\+::do\+Auxiliary\+Step\+Actions (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Empty method, be overriden by classes extending \mbox{\hyperlink{classMatsuNode}{Matsu\+Node}}. 
+
+allows additional actions to be added after the calculation step. When adding actions here, \mbox{\Hypertarget{classMatsuNode_a10c0280241d0be2e50d89af136d279dc}\label{classMatsuNode_a10c0280241d0be2e50d89af136d279dc}} 
+\index{Matsu\+Node@{Matsu\+Node}!do\+Calc\+Step@{do\+Calc\+Step}}
+\index{do\+Calc\+Step@{do\+Calc\+Step}!Matsu\+Node@{Matsu\+Node}}
+\subsubsection{\texorpdfstring{do\+Calc\+Step()}{doCalcStep()}}
+{\footnotesize\ttfamily void Matsu\+Node\+::do\+Calc\+Step (\begin{DoxyParamCaption}\item[{bool}]{basics\+Only = {\ttfamily false},  }\item[{bool}]{with\+Input = {\ttfamily true} }\end{DoxyParamCaption})}
+
+
+
+Calculates the next state and output value for the Matsuoka oscillator at this node. 
+
+Uses 4th order Runge Kutta method. \mbox{\Hypertarget{classMatsuNode_a64f8db81c0a5df5d7261b36640b399d4}\label{classMatsuNode_a64f8db81c0a5df5d7261b36640b399d4}} 
+\index{Matsu\+Node@{Matsu\+Node}!drive\+Output@{drive\+Output}}
+\index{drive\+Output@{drive\+Output}!Matsu\+Node@{Matsu\+Node}}
+\subsubsection{\texorpdfstring{drive\+Output()}{driveOutput()}}
+{\footnotesize\ttfamily void Matsu\+Node\+::drive\+Output (\begin{DoxyParamCaption}\item[{float}]{val }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classMatsuNode_ab05b1c63fa437472cdbbf5fa42337360}\label{classMatsuNode_ab05b1c63fa437472cdbbf5fa42337360}} 
+\index{Matsu\+Node@{Matsu\+Node}!get\+Child\+Count@{get\+Child\+Count}}
+\index{get\+Child\+Count@{get\+Child\+Count}!Matsu\+Node@{Matsu\+Node}}
+\subsubsection{\texorpdfstring{get\+Child\+Count()}{getChildCount()}}
+{\footnotesize\ttfamily unsigned Matsu\+Node\+::get\+Child\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{classMatsuNode_aa4a09dd1a86372a220a0549eac276e72}\label{classMatsuNode_aa4a09dd1a86372a220a0549eac276e72}} 
+\index{Matsu\+Node@{Matsu\+Node}!get\+Child\+I\+Ds@{get\+Child\+I\+Ds}}
+\index{get\+Child\+I\+Ds@{get\+Child\+I\+Ds}!Matsu\+Node@{Matsu\+Node}}
+\subsubsection{\texorpdfstring{get\+Child\+I\+Ds()}{getChildIDs()}}
+{\footnotesize\ttfamily std\+::vector$<$ unsigned $>$ Matsu\+Node\+::get\+Child\+I\+Ds (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{classMatsuNode_acc0811649b340d1f2f0addede2f60e93}\label{classMatsuNode_acc0811649b340d1f2f0addede2f60e93}} 
+\index{Matsu\+Node@{Matsu\+Node}!get\+Delay\+Line\+Length@{get\+Delay\+Line\+Length}}
+\index{get\+Delay\+Line\+Length@{get\+Delay\+Line\+Length}!Matsu\+Node@{Matsu\+Node}}
+\subsubsection{\texorpdfstring{get\+Delay\+Line\+Length()}{getDelayLineLength()}}
+{\footnotesize\ttfamily unsigned Matsu\+Node\+::get\+Delay\+Line\+Length (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{classMatsuNode_a590a4f246adb14ac3e646289fabc7966}\label{classMatsuNode_a590a4f246adb14ac3e646289fabc7966}} 
+\index{Matsu\+Node@{Matsu\+Node}!get\+Freq\+Compensation@{get\+Freq\+Compensation}}
+\index{get\+Freq\+Compensation@{get\+Freq\+Compensation}!Matsu\+Node@{Matsu\+Node}}
+\subsubsection{\texorpdfstring{get\+Freq\+Compensation()}{getFreqCompensation()}}
+{\footnotesize\ttfamily double Matsu\+Node\+::get\+Freq\+Compensation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{classMatsuNode_af302351e0775abe90c5e2eb40a5a9035}\label{classMatsuNode_af302351e0775abe90c5e2eb40a5a9035}} 
+\index{Matsu\+Node@{Matsu\+Node}!get\+Frequency@{get\+Frequency}}
+\index{get\+Frequency@{get\+Frequency}!Matsu\+Node@{Matsu\+Node}}
+\subsubsection{\texorpdfstring{get\+Frequency()}{getFrequency()}}
+{\footnotesize\ttfamily double Matsu\+Node\+::get\+Frequency (\begin{DoxyParamCaption}\item[{unsigned}]{sample\+Rate }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{classMatsuNode_ac0c4e1164c131fce54db22db8384ac7d}\label{classMatsuNode_ac0c4e1164c131fce54db22db8384ac7d}} 
+\index{Matsu\+Node@{Matsu\+Node}!get\+Identifier@{get\+Identifier}}
+\index{get\+Identifier@{get\+Identifier}!Matsu\+Node@{Matsu\+Node}}
+\subsubsection{\texorpdfstring{get\+Identifier()}{getIdentifier()}}
+{\footnotesize\ttfamily unsigned Matsu\+Node\+::get\+Identifier (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns the identifier number of the node. 
+
+\mbox{\Hypertarget{classMatsuNode_a15a4350b73d7466d8ff7565b19fd7cb5}\label{classMatsuNode_a15a4350b73d7466d8ff7565b19fd7cb5}} 
+\index{Matsu\+Node@{Matsu\+Node}!get\+Input@{get\+Input}}
+\index{get\+Input@{get\+Input}!Matsu\+Node@{Matsu\+Node}}
+\subsubsection{\texorpdfstring{get\+Input()}{getInput()}}
+{\footnotesize\ttfamily double Matsu\+Node\+::get\+Input (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+returns sum of weighted input signals to the node 
+
+\mbox{\Hypertarget{classMatsuNode_a834a92cc0cb855666c9df1a679f461e4}\label{classMatsuNode_a834a92cc0cb855666c9df1a679f461e4}} 
+\index{Matsu\+Node@{Matsu\+Node}!get\+Input\+Delay@{get\+Input\+Delay}}
+\index{get\+Input\+Delay@{get\+Input\+Delay}!Matsu\+Node@{Matsu\+Node}}
+\subsubsection{\texorpdfstring{get\+Input\+Delay()}{getInputDelay()}}
+{\footnotesize\ttfamily double Matsu\+Node\+::get\+Input\+Delay (\begin{DoxyParamCaption}\item[{unsigned}]{identifier }\end{DoxyParamCaption}) const}
+
+
+
+Returns the delay of the input to this node from the node whose identifier is provided. 
+
+\mbox{\Hypertarget{classMatsuNode_a79c07be1208645ebf5b18677afc47c9f}\label{classMatsuNode_a79c07be1208645ebf5b18677afc47c9f}} 
+\index{Matsu\+Node@{Matsu\+Node}!get\+Input\+Ids@{get\+Input\+Ids}}
+\index{get\+Input\+Ids@{get\+Input\+Ids}!Matsu\+Node@{Matsu\+Node}}
+\subsubsection{\texorpdfstring{get\+Input\+Ids()}{getInputIds()}}
+{\footnotesize\ttfamily vector$<$ unsigned $>$ Matsu\+Node\+::get\+Input\+Ids (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns a vector of the identifiers of the nodes with input connections to this node. 
+
+\mbox{\Hypertarget{classMatsuNode_a4669072fc04e1bcfc8561c52af04abbf}\label{classMatsuNode_a4669072fc04e1bcfc8561c52af04abbf}} 
+\index{Matsu\+Node@{Matsu\+Node}!get\+Input\+Node@{get\+Input\+Node}}
+\index{get\+Input\+Node@{get\+Input\+Node}!Matsu\+Node@{Matsu\+Node}}
+\subsubsection{\texorpdfstring{get\+Input\+Node()}{getInputNode()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classMatsuNode}{Matsu\+Node}} $\ast$ Matsu\+Node\+::get\+Input\+Node (\begin{DoxyParamCaption}\item[{unsigned}]{identifier }\end{DoxyParamCaption}) const}
+
+
+
+Returns read only pointer to the node whose identifier is provided. 
+
+\mbox{\Hypertarget{classMatsuNode_ab6453259b47395fc6f32ccb35c130fd5}\label{classMatsuNode_ab6453259b47395fc6f32ccb35c130fd5}} 
+\index{Matsu\+Node@{Matsu\+Node}!get\+Input\+Weight@{get\+Input\+Weight}}
+\index{get\+Input\+Weight@{get\+Input\+Weight}!Matsu\+Node@{Matsu\+Node}}
+\subsubsection{\texorpdfstring{get\+Input\+Weight()}{getInputWeight()}}
+{\footnotesize\ttfamily double Matsu\+Node\+::get\+Input\+Weight (\begin{DoxyParamCaption}\item[{unsigned}]{identifier }\end{DoxyParamCaption}) const}
+
+
+
+Returns the weight of the input to this node from the node whose identifier is provided. 
+
+\mbox{\Hypertarget{classMatsuNode_a64c0041dc1101a030f2d4f83468592fa}\label{classMatsuNode_a64c0041dc1101a030f2d4f83468592fa}} 
+\index{Matsu\+Node@{Matsu\+Node}!get\+Internal@{get\+Internal}}
+\index{get\+Internal@{get\+Internal}!Matsu\+Node@{Matsu\+Node}}
+\subsubsection{\texorpdfstring{get\+Internal()}{getInternal()}}
+{\footnotesize\ttfamily double Matsu\+Node\+::get\+Internal (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMatsuNode_a5899aeb63b46cd45b1dc825ad518289a}{matsu\+Internal}}}]{param }\end{DoxyParamCaption}) const}
+
+
+
+Returns current value of named internal. 
+
+\mbox{\Hypertarget{classMatsuNode_a5fa6c216b47aa2c433366093f48efe2a}\label{classMatsuNode_a5fa6c216b47aa2c433366093f48efe2a}} 
+\index{Matsu\+Node@{Matsu\+Node}!get\+Last\+Maxima@{get\+Last\+Maxima}}
+\index{get\+Last\+Maxima@{get\+Last\+Maxima}!Matsu\+Node@{Matsu\+Node}}
+\subsubsection{\texorpdfstring{get\+Last\+Maxima()}{getLastMaxima()}}
+{\footnotesize\ttfamily double Matsu\+Node\+::get\+Last\+Maxima (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+returns output signal value for the node at its most recent first local maximum after positive zero crossing 
+
+\mbox{\Hypertarget{classMatsuNode_acfa77ceec7938b33cada86bdf552d259}\label{classMatsuNode_acfa77ceec7938b33cada86bdf552d259}} 
+\index{Matsu\+Node@{Matsu\+Node}!get\+Last\+Minima@{get\+Last\+Minima}}
+\index{get\+Last\+Minima@{get\+Last\+Minima}!Matsu\+Node@{Matsu\+Node}}
+\subsubsection{\texorpdfstring{get\+Last\+Minima()}{getLastMinima()}}
+{\footnotesize\ttfamily double Matsu\+Node\+::get\+Last\+Minima (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+returns output signal value for the node at its most recent first local minimum after negative zero crossing 
+
+\mbox{\Hypertarget{classMatsuNode_a7907676afb6f8d695c904ac1f8fc5798}\label{classMatsuNode_a7907676afb6f8d695c904ac1f8fc5798}} 
+\index{Matsu\+Node@{Matsu\+Node}!get\+Output@{get\+Output}}
+\index{get\+Output@{get\+Output}!Matsu\+Node@{Matsu\+Node}}
+\subsubsection{\texorpdfstring{get\+Output()}{getOutput()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily double Matsu\+Node\+::get\+Output (\begin{DoxyParamCaption}\item[{bool}]{force\+State\+Val = {\ttfamily false} }\end{DoxyParamCaption}) const}
+
+
+
+returns output signal value for the node 
+
+\mbox{\Hypertarget{classMatsuNode_a049009ddb42ae27edf7e3e41a70799c7}\label{classMatsuNode_a049009ddb42ae27edf7e3e41a70799c7}} 
+\index{Matsu\+Node@{Matsu\+Node}!get\+Output@{get\+Output}}
+\index{get\+Output@{get\+Output}!Matsu\+Node@{Matsu\+Node}}
+\subsubsection{\texorpdfstring{get\+Output()}{getOutput()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily double Matsu\+Node\+::get\+Output (\begin{DoxyParamCaption}\item[{unsigned}]{samples\+Delay,  }\item[{bool}]{start\+At\+Phase\+Offset = {\ttfamily false} }\end{DoxyParamCaption}) const}
+
+
+
+returns output signal value for the node at indicated delay 
+
+\mbox{\Hypertarget{classMatsuNode_aaeed82f766fea6677f966b26f88b004d}\label{classMatsuNode_aaeed82f766fea6677f966b26f88b004d}} 
+\index{Matsu\+Node@{Matsu\+Node}!get\+Output\+Delay@{get\+Output\+Delay}}
+\index{get\+Output\+Delay@{get\+Output\+Delay}!Matsu\+Node@{Matsu\+Node}}
+\subsubsection{\texorpdfstring{get\+Output\+Delay()}{getOutputDelay()}}
+{\footnotesize\ttfamily unsigned Matsu\+Node\+::get\+Output\+Delay (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{classMatsuNode_ad2e3306938c413010f706c96ab9a7653}\label{classMatsuNode_ad2e3306938c413010f706c96ab9a7653}} 
+\index{Matsu\+Node@{Matsu\+Node}!get\+Param@{get\+Param}}
+\index{get\+Param@{get\+Param}!Matsu\+Node@{Matsu\+Node}}
+\subsubsection{\texorpdfstring{get\+Param()}{getParam()}}
+{\footnotesize\ttfamily double Matsu\+Node\+::get\+Param (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMatsuNode_aed801e1d0363292efc99bb02f1911386}{matsu\+Param}}}]{param }\end{DoxyParamCaption}) const}
+
+
+
+Returns value of named Matsuoka Oscilator parameter. \mbox{\hyperlink{classMatsuNode_aed801e1d0363292efc99bb02f1911386}{See matsu\+Param}}. 
+
+\mbox{\Hypertarget{classMatsuNode_a82424915e6d706f75287de36bac0e328}\label{classMatsuNode_a82424915e6d706f75287de36bac0e328}} 
+\index{Matsu\+Node@{Matsu\+Node}!get\+Parent\+ID@{get\+Parent\+ID}}
+\index{get\+Parent\+ID@{get\+Parent\+ID}!Matsu\+Node@{Matsu\+Node}}
+\subsubsection{\texorpdfstring{get\+Parent\+I\+D()}{getParentID()}}
+{\footnotesize\ttfamily int Matsu\+Node\+::get\+Parent\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{classMatsuNode_a8af234bda8b179e1d3f7bb1a89377b43}\label{classMatsuNode_a8af234bda8b179e1d3f7bb1a89377b43}} 
+\index{Matsu\+Node@{Matsu\+Node}!get\+Self\+Noise\+Amount@{get\+Self\+Noise\+Amount}}
+\index{get\+Self\+Noise\+Amount@{get\+Self\+Noise\+Amount}!Matsu\+Node@{Matsu\+Node}}
+\subsubsection{\texorpdfstring{get\+Self\+Noise\+Amount()}{getSelfNoiseAmount()}}
+{\footnotesize\ttfamily double Matsu\+Node\+::get\+Self\+Noise\+Amount (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{classMatsuNode_a43082483deea988ef12dfe8d945c3122}\label{classMatsuNode_a43082483deea988ef12dfe8d945c3122}} 
+\index{Matsu\+Node@{Matsu\+Node}!get\+Signal\+State@{get\+Signal\+State}}
+\index{get\+Signal\+State@{get\+Signal\+State}!Matsu\+Node@{Matsu\+Node}}
+\subsubsection{\texorpdfstring{get\+Signal\+State()}{getSignalState()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMatsuNode_abd587a4a72c6774f689d21c78a8bc239}{Matsu\+Node\+::signal\+State}} Matsu\+Node\+::get\+Signal\+State (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+returns firing state of the node, this step. \mbox{\hyperlink{classMatsuNode_abd587a4a72c6774f689d21c78a8bc239}{See signal\+State}} 
+
+\mbox{\Hypertarget{classMatsuNode_a1529b4c1b11490c66f023d7afe55fae7}\label{classMatsuNode_a1529b4c1b11490c66f023d7afe55fae7}} 
+\index{Matsu\+Node@{Matsu\+Node}!get\+Synch\+Mode@{get\+Synch\+Mode}}
+\index{get\+Synch\+Mode@{get\+Synch\+Mode}!Matsu\+Node@{Matsu\+Node}}
+\subsubsection{\texorpdfstring{get\+Synch\+Mode()}{getSynchMode()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMatsuNode_a725e228db39b8842f851ddf88f640bed}{Matsu\+Node\+::synch\+Mode}} Matsu\+Node\+::get\+Synch\+Mode (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{classMatsuNode_a28d7cc7a1e352f941d5fa696031c4bbc}\label{classMatsuNode_a28d7cc7a1e352f941d5fa696031c4bbc}} 
+\index{Matsu\+Node@{Matsu\+Node}!has\+Changed\+\_\+\+Inputs@{has\+Changed\+\_\+\+Inputs}}
+\index{has\+Changed\+\_\+\+Inputs@{has\+Changed\+\_\+\+Inputs}!Matsu\+Node@{Matsu\+Node}}
+\subsubsection{\texorpdfstring{has\+Changed\+\_\+\+Inputs()}{hasChanged\_Inputs()}}
+{\footnotesize\ttfamily bool Matsu\+Node\+::has\+Changed\+\_\+\+Inputs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{classMatsuNode_ac7db555868e678c3850e9835f22c54d7}\label{classMatsuNode_ac7db555868e678c3850e9835f22c54d7}} 
+\index{Matsu\+Node@{Matsu\+Node}!has\+Changed\+\_\+\+Params@{has\+Changed\+\_\+\+Params}}
+\index{has\+Changed\+\_\+\+Params@{has\+Changed\+\_\+\+Params}!Matsu\+Node@{Matsu\+Node}}
+\subsubsection{\texorpdfstring{has\+Changed\+\_\+\+Params()}{hasChanged\_Params()}}
+{\footnotesize\ttfamily bool Matsu\+Node\+::has\+Changed\+\_\+\+Params (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{classMatsuNode_a9d0ba571735d4e64323e859cec53761c}\label{classMatsuNode_a9d0ba571735d4e64323e859cec53761c}} 
+\index{Matsu\+Node@{Matsu\+Node}!is\+Active@{is\+Active}}
+\index{is\+Active@{is\+Active}!Matsu\+Node@{Matsu\+Node}}
+\subsubsection{\texorpdfstring{is\+Active()}{isActive()}}
+{\footnotesize\ttfamily bool Matsu\+Node\+::is\+Active (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classMatsuNode_a19bac62758d1a610241672a2ef0a945a}\label{classMatsuNode_a19bac62758d1a610241672a2ef0a945a}} 
+\index{Matsu\+Node@{Matsu\+Node}!is\+Child@{is\+Child}}
+\index{is\+Child@{is\+Child}!Matsu\+Node@{Matsu\+Node}}
+\subsubsection{\texorpdfstring{is\+Child()}{isChild()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool Matsu\+Node\+::is\+Child (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMatsuNode}{Matsu\+Node}} \&}]{node }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{classMatsuNode_a34f20a52ff0ac6a5119ed4a5439e03fc}\label{classMatsuNode_a34f20a52ff0ac6a5119ed4a5439e03fc}} 
+\index{Matsu\+Node@{Matsu\+Node}!is\+Child@{is\+Child}}
+\index{is\+Child@{is\+Child}!Matsu\+Node@{Matsu\+Node}}
+\subsubsection{\texorpdfstring{is\+Child()}{isChild()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool Matsu\+Node\+::is\+Child (\begin{DoxyParamCaption}\item[{unsigned}]{node\+ID }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{classMatsuNode_ae6b9a2f6b11ec66c1e1ee352532a8544}\label{classMatsuNode_ae6b9a2f6b11ec66c1e1ee352532a8544}} 
+\index{Matsu\+Node@{Matsu\+Node}!is\+Input@{is\+Input}}
+\index{is\+Input@{is\+Input}!Matsu\+Node@{Matsu\+Node}}
+\subsubsection{\texorpdfstring{is\+Input()}{isInput()}}
+{\footnotesize\ttfamily bool Matsu\+Node\+::is\+Input (\begin{DoxyParamCaption}\item[{unsigned}]{identifier }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{classMatsuNode_aa6251aafed3ea1af9ee0548a5707901c}\label{classMatsuNode_aa6251aafed3ea1af9ee0548a5707901c}} 
+\index{Matsu\+Node@{Matsu\+Node}!remove\+Child@{remove\+Child}}
+\index{remove\+Child@{remove\+Child}!Matsu\+Node@{Matsu\+Node}}
+\subsubsection{\texorpdfstring{remove\+Child()}{removeChild()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool Matsu\+Node\+::remove\+Child (\begin{DoxyParamCaption}\item[{unsigned}]{node\+ID }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classMatsuNode_a0e170c6154bbc7ba1f668f7d0a9ac274}\label{classMatsuNode_a0e170c6154bbc7ba1f668f7d0a9ac274}} 
+\index{Matsu\+Node@{Matsu\+Node}!remove\+Child@{remove\+Child}}
+\index{remove\+Child@{remove\+Child}!Matsu\+Node@{Matsu\+Node}}
+\subsubsection{\texorpdfstring{remove\+Child()}{removeChild()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool Matsu\+Node\+::remove\+Child (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMatsuNode}{Matsu\+Node}} \&}]{node }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classMatsuNode_a70d3d593cb1ebb8a909bfc743867d348}\label{classMatsuNode_a70d3d593cb1ebb8a909bfc743867d348}} 
+\index{Matsu\+Node@{Matsu\+Node}!remove\+Input@{remove\+Input}}
+\index{remove\+Input@{remove\+Input}!Matsu\+Node@{Matsu\+Node}}
+\subsubsection{\texorpdfstring{remove\+Input()}{removeInput()}}
+{\footnotesize\ttfamily bool Matsu\+Node\+::remove\+Input (\begin{DoxyParamCaption}\item[{unsigned}]{identifier }\end{DoxyParamCaption})}
+
+
+
+Removes the input to this node from the node whose identifier is provided. 
+
+If there was no input from indicated node, nothing is done, returns false. If input is successfully removed, returns true. \mbox{\Hypertarget{classMatsuNode_aadd9d80a48b3c5f2bcfed3801f644e24}\label{classMatsuNode_aadd9d80a48b3c5f2bcfed3801f644e24}} 
+\index{Matsu\+Node@{Matsu\+Node}!remove\+Parent@{remove\+Parent}}
+\index{remove\+Parent@{remove\+Parent}!Matsu\+Node@{Matsu\+Node}}
+\subsubsection{\texorpdfstring{remove\+Parent()}{removeParent()}}
+{\footnotesize\ttfamily void Matsu\+Node\+::remove\+Parent (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classMatsuNode_a233ded2ac8a081385c56d52be06965b5}\label{classMatsuNode_a233ded2ac8a081385c56d52be06965b5}} 
+\index{Matsu\+Node@{Matsu\+Node}!reset@{reset}}
+\index{reset@{reset}!Matsu\+Node@{Matsu\+Node}}
+\subsubsection{\texorpdfstring{reset()}{reset()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Matsu\+Node\+::reset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Resets node internal state and so output value to default initialisation values. 
+
+\mbox{\Hypertarget{classMatsuNode_a4649b0229d516bffa0129565b1805602}\label{classMatsuNode_a4649b0229d516bffa0129565b1805602}} 
+\index{Matsu\+Node@{Matsu\+Node}!reset@{reset}}
+\index{reset@{reset}!Matsu\+Node@{Matsu\+Node}}
+\subsubsection{\texorpdfstring{reset()}{reset()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Matsu\+Node\+::reset (\begin{DoxyParamCaption}\item[{double}]{x1,  }\item[{double}]{x2,  }\item[{double}]{v1,  }\item[{double}]{v2 }\end{DoxyParamCaption})}
+
+
+
+Resets node internal state and so output value based on provided values. 
+
+\mbox{\Hypertarget{classMatsuNode_a660a6945b92c6e50f8b17981f63ba6d4}\label{classMatsuNode_a660a6945b92c6e50f8b17981f63ba6d4}} 
+\index{Matsu\+Node@{Matsu\+Node}!reset\+Change\+Flag\+\_\+\+Inputs@{reset\+Change\+Flag\+\_\+\+Inputs}}
+\index{reset\+Change\+Flag\+\_\+\+Inputs@{reset\+Change\+Flag\+\_\+\+Inputs}!Matsu\+Node@{Matsu\+Node}}
+\subsubsection{\texorpdfstring{reset\+Change\+Flag\+\_\+\+Inputs()}{resetChangeFlag\_Inputs()}}
+{\footnotesize\ttfamily void Matsu\+Node\+::reset\+Change\+Flag\+\_\+\+Inputs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classMatsuNode_a155f3533b85aacccd528ce7b04e24289}\label{classMatsuNode_a155f3533b85aacccd528ce7b04e24289}} 
+\index{Matsu\+Node@{Matsu\+Node}!reset\+Change\+Flag\+\_\+\+Params@{reset\+Change\+Flag\+\_\+\+Params}}
+\index{reset\+Change\+Flag\+\_\+\+Params@{reset\+Change\+Flag\+\_\+\+Params}!Matsu\+Node@{Matsu\+Node}}
+\subsubsection{\texorpdfstring{reset\+Change\+Flag\+\_\+\+Params()}{resetChangeFlag\_Params()}}
+{\footnotesize\ttfamily void Matsu\+Node\+::reset\+Change\+Flag\+\_\+\+Params (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classMatsuNode_a131b380ea1f15f19ecc8c3fb4931f6dd}\label{classMatsuNode_a131b380ea1f15f19ecc8c3fb4931f6dd}} 
+\index{Matsu\+Node@{Matsu\+Node}!reset\+Freq\+Compensation@{reset\+Freq\+Compensation}}
+\index{reset\+Freq\+Compensation@{reset\+Freq\+Compensation}!Matsu\+Node@{Matsu\+Node}}
+\subsubsection{\texorpdfstring{reset\+Freq\+Compensation()}{resetFreqCompensation()}}
+{\footnotesize\ttfamily void Matsu\+Node\+::reset\+Freq\+Compensation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Resets value for node frequency calculation compensation to default value. \mbox{\hyperlink{classMatsuNode_adb33b1e7dcfaf786be5d99627bca1c14}{See set\+Frequency()}}. 
+
+\mbox{\Hypertarget{classMatsuNode_a6d67de2da757be9edc89247e8c25b892}\label{classMatsuNode_a6d67de2da757be9edc89247e8c25b892}} 
+\index{Matsu\+Node@{Matsu\+Node}!set\+\_\+b@{set\+\_\+b}}
+\index{set\+\_\+b@{set\+\_\+b}!Matsu\+Node@{Matsu\+Node}}
+\subsubsection{\texorpdfstring{set\+\_\+b()}{set\_b()}}
+{\footnotesize\ttfamily void Matsu\+Node\+::set\+\_\+b (\begin{DoxyParamCaption}\item[{double}]{val }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classMatsuNode_a9b413bb1cfd2f899be5d6c795c2925d5}\label{classMatsuNode_a9b413bb1cfd2f899be5d6c795c2925d5}} 
+\index{Matsu\+Node@{Matsu\+Node}!set\+\_\+c@{set\+\_\+c}}
+\index{set\+\_\+c@{set\+\_\+c}!Matsu\+Node@{Matsu\+Node}}
+\subsubsection{\texorpdfstring{set\+\_\+c()}{set\_c()}}
+{\footnotesize\ttfamily void Matsu\+Node\+::set\+\_\+c (\begin{DoxyParamCaption}\item[{double}]{val }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classMatsuNode_ac73855b7037577ed6c06dce868d8ab5b}\label{classMatsuNode_ac73855b7037577ed6c06dce868d8ab5b}} 
+\index{Matsu\+Node@{Matsu\+Node}!set\+\_\+c1@{set\+\_\+c1}}
+\index{set\+\_\+c1@{set\+\_\+c1}!Matsu\+Node@{Matsu\+Node}}
+\subsubsection{\texorpdfstring{set\+\_\+c1()}{set\_c1()}}
+{\footnotesize\ttfamily void Matsu\+Node\+::set\+\_\+c1 (\begin{DoxyParamCaption}\item[{double}]{val }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classMatsuNode_a6bea0b2a8d747f389ceaeb1374e96398}\label{classMatsuNode_a6bea0b2a8d747f389ceaeb1374e96398}} 
+\index{Matsu\+Node@{Matsu\+Node}!set\+\_\+c2@{set\+\_\+c2}}
+\index{set\+\_\+c2@{set\+\_\+c2}!Matsu\+Node@{Matsu\+Node}}
+\subsubsection{\texorpdfstring{set\+\_\+c2()}{set\_c2()}}
+{\footnotesize\ttfamily void Matsu\+Node\+::set\+\_\+c2 (\begin{DoxyParamCaption}\item[{double}]{val }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classMatsuNode_a4ef14db52c49e5ad16c58f35e6356bd6}\label{classMatsuNode_a4ef14db52c49e5ad16c58f35e6356bd6}} 
+\index{Matsu\+Node@{Matsu\+Node}!set\+\_\+g@{set\+\_\+g}}
+\index{set\+\_\+g@{set\+\_\+g}!Matsu\+Node@{Matsu\+Node}}
+\subsubsection{\texorpdfstring{set\+\_\+g()}{set\_g()}}
+{\footnotesize\ttfamily void Matsu\+Node\+::set\+\_\+g (\begin{DoxyParamCaption}\item[{double}]{val }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classMatsuNode_af68c93af36bc872c0b99c2060648fde5}\label{classMatsuNode_af68c93af36bc872c0b99c2060648fde5}} 
+\index{Matsu\+Node@{Matsu\+Node}!set\+\_\+t@{set\+\_\+t}}
+\index{set\+\_\+t@{set\+\_\+t}!Matsu\+Node@{Matsu\+Node}}
+\subsubsection{\texorpdfstring{set\+\_\+t()}{set\_t()}}
+{\footnotesize\ttfamily void Matsu\+Node\+::set\+\_\+t (\begin{DoxyParamCaption}\item[{double}]{val }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classMatsuNode_ae082ffc97e6744b6fce1d6bc94efbca2}\label{classMatsuNode_ae082ffc97e6744b6fce1d6bc94efbca2}} 
+\index{Matsu\+Node@{Matsu\+Node}!set\+\_\+t1@{set\+\_\+t1}}
+\index{set\+\_\+t1@{set\+\_\+t1}!Matsu\+Node@{Matsu\+Node}}
+\subsubsection{\texorpdfstring{set\+\_\+t1()}{set\_t1()}}
+{\footnotesize\ttfamily void Matsu\+Node\+::set\+\_\+t1 (\begin{DoxyParamCaption}\item[{double}]{val }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classMatsuNode_ab2b901994e0811066e3c452414fcbad7}\label{classMatsuNode_ab2b901994e0811066e3c452414fcbad7}} 
+\index{Matsu\+Node@{Matsu\+Node}!set\+\_\+t2@{set\+\_\+t2}}
+\index{set\+\_\+t2@{set\+\_\+t2}!Matsu\+Node@{Matsu\+Node}}
+\subsubsection{\texorpdfstring{set\+\_\+t2()}{set\_t2()}}
+{\footnotesize\ttfamily void Matsu\+Node\+::set\+\_\+t2 (\begin{DoxyParamCaption}\item[{double}]{val }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classMatsuNode_abc14c3e623fd341dc012a6640bbf1ebd}\label{classMatsuNode_abc14c3e623fd341dc012a6640bbf1ebd}} 
+\index{Matsu\+Node@{Matsu\+Node}!set\+\_\+t2\+\_\+over\+\_\+t1@{set\+\_\+t2\+\_\+over\+\_\+t1}}
+\index{set\+\_\+t2\+\_\+over\+\_\+t1@{set\+\_\+t2\+\_\+over\+\_\+t1}!Matsu\+Node@{Matsu\+Node}}
+\subsubsection{\texorpdfstring{set\+\_\+t2\+\_\+over\+\_\+t1()}{set\_t2\_over\_t1()}}
+{\footnotesize\ttfamily void Matsu\+Node\+::set\+\_\+t2\+\_\+over\+\_\+t1 (\begin{DoxyParamCaption}\item[{double}]{val }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classMatsuNode_a6b5b32c4489129fd184638a9c9ed36d4}\label{classMatsuNode_a6b5b32c4489129fd184638a9c9ed36d4}} 
+\index{Matsu\+Node@{Matsu\+Node}!set\+Delay\+Line\+Length@{set\+Delay\+Line\+Length}}
+\index{set\+Delay\+Line\+Length@{set\+Delay\+Line\+Length}!Matsu\+Node@{Matsu\+Node}}
+\subsubsection{\texorpdfstring{set\+Delay\+Line\+Length()}{setDelayLineLength()}}
+{\footnotesize\ttfamily void Matsu\+Node\+::set\+Delay\+Line\+Length (\begin{DoxyParamCaption}\item[{unsigned}]{length }\end{DoxyParamCaption})}
+
+sets the length of the delay line which allows both global delay of the node and random access to node output history -\/ for use in phase offsets between nodes \mbox{\Hypertarget{classMatsuNode_a62c5dce090102df22142da5cdad313e1}\label{classMatsuNode_a62c5dce090102df22142da5cdad313e1}} 
+\index{Matsu\+Node@{Matsu\+Node}!set\+Driven\+Mode@{set\+Driven\+Mode}}
+\index{set\+Driven\+Mode@{set\+Driven\+Mode}!Matsu\+Node@{Matsu\+Node}}
+\subsubsection{\texorpdfstring{set\+Driven\+Mode()}{setDrivenMode()}}
+{\footnotesize\ttfamily void Matsu\+Node\+::set\+Driven\+Mode (\begin{DoxyParamCaption}\item[{bool}]{driven }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classMatsuNode_af1538d4e992122d520e221332f05a53e}\label{classMatsuNode_af1538d4e992122d520e221332f05a53e}} 
+\index{Matsu\+Node@{Matsu\+Node}!set\+External\+Input@{set\+External\+Input}}
+\index{set\+External\+Input@{set\+External\+Input}!Matsu\+Node@{Matsu\+Node}}
+\subsubsection{\texorpdfstring{set\+External\+Input()}{setExternalInput()}}
+{\footnotesize\ttfamily void Matsu\+Node\+::set\+External\+Input (\begin{DoxyParamCaption}\item[{double const}]{input }\end{DoxyParamCaption})}
+
+
+
+Sets pointer to external signal input. 
+
+\mbox{\Hypertarget{classMatsuNode_a800722180d2d170f80fd61e1db151c05}\label{classMatsuNode_a800722180d2d170f80fd61e1db151c05}} 
+\index{Matsu\+Node@{Matsu\+Node}!set\+Freq\+Compensation@{set\+Freq\+Compensation}}
+\index{set\+Freq\+Compensation@{set\+Freq\+Compensation}!Matsu\+Node@{Matsu\+Node}}
+\subsubsection{\texorpdfstring{set\+Freq\+Compensation()}{setFreqCompensation()}}
+{\footnotesize\ttfamily void Matsu\+Node\+::set\+Freq\+Compensation (\begin{DoxyParamCaption}\item[{double}]{comp }\end{DoxyParamCaption})}
+
+
+
+Sets value for node frequency calculation compensation. \mbox{\hyperlink{classMatsuNode_adb33b1e7dcfaf786be5d99627bca1c14}{See set\+Frequency()}}. 
+
+\mbox{\Hypertarget{classMatsuNode_adb33b1e7dcfaf786be5d99627bca1c14}\label{classMatsuNode_adb33b1e7dcfaf786be5d99627bca1c14}} 
+\index{Matsu\+Node@{Matsu\+Node}!set\+Frequency@{set\+Frequency}}
+\index{set\+Frequency@{set\+Frequency}!Matsu\+Node@{Matsu\+Node}}
+\subsubsection{\texorpdfstring{set\+Frequency()}{setFrequency()}}
+{\footnotesize\ttfamily void Matsu\+Node\+::set\+Frequency (\begin{DoxyParamCaption}\item[{double}]{freq,  }\item[{unsigned}]{sample\+Rate }\end{DoxyParamCaption})}
+
+
+
+Sets frequency of Matsuoka Oscillator directly. 
+
+This depends on correct setting of frequency compensation value. Frequency is set by altering equation parameters. Subsequently changing equation parameters except C (excluding separate setting of C1 and C2) will alter the frequency (and may necessitate re-\/setting of Freq\+Compensation) see K. Matsuoka, \char`\"{}\+Analysis of a neural oscillator,\char`\"{} Biological cybernetics, vol. 104, no. 4-\/5,pp. 297\{304, 2011. T\+O\+DO -\/ provide more details here \mbox{\Hypertarget{classMatsuNode_aff58c0ee6aaaaa21f3f8ef532728cacc}\label{classMatsuNode_aff58c0ee6aaaaa21f3f8ef532728cacc}} 
+\index{Matsu\+Node@{Matsu\+Node}!set\+Identifier@{set\+Identifier}}
+\index{set\+Identifier@{set\+Identifier}!Matsu\+Node@{Matsu\+Node}}
+\subsubsection{\texorpdfstring{set\+Identifier()}{setIdentifier()}}
+{\footnotesize\ttfamily void Matsu\+Node\+::set\+Identifier (\begin{DoxyParamCaption}\item[{unsigned}]{id }\end{DoxyParamCaption})}
+
+
+
+sets the identifier number of the node. 
+
+\mbox{\Hypertarget{classMatsuNode_a180df69fa13bbb8a0ad1ec56219b540c}\label{classMatsuNode_a180df69fa13bbb8a0ad1ec56219b540c}} 
+\index{Matsu\+Node@{Matsu\+Node}!set\+Input\+Delay@{set\+Input\+Delay}}
+\index{set\+Input\+Delay@{set\+Input\+Delay}!Matsu\+Node@{Matsu\+Node}}
+\subsubsection{\texorpdfstring{set\+Input\+Delay()}{setInputDelay()}}
+{\footnotesize\ttfamily void Matsu\+Node\+::set\+Input\+Delay (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMatsuNode}{Matsu\+Node}} const \&}]{node,  }\item[{unsigned}]{delay }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classMatsuNode_af8ebc02ac8a69c9ecbb41fa22434a986}\label{classMatsuNode_af8ebc02ac8a69c9ecbb41fa22434a986}} 
+\index{Matsu\+Node@{Matsu\+Node}!set\+Input\+Weight@{set\+Input\+Weight}}
+\index{set\+Input\+Weight@{set\+Input\+Weight}!Matsu\+Node@{Matsu\+Node}}
+\subsubsection{\texorpdfstring{set\+Input\+Weight()}{setInputWeight()}}
+{\footnotesize\ttfamily bool Matsu\+Node\+::set\+Input\+Weight (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMatsuNode}{Matsu\+Node}} const \&}]{node,  }\item[{double}]{weight = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+
+
+Returns frequency of Matsuoka Oscillator. 
+
+This depends on correct setting of frequency compensation value. If the matsuoka oscillator\textquotesingle{}s parameters have been set manually since either set set\+Frequency\+Compensation() was called, the value cannot be trusted.\+Sets weight of input into this node, from the node referenced. ~\newline
+ Adds input to input vector if not already present T\+O\+DO\+: what does return indicate, throws? \mbox{\Hypertarget{classMatsuNode_a120dfca98155fded8d1ccac0f5236ecd}\label{classMatsuNode_a120dfca98155fded8d1ccac0f5236ecd}} 
+\index{Matsu\+Node@{Matsu\+Node}!set\+Is\+Active@{set\+Is\+Active}}
+\index{set\+Is\+Active@{set\+Is\+Active}!Matsu\+Node@{Matsu\+Node}}
+\subsubsection{\texorpdfstring{set\+Is\+Active()}{setIsActive()}}
+{\footnotesize\ttfamily void Matsu\+Node\+::set\+Is\+Active (\begin{DoxyParamCaption}\item[{bool}]{active }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classMatsuNode_ae4d26af98e34d1595cb9cc65a89ea8ff}\label{classMatsuNode_ae4d26af98e34d1595cb9cc65a89ea8ff}} 
+\index{Matsu\+Node@{Matsu\+Node}!set\+Node\+Output\+Delay@{set\+Node\+Output\+Delay}}
+\index{set\+Node\+Output\+Delay@{set\+Node\+Output\+Delay}!Matsu\+Node@{Matsu\+Node}}
+\subsubsection{\texorpdfstring{set\+Node\+Output\+Delay()}{setNodeOutputDelay()}}
+{\footnotesize\ttfamily void Matsu\+Node\+::set\+Node\+Output\+Delay (\begin{DoxyParamCaption}\item[{unsigned}]{samples }\end{DoxyParamCaption})}
+
+sets the Delay, in samples, between last generated sample and output value. \+\_\+signal\+State, last maxima and last minima are generated based on the output at this delay. Value clamped between M\+I\+N\+\_\+\+D\+E\+L\+A\+Y\+\_\+\+L\+E\+N\+G\+TH (2) and the length of the delay line -\/ for use in phase offsets between nodes \mbox{\Hypertarget{classMatsuNode_aa207e9b0d5de53e9aa1c84f3aae46178}\label{classMatsuNode_aa207e9b0d5de53e9aa1c84f3aae46178}} 
+\index{Matsu\+Node@{Matsu\+Node}!set\+Param@{set\+Param}}
+\index{set\+Param@{set\+Param}!Matsu\+Node@{Matsu\+Node}}
+\subsubsection{\texorpdfstring{set\+Param()}{setParam()}}
+{\footnotesize\ttfamily void Matsu\+Node\+::set\+Param (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMatsuNode_aed801e1d0363292efc99bb02f1911386}{matsu\+Param}}}]{param,  }\item[{double}]{val }\end{DoxyParamCaption})}
+
+
+
+Sets named Matsuoka Oscilator parameter to value provided. \mbox{\hyperlink{classMatsuNode_aed801e1d0363292efc99bb02f1911386}{See matsu\+Param}}. 
+
+\mbox{\Hypertarget{classMatsuNode_a15b6cfcaa1e20abf04c7c18da3881d60}\label{classMatsuNode_a15b6cfcaa1e20abf04c7c18da3881d60}} 
+\index{Matsu\+Node@{Matsu\+Node}!set\+Params@{set\+Params}}
+\index{set\+Params@{set\+Params}!Matsu\+Node@{Matsu\+Node}}
+\subsubsection{\texorpdfstring{set\+Params()}{setParams()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Matsu\+Node\+::set\+Params (\begin{DoxyParamCaption}\item[{double}]{t1,  }\item[{double}]{t2,  }\item[{double}]{c1,  }\item[{double}]{c2,  }\item[{double}]{b,  }\item[{double}]{g }\end{DoxyParamCaption})}
+
+
+
+Sets named Matsuoka Oscilator parameters to values provided. \mbox{\hyperlink{classMatsuNode_aed801e1d0363292efc99bb02f1911386}{See matsu\+Param}}. 
+
+\mbox{\Hypertarget{classMatsuNode_ab240f6a290cf33356d9df8fce58633ab}\label{classMatsuNode_ab240f6a290cf33356d9df8fce58633ab}} 
+\index{Matsu\+Node@{Matsu\+Node}!set\+Params@{set\+Params}}
+\index{set\+Params@{set\+Params}!Matsu\+Node@{Matsu\+Node}}
+\subsubsection{\texorpdfstring{set\+Params()}{setParams()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Matsu\+Node\+::set\+Params (\begin{DoxyParamCaption}\item[{double}]{t1,  }\item[{double}]{t2,  }\item[{double}]{c,  }\item[{double}]{b,  }\item[{double}]{g }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classMatsuNode_ab357c154c95d3e289921cc79ef8cf94e}\label{classMatsuNode_ab357c154c95d3e289921cc79ef8cf94e}} 
+\index{Matsu\+Node@{Matsu\+Node}!set\+Parent@{set\+Parent}}
+\index{set\+Parent@{set\+Parent}!Matsu\+Node@{Matsu\+Node}}
+\subsubsection{\texorpdfstring{set\+Parent()}{setParent()}}
+{\footnotesize\ttfamily void Matsu\+Node\+::set\+Parent (\begin{DoxyParamCaption}\item[{unsigned}]{node\+ID }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classMatsuNode_abc2600fa8de6d090296ee5f152a01916}\label{classMatsuNode_abc2600fa8de6d090296ee5f152a01916}} 
+\index{Matsu\+Node@{Matsu\+Node}!set\+Self\+Noise\+Amount@{set\+Self\+Noise\+Amount}}
+\index{set\+Self\+Noise\+Amount@{set\+Self\+Noise\+Amount}!Matsu\+Node@{Matsu\+Node}}
+\subsubsection{\texorpdfstring{set\+Self\+Noise\+Amount()}{setSelfNoiseAmount()}}
+{\footnotesize\ttfamily void Matsu\+Node\+::set\+Self\+Noise\+Amount (\begin{DoxyParamCaption}\item[{double}]{weight }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classMatsuNode_a31c979f10f4c1482204ec19a2868caf1}\label{classMatsuNode_a31c979f10f4c1482204ec19a2868caf1}} 
+\index{Matsu\+Node@{Matsu\+Node}!set\+Synch\+Mode@{set\+Synch\+Mode}}
+\index{set\+Synch\+Mode@{set\+Synch\+Mode}!Matsu\+Node@{Matsu\+Node}}
+\subsubsection{\texorpdfstring{set\+Synch\+Mode()}{setSynchMode()}}
+{\footnotesize\ttfamily void Matsu\+Node\+::set\+Synch\+Mode (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMatsuNode_a725e228db39b8842f851ddf88f640bed}{synch\+Mode}}}]{do\+Sync }\end{DoxyParamCaption})}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+O\+:/\+Documents/\+Max 7/\+Packages/max\+\_\+cpg/source/\+Matsuoka\+Engine\+\_\+src/\mbox{\hyperlink{matsuNode_8h}{matsu\+Node.\+h}}\item 
+O\+:/\+Documents/\+Max 7/\+Packages/max\+\_\+cpg/source/\+Matsuoka\+Engine\+\_\+src/\mbox{\hyperlink{matsuNode_8cpp}{matsu\+Node.\+cpp}}\end{DoxyCompactItemize}

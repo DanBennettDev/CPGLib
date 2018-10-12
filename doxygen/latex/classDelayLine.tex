@@ -1,0 +1,149 @@
+\hypertarget{classDelayLine}{}\section{Delay\+Line$<$ S $>$ Class Template Reference}
+\label{classDelayLine}\index{Delay\+Line$<$ S $>$@{Delay\+Line$<$ S $>$}}
+
+
+Engine\+: simple delay line implemented using a ring buffer. Template -\/ can hold various types resizes without affecting read or write cursor positions.  
+
+
+
+
+{\ttfamily \#include $<$delay\+Line.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classDelayLine_a73b757b74c011b83782dce44d158edaa}{Delay\+Line}} (unsigned \mbox{\hyperlink{classDelayLine_a20216bac2dde1fe037208ecb718577a7}{size}})
+\item 
+\mbox{\hyperlink{classDelayLine_a43166713f7f497f831d95f348e165f02}{Delay\+Line}} ()
+\item 
+void \mbox{\hyperlink{classDelayLine_a5b5b9db23797e25f0467917447891d8a}{resize}} (unsigned \mbox{\hyperlink{classDelayLine_a20216bac2dde1fe037208ecb718577a7}{size}})
+\begin{DoxyCompactList}\small\item\em resize the delay line \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classDelayLine_a1d549e8fada018b51a66c88e3f1d6ec8}{push\+Sample}} (S sample)
+\begin{DoxyCompactList}\small\item\em add an input sample \end{DoxyCompactList}\item 
+S \mbox{\hyperlink{classDelayLine_ab738e97677b4227684467e1fa65161bd}{get\+Delayed}} (unsigned delay\+Samples) const
+\item 
+unsigned \mbox{\hyperlink{classDelayLine_a974138765f721f1978fe3fbb914f9184}{get\+Size}} ()
+\begin{DoxyCompactList}\small\item\em get the length of the delayline as unsigned int \end{DoxyCompactList}\item 
+S \mbox{\hyperlink{classDelayLine_a21e079073490f2795e6b46d147a3153a}{get\+Sample\+At\+Write\+Head}} () const
+\begin{DoxyCompactList}\small\item\em return the value at the write position (the position to be written) \end{DoxyCompactList}\item 
+std\+::vector$<$ S $>$ \mbox{\hyperlink{classDelayLine_a35899bf190fe2684f3879645e758db78}{get\+History}} (unsigned delay\+Samples) const
+\begin{DoxyCompactList}\small\item\em returns vector of samples of length delay\+Samples, going delay\+Samples back from the most recently written \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classDelayLine_a469b230b2f26745a0c648e5504ec5e5c}{clear}} ()
+\begin{DoxyCompactList}\small\item\em set whole delay line to 0 \end{DoxyCompactList}\item 
+std\+::vector$<$ S $>$\+::size\+\_\+type \mbox{\hyperlink{classDelayLine_a20216bac2dde1fe037208ecb718577a7}{size}} () const
+\begin{DoxyCompactList}\small\item\em returns size of the delayline in the native size\+\_\+type \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$class S$>$\newline
+class Delay\+Line$<$ S $>$}
+
+Engine\+: simple delay line implemented using a ring buffer. Template -\/ can hold various types resizes without affecting read or write cursor positions. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classDelayLine_a73b757b74c011b83782dce44d158edaa}\label{classDelayLine_a73b757b74c011b83782dce44d158edaa}} 
+\index{Delay\+Line@{Delay\+Line}!Delay\+Line@{Delay\+Line}}
+\index{Delay\+Line@{Delay\+Line}!Delay\+Line@{Delay\+Line}}
+\subsubsection{\texorpdfstring{Delay\+Line()}{DelayLine()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class S$>$ \\
+\mbox{\hyperlink{classDelayLine}{Delay\+Line}}$<$ S $>$\+::\mbox{\hyperlink{classDelayLine}{Delay\+Line}} (\begin{DoxyParamCaption}\item[{unsigned}]{size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classDelayLine_a43166713f7f497f831d95f348e165f02}\label{classDelayLine_a43166713f7f497f831d95f348e165f02}} 
+\index{Delay\+Line@{Delay\+Line}!Delay\+Line@{Delay\+Line}}
+\index{Delay\+Line@{Delay\+Line}!Delay\+Line@{Delay\+Line}}
+\subsubsection{\texorpdfstring{Delay\+Line()}{DelayLine()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class S$>$ \\
+\mbox{\hyperlink{classDelayLine}{Delay\+Line}}$<$ S $>$\+::\mbox{\hyperlink{classDelayLine}{Delay\+Line}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classDelayLine_a469b230b2f26745a0c648e5504ec5e5c}\label{classDelayLine_a469b230b2f26745a0c648e5504ec5e5c}} 
+\index{Delay\+Line@{Delay\+Line}!clear@{clear}}
+\index{clear@{clear}!Delay\+Line@{Delay\+Line}}
+\subsubsection{\texorpdfstring{clear()}{clear()}}
+{\footnotesize\ttfamily template$<$class S$>$ \\
+void \mbox{\hyperlink{classDelayLine}{Delay\+Line}}$<$ S $>$\+::clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+set whole delay line to 0 
+
+\mbox{\Hypertarget{classDelayLine_ab738e97677b4227684467e1fa65161bd}\label{classDelayLine_ab738e97677b4227684467e1fa65161bd}} 
+\index{Delay\+Line@{Delay\+Line}!get\+Delayed@{get\+Delayed}}
+\index{get\+Delayed@{get\+Delayed}!Delay\+Line@{Delay\+Line}}
+\subsubsection{\texorpdfstring{get\+Delayed()}{getDelayed()}}
+{\footnotesize\ttfamily template$<$class S$>$ \\
+S \mbox{\hyperlink{classDelayLine}{Delay\+Line}}$<$ S $>$\+::get\+Delayed (\begin{DoxyParamCaption}\item[{unsigned}]{delay\+Samples }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classDelayLine_a35899bf190fe2684f3879645e758db78}\label{classDelayLine_a35899bf190fe2684f3879645e758db78}} 
+\index{Delay\+Line@{Delay\+Line}!get\+History@{get\+History}}
+\index{get\+History@{get\+History}!Delay\+Line@{Delay\+Line}}
+\subsubsection{\texorpdfstring{get\+History()}{getHistory()}}
+{\footnotesize\ttfamily template$<$class S$>$ \\
+std\+::vector$<$S$>$ \mbox{\hyperlink{classDelayLine}{Delay\+Line}}$<$ S $>$\+::get\+History (\begin{DoxyParamCaption}\item[{unsigned}]{delay\+Samples }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+returns vector of samples of length delay\+Samples, going delay\+Samples back from the most recently written 
+
+\mbox{\Hypertarget{classDelayLine_a21e079073490f2795e6b46d147a3153a}\label{classDelayLine_a21e079073490f2795e6b46d147a3153a}} 
+\index{Delay\+Line@{Delay\+Line}!get\+Sample\+At\+Write\+Head@{get\+Sample\+At\+Write\+Head}}
+\index{get\+Sample\+At\+Write\+Head@{get\+Sample\+At\+Write\+Head}!Delay\+Line@{Delay\+Line}}
+\subsubsection{\texorpdfstring{get\+Sample\+At\+Write\+Head()}{getSampleAtWriteHead()}}
+{\footnotesize\ttfamily template$<$class S$>$ \\
+S \mbox{\hyperlink{classDelayLine}{Delay\+Line}}$<$ S $>$\+::get\+Sample\+At\+Write\+Head (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+return the value at the write position (the position to be written) 
+
+\mbox{\Hypertarget{classDelayLine_a974138765f721f1978fe3fbb914f9184}\label{classDelayLine_a974138765f721f1978fe3fbb914f9184}} 
+\index{Delay\+Line@{Delay\+Line}!get\+Size@{get\+Size}}
+\index{get\+Size@{get\+Size}!Delay\+Line@{Delay\+Line}}
+\subsubsection{\texorpdfstring{get\+Size()}{getSize()}}
+{\footnotesize\ttfamily template$<$class S$>$ \\
+unsigned \mbox{\hyperlink{classDelayLine}{Delay\+Line}}$<$ S $>$\+::get\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+get the length of the delayline as unsigned int 
+
+\mbox{\Hypertarget{classDelayLine_a1d549e8fada018b51a66c88e3f1d6ec8}\label{classDelayLine_a1d549e8fada018b51a66c88e3f1d6ec8}} 
+\index{Delay\+Line@{Delay\+Line}!push\+Sample@{push\+Sample}}
+\index{push\+Sample@{push\+Sample}!Delay\+Line@{Delay\+Line}}
+\subsubsection{\texorpdfstring{push\+Sample()}{pushSample()}}
+{\footnotesize\ttfamily template$<$class S$>$ \\
+void \mbox{\hyperlink{classDelayLine}{Delay\+Line}}$<$ S $>$\+::push\+Sample (\begin{DoxyParamCaption}\item[{S}]{sample }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+add an input sample 
+
+\mbox{\Hypertarget{classDelayLine_a5b5b9db23797e25f0467917447891d8a}\label{classDelayLine_a5b5b9db23797e25f0467917447891d8a}} 
+\index{Delay\+Line@{Delay\+Line}!resize@{resize}}
+\index{resize@{resize}!Delay\+Line@{Delay\+Line}}
+\subsubsection{\texorpdfstring{resize()}{resize()}}
+{\footnotesize\ttfamily template$<$class S$>$ \\
+void \mbox{\hyperlink{classDelayLine}{Delay\+Line}}$<$ S $>$\+::resize (\begin{DoxyParamCaption}\item[{unsigned}]{size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+resize the delay line 
+
+\mbox{\Hypertarget{classDelayLine_a20216bac2dde1fe037208ecb718577a7}\label{classDelayLine_a20216bac2dde1fe037208ecb718577a7}} 
+\index{Delay\+Line@{Delay\+Line}!size@{size}}
+\index{size@{size}!Delay\+Line@{Delay\+Line}}
+\subsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily template$<$class S$>$ \\
+std\+::vector$<$S$>$\+::size\+\_\+type \mbox{\hyperlink{classDelayLine}{Delay\+Line}}$<$ S $>$\+::size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+returns size of the delayline in the native size\+\_\+type 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+O\+:/\+Documents/\+Max 7/\+Packages/max\+\_\+cpg/source/\+Matsuoka\+Engine\+\_\+src/\mbox{\hyperlink{delayLine_8h}{delay\+Line.\+h}}\end{DoxyCompactItemize}

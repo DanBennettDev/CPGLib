@@ -1,0 +1,490 @@
+\hypertarget{classCPG}{}\section{C\+PG Class Reference}
+\label{classCPG}\index{C\+PG@{C\+PG}}
+
+
+Engine\+: Matsuoka Oscillator Central Pattern Generator Template Class.  
+
+
+
+
+{\ttfamily \#include $<$C\+P\+G.\+h$>$}
+
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structCPG_1_1input}{input}}
+\begin{DoxyCompactList}\small\item\em Data specifying a single input to a node from another node. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classCPG_a53baf614a79f4178180be5d7120337d4}{C\+PG}} (unsigned sample\+Rate)
+\item 
+\mbox{\hyperlink{classCPG_a6e797fd36e726758e82cca4207083c5f}{C\+PG}} (double t1, double t2, double c1, double c2, double b, double g)
+\item 
+\mbox{\hyperlink{classCPG_a8543be2f663d6b5e79a97745f0d83cd7}{C\+PG}} (double t1, double t2, double c, double b, double g)
+\item 
+\mbox{\hyperlink{classCPG_aa2cac8504168c1b0190ecc4760ef0cbe}{$\sim$\+C\+PG}} ()
+\item 
+\mbox{\hyperlink{classCPG_a4f5aad687b3696340237e7669efe65b6}{C\+PG}} (const \mbox{\hyperlink{classCPG}{C\+PG}} \&that)=delete
+\item 
+const std\+::vector$<$ unsigned $>$ \& \mbox{\hyperlink{classCPG_abb0f92255cc444320dab811c031f9e3c}{get\+Node\+List}} () const
+\begin{DoxyCompactList}\small\item\em Returns a complete vector of unique identifiers of the nodes in the \mbox{\hyperlink{classCPG}{C\+PG}}, sorted ascending. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCPG_a14fdef2f92467c2d7727c9fa0a02a07a}{step}} ()
+\begin{DoxyCompactList}\small\item\em Calculates the next state and output values for the Matsuoka oscillators at each node. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCPG_ac74c71bc2a70610706b3939673a60b3a}{step}} (unsigned node\+ID)
+\begin{DoxyCompactList}\small\item\em Calculates the next state and output values for the indicated node. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCPG_ae8f7953090be35f7da520c19ad6825b9}{reset}} ()
+\begin{DoxyCompactList}\small\item\em Resets the internal state and output value for all \+\_\+nodes to (stable) initialisation values. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCPG_a0fcb4e728f2f647cf2af8e4a01223212}{reset}} (double x1, double x2, double v1, double v2)
+\begin{DoxyCompactList}\small\item\em Resets the internal state and output value for the node to the provided values. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCPG_a0582af7d0c19f80453c9ce72d918e577}{reset}} (unsigned node\+ID)
+\begin{DoxyCompactList}\small\item\em Resets the internal state and output value for single nodes to (stable) initialisation values. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCPG_a71a46a6aeac8fa3f1363674be5f0db81}{reset}} (unsigned node\+ID, double x1, double x2, double v1, double v2)
+\begin{DoxyCompactList}\small\item\em Resets the internal state and output value for single nodes to (stable) initialisation values. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCPG_adb0ab0506c07d1b7aa9dd2640c6a1731}{zero\+Sync}} (unsigned node\+ID)
+\item 
+void \mbox{\hyperlink{classCPG_ae23852907b96b57b7c45a53e9abf3146}{set\+Connection}} (unsigned node\+From, unsigned node\+To, double weight)
+\begin{DoxyCompactList}\small\item\em Adds, or changes weight of, a one-\/way connection between two nodes. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCPG_a4e79271993dfecd92445e9abfd4be9aa}{set\+Connection}} (unsigned nodeA, unsigned nodeB, double weight\+AtoB, double weight\+BtoA)
+\begin{DoxyCompactList}\small\item\em Adds, or changes weight of, a reciprocal connection between two nodes. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCPG_ac51f362e189d966e7c733ba1624d0fc1}{set\+Connection\+Phase\+Offset}} (unsigned node\+From, unsigned node\+To, double phase\+Offset)
+\begin{DoxyCompactList}\small\item\em Changes phase offset of signal on input from node\+From to node\+To. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCPG_ab2c84c91fc9de378a6ed0a29305244cc}{remove\+Connection}} (unsigned node\+From, unsigned node\+To)
+\item 
+std\+::vector$<$ \mbox{\hyperlink{structCPG_1_1input}{input}} $>$ \mbox{\hyperlink{classCPG_a78702e3e28d7d70f4a4da93fe4aa2840}{get\+Inputs}} (unsigned node\+ID) const
+\begin{DoxyCompactList}\small\item\em Returns a sorted vector of all \mbox{\hyperlink{structCPG_1_1input}{inputs}} for a given node. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{classMatsuNode}{Matsu\+Node}} \& \mbox{\hyperlink{classCPG_a1c35e3f15f24e2017bb4db7d3ac62a35}{get\+Node}} (unsigned node\+ID) const
+\begin{DoxyCompactList}\small\item\em returns const reference to the node whose node\+ID is provided. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classCPG_ad3ddf0fa097221f855e5f52fc6ec01bc}{get\+Node\+Self\+Noise}} (unsigned node\+ID)
+\item 
+bool \mbox{\hyperlink{classCPG_afa2ec0b75b84e9f089f82045d08dbb31}{exists}} (unsigned node\+ID) const
+\item 
+void \mbox{\hyperlink{classCPG_a1a182a410afd8e3b76cb16d99ddef541}{add\+Child}} (unsigned parent\+ID, unsigned new\+ID)
+\item 
+void \mbox{\hyperlink{classCPG_a052ebefc34a7b11931b49136d7642584}{move\+Node}} (unsigned node\+ID, unsigned new\+Parent\+ID, bool break\+Curr\+Parent\+Child\+Conn, bool break\+Curr\+Child\+Parent\+Conn)
+\item 
+void \mbox{\hyperlink{classCPG_a4926078d71fc86b7cec29faa43b16d8e}{delete\+Node}} (unsigned node\+ID)
+\item 
+void \mbox{\hyperlink{classCPG_a7b9beb05a9681c34d99509018dda8739}{clear}} ()
+\begin{DoxyCompactList}\small\item\em remove all nodes but root from \mbox{\hyperlink{classCPG}{C\+PG}}; \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classCPG_a6a7d9249a73865d230b9f0308965705e}{set\+Freq\+Compensation}} (double compensation)
+\item 
+void \mbox{\hyperlink{classCPG_a67c0d2d6de22109fe467f4e05c0a37b9}{set\+Param\+\_\+t2\+Overt1}} (double val)
+\item 
+void \mbox{\hyperlink{classCPG_a21e3d9ae738df133b65efbc4ad4bb51a}{set\+Param\+\_\+c}} (double val)
+\item 
+void \mbox{\hyperlink{classCPG_a7da2207c51449752c5fcaf242f2a01e9}{set\+Param\+\_\+b}} (double val)
+\item 
+void \mbox{\hyperlink{classCPG_ae62c8cdcb43ab515477ca5fcac94f5e1}{set\+Param\+\_\+g}} (double val)
+\item 
+void \mbox{\hyperlink{classCPG_af2a9107312b1344e19d2aca96a2da4c2}{set\+Sample\+Rate}} (unsigned sample\+Rate)
+\item 
+bool \mbox{\hyperlink{classCPG_a61c0a3f2278d4a1db88d1d5a7dd0771f}{load\+Weight\+Scaling\+Curve}} (std\+::string curve\+Source)
+\item 
+bool \mbox{\hyperlink{classCPG_a8e1cb030a864fc7aecbe9e394b0b6e03}{load\+Weight\+Scaling\+Curve}} (std\+::vector$<$ float $>$ x, std\+::vector$<$ float $>$ y)
+\item 
+void \mbox{\hyperlink{classCPG_a3ba255f2cd3577c5bab856b71169b445}{set\+Unity\+Connection\+Weight}} (float unity)
+\item 
+void \mbox{\hyperlink{classCPG_a78a7b481668202d413e5630f5803da3c}{set\+Connection\+Weight\+Scaling}} (bool on)
+\item 
+void \mbox{\hyperlink{classCPG_a6c8b0a674e597f7559033339621baba9}{set\+Node\+Frequency}} (unsigned node\+ID, double freq, bool inherit)
+\item 
+void \mbox{\hyperlink{classCPG_af04ee786919ee5284041780a1f3e0502}{set\+Node\+Frequency\+Multiple}} (unsigned node\+ID, double multiple\+Of\+Parent, bool inherit)
+\item 
+void \mbox{\hyperlink{classCPG_a6333bf3b624bd2742384ddea032a885f}{set\+Node\+Phase\+Offset}} (unsigned node\+ID, double offset)
+\item 
+void \mbox{\hyperlink{classCPG_aec5c18fe5931482820d203e8e190eefe}{set\+Node\+Self\+Noise}} (unsigned node\+ID, double amount)
+\item 
+void \mbox{\hyperlink{classCPG_a79f22916b43191ac6a5be7f5cbe185e4}{set\+Node\+Delay\+Line\+Length}} (unsigned node\+ID, unsigned length)
+\item 
+void \mbox{\hyperlink{classCPG_a4bc2674914fb92eddb4cb0e67562cb64}{reset\+Node\+Change\+Flag\+\_\+\+Params}} (unsigned node\+ID)
+\item 
+void \mbox{\hyperlink{classCPG_a8523c6ee51d46aad0bd07c45090e8de3}{reset\+Node\+Change\+Flag\+\_\+\+Inputs}} (unsigned node\+ID)
+\item 
+void \mbox{\hyperlink{classCPG_ad237f2dc49f5340b056cff42100af751}{set\+Node\+Synch\+Mode}} (unsigned node\+ID, \mbox{\hyperlink{classMatsuNode_a725e228db39b8842f851ddf88f640bed}{Matsu\+Node\+::synch\+Mode}} mode)
+\item 
+\mbox{\hyperlink{classMatsuNode_a725e228db39b8842f851ddf88f640bed}{Matsu\+Node\+::synch\+Mode}} \mbox{\hyperlink{classCPG_a90390492d725a180160ee2743619fd27}{get\+Node\+Synch\+Mode}} (unsigned node\+ID)
+\item 
+unsigned \mbox{\hyperlink{classCPG_aa36545f77f1e3b6161bb00ff525ddc12}{get\+Next\+Node\+ID}} ()
+\item 
+void \mbox{\hyperlink{classCPG_add4b14085a01274b19b7a599d2f02af4}{set\+External\+Input}} (unsigned node\+ID, double \mbox{\hyperlink{structCPG_1_1input}{input}}, double weight=1.\+0)
+\item 
+void \mbox{\hyperlink{classCPG_a71cc2187f75bf57bc050d95cce839812}{set\+Driven}} (bool driven)
+\item 
+void \mbox{\hyperlink{classCPG_a06766b4d48cbd149935513273dcaecb1}{set\+Driving\+Input}} (double \mbox{\hyperlink{structCPG_1_1input}{input}})
+\item 
+void \mbox{\hyperlink{classCPG_af934e459315109d3c206781bccef997b}{create\+External\+Sync\+Resources}} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Engine\+: Matsuoka Oscillator Central Pattern Generator Template Class. 
+
+Instantiates a central pattern generator network with node type depending on the type passed to it.
+
+The type passed to the template must have the same interface as my \mbox{\hyperlink{classMatsuNode}{Matsu\+Node}} class. And my design intention is that type passed will inherit from \mbox{\hyperlink{classMatsuNode}{Matsu\+Node}}.
+
+For this reason getter methods are sparse, beyond a const child node getter, via which all getter methods of child class can be accessed. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classCPG_a53baf614a79f4178180be5d7120337d4}\label{classCPG_a53baf614a79f4178180be5d7120337d4}} 
+\index{C\+PG@{C\+PG}!C\+PG@{C\+PG}}
+\index{C\+PG@{C\+PG}!C\+PG@{C\+PG}}
+\subsubsection{\texorpdfstring{C\+P\+G()}{CPG()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily C\+P\+G\+::\+C\+PG (\begin{DoxyParamCaption}\item[{unsigned}]{sample\+Rate }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classCPG_a6e797fd36e726758e82cca4207083c5f}\label{classCPG_a6e797fd36e726758e82cca4207083c5f}} 
+\index{C\+PG@{C\+PG}!C\+PG@{C\+PG}}
+\index{C\+PG@{C\+PG}!C\+PG@{C\+PG}}
+\subsubsection{\texorpdfstring{C\+P\+G()}{CPG()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily C\+P\+G\+::\+C\+PG (\begin{DoxyParamCaption}\item[{double}]{t1,  }\item[{double}]{t2,  }\item[{double}]{c1,  }\item[{double}]{c2,  }\item[{double}]{b,  }\item[{double}]{g }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classCPG_a8543be2f663d6b5e79a97745f0d83cd7}\label{classCPG_a8543be2f663d6b5e79a97745f0d83cd7}} 
+\index{C\+PG@{C\+PG}!C\+PG@{C\+PG}}
+\index{C\+PG@{C\+PG}!C\+PG@{C\+PG}}
+\subsubsection{\texorpdfstring{C\+P\+G()}{CPG()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily C\+P\+G\+::\+C\+PG (\begin{DoxyParamCaption}\item[{double}]{t1,  }\item[{double}]{t2,  }\item[{double}]{c,  }\item[{double}]{b,  }\item[{double}]{g }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classCPG_aa2cac8504168c1b0190ecc4760ef0cbe}\label{classCPG_aa2cac8504168c1b0190ecc4760ef0cbe}} 
+\index{C\+PG@{C\+PG}!````~C\+PG@{$\sim$\+C\+PG}}
+\index{````~C\+PG@{$\sim$\+C\+PG}!C\+PG@{C\+PG}}
+\subsubsection{\texorpdfstring{$\sim$\+C\+P\+G()}{~CPG()}}
+{\footnotesize\ttfamily C\+P\+G\+::$\sim$\+C\+PG (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classCPG_a4f5aad687b3696340237e7669efe65b6}\label{classCPG_a4f5aad687b3696340237e7669efe65b6}} 
+\index{C\+PG@{C\+PG}!C\+PG@{C\+PG}}
+\index{C\+PG@{C\+PG}!C\+PG@{C\+PG}}
+\subsubsection{\texorpdfstring{C\+P\+G()}{CPG()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily C\+P\+G\+::\+C\+PG (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classCPG}{C\+PG}} \&}]{that }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classCPG_a1a182a410afd8e3b76cb16d99ddef541}\label{classCPG_a1a182a410afd8e3b76cb16d99ddef541}} 
+\index{C\+PG@{C\+PG}!add\+Child@{add\+Child}}
+\index{add\+Child@{add\+Child}!C\+PG@{C\+PG}}
+\subsubsection{\texorpdfstring{add\+Child()}{addChild()}}
+{\footnotesize\ttfamily void C\+P\+G\+::add\+Child (\begin{DoxyParamCaption}\item[{unsigned}]{parent\+ID,  }\item[{unsigned}]{new\+ID }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classCPG_a7b9beb05a9681c34d99509018dda8739}\label{classCPG_a7b9beb05a9681c34d99509018dda8739}} 
+\index{C\+PG@{C\+PG}!clear@{clear}}
+\index{clear@{clear}!C\+PG@{C\+PG}}
+\subsubsection{\texorpdfstring{clear()}{clear()}}
+{\footnotesize\ttfamily void C\+P\+G\+::clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+remove all nodes but root from \mbox{\hyperlink{classCPG}{C\+PG}}; 
+
+\mbox{\Hypertarget{classCPG_af934e459315109d3c206781bccef997b}\label{classCPG_af934e459315109d3c206781bccef997b}} 
+\index{C\+PG@{C\+PG}!create\+External\+Sync\+Resources@{create\+External\+Sync\+Resources}}
+\index{create\+External\+Sync\+Resources@{create\+External\+Sync\+Resources}!C\+PG@{C\+PG}}
+\subsubsection{\texorpdfstring{create\+External\+Sync\+Resources()}{createExternalSyncResources()}}
+{\footnotesize\ttfamily void C\+P\+G\+::create\+External\+Sync\+Resources (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classCPG_a4926078d71fc86b7cec29faa43b16d8e}\label{classCPG_a4926078d71fc86b7cec29faa43b16d8e}} 
+\index{C\+PG@{C\+PG}!delete\+Node@{delete\+Node}}
+\index{delete\+Node@{delete\+Node}!C\+PG@{C\+PG}}
+\subsubsection{\texorpdfstring{delete\+Node()}{deleteNode()}}
+{\footnotesize\ttfamily void C\+P\+G\+::delete\+Node (\begin{DoxyParamCaption}\item[{unsigned}]{node\+ID }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classCPG_afa2ec0b75b84e9f089f82045d08dbb31}\label{classCPG_afa2ec0b75b84e9f089f82045d08dbb31}} 
+\index{C\+PG@{C\+PG}!exists@{exists}}
+\index{exists@{exists}!C\+PG@{C\+PG}}
+\subsubsection{\texorpdfstring{exists()}{exists()}}
+{\footnotesize\ttfamily bool C\+P\+G\+::exists (\begin{DoxyParamCaption}\item[{unsigned}]{node\+ID }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{classCPG_a78702e3e28d7d70f4a4da93fe4aa2840}\label{classCPG_a78702e3e28d7d70f4a4da93fe4aa2840}} 
+\index{C\+PG@{C\+PG}!get\+Inputs@{get\+Inputs}}
+\index{get\+Inputs@{get\+Inputs}!C\+PG@{C\+PG}}
+\subsubsection{\texorpdfstring{get\+Inputs()}{getInputs()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{structCPG_1_1input}{input}} $>$ C\+P\+G\+::get\+Inputs (\begin{DoxyParamCaption}\item[{unsigned}]{node\+ID }\end{DoxyParamCaption}) const}
+
+
+
+Returns a sorted vector of all \mbox{\hyperlink{structCPG_1_1input}{inputs}} for a given node. 
+
+\mbox{\Hypertarget{classCPG_aa36545f77f1e3b6161bb00ff525ddc12}\label{classCPG_aa36545f77f1e3b6161bb00ff525ddc12}} 
+\index{C\+PG@{C\+PG}!get\+Next\+Node\+ID@{get\+Next\+Node\+ID}}
+\index{get\+Next\+Node\+ID@{get\+Next\+Node\+ID}!C\+PG@{C\+PG}}
+\subsubsection{\texorpdfstring{get\+Next\+Node\+I\+D()}{getNextNodeID()}}
+{\footnotesize\ttfamily unsigned C\+P\+G\+::get\+Next\+Node\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classCPG_a1c35e3f15f24e2017bb4db7d3ac62a35}\label{classCPG_a1c35e3f15f24e2017bb4db7d3ac62a35}} 
+\index{C\+PG@{C\+PG}!get\+Node@{get\+Node}}
+\index{get\+Node@{get\+Node}!C\+PG@{C\+PG}}
+\subsubsection{\texorpdfstring{get\+Node()}{getNode()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{classMatsuNode}{Matsu\+Node}} \& C\+P\+G\+::get\+Node (\begin{DoxyParamCaption}\item[{unsigned}]{node\+ID }\end{DoxyParamCaption}) const}
+
+
+
+returns const reference to the node whose node\+ID is provided. 
+
+all read access to nodes is via const functions on node. This allows easy extending of the node class\textquotesingle{} read methods, while \mbox{\hyperlink{classCPG}{C\+PG}} class retains ownership of write methods. \mbox{\Hypertarget{classCPG_abb0f92255cc444320dab811c031f9e3c}\label{classCPG_abb0f92255cc444320dab811c031f9e3c}} 
+\index{C\+PG@{C\+PG}!get\+Node\+List@{get\+Node\+List}}
+\index{get\+Node\+List@{get\+Node\+List}!C\+PG@{C\+PG}}
+\subsubsection{\texorpdfstring{get\+Node\+List()}{getNodeList()}}
+{\footnotesize\ttfamily const std\+::vector$<$ unsigned $>$ \& C\+P\+G\+::get\+Node\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns a complete vector of unique identifiers of the nodes in the \mbox{\hyperlink{classCPG}{C\+PG}}, sorted ascending. 
+
+\mbox{\Hypertarget{classCPG_ad3ddf0fa097221f855e5f52fc6ec01bc}\label{classCPG_ad3ddf0fa097221f855e5f52fc6ec01bc}} 
+\index{C\+PG@{C\+PG}!get\+Node\+Self\+Noise@{get\+Node\+Self\+Noise}}
+\index{get\+Node\+Self\+Noise@{get\+Node\+Self\+Noise}!C\+PG@{C\+PG}}
+\subsubsection{\texorpdfstring{get\+Node\+Self\+Noise()}{getNodeSelfNoise()}}
+{\footnotesize\ttfamily double C\+P\+G\+::get\+Node\+Self\+Noise (\begin{DoxyParamCaption}\item[{unsigned}]{node\+ID }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classCPG_a90390492d725a180160ee2743619fd27}\label{classCPG_a90390492d725a180160ee2743619fd27}} 
+\index{C\+PG@{C\+PG}!get\+Node\+Synch\+Mode@{get\+Node\+Synch\+Mode}}
+\index{get\+Node\+Synch\+Mode@{get\+Node\+Synch\+Mode}!C\+PG@{C\+PG}}
+\subsubsection{\texorpdfstring{get\+Node\+Synch\+Mode()}{getNodeSynchMode()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMatsuNode_a725e228db39b8842f851ddf88f640bed}{Matsu\+Node\+::synch\+Mode}} C\+P\+G\+::get\+Node\+Synch\+Mode (\begin{DoxyParamCaption}\item[{unsigned}]{node\+ID }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classCPG_a61c0a3f2278d4a1db88d1d5a7dd0771f}\label{classCPG_a61c0a3f2278d4a1db88d1d5a7dd0771f}} 
+\index{C\+PG@{C\+PG}!load\+Weight\+Scaling\+Curve@{load\+Weight\+Scaling\+Curve}}
+\index{load\+Weight\+Scaling\+Curve@{load\+Weight\+Scaling\+Curve}!C\+PG@{C\+PG}}
+\subsubsection{\texorpdfstring{load\+Weight\+Scaling\+Curve()}{loadWeightScalingCurve()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool C\+P\+G\+::load\+Weight\+Scaling\+Curve (\begin{DoxyParamCaption}\item[{std\+::string}]{curve\+Source }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classCPG_a8e1cb030a864fc7aecbe9e394b0b6e03}\label{classCPG_a8e1cb030a864fc7aecbe9e394b0b6e03}} 
+\index{C\+PG@{C\+PG}!load\+Weight\+Scaling\+Curve@{load\+Weight\+Scaling\+Curve}}
+\index{load\+Weight\+Scaling\+Curve@{load\+Weight\+Scaling\+Curve}!C\+PG@{C\+PG}}
+\subsubsection{\texorpdfstring{load\+Weight\+Scaling\+Curve()}{loadWeightScalingCurve()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool C\+P\+G\+::load\+Weight\+Scaling\+Curve (\begin{DoxyParamCaption}\item[{std\+::vector$<$ float $>$}]{x,  }\item[{std\+::vector$<$ float $>$}]{y }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classCPG_a052ebefc34a7b11931b49136d7642584}\label{classCPG_a052ebefc34a7b11931b49136d7642584}} 
+\index{C\+PG@{C\+PG}!move\+Node@{move\+Node}}
+\index{move\+Node@{move\+Node}!C\+PG@{C\+PG}}
+\subsubsection{\texorpdfstring{move\+Node()}{moveNode()}}
+{\footnotesize\ttfamily void C\+P\+G\+::move\+Node (\begin{DoxyParamCaption}\item[{unsigned}]{node\+ID,  }\item[{unsigned}]{new\+Parent\+ID,  }\item[{bool}]{break\+Curr\+Parent\+Child\+Conn,  }\item[{bool}]{break\+Curr\+Child\+Parent\+Conn }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classCPG_ab2c84c91fc9de378a6ed0a29305244cc}\label{classCPG_ab2c84c91fc9de378a6ed0a29305244cc}} 
+\index{C\+PG@{C\+PG}!remove\+Connection@{remove\+Connection}}
+\index{remove\+Connection@{remove\+Connection}!C\+PG@{C\+PG}}
+\subsubsection{\texorpdfstring{remove\+Connection()}{removeConnection()}}
+{\footnotesize\ttfamily void C\+P\+G\+::remove\+Connection (\begin{DoxyParamCaption}\item[{unsigned}]{node\+From,  }\item[{unsigned}]{node\+To }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classCPG_ae8f7953090be35f7da520c19ad6825b9}\label{classCPG_ae8f7953090be35f7da520c19ad6825b9}} 
+\index{C\+PG@{C\+PG}!reset@{reset}}
+\index{reset@{reset}!C\+PG@{C\+PG}}
+\subsubsection{\texorpdfstring{reset()}{reset()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily void C\+P\+G\+::reset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Resets the internal state and output value for all \+\_\+nodes to (stable) initialisation values. 
+
+Useful should one or more nodes stop responding. \mbox{\Hypertarget{classCPG_a0fcb4e728f2f647cf2af8e4a01223212}\label{classCPG_a0fcb4e728f2f647cf2af8e4a01223212}} 
+\index{C\+PG@{C\+PG}!reset@{reset}}
+\index{reset@{reset}!C\+PG@{C\+PG}}
+\subsubsection{\texorpdfstring{reset()}{reset()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily void C\+P\+G\+::reset (\begin{DoxyParamCaption}\item[{double}]{x1,  }\item[{double}]{x2,  }\item[{double}]{v1,  }\item[{double}]{v2 }\end{DoxyParamCaption})}
+
+
+
+Resets the internal state and output value for the node to the provided values. 
+
+Useful should one or more \+\_\+nodes stop responding, or to restart the whole network from a given point \mbox{\Hypertarget{classCPG_a0582af7d0c19f80453c9ce72d918e577}\label{classCPG_a0582af7d0c19f80453c9ce72d918e577}} 
+\index{C\+PG@{C\+PG}!reset@{reset}}
+\index{reset@{reset}!C\+PG@{C\+PG}}
+\subsubsection{\texorpdfstring{reset()}{reset()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily void C\+P\+G\+::reset (\begin{DoxyParamCaption}\item[{unsigned}]{node\+ID }\end{DoxyParamCaption})}
+
+
+
+Resets the internal state and output value for single nodes to (stable) initialisation values. 
+
+Resets the internal state and output value for all \+\_\+nodes to (stable) initialisation values.
+
+Useful should one or more nodes stop responding. \mbox{\Hypertarget{classCPG_a71a46a6aeac8fa3f1363674be5f0db81}\label{classCPG_a71a46a6aeac8fa3f1363674be5f0db81}} 
+\index{C\+PG@{C\+PG}!reset@{reset}}
+\index{reset@{reset}!C\+PG@{C\+PG}}
+\subsubsection{\texorpdfstring{reset()}{reset()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily void C\+P\+G\+::reset (\begin{DoxyParamCaption}\item[{unsigned}]{node\+ID,  }\item[{double}]{x1,  }\item[{double}]{x2,  }\item[{double}]{v1,  }\item[{double}]{v2 }\end{DoxyParamCaption})}
+
+
+
+Resets the internal state and output value for single nodes to (stable) initialisation values. 
+
+Useful should one or more nodes stop responding. \mbox{\Hypertarget{classCPG_a8523c6ee51d46aad0bd07c45090e8de3}\label{classCPG_a8523c6ee51d46aad0bd07c45090e8de3}} 
+\index{C\+PG@{C\+PG}!reset\+Node\+Change\+Flag\+\_\+\+Inputs@{reset\+Node\+Change\+Flag\+\_\+\+Inputs}}
+\index{reset\+Node\+Change\+Flag\+\_\+\+Inputs@{reset\+Node\+Change\+Flag\+\_\+\+Inputs}!C\+PG@{C\+PG}}
+\subsubsection{\texorpdfstring{reset\+Node\+Change\+Flag\+\_\+\+Inputs()}{resetNodeChangeFlag\_Inputs()}}
+{\footnotesize\ttfamily void C\+P\+G\+::reset\+Node\+Change\+Flag\+\_\+\+Inputs (\begin{DoxyParamCaption}\item[{unsigned}]{node\+ID }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classCPG_a4bc2674914fb92eddb4cb0e67562cb64}\label{classCPG_a4bc2674914fb92eddb4cb0e67562cb64}} 
+\index{C\+PG@{C\+PG}!reset\+Node\+Change\+Flag\+\_\+\+Params@{reset\+Node\+Change\+Flag\+\_\+\+Params}}
+\index{reset\+Node\+Change\+Flag\+\_\+\+Params@{reset\+Node\+Change\+Flag\+\_\+\+Params}!C\+PG@{C\+PG}}
+\subsubsection{\texorpdfstring{reset\+Node\+Change\+Flag\+\_\+\+Params()}{resetNodeChangeFlag\_Params()}}
+{\footnotesize\ttfamily void C\+P\+G\+::reset\+Node\+Change\+Flag\+\_\+\+Params (\begin{DoxyParamCaption}\item[{unsigned}]{node\+ID }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classCPG_ae23852907b96b57b7c45a53e9abf3146}\label{classCPG_ae23852907b96b57b7c45a53e9abf3146}} 
+\index{C\+PG@{C\+PG}!set\+Connection@{set\+Connection}}
+\index{set\+Connection@{set\+Connection}!C\+PG@{C\+PG}}
+\subsubsection{\texorpdfstring{set\+Connection()}{setConnection()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void C\+P\+G\+::set\+Connection (\begin{DoxyParamCaption}\item[{unsigned}]{node\+From,  }\item[{unsigned}]{node\+To,  }\item[{double}]{weight }\end{DoxyParamCaption})}
+
+
+
+Adds, or changes weight of, a one-\/way connection between two nodes. 
+
+If the connection specified exists, then its weight is set to that specified. Otherwise a new input is added to the node whose ID is specified by node\+To, from the node whose ID is specified by node\+From, with weight specified. If either node specified does not exist, an exception is thrown.
+
+If the connection specified exists, then its weight is set to that specified. Otherwise a new input is added to the node whose ID is specified by node\+To, from the node whose ID is specified by node\+From, with weight specified. If either node specified does not exist, an runtime\+\_\+error is thrown. \mbox{\Hypertarget{classCPG_a4e79271993dfecd92445e9abfd4be9aa}\label{classCPG_a4e79271993dfecd92445e9abfd4be9aa}} 
+\index{C\+PG@{C\+PG}!set\+Connection@{set\+Connection}}
+\index{set\+Connection@{set\+Connection}!C\+PG@{C\+PG}}
+\subsubsection{\texorpdfstring{set\+Connection()}{setConnection()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void C\+P\+G\+::set\+Connection (\begin{DoxyParamCaption}\item[{unsigned}]{NodeA,  }\item[{unsigned}]{NodeB,  }\item[{double}]{weight\+AtoB,  }\item[{double}]{weight\+BtoA }\end{DoxyParamCaption})}
+
+
+
+Adds, or changes weight of, a reciprocal connection between two nodes. 
+
+If a connection specified exists, then its weight is set to that specified. Otherwise a new input is added\+: to the node specified by node\+To, from the node specified by node\+From, with weight specified. If either node specified does not exist, an exception is thrown.
+
+If a connection specified exists, then its weight is set to that specified. Otherwise a new input is added\+: to the node specified by node\+To, from the node specified by node\+From, with weight specified. If either node specified does not exist, an runtime\+\_\+error is thrown. \mbox{\Hypertarget{classCPG_ac51f362e189d966e7c733ba1624d0fc1}\label{classCPG_ac51f362e189d966e7c733ba1624d0fc1}} 
+\index{C\+PG@{C\+PG}!set\+Connection\+Phase\+Offset@{set\+Connection\+Phase\+Offset}}
+\index{set\+Connection\+Phase\+Offset@{set\+Connection\+Phase\+Offset}!C\+PG@{C\+PG}}
+\subsubsection{\texorpdfstring{set\+Connection\+Phase\+Offset()}{setConnectionPhaseOffset()}}
+{\footnotesize\ttfamily void C\+P\+G\+::set\+Connection\+Phase\+Offset (\begin{DoxyParamCaption}\item[{unsigned}]{node\+From,  }\item[{unsigned}]{node\+To,  }\item[{double}]{phase\+Offset }\end{DoxyParamCaption})}
+
+
+
+Changes phase offset of signal on input from node\+From to node\+To. 
+
+Phase between 0 and 1. \mbox{\Hypertarget{classCPG_a78a7b481668202d413e5630f5803da3c}\label{classCPG_a78a7b481668202d413e5630f5803da3c}} 
+\index{C\+PG@{C\+PG}!set\+Connection\+Weight\+Scaling@{set\+Connection\+Weight\+Scaling}}
+\index{set\+Connection\+Weight\+Scaling@{set\+Connection\+Weight\+Scaling}!C\+PG@{C\+PG}}
+\subsubsection{\texorpdfstring{set\+Connection\+Weight\+Scaling()}{setConnectionWeightScaling()}}
+{\footnotesize\ttfamily void C\+P\+G\+::set\+Connection\+Weight\+Scaling (\begin{DoxyParamCaption}\item[{bool}]{on }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classCPG_a71cc2187f75bf57bc050d95cce839812}\label{classCPG_a71cc2187f75bf57bc050d95cce839812}} 
+\index{C\+PG@{C\+PG}!set\+Driven@{set\+Driven}}
+\index{set\+Driven@{set\+Driven}!C\+PG@{C\+PG}}
+\subsubsection{\texorpdfstring{set\+Driven()}{setDriven()}}
+{\footnotesize\ttfamily void C\+P\+G\+::set\+Driven (\begin{DoxyParamCaption}\item[{bool}]{driven }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classCPG_a06766b4d48cbd149935513273dcaecb1}\label{classCPG_a06766b4d48cbd149935513273dcaecb1}} 
+\index{C\+PG@{C\+PG}!set\+Driving\+Input@{set\+Driving\+Input}}
+\index{set\+Driving\+Input@{set\+Driving\+Input}!C\+PG@{C\+PG}}
+\subsubsection{\texorpdfstring{set\+Driving\+Input()}{setDrivingInput()}}
+{\footnotesize\ttfamily void C\+P\+G\+::set\+Driving\+Input (\begin{DoxyParamCaption}\item[{double}]{input }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classCPG_add4b14085a01274b19b7a599d2f02af4}\label{classCPG_add4b14085a01274b19b7a599d2f02af4}} 
+\index{C\+PG@{C\+PG}!set\+External\+Input@{set\+External\+Input}}
+\index{set\+External\+Input@{set\+External\+Input}!C\+PG@{C\+PG}}
+\subsubsection{\texorpdfstring{set\+External\+Input()}{setExternalInput()}}
+{\footnotesize\ttfamily void C\+P\+G\+::set\+External\+Input (\begin{DoxyParamCaption}\item[{unsigned}]{node\+ID,  }\item[{double}]{input,  }\item[{double}]{weight = {\ttfamily 1.0} }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classCPG_a6a7d9249a73865d230b9f0308965705e}\label{classCPG_a6a7d9249a73865d230b9f0308965705e}} 
+\index{C\+PG@{C\+PG}!set\+Freq\+Compensation@{set\+Freq\+Compensation}}
+\index{set\+Freq\+Compensation@{set\+Freq\+Compensation}!C\+PG@{C\+PG}}
+\subsubsection{\texorpdfstring{set\+Freq\+Compensation()}{setFreqCompensation()}}
+{\footnotesize\ttfamily void C\+P\+G\+::set\+Freq\+Compensation (\begin{DoxyParamCaption}\item[{double}]{compensation }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classCPG_a79f22916b43191ac6a5be7f5cbe185e4}\label{classCPG_a79f22916b43191ac6a5be7f5cbe185e4}} 
+\index{C\+PG@{C\+PG}!set\+Node\+Delay\+Line\+Length@{set\+Node\+Delay\+Line\+Length}}
+\index{set\+Node\+Delay\+Line\+Length@{set\+Node\+Delay\+Line\+Length}!C\+PG@{C\+PG}}
+\subsubsection{\texorpdfstring{set\+Node\+Delay\+Line\+Length()}{setNodeDelayLineLength()}}
+{\footnotesize\ttfamily void C\+P\+G\+::set\+Node\+Delay\+Line\+Length (\begin{DoxyParamCaption}\item[{unsigned}]{node\+ID,  }\item[{unsigned}]{length }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classCPG_a6c8b0a674e597f7559033339621baba9}\label{classCPG_a6c8b0a674e597f7559033339621baba9}} 
+\index{C\+PG@{C\+PG}!set\+Node\+Frequency@{set\+Node\+Frequency}}
+\index{set\+Node\+Frequency@{set\+Node\+Frequency}!C\+PG@{C\+PG}}
+\subsubsection{\texorpdfstring{set\+Node\+Frequency()}{setNodeFrequency()}}
+{\footnotesize\ttfamily void C\+P\+G\+::set\+Node\+Frequency (\begin{DoxyParamCaption}\item[{unsigned}]{node\+ID,  }\item[{double}]{freq,  }\item[{bool}]{inherit }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classCPG_af04ee786919ee5284041780a1f3e0502}\label{classCPG_af04ee786919ee5284041780a1f3e0502}} 
+\index{C\+PG@{C\+PG}!set\+Node\+Frequency\+Multiple@{set\+Node\+Frequency\+Multiple}}
+\index{set\+Node\+Frequency\+Multiple@{set\+Node\+Frequency\+Multiple}!C\+PG@{C\+PG}}
+\subsubsection{\texorpdfstring{set\+Node\+Frequency\+Multiple()}{setNodeFrequencyMultiple()}}
+{\footnotesize\ttfamily void C\+P\+G\+::set\+Node\+Frequency\+Multiple (\begin{DoxyParamCaption}\item[{unsigned}]{node\+ID,  }\item[{double}]{multiple\+Of\+Parent,  }\item[{bool}]{inherit }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classCPG_a6333bf3b624bd2742384ddea032a885f}\label{classCPG_a6333bf3b624bd2742384ddea032a885f}} 
+\index{C\+PG@{C\+PG}!set\+Node\+Phase\+Offset@{set\+Node\+Phase\+Offset}}
+\index{set\+Node\+Phase\+Offset@{set\+Node\+Phase\+Offset}!C\+PG@{C\+PG}}
+\subsubsection{\texorpdfstring{set\+Node\+Phase\+Offset()}{setNodePhaseOffset()}}
+{\footnotesize\ttfamily void C\+P\+G\+::set\+Node\+Phase\+Offset (\begin{DoxyParamCaption}\item[{unsigned}]{node\+ID,  }\item[{double}]{offset }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classCPG_aec5c18fe5931482820d203e8e190eefe}\label{classCPG_aec5c18fe5931482820d203e8e190eefe}} 
+\index{C\+PG@{C\+PG}!set\+Node\+Self\+Noise@{set\+Node\+Self\+Noise}}
+\index{set\+Node\+Self\+Noise@{set\+Node\+Self\+Noise}!C\+PG@{C\+PG}}
+\subsubsection{\texorpdfstring{set\+Node\+Self\+Noise()}{setNodeSelfNoise()}}
+{\footnotesize\ttfamily void C\+P\+G\+::set\+Node\+Self\+Noise (\begin{DoxyParamCaption}\item[{unsigned}]{node\+ID,  }\item[{double}]{amount }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classCPG_ad237f2dc49f5340b056cff42100af751}\label{classCPG_ad237f2dc49f5340b056cff42100af751}} 
+\index{C\+PG@{C\+PG}!set\+Node\+Synch\+Mode@{set\+Node\+Synch\+Mode}}
+\index{set\+Node\+Synch\+Mode@{set\+Node\+Synch\+Mode}!C\+PG@{C\+PG}}
+\subsubsection{\texorpdfstring{set\+Node\+Synch\+Mode()}{setNodeSynchMode()}}
+{\footnotesize\ttfamily void C\+P\+G\+::set\+Node\+Synch\+Mode (\begin{DoxyParamCaption}\item[{unsigned}]{node\+ID,  }\item[{\mbox{\hyperlink{classMatsuNode_a725e228db39b8842f851ddf88f640bed}{Matsu\+Node\+::synch\+Mode}}}]{mode }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classCPG_a7da2207c51449752c5fcaf242f2a01e9}\label{classCPG_a7da2207c51449752c5fcaf242f2a01e9}} 
+\index{C\+PG@{C\+PG}!set\+Param\+\_\+b@{set\+Param\+\_\+b}}
+\index{set\+Param\+\_\+b@{set\+Param\+\_\+b}!C\+PG@{C\+PG}}
+\subsubsection{\texorpdfstring{set\+Param\+\_\+b()}{setParam\_b()}}
+{\footnotesize\ttfamily void C\+P\+G\+::set\+Param\+\_\+b (\begin{DoxyParamCaption}\item[{double}]{val }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classCPG_a21e3d9ae738df133b65efbc4ad4bb51a}\label{classCPG_a21e3d9ae738df133b65efbc4ad4bb51a}} 
+\index{C\+PG@{C\+PG}!set\+Param\+\_\+c@{set\+Param\+\_\+c}}
+\index{set\+Param\+\_\+c@{set\+Param\+\_\+c}!C\+PG@{C\+PG}}
+\subsubsection{\texorpdfstring{set\+Param\+\_\+c()}{setParam\_c()}}
+{\footnotesize\ttfamily void C\+P\+G\+::set\+Param\+\_\+c (\begin{DoxyParamCaption}\item[{double}]{val }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classCPG_ae62c8cdcb43ab515477ca5fcac94f5e1}\label{classCPG_ae62c8cdcb43ab515477ca5fcac94f5e1}} 
+\index{C\+PG@{C\+PG}!set\+Param\+\_\+g@{set\+Param\+\_\+g}}
+\index{set\+Param\+\_\+g@{set\+Param\+\_\+g}!C\+PG@{C\+PG}}
+\subsubsection{\texorpdfstring{set\+Param\+\_\+g()}{setParam\_g()}}
+{\footnotesize\ttfamily void C\+P\+G\+::set\+Param\+\_\+g (\begin{DoxyParamCaption}\item[{double}]{val }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classCPG_a67c0d2d6de22109fe467f4e05c0a37b9}\label{classCPG_a67c0d2d6de22109fe467f4e05c0a37b9}} 
+\index{C\+PG@{C\+PG}!set\+Param\+\_\+t2\+Overt1@{set\+Param\+\_\+t2\+Overt1}}
+\index{set\+Param\+\_\+t2\+Overt1@{set\+Param\+\_\+t2\+Overt1}!C\+PG@{C\+PG}}
+\subsubsection{\texorpdfstring{set\+Param\+\_\+t2\+Overt1()}{setParam\_t2Overt1()}}
+{\footnotesize\ttfamily void C\+P\+G\+::set\+Param\+\_\+t2\+Overt1 (\begin{DoxyParamCaption}\item[{double}]{val }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classCPG_af2a9107312b1344e19d2aca96a2da4c2}\label{classCPG_af2a9107312b1344e19d2aca96a2da4c2}} 
+\index{C\+PG@{C\+PG}!set\+Sample\+Rate@{set\+Sample\+Rate}}
+\index{set\+Sample\+Rate@{set\+Sample\+Rate}!C\+PG@{C\+PG}}
+\subsubsection{\texorpdfstring{set\+Sample\+Rate()}{setSampleRate()}}
+{\footnotesize\ttfamily void C\+P\+G\+::set\+Sample\+Rate (\begin{DoxyParamCaption}\item[{unsigned}]{sample\+Rate }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classCPG_a3ba255f2cd3577c5bab856b71169b445}\label{classCPG_a3ba255f2cd3577c5bab856b71169b445}} 
+\index{C\+PG@{C\+PG}!set\+Unity\+Connection\+Weight@{set\+Unity\+Connection\+Weight}}
+\index{set\+Unity\+Connection\+Weight@{set\+Unity\+Connection\+Weight}!C\+PG@{C\+PG}}
+\subsubsection{\texorpdfstring{set\+Unity\+Connection\+Weight()}{setUnityConnectionWeight()}}
+{\footnotesize\ttfamily void C\+P\+G\+::set\+Unity\+Connection\+Weight (\begin{DoxyParamCaption}\item[{float}]{unity }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classCPG_a14fdef2f92467c2d7727c9fa0a02a07a}\label{classCPG_a14fdef2f92467c2d7727c9fa0a02a07a}} 
+\index{C\+PG@{C\+PG}!step@{step}}
+\index{step@{step}!C\+PG@{C\+PG}}
+\subsubsection{\texorpdfstring{step()}{step()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void C\+P\+G\+::step (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Calculates the next state and output values for the Matsuoka oscillators at each node. 
+
+\mbox{\Hypertarget{classCPG_ac74c71bc2a70610706b3939673a60b3a}\label{classCPG_ac74c71bc2a70610706b3939673a60b3a}} 
+\index{C\+PG@{C\+PG}!step@{step}}
+\index{step@{step}!C\+PG@{C\+PG}}
+\subsubsection{\texorpdfstring{step()}{step()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void C\+P\+G\+::step (\begin{DoxyParamCaption}\item[{unsigned}]{node\+ID }\end{DoxyParamCaption})}
+
+
+
+Calculates the next state and output values for the indicated node. 
+
+\mbox{\Hypertarget{classCPG_adb0ab0506c07d1b7aa9dd2640c6a1731}\label{classCPG_adb0ab0506c07d1b7aa9dd2640c6a1731}} 
+\index{C\+PG@{C\+PG}!zero\+Sync@{zero\+Sync}}
+\index{zero\+Sync@{zero\+Sync}!C\+PG@{C\+PG}}
+\subsubsection{\texorpdfstring{zero\+Sync()}{zeroSync()}}
+{\footnotesize\ttfamily void C\+P\+G\+::zero\+Sync (\begin{DoxyParamCaption}\item[{unsigned}]{node\+ID }\end{DoxyParamCaption})}
+
+if create\+External\+Sync\+Resources has been run, this function resets the node to its state just prior to positive zero crossing otherwise behaviour is as reset(node\+I\+D) 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+O\+:/\+Documents/\+Max 7/\+Packages/max\+\_\+cpg/source/\+Matsuoka\+Engine\+\_\+src/\mbox{\hyperlink{CPG_8h}{C\+P\+G.\+h}}\item 
+O\+:/\+Documents/\+Max 7/\+Packages/max\+\_\+cpg/source/\+Matsuoka\+Engine\+\_\+src/\mbox{\hyperlink{CPG_8cpp}{C\+P\+G.\+cpp}}\end{DoxyCompactItemize}

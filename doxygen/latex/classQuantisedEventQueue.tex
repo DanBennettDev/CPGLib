@@ -1,0 +1,296 @@
+\hypertarget{classQuantisedEventQueue}{}\section{Quantised\+Event\+Queue Class Reference}
+\label{classQuantisedEventQueue}\index{Quantised\+Event\+Queue@{Quantised\+Event\+Queue}}
+
+
+Engine\+: Takes events as inputs and outputs them at the correct quantised interval correct quantised interval depends on settings, quantiser grid size, etc. introduces a delay. Push pull quantiser -\/ moves incoming events to nearest beat.  
+
+
+
+
+{\ttfamily \#include $<$Quantised\+Event\+Queue.\+h$>$}
+
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structQuantisedEventQueue_1_1outputEvent}{output\+Event}}
+\begin{DoxyCompactList}\small\item\em struct specifying for the events the queue quantises \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{classQuantisedEventQueue_ae186d50bd503038452edbbdd0c7c259e}{grid\+Type}} \{ \mbox{\hyperlink{classQuantisedEventQueue_ae186d50bd503038452edbbdd0c7c259eac4f7d29e17ae6df87548a7e5a5dc94d6}{grid\+Type\+::un\+Quantised}}, 
+\mbox{\hyperlink{classQuantisedEventQueue_ae186d50bd503038452edbbdd0c7c259ea4166cc8b14a93b3920f09fcebbfa435a}{grid\+Type\+::\+\_\+24th}}, 
+\mbox{\hyperlink{classQuantisedEventQueue_ae186d50bd503038452edbbdd0c7c259eac9582d52391fa58d898a389301076561}{grid\+Type\+::\+\_\+32nd}}
+ \}
+\begin{DoxyCompactList}\small\item\em the types of grids available to be quantised to \end{DoxyCompactList}\item 
+using \mbox{\hyperlink{classQuantisedEventQueue_a7e4af70d71f881cb31e643f59c6cf6e6}{note\+Coordinate}} = \mbox{\hyperlink{structQuantiseGrid__soft_1_1noteCoordinate}{Quantise\+Grid\+\_\+soft\+::note\+Coordinate}}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classQuantisedEventQueue_a98edbab612078a6b8662be1e02ec7d5d}{Quantised\+Event\+Queue}} (unsigned sample\+Rate, float tempo)
+\item 
+\mbox{\hyperlink{classQuantisedEventQueue_a531b0d61f7e3f2bb5891916f7ee2f981}{Quantised\+Event\+Queue}} (const \mbox{\hyperlink{classQuantisedEventQueue}{Quantised\+Event\+Queue}} \&rhs)
+\item 
+void \mbox{\hyperlink{classQuantisedEventQueue_a97055bead1291aef1d540640fcb61bf9}{tick}} ()
+\begin{DoxyCompactList}\small\item\em move the system forwards 1 sample \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classQuantisedEventQueue_a381591648286fab71836e6930d0f86d9}{add\+Event}} (\mbox{\hyperlink{structQuantisedEventQueue_1_1outputEvent}{output\+Event}} e)
+\begin{DoxyCompactList}\small\item\em add an event to the system \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classQuantisedEventQueue_a8a228847e9840052560ad27b7c48988d}{set\+Sample\+Rate}} (unsigned sample\+Rate)
+\begin{DoxyCompactList}\small\item\em set the sample rate of the system \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classQuantisedEventQueue_aa779e58dd906e9d2ddee9187296fca80}{set\+Tempo}} (float tempo)
+\begin{DoxyCompactList}\small\item\em set the tempo in beats per minute \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classQuantisedEventQueue_aa26d3254efa6178b559caf8978c46e17}{set\+Quantise\+Amount}} (float amount)
+\begin{DoxyCompactList}\small\item\em set the amount of quantisation (0=none, 1=strict) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classQuantisedEventQueue_aee5e2fa3c8fe5cf7ab23d2da94c97fb2}{set\+Quantise\+Amount}} (unsigned node, float amount)
+\item 
+float \mbox{\hyperlink{classQuantisedEventQueue_aaef3b89d1b622c3a2b3a96862d55f12d}{get\+Quantise\+Amount}} ()
+\begin{DoxyCompactList}\small\item\em get the amount of quantisation (0=none, 1=strict) \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classQuantisedEventQueue_a009ee8815cadef590721c7c20edf57d6}{get\+Quantise\+Amount}} (unsigned node)
+\item 
+void \mbox{\hyperlink{classQuantisedEventQueue_a38904e3d52d5ff1c12a341cb8c1d7336}{set\+Node\+Grid}} (unsigned node\+ID, \mbox{\hyperlink{classQuantisedEventQueue_ae186d50bd503038452edbbdd0c7c259e}{grid\+Type}} grid)
+\begin{DoxyCompactList}\small\item\em set the quantise grid type for the node \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classQuantisedEventQueue_ac89afce9a33fbec4bfc289fee3c1a704}{set\+Node\+Grid\+Multiple}} (unsigned node\+ID, unsigned mult)
+\item 
+void \mbox{\hyperlink{classQuantisedEventQueue_a624f66343d287393ee644ce75e0e276a}{set\+Node\+Grid\+Offset}} (unsigned node\+ID, unsigned off)
+\begin{DoxyCompactList}\small\item\em sets the grid offset \end{DoxyCompactList}\item 
+unsigned \mbox{\hyperlink{classQuantisedEventQueue_a2392d1fb1f7bd008506e36d0eb924052}{get\+Note\+Delay}} () const
+\item 
+unsigned \mbox{\hyperlink{classQuantisedEventQueue_a23e1fa488702fee980e6cd9103a64a76}{get\+Sample\+Rate}} () const
+\item 
+float \mbox{\hyperlink{classQuantisedEventQueue_aca272ceaa222502b341d70a566a678ed}{get\+Tempo}} () const
+\item 
+\mbox{\hyperlink{classQuantisedEventQueue_ae186d50bd503038452edbbdd0c7c259e}{grid\+Type}} \mbox{\hyperlink{classQuantisedEventQueue_a9911be9983ea940de9e170a82dd9cd54}{get\+Node\+Grid}} (unsigned node\+ID)
+\item 
+unsigned \mbox{\hyperlink{classQuantisedEventQueue_a405616c44942ca195981be37f7d7a81d}{get\+Node\+Grid\+Multiple}} (unsigned node\+ID)
+\item 
+unsigned \mbox{\hyperlink{classQuantisedEventQueue_a003bdcedf16297e3e2e6ed90c413da4c}{get\+Node\+Grid\+Offset}} (unsigned node\+ID)
+\item 
+unsigned \mbox{\hyperlink{classQuantisedEventQueue_a21c0f8d70e22bb02dcb110ecc610a9dd}{get\+Node\+Bar\+Division}} (unsigned node\+ID)
+\item 
+void \mbox{\hyperlink{classQuantisedEventQueue_ab14d954f402e83c2aaed7ff38a73ac47}{sync\+To\+Bar\+Start}} ()
+\begin{DoxyCompactList}\small\item\em moves to the start of the next bar \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{structQuantisedEventQueue_1_1outputEvent}{output\+Event}} $>$ \mbox{\hyperlink{classQuantisedEventQueue_ae3ec71da38982933666fb17dde454709}{get\+Notes}} ()
+\begin{DoxyCompactList}\small\item\em returns any notes which are ready to be played (call every \mbox{\hyperlink{classQuantisedEventQueue_a97055bead1291aef1d540640fcb61bf9}{tick()}}) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Engine\+: Takes events as inputs and outputs them at the correct quantised interval correct quantised interval depends on settings, quantiser grid size, etc. introduces a delay. Push pull quantiser -\/ moves incoming events to nearest beat. 
+
+\subsection{Member Typedef Documentation}
+\mbox{\Hypertarget{classQuantisedEventQueue_a7e4af70d71f881cb31e643f59c6cf6e6}\label{classQuantisedEventQueue_a7e4af70d71f881cb31e643f59c6cf6e6}} 
+\index{Quantised\+Event\+Queue@{Quantised\+Event\+Queue}!note\+Coordinate@{note\+Coordinate}}
+\index{note\+Coordinate@{note\+Coordinate}!Quantised\+Event\+Queue@{Quantised\+Event\+Queue}}
+\subsubsection{\texorpdfstring{note\+Coordinate}{noteCoordinate}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{classQuantisedEventQueue_a7e4af70d71f881cb31e643f59c6cf6e6}{Quantised\+Event\+Queue\+::note\+Coordinate}} =  \mbox{\hyperlink{structQuantiseGrid__soft_1_1noteCoordinate}{Quantise\+Grid\+\_\+soft\+::note\+Coordinate}}}
+
+
+
+\subsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{classQuantisedEventQueue_ae186d50bd503038452edbbdd0c7c259e}\label{classQuantisedEventQueue_ae186d50bd503038452edbbdd0c7c259e}} 
+\index{Quantised\+Event\+Queue@{Quantised\+Event\+Queue}!grid\+Type@{grid\+Type}}
+\index{grid\+Type@{grid\+Type}!Quantised\+Event\+Queue@{Quantised\+Event\+Queue}}
+\subsubsection{\texorpdfstring{grid\+Type}{gridType}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{classQuantisedEventQueue_ae186d50bd503038452edbbdd0c7c259e}{Quantised\+Event\+Queue\+::grid\+Type}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+the types of grids available to be quantised to 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{un\+Quantised@{un\+Quantised}!Quantised\+Event\+Queue@{Quantised\+Event\+Queue}}\index{Quantised\+Event\+Queue@{Quantised\+Event\+Queue}!un\+Quantised@{un\+Quantised}}}\mbox{\Hypertarget{classQuantisedEventQueue_ae186d50bd503038452edbbdd0c7c259eac4f7d29e17ae6df87548a7e5a5dc94d6}\label{classQuantisedEventQueue_ae186d50bd503038452edbbdd0c7c259eac4f7d29e17ae6df87548a7e5a5dc94d6}} 
+un\+Quantised&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{\+\_\+24th@{\+\_\+24th}!Quantised\+Event\+Queue@{Quantised\+Event\+Queue}}\index{Quantised\+Event\+Queue@{Quantised\+Event\+Queue}!\+\_\+24th@{\+\_\+24th}}}\mbox{\Hypertarget{classQuantisedEventQueue_ae186d50bd503038452edbbdd0c7c259ea4166cc8b14a93b3920f09fcebbfa435a}\label{classQuantisedEventQueue_ae186d50bd503038452edbbdd0c7c259ea4166cc8b14a93b3920f09fcebbfa435a}} 
+\+\_\+24th&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{\+\_\+32nd@{\+\_\+32nd}!Quantised\+Event\+Queue@{Quantised\+Event\+Queue}}\index{Quantised\+Event\+Queue@{Quantised\+Event\+Queue}!\+\_\+32nd@{\+\_\+32nd}}}\mbox{\Hypertarget{classQuantisedEventQueue_ae186d50bd503038452edbbdd0c7c259eac9582d52391fa58d898a389301076561}\label{classQuantisedEventQueue_ae186d50bd503038452edbbdd0c7c259eac9582d52391fa58d898a389301076561}} 
+\+\_\+32nd&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classQuantisedEventQueue_a98edbab612078a6b8662be1e02ec7d5d}\label{classQuantisedEventQueue_a98edbab612078a6b8662be1e02ec7d5d}} 
+\index{Quantised\+Event\+Queue@{Quantised\+Event\+Queue}!Quantised\+Event\+Queue@{Quantised\+Event\+Queue}}
+\index{Quantised\+Event\+Queue@{Quantised\+Event\+Queue}!Quantised\+Event\+Queue@{Quantised\+Event\+Queue}}
+\subsubsection{\texorpdfstring{Quantised\+Event\+Queue()}{QuantisedEventQueue()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Quantised\+Event\+Queue\+::\+Quantised\+Event\+Queue (\begin{DoxyParamCaption}\item[{unsigned}]{sample\+Rate,  }\item[{float}]{tempo }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classQuantisedEventQueue_a531b0d61f7e3f2bb5891916f7ee2f981}\label{classQuantisedEventQueue_a531b0d61f7e3f2bb5891916f7ee2f981}} 
+\index{Quantised\+Event\+Queue@{Quantised\+Event\+Queue}!Quantised\+Event\+Queue@{Quantised\+Event\+Queue}}
+\index{Quantised\+Event\+Queue@{Quantised\+Event\+Queue}!Quantised\+Event\+Queue@{Quantised\+Event\+Queue}}
+\subsubsection{\texorpdfstring{Quantised\+Event\+Queue()}{QuantisedEventQueue()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Quantised\+Event\+Queue\+::\+Quantised\+Event\+Queue (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classQuantisedEventQueue}{Quantised\+Event\+Queue}} \&}]{rhs }\end{DoxyParamCaption})}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classQuantisedEventQueue_a381591648286fab71836e6930d0f86d9}\label{classQuantisedEventQueue_a381591648286fab71836e6930d0f86d9}} 
+\index{Quantised\+Event\+Queue@{Quantised\+Event\+Queue}!add\+Event@{add\+Event}}
+\index{add\+Event@{add\+Event}!Quantised\+Event\+Queue@{Quantised\+Event\+Queue}}
+\subsubsection{\texorpdfstring{add\+Event()}{addEvent()}}
+{\footnotesize\ttfamily void Quantised\+Event\+Queue\+::add\+Event (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structQuantisedEventQueue_1_1outputEvent}{output\+Event}}}]{e }\end{DoxyParamCaption})}
+
+
+
+add an event to the system 
+
+\mbox{\Hypertarget{classQuantisedEventQueue_a21c0f8d70e22bb02dcb110ecc610a9dd}\label{classQuantisedEventQueue_a21c0f8d70e22bb02dcb110ecc610a9dd}} 
+\index{Quantised\+Event\+Queue@{Quantised\+Event\+Queue}!get\+Node\+Bar\+Division@{get\+Node\+Bar\+Division}}
+\index{get\+Node\+Bar\+Division@{get\+Node\+Bar\+Division}!Quantised\+Event\+Queue@{Quantised\+Event\+Queue}}
+\subsubsection{\texorpdfstring{get\+Node\+Bar\+Division()}{getNodeBarDivision()}}
+{\footnotesize\ttfamily unsigned Quantised\+Event\+Queue\+::get\+Node\+Bar\+Division (\begin{DoxyParamCaption}\item[{unsigned}]{node\+ID }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classQuantisedEventQueue_a9911be9983ea940de9e170a82dd9cd54}\label{classQuantisedEventQueue_a9911be9983ea940de9e170a82dd9cd54}} 
+\index{Quantised\+Event\+Queue@{Quantised\+Event\+Queue}!get\+Node\+Grid@{get\+Node\+Grid}}
+\index{get\+Node\+Grid@{get\+Node\+Grid}!Quantised\+Event\+Queue@{Quantised\+Event\+Queue}}
+\subsubsection{\texorpdfstring{get\+Node\+Grid()}{getNodeGrid()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classQuantisedEventQueue_ae186d50bd503038452edbbdd0c7c259e}{Quantised\+Event\+Queue\+::grid\+Type}} Quantised\+Event\+Queue\+::get\+Node\+Grid (\begin{DoxyParamCaption}\item[{unsigned}]{node\+ID }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classQuantisedEventQueue_a405616c44942ca195981be37f7d7a81d}\label{classQuantisedEventQueue_a405616c44942ca195981be37f7d7a81d}} 
+\index{Quantised\+Event\+Queue@{Quantised\+Event\+Queue}!get\+Node\+Grid\+Multiple@{get\+Node\+Grid\+Multiple}}
+\index{get\+Node\+Grid\+Multiple@{get\+Node\+Grid\+Multiple}!Quantised\+Event\+Queue@{Quantised\+Event\+Queue}}
+\subsubsection{\texorpdfstring{get\+Node\+Grid\+Multiple()}{getNodeGridMultiple()}}
+{\footnotesize\ttfamily unsigned Quantised\+Event\+Queue\+::get\+Node\+Grid\+Multiple (\begin{DoxyParamCaption}\item[{unsigned}]{node\+ID }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classQuantisedEventQueue_a003bdcedf16297e3e2e6ed90c413da4c}\label{classQuantisedEventQueue_a003bdcedf16297e3e2e6ed90c413da4c}} 
+\index{Quantised\+Event\+Queue@{Quantised\+Event\+Queue}!get\+Node\+Grid\+Offset@{get\+Node\+Grid\+Offset}}
+\index{get\+Node\+Grid\+Offset@{get\+Node\+Grid\+Offset}!Quantised\+Event\+Queue@{Quantised\+Event\+Queue}}
+\subsubsection{\texorpdfstring{get\+Node\+Grid\+Offset()}{getNodeGridOffset()}}
+{\footnotesize\ttfamily unsigned Quantised\+Event\+Queue\+::get\+Node\+Grid\+Offset (\begin{DoxyParamCaption}\item[{unsigned}]{node\+ID }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classQuantisedEventQueue_a2392d1fb1f7bd008506e36d0eb924052}\label{classQuantisedEventQueue_a2392d1fb1f7bd008506e36d0eb924052}} 
+\index{Quantised\+Event\+Queue@{Quantised\+Event\+Queue}!get\+Note\+Delay@{get\+Note\+Delay}}
+\index{get\+Note\+Delay@{get\+Note\+Delay}!Quantised\+Event\+Queue@{Quantised\+Event\+Queue}}
+\subsubsection{\texorpdfstring{get\+Note\+Delay()}{getNoteDelay()}}
+{\footnotesize\ttfamily unsigned Quantised\+Event\+Queue\+::get\+Note\+Delay (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{classQuantisedEventQueue_ae3ec71da38982933666fb17dde454709}\label{classQuantisedEventQueue_ae3ec71da38982933666fb17dde454709}} 
+\index{Quantised\+Event\+Queue@{Quantised\+Event\+Queue}!get\+Notes@{get\+Notes}}
+\index{get\+Notes@{get\+Notes}!Quantised\+Event\+Queue@{Quantised\+Event\+Queue}}
+\subsubsection{\texorpdfstring{get\+Notes()}{getNotes()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{structQuantisedEventQueue_1_1outputEvent}{Quantised\+Event\+Queue\+::output\+Event}} $>$ Quantised\+Event\+Queue\+::get\+Notes (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+returns any notes which are ready to be played (call every \mbox{\hyperlink{classQuantisedEventQueue_a97055bead1291aef1d540640fcb61bf9}{tick()}}) 
+
+\mbox{\Hypertarget{classQuantisedEventQueue_aaef3b89d1b622c3a2b3a96862d55f12d}\label{classQuantisedEventQueue_aaef3b89d1b622c3a2b3a96862d55f12d}} 
+\index{Quantised\+Event\+Queue@{Quantised\+Event\+Queue}!get\+Quantise\+Amount@{get\+Quantise\+Amount}}
+\index{get\+Quantise\+Amount@{get\+Quantise\+Amount}!Quantised\+Event\+Queue@{Quantised\+Event\+Queue}}
+\subsubsection{\texorpdfstring{get\+Quantise\+Amount()}{getQuantiseAmount()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily float Quantised\+Event\+Queue\+::get\+Quantise\+Amount (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+get the amount of quantisation (0=none, 1=strict) 
+
+\mbox{\Hypertarget{classQuantisedEventQueue_a009ee8815cadef590721c7c20edf57d6}\label{classQuantisedEventQueue_a009ee8815cadef590721c7c20edf57d6}} 
+\index{Quantised\+Event\+Queue@{Quantised\+Event\+Queue}!get\+Quantise\+Amount@{get\+Quantise\+Amount}}
+\index{get\+Quantise\+Amount@{get\+Quantise\+Amount}!Quantised\+Event\+Queue@{Quantised\+Event\+Queue}}
+\subsubsection{\texorpdfstring{get\+Quantise\+Amount()}{getQuantiseAmount()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily float Quantised\+Event\+Queue\+::get\+Quantise\+Amount (\begin{DoxyParamCaption}\item[{unsigned}]{node }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classQuantisedEventQueue_a23e1fa488702fee980e6cd9103a64a76}\label{classQuantisedEventQueue_a23e1fa488702fee980e6cd9103a64a76}} 
+\index{Quantised\+Event\+Queue@{Quantised\+Event\+Queue}!get\+Sample\+Rate@{get\+Sample\+Rate}}
+\index{get\+Sample\+Rate@{get\+Sample\+Rate}!Quantised\+Event\+Queue@{Quantised\+Event\+Queue}}
+\subsubsection{\texorpdfstring{get\+Sample\+Rate()}{getSampleRate()}}
+{\footnotesize\ttfamily unsigned Quantised\+Event\+Queue\+::get\+Sample\+Rate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{classQuantisedEventQueue_aca272ceaa222502b341d70a566a678ed}\label{classQuantisedEventQueue_aca272ceaa222502b341d70a566a678ed}} 
+\index{Quantised\+Event\+Queue@{Quantised\+Event\+Queue}!get\+Tempo@{get\+Tempo}}
+\index{get\+Tempo@{get\+Tempo}!Quantised\+Event\+Queue@{Quantised\+Event\+Queue}}
+\subsubsection{\texorpdfstring{get\+Tempo()}{getTempo()}}
+{\footnotesize\ttfamily float Quantised\+Event\+Queue\+::get\+Tempo (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{classQuantisedEventQueue_a38904e3d52d5ff1c12a341cb8c1d7336}\label{classQuantisedEventQueue_a38904e3d52d5ff1c12a341cb8c1d7336}} 
+\index{Quantised\+Event\+Queue@{Quantised\+Event\+Queue}!set\+Node\+Grid@{set\+Node\+Grid}}
+\index{set\+Node\+Grid@{set\+Node\+Grid}!Quantised\+Event\+Queue@{Quantised\+Event\+Queue}}
+\subsubsection{\texorpdfstring{set\+Node\+Grid()}{setNodeGrid()}}
+{\footnotesize\ttfamily void Quantised\+Event\+Queue\+::set\+Node\+Grid (\begin{DoxyParamCaption}\item[{unsigned}]{node\+ID,  }\item[{\mbox{\hyperlink{classQuantisedEventQueue_ae186d50bd503038452edbbdd0c7c259e}{grid\+Type}}}]{grid }\end{DoxyParamCaption})}
+
+
+
+set the quantise grid type for the node 
+
+\mbox{\Hypertarget{classQuantisedEventQueue_ac89afce9a33fbec4bfc289fee3c1a704}\label{classQuantisedEventQueue_ac89afce9a33fbec4bfc289fee3c1a704}} 
+\index{Quantised\+Event\+Queue@{Quantised\+Event\+Queue}!set\+Node\+Grid\+Multiple@{set\+Node\+Grid\+Multiple}}
+\index{set\+Node\+Grid\+Multiple@{set\+Node\+Grid\+Multiple}!Quantised\+Event\+Queue@{Quantised\+Event\+Queue}}
+\subsubsection{\texorpdfstring{set\+Node\+Grid\+Multiple()}{setNodeGridMultiple()}}
+{\footnotesize\ttfamily void Quantised\+Event\+Queue\+::set\+Node\+Grid\+Multiple (\begin{DoxyParamCaption}\item[{unsigned}]{node\+ID,  }\item[{unsigned}]{mult }\end{DoxyParamCaption})}
+
+sets the grid multiplier for the node (space between grid lines that are valid for beat placement) \mbox{\Hypertarget{classQuantisedEventQueue_a624f66343d287393ee644ce75e0e276a}\label{classQuantisedEventQueue_a624f66343d287393ee644ce75e0e276a}} 
+\index{Quantised\+Event\+Queue@{Quantised\+Event\+Queue}!set\+Node\+Grid\+Offset@{set\+Node\+Grid\+Offset}}
+\index{set\+Node\+Grid\+Offset@{set\+Node\+Grid\+Offset}!Quantised\+Event\+Queue@{Quantised\+Event\+Queue}}
+\subsubsection{\texorpdfstring{set\+Node\+Grid\+Offset()}{setNodeGridOffset()}}
+{\footnotesize\ttfamily void Quantised\+Event\+Queue\+::set\+Node\+Grid\+Offset (\begin{DoxyParamCaption}\item[{unsigned}]{node\+ID,  }\item[{unsigned}]{off }\end{DoxyParamCaption})}
+
+
+
+sets the grid offset 
+
+\mbox{\Hypertarget{classQuantisedEventQueue_aa26d3254efa6178b559caf8978c46e17}\label{classQuantisedEventQueue_aa26d3254efa6178b559caf8978c46e17}} 
+\index{Quantised\+Event\+Queue@{Quantised\+Event\+Queue}!set\+Quantise\+Amount@{set\+Quantise\+Amount}}
+\index{set\+Quantise\+Amount@{set\+Quantise\+Amount}!Quantised\+Event\+Queue@{Quantised\+Event\+Queue}}
+\subsubsection{\texorpdfstring{set\+Quantise\+Amount()}{setQuantiseAmount()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Quantised\+Event\+Queue\+::set\+Quantise\+Amount (\begin{DoxyParamCaption}\item[{float}]{amount }\end{DoxyParamCaption})}
+
+
+
+set the amount of quantisation (0=none, 1=strict) 
+
+\mbox{\Hypertarget{classQuantisedEventQueue_aee5e2fa3c8fe5cf7ab23d2da94c97fb2}\label{classQuantisedEventQueue_aee5e2fa3c8fe5cf7ab23d2da94c97fb2}} 
+\index{Quantised\+Event\+Queue@{Quantised\+Event\+Queue}!set\+Quantise\+Amount@{set\+Quantise\+Amount}}
+\index{set\+Quantise\+Amount@{set\+Quantise\+Amount}!Quantised\+Event\+Queue@{Quantised\+Event\+Queue}}
+\subsubsection{\texorpdfstring{set\+Quantise\+Amount()}{setQuantiseAmount()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Quantised\+Event\+Queue\+::set\+Quantise\+Amount (\begin{DoxyParamCaption}\item[{unsigned}]{node,  }\item[{float}]{amount }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classQuantisedEventQueue_a8a228847e9840052560ad27b7c48988d}\label{classQuantisedEventQueue_a8a228847e9840052560ad27b7c48988d}} 
+\index{Quantised\+Event\+Queue@{Quantised\+Event\+Queue}!set\+Sample\+Rate@{set\+Sample\+Rate}}
+\index{set\+Sample\+Rate@{set\+Sample\+Rate}!Quantised\+Event\+Queue@{Quantised\+Event\+Queue}}
+\subsubsection{\texorpdfstring{set\+Sample\+Rate()}{setSampleRate()}}
+{\footnotesize\ttfamily void Quantised\+Event\+Queue\+::set\+Sample\+Rate (\begin{DoxyParamCaption}\item[{unsigned}]{sample\+Rate }\end{DoxyParamCaption})}
+
+
+
+set the sample rate of the system 
+
+\mbox{\Hypertarget{classQuantisedEventQueue_aa779e58dd906e9d2ddee9187296fca80}\label{classQuantisedEventQueue_aa779e58dd906e9d2ddee9187296fca80}} 
+\index{Quantised\+Event\+Queue@{Quantised\+Event\+Queue}!set\+Tempo@{set\+Tempo}}
+\index{set\+Tempo@{set\+Tempo}!Quantised\+Event\+Queue@{Quantised\+Event\+Queue}}
+\subsubsection{\texorpdfstring{set\+Tempo()}{setTempo()}}
+{\footnotesize\ttfamily void Quantised\+Event\+Queue\+::set\+Tempo (\begin{DoxyParamCaption}\item[{float}]{tempo }\end{DoxyParamCaption})}
+
+
+
+set the tempo in beats per minute 
+
+\mbox{\Hypertarget{classQuantisedEventQueue_ab14d954f402e83c2aaed7ff38a73ac47}\label{classQuantisedEventQueue_ab14d954f402e83c2aaed7ff38a73ac47}} 
+\index{Quantised\+Event\+Queue@{Quantised\+Event\+Queue}!sync\+To\+Bar\+Start@{sync\+To\+Bar\+Start}}
+\index{sync\+To\+Bar\+Start@{sync\+To\+Bar\+Start}!Quantised\+Event\+Queue@{Quantised\+Event\+Queue}}
+\subsubsection{\texorpdfstring{sync\+To\+Bar\+Start()}{syncToBarStart()}}
+{\footnotesize\ttfamily void Quantised\+Event\+Queue\+::sync\+To\+Bar\+Start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+moves to the start of the next bar 
+
+\mbox{\Hypertarget{classQuantisedEventQueue_a97055bead1291aef1d540640fcb61bf9}\label{classQuantisedEventQueue_a97055bead1291aef1d540640fcb61bf9}} 
+\index{Quantised\+Event\+Queue@{Quantised\+Event\+Queue}!tick@{tick}}
+\index{tick@{tick}!Quantised\+Event\+Queue@{Quantised\+Event\+Queue}}
+\subsubsection{\texorpdfstring{tick()}{tick()}}
+{\footnotesize\ttfamily void Quantised\+Event\+Queue\+::tick (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+move the system forwards 1 sample 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+O\+:/\+Documents/\+Max 7/\+Packages/max\+\_\+cpg/source/\+Matsuoka\+Engine\+\_\+src/\mbox{\hyperlink{QuantisedEventQueue_8h}{Quantised\+Event\+Queue.\+h}}\item 
+O\+:/\+Documents/\+Max 7/\+Packages/max\+\_\+cpg/source/\+Matsuoka\+Engine\+\_\+src/\mbox{\hyperlink{QuantisedEventQueue_8cpp}{Quantised\+Event\+Queue.\+cpp}}\end{DoxyCompactItemize}

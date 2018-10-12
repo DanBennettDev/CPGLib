@@ -1,0 +1,186 @@
+\hypertarget{classQuantiseGrid__soft}{}\section{Quantise\+Grid\+\_\+soft Class Reference}
+\label{classQuantiseGrid__soft}\index{Quantise\+Grid\+\_\+soft@{Quantise\+Grid\+\_\+soft}}
+
+
+Engine\+: mechanics for the variable quantiser, used in \mbox{\hyperlink{classQuantisedEventQueue}{Quantised\+Event\+Queue}} -\/ see that class for more detail.  
+
+
+
+
+{\ttfamily \#include $<$Quantise\+Grid\+\_\+soft.\+h$>$}
+
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structQuantiseGrid__soft_1_1noteCoordinate}{note\+Coordinate}}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classQuantiseGrid__soft_ab40cf2cb17e78f06519e2aedd8022f8a}{Quantise\+Grid\+\_\+soft}} (unsigned id, unsigned divisions, unsigned sample\+Rate, float tempo)
+\item 
+\mbox{\hyperlink{structQuantiseGrid__soft_1_1noteCoordinate}{note\+Coordinate}} \mbox{\hyperlink{classQuantiseGrid__soft_a2af018d83f17638adb6483c85b67435f}{tick}} ()
+\item 
+unsigned \mbox{\hyperlink{classQuantiseGrid__soft_aa3a80d71734e4a258f226fb8317130fa}{get\+ID}} ()
+\item 
+\mbox{\hyperlink{structQuantiseGrid__soft_1_1noteCoordinate}{note\+Coordinate}} \mbox{\hyperlink{classQuantiseGrid__soft_af75a096d63f430fb9190d0622b55712f}{get\+Marker}} ()
+\item 
+\mbox{\hyperlink{structQuantiseGrid__soft_1_1noteCoordinate}{note\+Coordinate}} \mbox{\hyperlink{classQuantiseGrid__soft_ae9ba34054f04e9418b2de0a0ce2b4c05}{get\+Bar\+Start}} ()
+\item 
+\mbox{\hyperlink{structQuantiseGrid__soft_1_1noteCoordinate}{note\+Coordinate}} \mbox{\hyperlink{classQuantiseGrid__soft_a379f20a256203270ddfbee891558fc4e}{get\+Place\+Within\+Bar}} ()
+\item 
+\mbox{\hyperlink{structQuantiseGrid__soft_1_1noteCoordinate}{note\+Coordinate}} \mbox{\hyperlink{classQuantiseGrid__soft_a8f24b5579033e3bc267d7c2c7457d213}{jump\+To\+Next\+Bar}} ()
+\item 
+void \mbox{\hyperlink{classQuantiseGrid__soft_a6eadd70b1a9cfe9bb672402e415c8080}{reset\+To\+Bar\+Start}} ()
+\item 
+\mbox{\hyperlink{structQuantiseGrid__soft_1_1noteCoordinate}{note\+Coordinate}} \mbox{\hyperlink{classQuantiseGrid__soft_a09658510d81c50f2a61b224e760323ef}{jump\+To\+Next\+Division}} ()
+\item 
+void \mbox{\hyperlink{classQuantiseGrid__soft_a49a982952228b5b76a99911d0fbcf1ab}{set\+Tempo}} (float tempo)
+\item 
+void \mbox{\hyperlink{classQuantiseGrid__soft_a6486e5f526e5f89209ef9e1bed122bf8}{set\+Sample\+Rate}} (unsigned sample\+Rate)
+\item 
+void \mbox{\hyperlink{classQuantiseGrid__soft_a1c7a53e2ddb58a78013b870a5828a712}{set\+Delay}} (unsigned samples)
+\item 
+float \mbox{\hyperlink{classQuantiseGrid__soft_a180347e39b8a4435d09d4d30aa1267b3}{get\+Tempo}} () const
+\item 
+unsigned \mbox{\hyperlink{classQuantiseGrid__soft_a190c0df68580479a199aafa0cdac03ec}{get\+Sample\+Rate}} () const
+\item 
+bool \mbox{\hyperlink{classQuantiseGrid__soft_a2401437abd3a1c44c536cf3a23d16fc6}{get\+Is\+Note\+Due}} (\mbox{\hyperlink{structQuantiseGrid__soft_1_1noteCoordinate}{note\+Coordinate}} note\+Marker)
+\item 
+\mbox{\hyperlink{structQuantiseGrid__soft_1_1noteCoordinate}{note\+Coordinate}} \mbox{\hyperlink{classQuantiseGrid__soft_a7831011191c8f3aae5bbe02105599b56}{get\+Note\+Coordinate}} (unsigned grid\+Multiple, unsigned offset)
+\item 
+float \mbox{\hyperlink{classQuantiseGrid__soft_a405d013660b0e43f838f384810118e94}{get\+Quantise\+Amount}} ()
+\item 
+void \mbox{\hyperlink{classQuantiseGrid__soft_a229b51ec1d81751479eeb7e6418f092a}{set\+Quantise\+Amount}} (float amount)
+\item 
+uint64\+\_\+t \mbox{\hyperlink{classQuantiseGrid__soft_a41e868ae0c1092b300086eb3b6aa2506}{get\+Prev\+Valid\+Gridline}} (uint64\+\_\+t position, unsigned mult, unsigned offset)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Engine\+: mechanics for the variable quantiser, used in \mbox{\hyperlink{classQuantisedEventQueue}{Quantised\+Event\+Queue}} -\/ see that class for more detail. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classQuantiseGrid__soft_ab40cf2cb17e78f06519e2aedd8022f8a}\label{classQuantiseGrid__soft_ab40cf2cb17e78f06519e2aedd8022f8a}} 
+\index{Quantise\+Grid\+\_\+soft@{Quantise\+Grid\+\_\+soft}!Quantise\+Grid\+\_\+soft@{Quantise\+Grid\+\_\+soft}}
+\index{Quantise\+Grid\+\_\+soft@{Quantise\+Grid\+\_\+soft}!Quantise\+Grid\+\_\+soft@{Quantise\+Grid\+\_\+soft}}
+\subsubsection{\texorpdfstring{Quantise\+Grid\+\_\+soft()}{QuantiseGrid\_soft()}}
+{\footnotesize\ttfamily Quantise\+Grid\+\_\+soft\+::\+Quantise\+Grid\+\_\+soft (\begin{DoxyParamCaption}\item[{unsigned}]{id,  }\item[{unsigned}]{divisions,  }\item[{unsigned}]{sample\+Rate,  }\item[{float}]{tempo }\end{DoxyParamCaption})}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classQuantiseGrid__soft_ae9ba34054f04e9418b2de0a0ce2b4c05}\label{classQuantiseGrid__soft_ae9ba34054f04e9418b2de0a0ce2b4c05}} 
+\index{Quantise\+Grid\+\_\+soft@{Quantise\+Grid\+\_\+soft}!get\+Bar\+Start@{get\+Bar\+Start}}
+\index{get\+Bar\+Start@{get\+Bar\+Start}!Quantise\+Grid\+\_\+soft@{Quantise\+Grid\+\_\+soft}}
+\subsubsection{\texorpdfstring{get\+Bar\+Start()}{getBarStart()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structQuantiseGrid__soft_1_1noteCoordinate}{Quantise\+Grid\+\_\+soft\+::note\+Coordinate}} Quantise\+Grid\+\_\+soft\+::get\+Bar\+Start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classQuantiseGrid__soft_aa3a80d71734e4a258f226fb8317130fa}\label{classQuantiseGrid__soft_aa3a80d71734e4a258f226fb8317130fa}} 
+\index{Quantise\+Grid\+\_\+soft@{Quantise\+Grid\+\_\+soft}!get\+ID@{get\+ID}}
+\index{get\+ID@{get\+ID}!Quantise\+Grid\+\_\+soft@{Quantise\+Grid\+\_\+soft}}
+\subsubsection{\texorpdfstring{get\+I\+D()}{getID()}}
+{\footnotesize\ttfamily unsigned Quantise\+Grid\+\_\+soft\+::get\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classQuantiseGrid__soft_a2401437abd3a1c44c536cf3a23d16fc6}\label{classQuantiseGrid__soft_a2401437abd3a1c44c536cf3a23d16fc6}} 
+\index{Quantise\+Grid\+\_\+soft@{Quantise\+Grid\+\_\+soft}!get\+Is\+Note\+Due@{get\+Is\+Note\+Due}}
+\index{get\+Is\+Note\+Due@{get\+Is\+Note\+Due}!Quantise\+Grid\+\_\+soft@{Quantise\+Grid\+\_\+soft}}
+\subsubsection{\texorpdfstring{get\+Is\+Note\+Due()}{getIsNoteDue()}}
+{\footnotesize\ttfamily bool Quantise\+Grid\+\_\+soft\+::get\+Is\+Note\+Due (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structQuantiseGrid__soft_1_1noteCoordinate}{Quantise\+Grid\+\_\+soft\+::note\+Coordinate}}}]{note\+Marker }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classQuantiseGrid__soft_af75a096d63f430fb9190d0622b55712f}\label{classQuantiseGrid__soft_af75a096d63f430fb9190d0622b55712f}} 
+\index{Quantise\+Grid\+\_\+soft@{Quantise\+Grid\+\_\+soft}!get\+Marker@{get\+Marker}}
+\index{get\+Marker@{get\+Marker}!Quantise\+Grid\+\_\+soft@{Quantise\+Grid\+\_\+soft}}
+\subsubsection{\texorpdfstring{get\+Marker()}{getMarker()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structQuantiseGrid__soft_1_1noteCoordinate}{Quantise\+Grid\+\_\+soft\+::note\+Coordinate}} Quantise\+Grid\+\_\+soft\+::get\+Marker (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classQuantiseGrid__soft_a7831011191c8f3aae5bbe02105599b56}\label{classQuantiseGrid__soft_a7831011191c8f3aae5bbe02105599b56}} 
+\index{Quantise\+Grid\+\_\+soft@{Quantise\+Grid\+\_\+soft}!get\+Note\+Coordinate@{get\+Note\+Coordinate}}
+\index{get\+Note\+Coordinate@{get\+Note\+Coordinate}!Quantise\+Grid\+\_\+soft@{Quantise\+Grid\+\_\+soft}}
+\subsubsection{\texorpdfstring{get\+Note\+Coordinate()}{getNoteCoordinate()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structQuantiseGrid__soft_1_1noteCoordinate}{Quantise\+Grid\+\_\+soft\+::note\+Coordinate}} Quantise\+Grid\+\_\+soft\+::get\+Note\+Coordinate (\begin{DoxyParamCaption}\item[{unsigned}]{grid\+Multiple,  }\item[{unsigned}]{offset }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classQuantiseGrid__soft_a379f20a256203270ddfbee891558fc4e}\label{classQuantiseGrid__soft_a379f20a256203270ddfbee891558fc4e}} 
+\index{Quantise\+Grid\+\_\+soft@{Quantise\+Grid\+\_\+soft}!get\+Place\+Within\+Bar@{get\+Place\+Within\+Bar}}
+\index{get\+Place\+Within\+Bar@{get\+Place\+Within\+Bar}!Quantise\+Grid\+\_\+soft@{Quantise\+Grid\+\_\+soft}}
+\subsubsection{\texorpdfstring{get\+Place\+Within\+Bar()}{getPlaceWithinBar()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structQuantiseGrid__soft_1_1noteCoordinate}{Quantise\+Grid\+\_\+soft\+::note\+Coordinate}} Quantise\+Grid\+\_\+soft\+::get\+Place\+Within\+Bar (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classQuantiseGrid__soft_a41e868ae0c1092b300086eb3b6aa2506}\label{classQuantiseGrid__soft_a41e868ae0c1092b300086eb3b6aa2506}} 
+\index{Quantise\+Grid\+\_\+soft@{Quantise\+Grid\+\_\+soft}!get\+Prev\+Valid\+Gridline@{get\+Prev\+Valid\+Gridline}}
+\index{get\+Prev\+Valid\+Gridline@{get\+Prev\+Valid\+Gridline}!Quantise\+Grid\+\_\+soft@{Quantise\+Grid\+\_\+soft}}
+\subsubsection{\texorpdfstring{get\+Prev\+Valid\+Gridline()}{getPrevValidGridline()}}
+{\footnotesize\ttfamily uint64\+\_\+t Quantise\+Grid\+\_\+soft\+::get\+Prev\+Valid\+Gridline (\begin{DoxyParamCaption}\item[{uint64\+\_\+t}]{position,  }\item[{unsigned}]{mult,  }\item[{unsigned}]{offset }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classQuantiseGrid__soft_a405d013660b0e43f838f384810118e94}\label{classQuantiseGrid__soft_a405d013660b0e43f838f384810118e94}} 
+\index{Quantise\+Grid\+\_\+soft@{Quantise\+Grid\+\_\+soft}!get\+Quantise\+Amount@{get\+Quantise\+Amount}}
+\index{get\+Quantise\+Amount@{get\+Quantise\+Amount}!Quantise\+Grid\+\_\+soft@{Quantise\+Grid\+\_\+soft}}
+\subsubsection{\texorpdfstring{get\+Quantise\+Amount()}{getQuantiseAmount()}}
+{\footnotesize\ttfamily float Quantise\+Grid\+\_\+soft\+::get\+Quantise\+Amount (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classQuantiseGrid__soft_a190c0df68580479a199aafa0cdac03ec}\label{classQuantiseGrid__soft_a190c0df68580479a199aafa0cdac03ec}} 
+\index{Quantise\+Grid\+\_\+soft@{Quantise\+Grid\+\_\+soft}!get\+Sample\+Rate@{get\+Sample\+Rate}}
+\index{get\+Sample\+Rate@{get\+Sample\+Rate}!Quantise\+Grid\+\_\+soft@{Quantise\+Grid\+\_\+soft}}
+\subsubsection{\texorpdfstring{get\+Sample\+Rate()}{getSampleRate()}}
+{\footnotesize\ttfamily unsigned Quantise\+Grid\+\_\+soft\+::get\+Sample\+Rate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{classQuantiseGrid__soft_a180347e39b8a4435d09d4d30aa1267b3}\label{classQuantiseGrid__soft_a180347e39b8a4435d09d4d30aa1267b3}} 
+\index{Quantise\+Grid\+\_\+soft@{Quantise\+Grid\+\_\+soft}!get\+Tempo@{get\+Tempo}}
+\index{get\+Tempo@{get\+Tempo}!Quantise\+Grid\+\_\+soft@{Quantise\+Grid\+\_\+soft}}
+\subsubsection{\texorpdfstring{get\+Tempo()}{getTempo()}}
+{\footnotesize\ttfamily float Quantise\+Grid\+\_\+soft\+::get\+Tempo (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{classQuantiseGrid__soft_a8f24b5579033e3bc267d7c2c7457d213}\label{classQuantiseGrid__soft_a8f24b5579033e3bc267d7c2c7457d213}} 
+\index{Quantise\+Grid\+\_\+soft@{Quantise\+Grid\+\_\+soft}!jump\+To\+Next\+Bar@{jump\+To\+Next\+Bar}}
+\index{jump\+To\+Next\+Bar@{jump\+To\+Next\+Bar}!Quantise\+Grid\+\_\+soft@{Quantise\+Grid\+\_\+soft}}
+\subsubsection{\texorpdfstring{jump\+To\+Next\+Bar()}{jumpToNextBar()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structQuantiseGrid__soft_1_1noteCoordinate}{Quantise\+Grid\+\_\+soft\+::note\+Coordinate}} Quantise\+Grid\+\_\+soft\+::jump\+To\+Next\+Bar (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classQuantiseGrid__soft_a09658510d81c50f2a61b224e760323ef}\label{classQuantiseGrid__soft_a09658510d81c50f2a61b224e760323ef}} 
+\index{Quantise\+Grid\+\_\+soft@{Quantise\+Grid\+\_\+soft}!jump\+To\+Next\+Division@{jump\+To\+Next\+Division}}
+\index{jump\+To\+Next\+Division@{jump\+To\+Next\+Division}!Quantise\+Grid\+\_\+soft@{Quantise\+Grid\+\_\+soft}}
+\subsubsection{\texorpdfstring{jump\+To\+Next\+Division()}{jumpToNextDivision()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structQuantiseGrid__soft_1_1noteCoordinate}{Quantise\+Grid\+\_\+soft\+::note\+Coordinate}} Quantise\+Grid\+\_\+soft\+::jump\+To\+Next\+Division (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classQuantiseGrid__soft_a6eadd70b1a9cfe9bb672402e415c8080}\label{classQuantiseGrid__soft_a6eadd70b1a9cfe9bb672402e415c8080}} 
+\index{Quantise\+Grid\+\_\+soft@{Quantise\+Grid\+\_\+soft}!reset\+To\+Bar\+Start@{reset\+To\+Bar\+Start}}
+\index{reset\+To\+Bar\+Start@{reset\+To\+Bar\+Start}!Quantise\+Grid\+\_\+soft@{Quantise\+Grid\+\_\+soft}}
+\subsubsection{\texorpdfstring{reset\+To\+Bar\+Start()}{resetToBarStart()}}
+{\footnotesize\ttfamily void Quantise\+Grid\+\_\+soft\+::reset\+To\+Bar\+Start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classQuantiseGrid__soft_a1c7a53e2ddb58a78013b870a5828a712}\label{classQuantiseGrid__soft_a1c7a53e2ddb58a78013b870a5828a712}} 
+\index{Quantise\+Grid\+\_\+soft@{Quantise\+Grid\+\_\+soft}!set\+Delay@{set\+Delay}}
+\index{set\+Delay@{set\+Delay}!Quantise\+Grid\+\_\+soft@{Quantise\+Grid\+\_\+soft}}
+\subsubsection{\texorpdfstring{set\+Delay()}{setDelay()}}
+{\footnotesize\ttfamily void Quantise\+Grid\+\_\+soft\+::set\+Delay (\begin{DoxyParamCaption}\item[{unsigned}]{samples }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classQuantiseGrid__soft_a229b51ec1d81751479eeb7e6418f092a}\label{classQuantiseGrid__soft_a229b51ec1d81751479eeb7e6418f092a}} 
+\index{Quantise\+Grid\+\_\+soft@{Quantise\+Grid\+\_\+soft}!set\+Quantise\+Amount@{set\+Quantise\+Amount}}
+\index{set\+Quantise\+Amount@{set\+Quantise\+Amount}!Quantise\+Grid\+\_\+soft@{Quantise\+Grid\+\_\+soft}}
+\subsubsection{\texorpdfstring{set\+Quantise\+Amount()}{setQuantiseAmount()}}
+{\footnotesize\ttfamily void Quantise\+Grid\+\_\+soft\+::set\+Quantise\+Amount (\begin{DoxyParamCaption}\item[{float}]{amount }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classQuantiseGrid__soft_a6486e5f526e5f89209ef9e1bed122bf8}\label{classQuantiseGrid__soft_a6486e5f526e5f89209ef9e1bed122bf8}} 
+\index{Quantise\+Grid\+\_\+soft@{Quantise\+Grid\+\_\+soft}!set\+Sample\+Rate@{set\+Sample\+Rate}}
+\index{set\+Sample\+Rate@{set\+Sample\+Rate}!Quantise\+Grid\+\_\+soft@{Quantise\+Grid\+\_\+soft}}
+\subsubsection{\texorpdfstring{set\+Sample\+Rate()}{setSampleRate()}}
+{\footnotesize\ttfamily void Quantise\+Grid\+\_\+soft\+::set\+Sample\+Rate (\begin{DoxyParamCaption}\item[{unsigned}]{sample\+Rate }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classQuantiseGrid__soft_a49a982952228b5b76a99911d0fbcf1ab}\label{classQuantiseGrid__soft_a49a982952228b5b76a99911d0fbcf1ab}} 
+\index{Quantise\+Grid\+\_\+soft@{Quantise\+Grid\+\_\+soft}!set\+Tempo@{set\+Tempo}}
+\index{set\+Tempo@{set\+Tempo}!Quantise\+Grid\+\_\+soft@{Quantise\+Grid\+\_\+soft}}
+\subsubsection{\texorpdfstring{set\+Tempo()}{setTempo()}}
+{\footnotesize\ttfamily void Quantise\+Grid\+\_\+soft\+::set\+Tempo (\begin{DoxyParamCaption}\item[{float}]{tempo }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classQuantiseGrid__soft_a2af018d83f17638adb6483c85b67435f}\label{classQuantiseGrid__soft_a2af018d83f17638adb6483c85b67435f}} 
+\index{Quantise\+Grid\+\_\+soft@{Quantise\+Grid\+\_\+soft}!tick@{tick}}
+\index{tick@{tick}!Quantise\+Grid\+\_\+soft@{Quantise\+Grid\+\_\+soft}}
+\subsubsection{\texorpdfstring{tick()}{tick()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structQuantiseGrid__soft_1_1noteCoordinate}{Quantise\+Grid\+\_\+soft\+::note\+Coordinate}} Quantise\+Grid\+\_\+soft\+::tick (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+O\+:/\+Documents/\+Max 7/\+Packages/max\+\_\+cpg/source/\+Matsuoka\+Engine\+\_\+src/\mbox{\hyperlink{QuantiseGrid__soft_8h}{Quantise\+Grid\+\_\+soft.\+h}}\item 
+O\+:/\+Documents/\+Max 7/\+Packages/max\+\_\+cpg/source/\+Matsuoka\+Engine\+\_\+src/\mbox{\hyperlink{QuantiseGrid__soft_8cpp}{Quantise\+Grid\+\_\+soft.\+cpp}}\end{DoxyCompactItemize}
