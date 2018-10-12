@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.14"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>CPG Rhythm Engine: MatsuokaEngine</title>
+<title>CPGLib: MatsuokaEngine</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,7 +21,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">CPG Rhythm Engine
+   <div id="projectname">CPGLib
    </div>
   </td>
  </tr>
@@ -62,11 +62,11 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="headertitle">
-<div class="title"><a class="el" href="classMatsuokaEngine.html" title="Engine: Main interface for controlling and calculating the CPG network. ">MatsuokaEngine</a> </div>  </div>
+<div class="title"><a class="el" href="classMatsuokaEngine.html" title="Main interface / top level class for most purposes. Create, manipulate and simulate a CPG network via...">MatsuokaEngine</a> </div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p>A STATIC LIBRARY for musical creativity with Central Pattern Generators</p>
-<p>Top level class for most purposes is <a class="el" href="classMatsuokaEngine.html" title="Engine: Main interface for controlling and calculating the CPG network. ">MatsuokaEngine</a> But may be useful to use other classes in isolation (e.g. <a class="el" href="classMatsuNode.html" title="Engine: Matsuoka Oscillator Node Class. ">MatsuNode</a> may be easier to use if you just want a single oscillator)</p>
+<p>Top level class for most purposes is <a class="el" href="classMatsuokaEngine.html" title="Main interface / top level class for most purposes. Create, manipulate and simulate a CPG network via...">MatsuokaEngine</a> But may be useful to use other classes in isolation (e.g. <a class="el" href="classMatsuNode.html" title="Engine: Matsuoka Oscillator Node Class. ">MatsuNode</a> may be easier to use if you just want a single oscillator)</p>
 <p>Supports threadsafe operation - parameter changes are queued for execution using the doQueuedActions() method So, for example, the GUI thread might call parameter update methods (marked QUEUED ACTION) as and when required, and these requests will be queued for actioning by the signal thread. They will only be actioned when doQueuedActions is called - ideally in the DSP / signal-rate thread. I would suggest calling doQueuedActions at the start of each signal vector calculation. </p>
 </div></div><!-- contents -->
 <!-- start footer part -->

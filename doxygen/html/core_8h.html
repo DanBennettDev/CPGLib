@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.14"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>CPG Rhythm Engine: O:/Documents/Max 7/Packages/max_cpg/source/MatsuokaEngine_src/core.h File Reference</title>
+<title>CPGLib: O:/Documents/Max 7/Packages/max_cpg/source/MatsuokaEngine_src/core.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,7 +21,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">CPG Rhythm Engine
+   <div id="projectname">CPGLib
    </div>
   </td>
  </tr>
@@ -75,16 +75,19 @@ Macros</h2></td></tr>
 <tr class="memitem:a3472739367c2a7e0dedc0f10f0528ad8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="core_8h.html#a3472739367c2a7e0dedc0f10f0528ad8">WAVETABLE_LENGTH</a>&#160;&#160;&#160;1024</td></tr>
 <tr class="separator:a3472739367c2a7e0dedc0f10f0528ad8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4912c64aec0c943b7985db6cb61ff83a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="core_8h.html#a4912c64aec0c943b7985db6cb61ff83a">TWOPI</a>&#160;&#160;&#160;6.2831853</td></tr>
+<tr class="memdesc:a4912c64aec0c943b7985db6cb61ff83a"><td class="mdescLeft">&#160;</td><td class="mdescRight">no of samples in the wavetable when oscillator is driven by phasor  <a href="#a4912c64aec0c943b7985db6cb61ff83a">More...</a><br /></td></tr>
 <tr class="separator:a4912c64aec0c943b7985db6cb61ff83a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad007f55dc46bdb954e3a7d5369151f25"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="core_8h.html#ad007f55dc46bdb954e3a7d5369151f25">DEFAULTSAMPLERATE</a>&#160;&#160;&#160;1000</td></tr>
 <tr class="separator:ad007f55dc46bdb954e3a7d5369151f25"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a85ca3a19fb45089953ba6f7095d27b6c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="core_8h.html#a85ca3a19fb45089953ba6f7095d27b6c">DEFAULTNODEFREQ</a>&#160;&#160;&#160;1</td></tr>
+<tr class="memdesc:a85ca3a19fb45089953ba6f7095d27b6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">default cycles per second for node  <a href="#a85ca3a19fb45089953ba6f7095d27b6c">More...</a><br /></td></tr>
 <tr class="separator:a85ca3a19fb45089953ba6f7095d27b6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1b1f27a18f1f1d5c28f3ce75e0ab8fbc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="core_8h.html#a1b1f27a18f1f1d5c28f3ce75e0ab8fbc">MAX_DELAYLINE_LENGTH</a>&#160;&#160;&#160;20000</td></tr>
 <tr class="separator:a1b1f27a18f1f1d5c28f3ce75e0ab8fbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a729eb10966051d28d4bc7b6143d40572"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="core_8h.html#a729eb10966051d28d4bc7b6143d40572">INIT_DELAY_LENGTH</a>&#160;&#160;&#160;20000</td></tr>
 <tr class="separator:a729eb10966051d28d4bc7b6143d40572"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6ab3e65dd0d7d40ec79690c9b8430b5d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="core_8h.html#a6ab3e65dd0d7d40ec79690c9b8430b5d">MIN_DELAY_LENGTH</a>&#160;&#160;&#160;2</td></tr>
+<tr class="memdesc:a6ab3e65dd0d7d40ec79690c9b8430b5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">never set lower than 2  <a href="#a6ab3e65dd0d7d40ec79690c9b8430b5d">More...</a><br /></td></tr>
 <tr class="separator:a6ab3e65dd0d7d40ec79690c9b8430b5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeb610fb362c43c6e654300b8dc8bce31"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="core_8h.html#aeb610fb362c43c6e654300b8dc8bce31">DELAYLINE_RESIZE_THRESHOLD</a>&#160;&#160;&#160;0.5</td></tr>
 <tr class="separator:aeb610fb362c43c6e654300b8dc8bce31"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -97,14 +100,26 @@ Macros</h2></td></tr>
 <tr class="memitem:abd2aacdca9cb2a1a30f3392256b96ea3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="core_8h.html#abd2aacdca9cb2a1a30f3392256b96ea3">MAX_NODES</a>&#160;&#160;&#160;16</td></tr>
 <tr class="separator:abd2aacdca9cb2a1a30f3392256b96ea3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae0d9de1f64f9f396c43e2f7b34ccc333"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="core_8h.html#ae0d9de1f64f9f396c43e2f7b34ccc333">DEFAULT_NOTE_FREQ</a>&#160;&#160;&#160;200</td></tr>
+<tr class="memdesc:ae0d9de1f64f9f396c43e2f7b34ccc333"><td class="mdescLeft">&#160;</td><td class="mdescRight">pitch that objects will be initialised to  <a href="#ae0d9de1f64f9f396c43e2f7b34ccc333">More...</a><br /></td></tr>
 <tr class="separator:ae0d9de1f64f9f396c43e2f7b34ccc333"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a98b9b2b06a1aba5b41a9c4a94cbd89df"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="core_8h.html#a98b9b2b06a1aba5b41a9c4a94cbd89df">CONFIG_ADDRESS</a>&#160;&#160;&#160;&quot;config&quot;</td></tr>
+<tr class="memdesc:a98b9b2b06a1aba5b41a9c4a94cbd89df"><td class="mdescLeft">&#160;</td><td class="mdescRight">folder for config files  <a href="#a98b9b2b06a1aba5b41a9c4a94cbd89df">More...</a><br /></td></tr>
 <tr class="separator:a98b9b2b06a1aba5b41a9c4a94cbd89df"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1ad89fca7155a30df37ae361ae648c6f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="core_8h.html#a1ad89fca7155a30df37ae361ae648c6f">SCALING_CURVE_SOURCE</a>&#160;&#160;&#160;<a class="el" href="core_8h.html#a98b9b2b06a1aba5b41a9c4a94cbd89df">CONFIG_ADDRESS</a> &quot;/scalingCurve.txt&quot;</td></tr>
+<tr class="memdesc:a1ad89fca7155a30df37ae361ae648c6f"><td class="mdescLeft">&#160;</td><td class="mdescRight">location to store the weight scaling curve  <a href="#a1ad89fca7155a30df37ae361ae648c6f">More...</a><br /></td></tr>
 <tr class="separator:a1ad89fca7155a30df37ae361ae648c6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1eb87d30999eb98cacdfdc0d11608ae8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="core_8h.html#a1eb87d30999eb98cacdfdc0d11608ae8">DEFAULT_CURVE_X</a>&#160;&#160;&#160;0.25f, 0.333f, 0.5f, 1.111f, 1.333f, 2.f, 3.f, 4.f, 6.f, 8.f</td></tr>
+<tr class="memdesc:a1eb87d30999eb98cacdfdc0d11608ae8"><td class="mdescLeft">&#160;</td><td class="mdescRight">default curve for weight scaling  <a href="#a1eb87d30999eb98cacdfdc0d11608ae8">More...</a><br /></td></tr>
+<tr class="separator:a1eb87d30999eb98cacdfdc0d11608ae8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae06f2637bb4eb80c5114d064d209bd09"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="core_8h.html#ae06f2637bb4eb80c5114d064d209bd09">DEFAULT_CURVE_Y</a>&#160;&#160;&#160;1.955492228f, 1.098290155f, 0.107150259f, 0.133937824f, 0.321450777f, 0.517f, 0.641026425f, 0.937029016f, 1.194725389f, 1.259015544f</td></tr>
+<tr class="separator:ae06f2637bb4eb80c5114d064d209bd09"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d4998340ebdb7aaabfc3374a03cae5f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="core_8h.html#a3d4998340ebdb7aaabfc3374a03cae5f">UNITY_CONN_WEIGHT</a>&#160;&#160;&#160;3</td></tr>
+<tr class="memdesc:a3d4998340ebdb7aaabfc3374a03cae5f"><td class="mdescLeft">&#160;</td><td class="mdescRight">default scaling for full range of weights for node input - from 0 signal input to full entrainment at UNITY_CONN_WEIGHT  <a href="#a3d4998340ebdb7aaabfc3374a03cae5f">More...</a><br /></td></tr>
+<tr class="separator:a3d4998340ebdb7aaabfc3374a03cae5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a53148621ae97f2c9d7ab8959b6f6dd04"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="core_8h.html#a53148621ae97f2c9d7ab8959b6f6dd04">MIN_NODE_FREQ</a>&#160;&#160;&#160;0.2</td></tr>
 <tr class="separator:a53148621ae97f2c9d7ab8959b6f6dd04"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a59652d9798e6ae0d9e6747e8ea07f88e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="core_8h.html#a59652d9798e6ae0d9e6747e8ea07f88e">DTB_LOG_VAR</a>(A,  B)</td></tr>
+<tr class="memdesc:a59652d9798e6ae0d9e6747e8ea07f88e"><td class="mdescLeft">&#160;</td><td class="mdescRight">DEBUGGING.  <a href="#a59652d9798e6ae0d9e6747e8ea07f88e">More...</a><br /></td></tr>
 <tr class="separator:a59652d9798e6ae0d9e6747e8ea07f88e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1d8e945bf782efd05b02d6abca3f7d5c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="core_8h.html#a1d8e945bf782efd05b02d6abca3f7d5c">DTB_LOG</a>(A)</td></tr>
 <tr class="separator:a1d8e945bf782efd05b02d6abca3f7d5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -118,6 +133,38 @@ Macros</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">#define CONFIG_ADDRESS&#160;&#160;&#160;&quot;config&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>folder for config files </p>
+
+</div>
+</div>
+<a id="a1eb87d30999eb98cacdfdc0d11608ae8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1eb87d30999eb98cacdfdc0d11608ae8">&#9670;&nbsp;</a></span>DEFAULT_CURVE_X</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DEFAULT_CURVE_X&#160;&#160;&#160;0.25f, 0.333f, 0.5f, 1.111f, 1.333f, 2.f, 3.f, 4.f, 6.f, 8.f</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>default curve for weight scaling </p>
+
+</div>
+</div>
+<a id="ae06f2637bb4eb80c5114d064d209bd09"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae06f2637bb4eb80c5114d064d209bd09">&#9670;&nbsp;</a></span>DEFAULT_CURVE_Y</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DEFAULT_CURVE_Y&#160;&#160;&#160;1.955492228f, 1.098290155f, 0.107150259f, 0.133937824f, 0.321450777f, 0.517f, 0.641026425f, 0.937029016f, 1.194725389f, 1.259015544f</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -136,6 +183,8 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>pitch that objects will be initialised to </p>
+
 </div>
 </div>
 <a id="aa8140fe053fef64afe26b20a03e01d4a"></a>
@@ -149,6 +198,7 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>constant used in calculating frequency of node based on parameters, and vice versa. Should be set in tandem with the default parameters TODO: move default parameters into this header. see K.Matsuoka, "Analysis of a neural oscillator," Biological cybernetics, vol. 104, no. 4 - 5, pp. 297{304, 2011. </p>
 
 </div>
 </div>
@@ -164,6 +214,8 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>default cycles per second for node </p>
+
 </div>
 </div>
 <a id="ad007f55dc46bdb954e3a7d5369151f25"></a>
@@ -177,6 +229,7 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>default sample rate at which calculations are to be performed. 1000 gives 1ms resolution - plenty for rhythm generation purposes audio rate applications will obviously need to be higher </p>
 
 </div>
 </div>
@@ -205,6 +258,7 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Delay line for a node is increased in size when requirement reaches DELAYLINE_RESIZE_THRESHOLD * delayLineLength. When resized delayline size is multiplied by DELAYLINE_RESIZE_AMOUNT. Delayline requirement = node cyclelength </p>
 
 </div>
 </div>
@@ -252,6 +306,8 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>DEBUGGING. </p>
+
 </div>
 </div>
 <a id="a729eb10966051d28d4bc7b6143d40572"></a>
@@ -265,6 +321,7 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>This sets the length at initialisation - see above for discussion, for present I have opted to set to max from start to avoid any memory allocation during performance </p>
 
 </div>
 </div>
@@ -279,6 +336,7 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Maximum lengths of node output delay lines in samples. Related to DEFAULTSAMPLERATE &amp; values should be changed in tandem. High values will have memory implications since one delayline occurs at each node. Delay lines are used for pseudo-phase offset, so this value should be set high enough to offset by one waveform cycle at the lowest expected operating frequency. For rhythmic uses I have accounted for 40 second cycles to allow longform, sound organisation. Since samplerate can be kept low this is not a problem: If 32 nodes are active, and all running at slowest frequency (improbable case) then 20000 sample lines results in c 3mb total allocated to delay lines. </p>
 
 </div>
 </div>
@@ -293,6 +351,7 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>maximum number of nodes handled by system. In several places arrays large enough for all nodes are allocated on initialisation, ahead of time to simplify implementation and allow optimisations. </p>
 
 </div>
 </div>
@@ -307,6 +366,8 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>never set lower than 2 </p>
 
 </div>
 </div>
@@ -351,6 +412,8 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>location to store the weight scaling curve </p>
+
 </div>
 </div>
 <a id="a4912c64aec0c943b7985db6cb61ff83a"></a>
@@ -364,6 +427,24 @@ Macros</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>no of samples in the wavetable when oscillator is driven by phasor </p>
+
+</div>
+</div>
+<a id="a3d4998340ebdb7aaabfc3374a03cae5f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d4998340ebdb7aaabfc3374a03cae5f">&#9670;&nbsp;</a></span>UNITY_CONN_WEIGHT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define UNITY_CONN_WEIGHT&#160;&#160;&#160;3</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>default scaling for full range of weights for node input - from 0 signal input to full entrainment at UNITY_CONN_WEIGHT </p>
 
 </div>
 </div>

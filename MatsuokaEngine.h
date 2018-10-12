@@ -2,7 +2,7 @@
 
 
 /*! \class MatsuokaEngine
-*  \brief Engine: Main interface for controlling and calculating the CPG network
+*  \brief Main interface / top level class for most purposes. Create, manipulate and simulate a CPG network via this class.
 *
 *  Threadsafe - step(), getEvents() etc. can be run in the signal-rate thread, while controlling the system
 *  using the other functions from another control thread (e.g. gui / etc.). 
@@ -15,10 +15,15 @@
 *  These events typically happen once per cycle and can be used for e.g. note triggers 
 *  Events may be quantised to a timing-grid
 *  
-*
+*  
 *
 */
 
+//TODO:
+//-method to generate weight scaling curve for arbitrary parameters
+//- invertable connections
+//- Waveshaping options for connections to change node response(raise to power, and threshold)
+//- Halt / Restart connection mode.
 
 #include <mutex>
 #include <vector>
@@ -36,6 +41,7 @@ class MatsuokaEngine
 typedef  std::function<void(int, float)> Callback;
 
 public:
+
     // simplify usage in classes interacting with the engine
     using input = CPG::input;    
     using synchMode = MatsuNode::synchMode;
@@ -46,20 +52,21 @@ public:
 		none, driving, reseting
 	};
 
-
+	/// \brief Constructor initialising with DEFAULTSAMPLERATE (see core.h). 
+	/// This sets up the engine to generate a single event per cycle of each node, 
+	/// occuring at the outputs positive zero crossing. Other configurations are possible using the 
+	/// constructor overload(s)
     MatsuokaEngine();
 
-	/// sample rate in Hz
-	/// eventOnRise - generate 1 event per cycle when signal is rising 
-	/// eventOnFall - generate 1 event per cycle when signal is falling 
-	/// fireOnPeak - event is generated at signal peak (and/or trough) rather than zero crossing
+	/// \brief Constructor determining sample rate and event output behaviour. 
 	/// Events can thus be generated 0 1 or 2 times per cycle, at rising and/or falling zero crossings,
 	/// or at first signal peak and/or trough.
-    MatsuokaEngine(unsigned sampleRate,
-                    bool eventOnRise = true,
-                    bool eventOnFall = false,
-                    bool fireOnPeak = false);
-
+    MatsuokaEngine(
+					unsigned sampleRate, //!<  sample rate in Hz
+                    bool eventOnRise = true, //!<  generate 1 event per cycle when signal is rising 
+                    bool eventOnFall = false, //!<  eventOnFall - generate 1 event per cycle when signal is falling 
+                    bool fireOnPeak = false //!<  fireOnPeak - event(s) are generated at signal peak (and/or trough) rather than zero crossing
+					);
     MatsuokaEngine(const MatsuokaEngine& rhs);
 
 
@@ -109,7 +116,7 @@ public:
     bool loadConnectionWeightCurve(std::string source);
 
 	/// expects a table of values: used to scale connection weights between nodes
-	/// Each line should hold two floats, one for frequency ratio, the other
+	/// Each line should hold two floats, one (x) for frequency ratio, the other (y) 
 	/// for the weight multiplier. See setConnectionWeightScaling() and ScalingCurve.h
 	bool loadConnectionWeightCurve(std::vector<float> x, std::vector<float> y);
 

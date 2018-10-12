@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.14"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>CPG Rhythm Engine: MatsuokaEngine Class Reference</title>
+<title>CPGLib: MatsuokaEngine Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,7 +21,7 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">CPG Rhythm Engine
+   <div id="projectname">CPGLib
    </div>
   </td>
  </tr>
@@ -70,7 +70,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Engine: Main interface for controlling and calculating the <a class="el" href="classCPG.html" title="Engine: Matsuoka Oscillator Central Pattern Generator Template Class. ">CPG</a> network.  
+<p>Main interface / top level class for most purposes. Create, manipulate and simulate a <a class="el" href="classCPG.html" title="Engine: Matsuoka Oscillator Central Pattern Generator Template Class. ">CPG</a> network via this class.  
  <a href="classMatsuokaEngine.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="MatsuokaEngine_8h_source.html">MatsuokaEngine.h</a>&gt;</code></p>
@@ -94,8 +94,10 @@ Public Types</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a25f70ceddea44651433ea8547b332ecf"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMatsuokaEngine.html#a25f70ceddea44651433ea8547b332ecf">MatsuokaEngine</a> ()</td></tr>
+<tr class="memdesc:a25f70ceddea44651433ea8547b332ecf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor initialising with DEFAULTSAMPLERATE (see <a class="el" href="core_8h.html">core.h</a>). This sets up the engine to generate a single event per cycle of each node, occuring at the outputs positive zero crossing. Other configurations are possible using the constructor overload(s)  <a href="#a25f70ceddea44651433ea8547b332ecf">More...</a><br /></td></tr>
 <tr class="separator:a25f70ceddea44651433ea8547b332ecf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4d26cc1bf5144ea89611377701716fea"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMatsuokaEngine.html#a4d26cc1bf5144ea89611377701716fea">MatsuokaEngine</a> (unsigned sampleRate, bool eventOnRise=true, bool eventOnFall=false, bool fireOnPeak=false)</td></tr>
+<tr class="memdesc:a4d26cc1bf5144ea89611377701716fea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor determining sample rate and event output behaviour. Events can thus be generated 0 1 or 2 times per cycle, at rising and/or falling zero crossings, or at first signal peak and/or trough.  <a href="#a4d26cc1bf5144ea89611377701716fea">More...</a><br /></td></tr>
 <tr class="separator:a4d26cc1bf5144ea89611377701716fea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab0c8d7fd6eb27c8a8dae7e5fa3742ff9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMatsuokaEngine.html#ab0c8d7fd6eb27c8a8dae7e5fa3742ff9">MatsuokaEngine</a> (const <a class="el" href="classMatsuokaEngine.html">MatsuokaEngine</a> &amp;rhs)</td></tr>
 <tr class="separator:ab0c8d7fd6eb27c8a8dae7e5fa3742ff9"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -276,7 +278,7 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a9ecbc93a17a602d8358c189363397575"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Engine: Main interface for controlling and calculating the <a class="el" href="classCPG.html" title="Engine: Matsuoka Oscillator Central Pattern Generator Template Class. ">CPG</a> network. </p>
+<div class="textblock"><p>Main interface / top level class for most purposes. Create, manipulate and simulate a <a class="el" href="classCPG.html" title="Engine: Matsuoka Oscillator Central Pattern Generator Template Class. ">CPG</a> network via this class. </p>
 <p>Threadsafe - <a class="el" href="classMatsuokaEngine.html#a4fa468dc0814f1ad92594f7a4d5abd00" title="calculate one step of network calculations, and populate the event queue, ">step()</a>, <a class="el" href="classMatsuokaEngine.html#a70444163eee59d0df5b282bb8696f5a1" title="Returns vector of queued events and clears the event queue. ">getEvents()</a> etc. can be run in the signal-rate thread, while controlling the system using the other functions from another control thread (e.g. gui / etc.). To support this, some functions are not immediately actioned, but queued for actioning by the signal thread These queued functions are commented QUEUED ACTION All actions in the queue are executed when <a class="el" href="classMatsuokaEngine.html#affd6ef89f68c1aa654229a07e0160f2e">doQueuedActions()</a> is called (e.g. once per vector before doing signal calcs).</p>
 <p>The two main outputs from the network are the signals of the nodes, and "events" Events are triggers - generated either by e.g positive zero crossing of the signal These events typically happen once per cycle and can be used for e.g. note triggers Events may be quantised to a timing-grid </p>
 </div><h2 class="groupheader">Member Typedef Documentation</h2>
@@ -372,6 +374,8 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Constructor initialising with DEFAULTSAMPLERATE (see <a class="el" href="core_8h.html">core.h</a>). This sets up the engine to generate a single event per cycle of each node, occuring at the outputs positive zero crossing. Other configurations are possible using the constructor overload(s) </p>
+
 </div>
 </div>
 <a id="a4d26cc1bf5144ea89611377701716fea"></a>
@@ -411,7 +415,17 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>sample rate in Hz eventOnRise - generate 1 event per cycle when signal is rising eventOnFall - generate 1 event per cycle when signal is falling fireOnPeak - event is generated at signal peak (and/or trough) rather than zero crossing Events can thus be generated 0 1 or 2 times per cycle, at rising and/or falling zero crossings, or at first signal peak and/or trough. </p>
+
+<p>Constructor determining sample rate and event output behaviour. Events can thus be generated 0 1 or 2 times per cycle, at rising and/or falling zero crossings, or at first signal peak and/or trough. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sampleRate</td><td>sample rate in Hz </td></tr>
+    <tr><td class="paramname">eventOnRise</td><td>generate 1 event per cycle when signal is rising </td></tr>
+    <tr><td class="paramname">eventOnFall</td><td>eventOnFall - generate 1 event per cycle when signal is falling </td></tr>
+    <tr><td class="paramname">fireOnPeak</td><td>fireOnPeak - event(s) are generated at signal peak (and/or trough) rather than zero crossing </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -1053,7 +1067,7 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>expects a table of values: used to scale connection weights between nodes Each line should hold two floats, one for frequency ratio, the other for the weight multiplier. See <a class="el" href="classMatsuokaEngine.html#adb864bf26563682f94ba2e131fb8b793">setConnectionWeightScaling()</a> and <a class="el" href="ScalingCurve_8h.html">ScalingCurve.h</a> </p>
+<p>expects a table of values: used to scale connection weights between nodes Each line should hold two floats, one (x) for frequency ratio, the other (y) for the weight multiplier. See <a class="el" href="classMatsuokaEngine.html#adb864bf26563682f94ba2e131fb8b793">setConnectionWeightScaling()</a> and <a class="el" href="ScalingCurve_8h.html">ScalingCurve.h</a> </p>
 
 </div>
 </div>

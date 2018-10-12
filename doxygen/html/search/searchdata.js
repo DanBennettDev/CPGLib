@@ -8,8 +8,8 @@ var indexSectionsWithContent =
   5: "gimnos",
   6: "egms",
   7: "_bcdfgnrstuvxz",
-  8: "bcdeghimnprstvwx",
-  9: "m"
+  8: "bcdeghimnprstuvwx",
+  9: "am"
 };
 
 var indexSectionNames =

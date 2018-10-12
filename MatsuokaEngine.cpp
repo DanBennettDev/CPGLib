@@ -566,6 +566,12 @@ void MatsuokaEngine::setUnityConnectionWeight(float unity)
 void MatsuokaEngine::setConnectionWeightScaling(bool on)
 {
     _cpg.setConnectionWeightScaling(on);
+
+	if (on) {
+		std::vector<float> curvX = { DEFAULT_CURVE_X };
+		std::vector<float> curvY = { DEFAULT_CURVE_Y };
+		_cpg.loadWeightScalingCurve(curvX, curvY);
+	}
 }
 
 

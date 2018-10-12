@@ -2,7 +2,7 @@
 \label{classMatsuokaEngine}\index{Matsuoka\+Engine@{Matsuoka\+Engine}}
 
 
-Engine\+: Main interface for controlling and calculating the \mbox{\hyperlink{classCPG}{C\+PG}} network.  
+Main interface / top level class for most purposes. Create, manipulate and simulate a \mbox{\hyperlink{classCPG}{C\+PG}} network via this class.  
 
 
 
@@ -29,9 +29,9 @@ using \mbox{\hyperlink{classMatsuokaEngine_aaf41ce5bf63099a1d864e4eb91527cb5}{gr
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\hyperlink{classMatsuokaEngine_a25f70ceddea44651433ea8547b332ecf}{Matsuoka\+Engine}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Constructor initialising with D\+E\+F\+A\+U\+L\+T\+S\+A\+M\+P\+L\+E\+R\+A\+TE (see \mbox{\hyperlink{core_8h}{core.\+h}}). This sets up the engine to generate a single event per cycle of each node, occuring at the outputs positive zero crossing. Other configurations are possible using the constructor overload(s) \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classMatsuokaEngine_a4d26cc1bf5144ea89611377701716fea}{Matsuoka\+Engine}} (unsigned sample\+Rate, bool event\+On\+Rise=true, bool event\+On\+Fall=false, bool fire\+On\+Peak=false)
-\item 
+\begin{DoxyCompactList}\small\item\em Constructor determining sample rate and event output behaviour. Events can thus be generated 0 1 or 2 times per cycle, at rising and/or falling zero crossings, or at first signal peak and/or trough. \end{DoxyCompactList}\item 
 \mbox{\hyperlink{classMatsuokaEngine_ab0c8d7fd6eb27c8a8dae7e5fa3742ff9}{Matsuoka\+Engine}} (const \mbox{\hyperlink{classMatsuokaEngine}{Matsuoka\+Engine}} \&rhs)
 \item 
 void \mbox{\hyperlink{classMatsuokaEngine_a4fa468dc0814f1ad92594f7a4d5abd00}{step}} ()
@@ -175,7 +175,7 @@ void \mbox{\hyperlink{classMatsuokaEngine_a9ecbc93a17a602d8358c189363397575}{zer
 
 
 \subsection{Detailed Description}
-Engine\+: Main interface for controlling and calculating the \mbox{\hyperlink{classCPG}{C\+PG}} network. 
+Main interface / top level class for most purposes. Create, manipulate and simulate a \mbox{\hyperlink{classCPG}{C\+PG}} network via this class. 
 
 Threadsafe -\/ \mbox{\hyperlink{classMatsuokaEngine_a4fa468dc0814f1ad92594f7a4d5abd00}{step()}}, \mbox{\hyperlink{classMatsuokaEngine_a70444163eee59d0df5b282bb8696f5a1}{get\+Events()}} etc. can be run in the signal-\/rate thread, while controlling the system using the other functions from another control thread (e.\+g. gui / etc.). To support this, some functions are not immediately actioned, but queued for actioning by the signal thread These queued functions are commented Q\+U\+E\+U\+ED A\+C\+T\+I\+ON All actions in the queue are executed when \mbox{\hyperlink{classMatsuokaEngine_affd6ef89f68c1aa654229a07e0160f2e}{do\+Queued\+Actions()}} is called (e.\+g. once per vector before doing signal calcs).
 
@@ -238,13 +238,32 @@ reseting&\\
 \subsubsection{\texorpdfstring{Matsuoka\+Engine()}{MatsuokaEngine()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
 {\footnotesize\ttfamily Matsuoka\+Engine\+::\+Matsuoka\+Engine (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
+
+
+Constructor initialising with D\+E\+F\+A\+U\+L\+T\+S\+A\+M\+P\+L\+E\+R\+A\+TE (see \mbox{\hyperlink{core_8h}{core.\+h}}). This sets up the engine to generate a single event per cycle of each node, occuring at the outputs positive zero crossing. Other configurations are possible using the constructor overload(s) 
+
 \mbox{\Hypertarget{classMatsuokaEngine_a4d26cc1bf5144ea89611377701716fea}\label{classMatsuokaEngine_a4d26cc1bf5144ea89611377701716fea}} 
 \index{Matsuoka\+Engine@{Matsuoka\+Engine}!Matsuoka\+Engine@{Matsuoka\+Engine}}
 \index{Matsuoka\+Engine@{Matsuoka\+Engine}!Matsuoka\+Engine@{Matsuoka\+Engine}}
 \subsubsection{\texorpdfstring{Matsuoka\+Engine()}{MatsuokaEngine()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
 {\footnotesize\ttfamily Matsuoka\+Engine\+::\+Matsuoka\+Engine (\begin{DoxyParamCaption}\item[{unsigned}]{sample\+Rate,  }\item[{bool}]{event\+On\+Rise = {\ttfamily true},  }\item[{bool}]{event\+On\+Fall = {\ttfamily false},  }\item[{bool}]{fire\+On\+Peak = {\ttfamily false} }\end{DoxyParamCaption})}
 
-sample rate in Hz event\+On\+Rise -\/ generate 1 event per cycle when signal is rising event\+On\+Fall -\/ generate 1 event per cycle when signal is falling fire\+On\+Peak -\/ event is generated at signal peak (and/or trough) rather than zero crossing Events can thus be generated 0 1 or 2 times per cycle, at rising and/or falling zero crossings, or at first signal peak and/or trough. \mbox{\Hypertarget{classMatsuokaEngine_ab0c8d7fd6eb27c8a8dae7e5fa3742ff9}\label{classMatsuokaEngine_ab0c8d7fd6eb27c8a8dae7e5fa3742ff9}} 
+
+
+Constructor determining sample rate and event output behaviour. Events can thus be generated 0 1 or 2 times per cycle, at rising and/or falling zero crossings, or at first signal peak and/or trough. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sample\+Rate} & sample rate in Hz \\
+\hline
+{\em event\+On\+Rise} & generate 1 event per cycle when signal is rising \\
+\hline
+{\em event\+On\+Fall} & event\+On\+Fall -\/ generate 1 event per cycle when signal is falling \\
+\hline
+{\em fire\+On\+Peak} & fire\+On\+Peak -\/ event(s) are generated at signal peak (and/or trough) rather than zero crossing \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classMatsuokaEngine_ab0c8d7fd6eb27c8a8dae7e5fa3742ff9}\label{classMatsuokaEngine_ab0c8d7fd6eb27c8a8dae7e5fa3742ff9}} 
 \index{Matsuoka\+Engine@{Matsuoka\+Engine}!Matsuoka\+Engine@{Matsuoka\+Engine}}
 \index{Matsuoka\+Engine@{Matsuoka\+Engine}!Matsuoka\+Engine@{Matsuoka\+Engine}}
 \subsubsection{\texorpdfstring{Matsuoka\+Engine()}{MatsuokaEngine()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
@@ -509,7 +528,7 @@ expects a table of values\+: used to scale connection weights between nodes Each
 \subsubsection{\texorpdfstring{load\+Connection\+Weight\+Curve()}{loadConnectionWeightCurve()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
 {\footnotesize\ttfamily bool Matsuoka\+Engine\+::load\+Connection\+Weight\+Curve (\begin{DoxyParamCaption}\item[{std\+::vector$<$ float $>$}]{x,  }\item[{std\+::vector$<$ float $>$}]{y }\end{DoxyParamCaption})}
 
-expects a table of values\+: used to scale connection weights between nodes Each line should hold two floats, one for frequency ratio, the other for the weight multiplier. See \mbox{\hyperlink{classMatsuokaEngine_adb864bf26563682f94ba2e131fb8b793}{set\+Connection\+Weight\+Scaling()}} and \mbox{\hyperlink{ScalingCurve_8h}{Scaling\+Curve.\+h}} \mbox{\Hypertarget{classMatsuokaEngine_abf37008845614f7b6a7ec0440141e06f}\label{classMatsuokaEngine_abf37008845614f7b6a7ec0440141e06f}} 
+expects a table of values\+: used to scale connection weights between nodes Each line should hold two floats, one (x) for frequency ratio, the other (y) for the weight multiplier. See \mbox{\hyperlink{classMatsuokaEngine_adb864bf26563682f94ba2e131fb8b793}{set\+Connection\+Weight\+Scaling()}} and \mbox{\hyperlink{ScalingCurve_8h}{Scaling\+Curve.\+h}} \mbox{\Hypertarget{classMatsuokaEngine_abf37008845614f7b6a7ec0440141e06f}\label{classMatsuokaEngine_abf37008845614f7b6a7ec0440141e06f}} 
 \index{Matsuoka\+Engine@{Matsuoka\+Engine}!move\+Node@{move\+Node}}
 \index{move\+Node@{move\+Node}!Matsuoka\+Engine@{Matsuoka\+Engine}}
 \subsubsection{\texorpdfstring{move\+Node()}{moveNode()}}
