@@ -1,6 +1,7 @@
 ## MatsuokaEngine
 
 A STATIC LIBRARY for musical creativity with Central Pattern Generators
+C++11
 
 Top level class for most purposes is MatsuokaEngine
 But may be useful to use other classes in isolation (e.g. MatsuNode may be easier to use if you just want a single oscillator)
