@@ -18,6 +18,7 @@ MatsuokaEngine::MatsuokaEngine(unsigned sampleRate,
 {
     _outputs.reserve(MAX_NODES);
     _fcc_node0Inputs.reserve(MAX_NODES);
+	setUnityConnectionWeight(UNITY_CONN_WEIGHT);
 
     _sampleRate =  sampleRate;
     _eventOnRise = eventOnRise;
