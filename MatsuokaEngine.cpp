@@ -712,7 +712,7 @@ void MatsuokaEngine::_setSampleRate(unsigned sampleRate)
 
 
 // On optimised build this is the biggest bottleneck outside
-// the RK calcs
+// the RK calcs.
 void MatsuokaEngine::fillOutputs()
 {
     using signalState = MatsuNode::signalState;

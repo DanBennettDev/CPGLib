@@ -13,6 +13,10 @@
 *   introduces a delay. Push pull quantiser - moves incoming events to nearest beat
 */
 
+// TODO: ditch the STL stuff and avoid allocation in the DSP thread
+// Just store events in a fixed array, report no of events
+// and provide access method to access references to the elements
+
 class QuantisedEventQueue
 {
 

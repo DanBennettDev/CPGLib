@@ -20,7 +20,8 @@
 */
 
 //TODO:
-//-method to generate weight scaling curve for arbitrary parameters
+//- method to generate weight scaling curve for arbitrary parameters
+//- Rewrite quantiser to avoid allocation in the DSP thread 
 //- invertable connections
 //- Waveshaping options for connections to change node response(raise to power, and threshold)
 //- Halt / Restart connection mode.

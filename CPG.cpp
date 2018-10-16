@@ -588,6 +588,7 @@ void CPG::create(double t1, double t2, double c1, double c2, double b, double g)
         _nodes[i].setIsActive(i==0);
     }
     _activeNodes.clear();
+	_activeNodes.reserve(MAX_NODES);
     _activeNodes.push_back(0);
 	_zeroState.x1 = X1_INIT;
 	_zeroState.x2 = X2_INIT;
