@@ -512,7 +512,7 @@ void CPG::setExternalInput(unsigned nodeID, double input, double weight)
 }
 
 
-void CPG::setDrivingInput(double input)
+void CPG::setDrivingInput(float input)
 {
 	if (input < 0) { input = 0; }
 	if (input > 1) { input = 1; }
@@ -541,7 +541,7 @@ void CPG::createExternalSyncResources()
 	_zeroState.v2 = _nodes[0].getInternal(MatsuNode::matsuInternal::V2);
 
 	// record wavetable
-	for (int i = 0; i < _sampleRate; i++) {
+	for (unsigned i = 0; i < _sampleRate; i++) {
 		_wavetable.push_back((float)_nodes[0].getOutput(true));
 		_nodes[0].doCalcStep(true, false);
 	}

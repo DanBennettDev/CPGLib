@@ -3,11 +3,11 @@
 QuantiseGrid_hard::QuantiseGrid_hard(unsigned id, unsigned divisions, unsigned sampleRate, float tempo)
 {
     _id = id;
-    _divisions = (float)divisions;
-    _sampleRate = (float)sampleRate;
+    _divisions = divisions;
+    _sampleRate = sampleRate;
     _tempo = tempo;
     _gridMarker = 0;
-    _nextBar = (float)_divisions;
+    _nextBar = (uint64_t)_divisions;
     _phase = 0.0f;
     _setPhaseDelta();
 }
@@ -36,7 +36,7 @@ uint64_t QuantiseGrid_hard::getMarker()
 
 uint64_t QuantiseGrid_hard::getBarStart()
 {
-    return _gridMarker - (_gridMarker % (int)_divisions);
+    return _gridMarker - (_gridMarker % _divisions);
 }
 
 uint64_t QuantiseGrid_hard::getPlaceWithinBar()
@@ -68,7 +68,7 @@ void QuantiseGrid_hard::setTempo(float tempo)
 
 void QuantiseGrid_hard::setSampleRate(unsigned sampleRate)
 {
-    _sampleRate = (float)sampleRate;
+    _sampleRate = sampleRate;
     _setPhaseDelta();
 }
 
@@ -108,7 +108,7 @@ uint64_t  QuantiseGrid_hard::getNoteCoordinate(unsigned gridMultiple, unsigned o
 
 void QuantiseGrid_hard::_setPhaseDelta()
 {
-    _phaseDelta =  (_tempo * _divisions)/ (_sampleRate * 60.0);
+    _phaseDelta =  (_tempo * _divisions)/ (_sampleRate * 60.0f);
 }
 
 void QuantiseGrid_hard::_incrementDivision()

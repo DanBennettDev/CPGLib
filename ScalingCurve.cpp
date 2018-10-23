@@ -114,7 +114,7 @@ float ScalingCurve::_lookup(float lookup)
 		if (_curve.size() > 128) {
 			// for largish table, binary search and don't bother interpolating
 			// binary search for the lookup val
-			int min = 0, max = _curve.size();
+			int min = 0, max = (int)_curve.size();
 			int cursor = min + ((max - min) / 2);
 			while (min < max - 1 && _curve[cursor].x != lookup) {
 				if (_curve[cursor].x < lookup) {
@@ -149,6 +149,7 @@ float ScalingCurve::_lookup(float lookup)
 
 		return _curve[cursor - 1].y + (errorScaled*delta);
 	}
+	return lookup;
 }
 
 

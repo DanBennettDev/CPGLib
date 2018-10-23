@@ -75,7 +75,7 @@
 
 /// min stable freq currently seems to be c 0.2
 /// This is ok for present uses, but in future it might be worth investigating
-#define MIN_NODE_FREQ 0.2
+#define MIN_NODE_FREQ 0.2f
 
 // DEBUGGING
 

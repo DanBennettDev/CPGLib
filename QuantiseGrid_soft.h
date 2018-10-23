@@ -67,11 +67,11 @@ private:
     void _incrementDivision();
 
     unsigned _id;
-    double _phase;
+    float _phase;
     unsigned _sampleRate;
-    float _divisions;
+    unsigned _divisions;
     float _tempo;
-    double _phaseDelta;
+    float _phaseDelta;
     uint64_t _gridMarker;
     uint64_t _nextBar;
     float _quantiseAmount;

@@ -36,11 +36,11 @@ bool QuantiseGrid_soft::noteCoordinate::operator<= (const noteCoordinate& other)
 QuantiseGrid_soft::QuantiseGrid_soft(unsigned id, unsigned divisions, unsigned sampleRate, float tempo)
 {
     _id = id;
-    _divisions = (float)divisions;
-    _sampleRate = (float)sampleRate;
+    _divisions = divisions;
+    _sampleRate = sampleRate;
     _tempo = tempo;
     _gridMarker = 0;
-    _nextBar = (float)_divisions;
+    _nextBar = _divisions;
     _phase = 0.0f;
     _setPhaseDelta();
     _quantiseAmount = 1;
@@ -124,14 +124,14 @@ void QuantiseGrid_soft::setTempo(float tempo)
 
 void QuantiseGrid_soft::setSampleRate(unsigned sampleRate)
 {
-    _sampleRate = (float)sampleRate;
+    _sampleRate = sampleRate;
     _setPhaseDelta();
 }
 
 void QuantiseGrid_soft::setDelay(unsigned samples)
 {
     float minDelay = samples * _phaseDelta;
-    _delayGrid = floor(minDelay);
+    _delayGrid = (int)minDelay;
     _delayPhase = minDelay - _delayGrid;
 }
 
@@ -194,16 +194,17 @@ QuantiseGrid_soft::noteCoordinate  QuantiseGrid_soft::getNoteCoordinate(unsigned
         }
     }
     // variable quantisation: work out how far to move towards the target
-    int gridMove = (targetGrid - rawGrid);
+    int gridMove = (int)(targetGrid - rawGrid);
     float move = ((float(gridMove) - _phase) * _quantiseAmount);
-    uint64_t finalGrid = rawGrid + floor(move);
+    uint64_t finalGrid = rawGrid + (int)move;
     // handle numeric wraparound (should only ever happen in first bar, and once per several hours)
     if (finalGrid > (rawGrid + _divisions * 100)) {
         // 100 bars diffference is an arbitrary large number that shouldn't occur
         // and should reliably indicate that we've moved backwards to before zero
-        finalGrid += (floor(move) * 2);
+        finalGrid += ((int)(move) * 2);
     }
-    float finalPhase = _phase + move - floor(move);
+	// TODO - clearly wrong. Fix this. But check behaviour first
+	float finalPhase = _phase + move - (int)move;
     if (finalGrid >= 1.0) {
         finalGrid -= 1.0;
         finalGrid += 1;

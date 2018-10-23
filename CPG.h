@@ -188,7 +188,7 @@ public:
 	// Are we driving the root node from an external input? 
 	void setDriven(bool driven);
 	// if we are driving from an external input, set that value 
-	void setDrivingInput(double input);
+	void setDrivingInput(float input);
 	// create the lookup wavetable and zero-state in case we are driving via an external phasor
 	void createExternalSyncResources();
 
