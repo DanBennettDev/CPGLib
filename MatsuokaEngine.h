@@ -12,6 +12,11 @@
 */
 
 
+// TODO:
+// Main priority - avoid memory allocation in DSP thread via STL containers in Quantiser classes
+// Biggest bottleneck for performance outside matsuoka calcs is here.
+// (Other classes use STL containers, but don't allocate memory in the DSP thread - so not a big deal)
+
 #include <mutex>
 #include <vector>
 #include <queue>
