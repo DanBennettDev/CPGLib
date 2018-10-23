@@ -2,10 +2,12 @@
 #include <cstdint>
 #include <list>
 #include <vector>
+#include <array>
 #include <mutex>
 #include "QuantiseGrid_soft.h"
 #include "core.h"
 
+#define EVENTPOOLSIZE 1024
 
 /*! \class QuantisedEventQueue
 *  \brief Engine: Takes events as inputs and outputs them at the correct quantised interval
@@ -88,7 +90,7 @@ public:
     void syncToBarStart();
 
     /// returns any notes which are ready to be played (call every tick())
-    std::vector<outputEvent> getNotes();
+    outputEvent getNote();
 
 
 
@@ -98,10 +100,14 @@ private:
     {
         outputEvent event;
         noteCoordinate queueMarker;
+		bool active;
+		queuedEvent *next;
 
         queuedEvent():
             event(),
-            queueMarker(0, 0)
+            queueMarker(0, 0),
+			active{false},
+			next {nullptr}
         {}
     } ;
 
@@ -137,15 +143,93 @@ private:
         }
     };
 
+	class EventQueue
+	{
+
+	private:
+		std::array<queuedEvent, EVENTPOOLSIZE> _pool;
+
+		queuedEvent *_queueStart;
+		queuedEvent *_queueEnd;
+		queuedEvent *_cursor;
+
+		queuedEvent* _newEvent() {
+			for (int i = 0; i < EVENTPOOLSIZE; i++) {
+				if (!_pool[i].active) {
+					return &_pool[i];
+				}
+			}
+			return nullptr;
+		}
+
+		queuedEvent* _place(queuedEvent e) {
+			_cursor = _queueStart;
+			queuedEvent* newEvent = _newEvent();
+			*newEvent = e;
+			newEvent->active = true;
+			newEvent->next = nullptr;
+
+			if (e.queueMarker < _cursor->queueMarker) {
+				newEvent->next = _queueStart;
+				_queueStart = newEvent;
+				return _queueEnd;
+			} 
+
+			while (_cursor->next != nullptr && e.queueMarker  < _cursor->next->queueMarker) {
+				_cursor = _cursor->next;
+			}	
+			newEvent->next = _cursor->next;
+			_cursor->next = newEvent;
+			if (newEvent->next == nullptr) {
+				_queueEnd = newEvent;
+			}
+			return _queueEnd;
+		}
+
+
+	public:
+		EventQueue() {
+			_queueStart = nullptr;
+			_queueEnd = nullptr;
+			_cursor = nullptr;
+		}
+
+		void add(queuedEvent e) {
+			e.next = nullptr;
+			e.active = true;
+			if (_queueStart == nullptr) {
+				_pool[0] = e;
+				_queueStart = &_pool[0];
+				_queueEnd = &_pool[0];
+			} else {
+				_place(e);
+			}
+		}
+
+		outputEvent* get(noteCoordinate marker) {
+			if (_queueStart == nullptr) {
+				return nullptr;
+			}
+			if (_queueStart->queueMarker < marker) {
+				outputEvent *ret = &_queueStart->event;
+				_queueStart = _queueStart->next;
+				return ret;
+			}
+		}
+	};
+
+
+
     void setNoteDelays();
     unsigned _delayNotes;
     float _tempo;
     float _quantiseAmount;
     unsigned _sampleRate;
     nodeDetails nodes[MAX_NODES];
-    std::list<queuedEvent> _eventQueue24;
-    std::list<queuedEvent> _eventQueue32;
+	EventQueue _eventQueue24;
+	EventQueue _eventQueue32;
     std::list<queuedEvent_free> _eventQueueFree;
+	outputEvent _nullEvent;
 
     QuantiseGrid_soft _grid24;
     QuantiseGrid_soft _grid32;

@@ -12,6 +12,8 @@ QuantisedEventQueue::QuantisedEventQueue(unsigned sampleRate, float tempo)
     _sampleRate = sampleRate;
     setNoteDelays();
     _quantiseAmount = 1;
+	_nullEvent.nodeID = -1;
+	
 
     setNodeGrid(0, gridType::unQuantised);
     for (int i = 1; i < MAX_NODES; i++) {
@@ -46,33 +48,12 @@ void QuantisedEventQueue::addEvent(outputEvent e)
         switch (nodes[e.nodeID].grid) {
             case gridType::_32nd:
             {
-                std::lock_guard<std::mutex> lock(_queue_mutex);
-				_grid32.setQuantiseAmount(nodes[e.nodeID].amount * _quantiseAmount);
-                qe.queueMarker = _grid32.getNoteCoordinate(mult, off);
-                eventIt = _eventQueue32.begin();
-                if (_eventQueue32.size() > 0) {
-                    while (eventIt != _eventQueue32.end() &&
-                        eventIt->queueMarker < qe.queueMarker ) {
-                        eventIt++;
-                    }
-                }
-                _eventQueue32.insert(eventIt, qe);
+				_eventQueue32.add(qe);
                 return;
             }
             case gridType::_24th:
             {
-                std::lock_guard<std::mutex> lock(_queue_mutex);
-				_grid24.setQuantiseAmount(nodes[e.nodeID].amount * _quantiseAmount);
-                qe.queueMarker = _grid24.getNoteCoordinate(mult, off);
-                eventIt = _eventQueue24.begin();
-                if (_eventQueue24.size() > 0) {
-                    while (eventIt != _eventQueue24.end() &&
-                            eventIt->queueMarker < qe.queueMarker) {
-                        eventIt++;
-                    }
-                }
-                _eventQueue24.insert(eventIt, qe);
-
+				_eventQueue24.add(qe);
                 return;
             }
         }
@@ -97,35 +78,25 @@ void QuantisedEventQueue::tick()
 }
 
 
-std::vector<QuantisedEventQueue::outputEvent> QuantisedEventQueue::getNotes()
+QuantisedEventQueue::outputEvent QuantisedEventQueue::getNote()
 {
-    std::vector<outputEvent> output = std::vector<outputEvent>();
+	outputEvent *e = _eventQueue24.get(_mark24);
+	if (e != nullptr) { return *e; };
+	e = _eventQueue32.get(_mark32);
+	if (e != nullptr) { return *e; };
 
-    std::lock_guard<std::mutex> lock(_queue_mutex);
-    if (!_eventQueue24.empty() && _eventQueue24.begin()->queueMarker < _mark24) {
-        auto eventIt = _eventQueue24.begin();
-        while (eventIt != _eventQueue24.end() && eventIt->queueMarker < _mark24) {
-				output.push_back(eventIt->event);
-            eventIt = _eventQueue24.erase(eventIt);
-        }
-    }
-    if (!_eventQueue32.empty() && _eventQueue32.begin()->queueMarker < _mark32) {
-        auto eventIt = _eventQueue32.begin();
-        while (eventIt!= _eventQueue32.end() && eventIt->queueMarker < _mark32) {
-				output.push_back(eventIt->event);
-            eventIt = _eventQueue32.erase(eventIt);
-        }
-    }
-    while (!_eventQueueFree.empty() && _eventQueueFree.begin()->countDown<=0) {
-        output.push_back(_eventQueueFree.front().event);
+
+    if (!_eventQueueFree.empty() && _eventQueueFree.begin()->countDown<=0) {
+        outputEvent e = _eventQueueFree.front().event;
         // note 0 is the root and sets the tempo
         if (_eventQueueFree.front().event.nodeID == 0) {
             syncToBarStart();
         }
         _eventQueueFree.pop_front();
+		return e;
     }
 
-    return output;
+    return _nullEvent;
 }
 
 void QuantisedEventQueue::setSampleRate(unsigned sampleRate)

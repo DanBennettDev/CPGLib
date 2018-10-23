@@ -741,12 +741,15 @@ void MatsuokaEngine::fillOutputs()
     }
 
 
-    for (auto ev : _quantiser.getNotes()) {
-        _outputs.push_back(ev);
-        if (_eventCallback) {
-            _eventCallback(ev.nodeID, (float)ev.velocity);
-        }
-    }
+	auto e = _quantiser.getNote();
+	while (e.nodeID != -1) {
+		_outputs.push_back(e);
+		if (_eventCallback) {
+			_eventCallback(e.nodeID, (float)e.velocity);
+		}
+		e = _quantiser.getNote();
+	}
+
 }
 
 
