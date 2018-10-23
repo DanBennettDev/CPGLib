@@ -204,13 +204,20 @@ QuantiseGrid_soft::noteCoordinate  QuantiseGrid_soft::getNoteCoordinate(unsigned
         finalGrid += ((int)(move) * 2);
     }
 	// TODO - clearly wrong. Fix this. But check behaviour first
+//	float finalPhase = _phase + move - (int)move;
+//    if (finalGrid >= 1.0) {
+//        finalGrid -= 1.0;
+//        finalGrid += 1;
+//    }
+//    return noteCoordinate(finalGrid, finalGrid);
 	float finalPhase = _phase + move - (int)move;
-    if (finalGrid >= 1.0) {
-        finalGrid -= 1.0;
-        finalGrid += 1;
-    }
-    return noteCoordinate(finalGrid, finalGrid);
+	if (finalPhase >= 1.0) {
+		finalPhase -= 1.0;
+		finalGrid += 1;
+	}
+	return noteCoordinate(finalGrid, finalPhase);
 }
+
 
 
 void QuantiseGrid_soft::_setPhaseDelta()
