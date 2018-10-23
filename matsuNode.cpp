@@ -48,22 +48,24 @@ void MatsuNode::doCalcStep(bool basicsOnly, bool withInput)
 	prevState = matsuParams.state;
 #endif
 	double input = withInput ? getInput() : 0;
-	double calcVal = matsuoka_calc_nextVal_RK(input,
+	double calculatedValue = matsuoka_calc_nextVal_RK(input,
 		matsuParams.t1, matsuParams.t2,
 		matsuParams.c1, matsuParams.c2,
 		matsuParams.b, matsuParams.g,
 		&matsuParams.state);
 
-	if(_driven){
+	if (!_driven) {
+		matsuParams.out.pushSample(calculatedValue);
+	}
+	else {
 		matsuParams.out.pushSample(_drivenValue);
-	} else {
-		matsuParams.out.pushSample(calcVal);
 	}
 
 	if (!basicsOnly) {
 		updateSignalState();
 		doAuxiliaryStepActions();
 	}
+
 }
 
 
@@ -90,13 +92,13 @@ double MatsuNode::getInput() const
 	return sum;
 }
 
-
 double MatsuNode::getOutput(bool forceStateVal) const
 {
-	if (forceStateVal) {
-		return matsuParams.state.out;
+	if (!forceStateVal) {
+		return matsuParams.out.getDelayed(_nodeOutputDelay);
 	}
-	return matsuParams.out.getDelayed(_nodeOutputDelay);
+	return matsuParams.state.out;
+	
 }
 
 
@@ -229,9 +231,6 @@ void MatsuNode::setDrivenMode(bool driven)
 {
 	_driven = driven;
 }
-
-
-
 void MatsuNode::driveOutput(float val)
 {
 	_drivenValue = val;

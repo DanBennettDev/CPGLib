@@ -79,10 +79,11 @@ public:
     */
     void reset(unsigned nodeID, double x1, double x2, double v1, double v2);
 
-	
+
 	/// if createExternalSyncResources has been run, this function resets the node to its state just prior to positive zero crossing 
 	/// otherwise behaviour is as reset(nodeID)
 	void zeroSync(unsigned nodeID);
+
 
     /// Adds, or changes weight of, a one-way connection between two nodes
     /*! If the connection specified exists, then its weight is set to that specified.
@@ -181,15 +182,13 @@ public:
 
     unsigned getNextNodeID();
 
-
+    // protected - may be useful to limit which nodes can take external input 
     void setExternalInput(unsigned nodeID, double input, double weight = 1.0);
 
 	// Are we driving the root node from an external input? 
 	void setDriven(bool driven);
-
 	// if we are driving from an external input, set that value 
 	void setDrivingInput(double input);
-
 	// create the lookup wavetable and zero-state in case we are driving via an external phasor
 	void createExternalSyncResources();
 
@@ -210,7 +209,7 @@ private:
     ScalingCurve scaler;
 	float _drivingInput;
 	std::vector<float> _wavetable;
-	bool _driven { false };
+	bool _driven{ false };
 	matsuoka_internals _zeroState;
 
     /// Removes the specified node from the CPG.

@@ -43,7 +43,7 @@ void CPG::step()    // calculates all nodes in class
 
 void CPG::step(unsigned nodeID)    // calculates all nodes in class
 {
-	_nodes[nodeID].doCalcStep();
+    _nodes[nodeID].doCalcStep();
 }
 
 
@@ -85,16 +85,16 @@ void CPG::reset(double x1, double x2, double v1, double v2)
     }
 }
 
+
 void CPG::zeroSync(unsigned nodeID) {
 	_nodes[nodeID].reset(_zeroState.x1, _zeroState.x2, _zeroState.v1, _zeroState.v2);;
 }
-
 
 /// Adds, or changes weight of, a one-way connection between two nodes
 /*! If the connection specified exists, then its weight is set to that specified.
 *  Otherwise a new input is added to the node whose ID is specified by nodeTo,
 *  from the node whose ID is specified by nodeFrom, with weight specified.
-*  If either node specified does not exist, an runtime_error is thrown.
+*  If either node specified does not exist, a runtime error is thrown.
 */
 void CPG::setConnection(unsigned nodeFrom, unsigned nodeTo, double weight)
 {
@@ -120,7 +120,7 @@ void CPG::setConnectionPhaseOffset(unsigned nodeFrom, unsigned nodeTo,
 /*! If a connection specified exists, then its weight is set to that specified.
 *  Otherwise a new input is added: to the node specified by nodeTo,
 *  from the node specified by nodeFrom, with weight specified.
-*  If either node specified does not exist, an runtime_error is thrown.
+*  If either node specified does not exist, a runtime error is thrown.
 */
 void CPG::setConnection(unsigned NodeA, unsigned NodeB, double weightAtoB,
     double weightBtoA)
@@ -518,7 +518,6 @@ void CPG::setDrivingInput(double input)
 	if (input > 1) { input = 1; }
 	_nodes[0].driveOutput(wavetableLookup(input));
 }
-
 void CPG::setDriven(bool driven) {
 	_driven = driven;
 	_nodes[0].setDrivenMode(driven);
@@ -527,14 +526,14 @@ void CPG::setDriven(bool driven) {
 void CPG::createExternalSyncResources()
 {
 	_wavetable.clear();
-
-	// move oscillator to positive zero crossing
+	// move to positive zero crossing
 	while (_nodes[0].getOutput() > 0) {
 		_nodes[0].doCalcStep(true, false);
 	}
 	while (_nodes[0].getOutput() < 0) {
 		_nodes[0].doCalcStep(true, false);
 	}
+
 	// record state prior to zero crossing
 	_zeroState.x1 = _nodes[0].getInternal(MatsuNode::matsuInternal::X1);
 	_zeroState.x2 = _nodes[0].getInternal(MatsuNode::matsuInternal::X2);
@@ -547,9 +546,6 @@ void CPG::createExternalSyncResources()
 		_nodes[0].doCalcStep(true, false);
 	}
 }
-
-
-
 
 
 
@@ -588,7 +584,6 @@ void CPG::create(double t1, double t2, double c1, double c2, double b, double g)
         _nodes[i].setIsActive(i==0);
     }
     _activeNodes.clear();
-	_activeNodes.reserve(MAX_NODES);
     _activeNodes.push_back(0);
 	_zeroState.x1 = X1_INIT;
 	_zeroState.x2 = X2_INIT;
@@ -717,7 +712,7 @@ void CPG::setNodeDelayLine(unsigned nodeID, double freq)
 
 void CPG::updateConnectionBasedOnFreq(unsigned nodeID, float oldFreq)
 {
-    //if we're using frequency-based scaling of connection weight, update weights
+    //if we're using frequency based scaling of connection weight, update weights
     if (scaler.isScalingOn()) {
         // handle all nodes which take input from this node
         for (auto destinationID : _activeNodes) {
@@ -743,9 +738,9 @@ void CPG::updateConnectionBasedOnFreq(unsigned nodeID, float oldFreq)
 
 
 float  CPG::wavetableLookup(float i) {
-
 	// scale up to wavetable size
-	i *= _sampleRate-1;
+	i *= _sampleRate - 1;
+
 	int iFloor = (int)i;
 	float delta = i - iFloor;
 	if (delta > 0) {

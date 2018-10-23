@@ -187,9 +187,7 @@ QuantiseGrid_soft::noteCoordinate  QuantiseGrid_soft::getNoteCoordinate(unsigned
         targetGrid = nextValidGrid;
     } else {
         // find the closest gridMarker
-		// llabs not available on some platforms
-        //if (llabs(prevValidGridline - rawGrid) < llabs(nextValidGrid - rawGrid)) {
-		if ((rawGrid - prevValidGridline) < (nextValidGrid - rawGrid)) {
+        if ((rawGrid - prevValidGridline) < (nextValidGrid - rawGrid)) {
             targetGrid = prevValidGridline;
         } else {
             targetGrid = nextValidGrid;

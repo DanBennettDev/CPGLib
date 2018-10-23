@@ -18,7 +18,6 @@ MatsuokaEngine::MatsuokaEngine(unsigned sampleRate,
 {
     _outputs.reserve(MAX_NODES);
     _fcc_node0Inputs.reserve(MAX_NODES);
-	setUnityConnectionWeight(UNITY_CONN_WEIGHT);
 
     _sampleRate =  sampleRate;
     _eventOnRise = eventOnRise;
@@ -164,19 +163,6 @@ void MatsuokaEngine::step()
     }
 }
 
-void MatsuokaEngine::stepBareBones()
-{
-	if (!_shutdown && !_paused) {
-		_idle = false;
-		// calculate next cpg step
-		_cpg.step();
-		_stepCounter++;
-		_idle = true;
-	}
-}
-
-
-
 void MatsuokaEngine::step(unsigned nodeID)
 {
     if (!_shutdown && !_paused) {
@@ -193,6 +179,18 @@ void MatsuokaEngine::step(unsigned nodeID)
         updateFreqCompensationState();
         _idle = true;
     }
+}
+
+
+void MatsuokaEngine::stepBareBones()
+{
+	if (!_shutdown && !_paused) {
+		_idle = false;
+		// calculate next cpg step
+		_cpg.step();
+		_stepCounter++;
+		_idle = true;
+	}
 }
 
 
@@ -553,7 +551,7 @@ bool MatsuokaEngine::loadConnectionWeightCurve(std::string source)
 {
     return _cpg.loadWeightScalingCurve(source);
 }
- 
+
 bool MatsuokaEngine::loadConnectionWeightCurve(std::vector<float> x, std::vector<float> y)
 {
 	return _cpg.loadWeightScalingCurve(x,y);
@@ -567,12 +565,6 @@ void MatsuokaEngine::setUnityConnectionWeight(float unity)
 void MatsuokaEngine::setConnectionWeightScaling(bool on)
 {
     _cpg.setConnectionWeightScaling(on);
-
-	if (on) {
-		std::vector<float> curvX = { DEFAULT_CURVE_X };
-		std::vector<float> curvY = { DEFAULT_CURVE_Y };
-		_cpg.loadWeightScalingCurve(curvX, curvY);
-	}
 }
 
 
@@ -684,24 +676,19 @@ void MatsuokaEngine::setDriven(externalSync driven)
 	if (driven == externalSync::driving) {
 		_cpg.setDriven(driven);
 	}
-
 }
-
-
 void MatsuokaEngine::setDrivingInput(float val)
 {
 	_cpg.setDrivingInput(val);
 }
 
 
+// PRIVATE ///////////////////////////////////////////////////////////////
+
 void MatsuokaEngine::zeroSync(unsigned nodeID)
 {
 	_cpg.zeroSync(nodeID);
 }
-
-
-// PRIVATE ///////////////////////////////////////////////////////////////
-
 
 void MatsuokaEngine::_setSampleRate(unsigned sampleRate)
 {
@@ -712,7 +699,7 @@ void MatsuokaEngine::_setSampleRate(unsigned sampleRate)
 
 
 // On optimised build this is the biggest bottleneck outside
-// the RK calcs.
+// the RK calcs
 void MatsuokaEngine::fillOutputs()
 {
     using signalState = MatsuNode::signalState;
