@@ -203,14 +203,14 @@ QuantiseGrid_soft::noteCoordinate  QuantiseGrid_soft::getNoteCoordinate(unsigned
         // and should reliably indicate that we've moved backwards to before zero
         finalGrid += ((int)(move) * 2);
     }
-	// TODO - clearly wrong. Fix this. But check behaviour first
-//	float finalPhase = _phase + move - (int)move;
-//    if (finalGrid >= 1.0) {
-//        finalGrid -= 1.0;
-//        finalGrid += 1;
-//    }
-//    return noteCoordinate(finalGrid, finalGrid);
+	 //TODO - clearly wrong. Fix this. But check behaviour first
 	float finalPhase = _phase + move - (int)move;
+    //if (finalGrid >= 1.0) {
+    //    finalGrid -= 1.0;
+    //    finalGrid += 1;
+    //}
+    //return noteCoordinate(finalGrid, finalGrid);
+
 	if (finalPhase >= 1.0) {
 		finalPhase -= 1.0;
 		finalGrid += 1;

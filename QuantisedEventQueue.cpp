@@ -102,16 +102,16 @@ std::vector<QuantisedEventQueue::outputEvent> QuantisedEventQueue::getNotes()
     std::vector<outputEvent> output = std::vector<outputEvent>();
 
     std::lock_guard<std::mutex> lock(_queue_mutex);
-    if (!_eventQueue24.empty() && _eventQueue24.begin()->queueMarker <= _mark24) {
+    if (!_eventQueue24.empty() && _eventQueue24.begin()->queueMarker < _mark24) {
         auto eventIt = _eventQueue24.begin();
-        while (eventIt != _eventQueue24.end() && eventIt->queueMarker <= _mark24) {
+        while (eventIt != _eventQueue24.end() && eventIt->queueMarker < _mark24) {
 				output.push_back(eventIt->event);
             eventIt = _eventQueue24.erase(eventIt);
         }
     }
-    if (!_eventQueue32.empty() && _eventQueue32.begin()->queueMarker <= _mark32) {
+    if (!_eventQueue32.empty() && _eventQueue32.begin()->queueMarker < _mark32) {
         auto eventIt = _eventQueue32.begin();
-        while (eventIt!= _eventQueue32.end() && eventIt->queueMarker <= _mark32) {
+        while (eventIt!= _eventQueue32.end() && eventIt->queueMarker < _mark32) {
 				output.push_back(eventIt->event);
             eventIt = _eventQueue32.erase(eventIt);
         }
