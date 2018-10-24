@@ -48,11 +48,15 @@ void QuantisedEventQueue::addEvent(outputEvent e)
         switch (nodes[e.nodeID].grid) {
             case gridType::_32nd:
             {
+				_grid32.setQuantiseAmount(nodes[e.nodeID].amount * _quantiseAmount);
+				qe.queueMarker = _grid32.getNoteCoordinate(mult, off);
 				_eventQueue32.add(qe);
                 return;
             }
             case gridType::_24th:
             {
+				_grid24.setQuantiseAmount(nodes[e.nodeID].amount * _quantiseAmount);
+				qe.queueMarker = _grid24.getNoteCoordinate(mult, off);
 				_eventQueue24.add(qe);
                 return;
             }
@@ -80,16 +84,16 @@ void QuantisedEventQueue::tick()
 
 QuantisedEventQueue::outputEvent QuantisedEventQueue::getNote()
 {
-	outputEvent *e = _eventQueue24.get(_mark24);
+	outputEvent *e = _eventQueue24.getEvent(_mark24);
 	if (e != nullptr) { return *e; };
-	e = _eventQueue32.get(_mark32);
+	e = _eventQueue32.getEvent(_mark32);
 	if (e != nullptr) { return *e; };
 
 
     if (!_eventQueueFree.empty() && _eventQueueFree.begin()->countDown<=0) {
         outputEvent e = _eventQueueFree.front().event;
         // note 0 is the root and sets the tempo
-        if (_eventQueueFree.front().event.nodeID == 0) {
+        if (e.nodeID == 0) {
             syncToBarStart();
         }
         _eventQueueFree.pop_front();

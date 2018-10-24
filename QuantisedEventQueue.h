@@ -153,7 +153,7 @@ private:
 		queuedEvent *_queueEnd;
 		queuedEvent *_cursor;
 
-		queuedEvent* _newEvent() {
+		queuedEvent* _getMem() {
 			for (int i = 0; i < EVENTPOOLSIZE; i++) {
 				if (!_pool[i].active) {
 					return &_pool[i];
@@ -163,18 +163,18 @@ private:
 		}
 
 		queuedEvent* _place(queuedEvent e) {
-			_cursor = _queueStart;
-			queuedEvent* newEvent = _newEvent();
+			queuedEvent* newEvent = _getMem();
 			*newEvent = e;
 			newEvent->active = true;
 			newEvent->next = nullptr;
 
-			if (e.queueMarker < _cursor->queueMarker) {
+			if (e.queueMarker < _queueStart->queueMarker) {
 				newEvent->next = _queueStart;
 				_queueStart = newEvent;
 				return _queueEnd;
-			} 
+			}
 
+			_cursor = _queueStart;
 			while (_cursor->next != nullptr && e.queueMarker  < _cursor->next->queueMarker) {
 				_cursor = _cursor->next;
 			}	
@@ -206,15 +206,14 @@ private:
 			}
 		}
 
-		outputEvent* get(noteCoordinate marker) {
-			if (_queueStart == nullptr) {
+		outputEvent* getEvent(noteCoordinate currTime) {
+			if (_queueStart == nullptr || currTime < _queueStart->queueMarker ) {
 				return nullptr;
 			}
-			if (_queueStart->queueMarker < marker) {
-				outputEvent *ret = &_queueStart->event;
-				_queueStart = _queueStart->next;
-				return ret;
-			}
+			outputEvent *ret = &_queueStart->event;
+			_queueStart->active = false;
+			_queueStart = _queueStart->next;
+			return ret;
 		}
 	};
 
