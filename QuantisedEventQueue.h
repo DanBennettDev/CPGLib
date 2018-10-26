@@ -175,7 +175,7 @@ private:
 			}
 
 			_cursor = _queueStart;
-			while (_cursor->next != nullptr && e.queueMarker  < _cursor->next->queueMarker) {
+			while (_cursor->next != nullptr && _cursor->next->queueMarker < e.queueMarker) {
 				_cursor = _cursor->next;
 			}	
 			newEvent->next = _cursor->next;
