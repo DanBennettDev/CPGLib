@@ -207,64 +207,47 @@ void CPG::addChild(unsigned parentID, unsigned newID)
     _nodes[newID].setDelayLineLength(calculateDelayLineLength(newID)*2);
     _nodes[newID].setSynchMode(MatsuNode::synchMode::synchOnce);
     _nodes[parentID].addChild(_nodes[newID]);
-
 }
 
-
-void CPG::moveNode(unsigned nodeID, unsigned newParentID,
-    bool breakCurrParentChildConn, bool breakCurrChildParentConn)
+void CPG::addNode(unsigned newID)
 {
-    if (nodeID == 0) { throw std::runtime_error("Cannot move the root node"); }
-    if (!exists(nodeID)) { throw std::runtime_error("node to be moved does not exist"); }
-    if (!exists(newParentID)) { throw std::runtime_error("new parent node does not exist"); }
-   
-    unsigned oldParentID = _nodes[nodeID].getParentID();
+	if (exists(newID)) {
+		throw std::runtime_error("new node ID already exists");
+	}
+	_activeNodes.push_back(newID);
+	std::sort(_activeNodes.begin(), _activeNodes.end());
 
-    // error has occured if a child has no parent, but this could be recoverable
-    // simply avoid parent actions, rather than throw
-    if (oldParentID != -1) {
-        _nodes[oldParentID].removeChild(nodeID);
-        if (breakCurrChildParentConn && _nodes[oldParentID].isInput(nodeID)) {
-            _nodes[oldParentID].removeInput(nodeID);
-        }
-    }
-    if (breakCurrParentChildConn) {
-        _nodes[nodeID].removeInput(oldParentID);
-    }
-    if (!_nodes[nodeID].isInput(newParentID)) {
-        _nodes[nodeID].addInput(_nodes[newParentID]);
-    }
-    _nodes[nodeID].setParent(newParentID);
-    _nodes[newParentID].addChild(_nodes[nodeID]);
-
+	// reset node
+	_nodes[newID].setIsActive(true);
+	_nodes[newID].clone(_nodes[0]);
+	_nodes[newID].setParent(-1);
+	//_nodes[newID].setFreqCompensation(_nodes[parentID].getFreqCompensation());
+	_nodes[newID].setDelayLineLength(calculateDelayLineLength(newID) * 2);
+	_nodes[newID].setSynchMode(MatsuNode::synchMode::synchOnce);
 }
 
 
-// moves children of deleted node up one in heirarchy. New connections from parent->child have weight 0.0
+
 void CPG::deleteNode(unsigned nodeID)
 {
     if (nodeID == 0) { throw std::runtime_error("Cannot delete the root node"); }
     if (!exists(nodeID)) { throw std::runtime_error("Node does not exist"); }
 
     unsigned parentID = _nodes[nodeID].getParentID();
-    if (parentID == -1) {
-        throw std::runtime_error("non-root node without a parent");
-    }
-    if (!exists(parentID)) {
-        throw std::runtime_error("parent ID is not an active node");
-    }
 
     if (_nodes[nodeID].getChildCount()>0) {
-        // move any child nodes beneath deleted node's parent
-        std::vector<unsigned> child_vector = _nodes[nodeID].getChildIDs();
-        std::vector<unsigned>::const_iterator iter = child_vector.begin();
-        while (iter != child_vector.end()) {
-            moveNode(*iter, parentID, true, true);
-            iter++;
-        }
+		// remove parentID from any child nodes
+		std::vector<unsigned> child_vector = _nodes[nodeID].getChildIDs();
+		std::vector<unsigned>::const_iterator iter = child_vector.begin();
+		while (iter != child_vector.end()) {
+			_nodes[*iter].setParent(-1);
+			iter++;
+		}
     }
     // detatch the node to be removed
-    _nodes[parentID].removeChild(nodeID);
+	if (parentID != -1) {
+		_nodes[parentID].removeChild(nodeID);
+	}
     removeNode(nodeID);
 
 }
@@ -372,35 +355,15 @@ void CPG::setNodeFrequency(unsigned nodeID, double freq, bool inherit)
 }
 
 
-void CPG::setNodeFrequencyMultiple(unsigned nodeID, double multipleOfParent,
-    bool inherit)
-{
-    if (inherit) {
-        setNodeFrequencyMultipleInherit(nodeID, multipleOfParent);
-        return;
-    }
-
-    unsigned parentID = _nodes[nodeID].getParentID();
-    if (parentID == -1) {
-        throw std::runtime_error("no parent, cannot set frequency to multiple of parent frequency");
-    }
-    double newFreq = _nodes[parentID].getFrequency(_sampleRate)
-        * multipleOfParent;
-
-    float oldFreq = (float)_nodes[nodeID].getFrequency(_sampleRate);
-    _nodes[nodeID].setFrequency(newFreq, _sampleRate);
-    updateConnectionBasedOnFreq(nodeID, oldFreq);
-    setNodeDelayLine(nodeID, newFreq);
-}
-
 // assumes that delayline lengths are maintained to suitable lengths elsewhere
 void CPG::setNodePhaseOffset(unsigned nodeID, double offset)
 {
     if (offset < 0.0) { offset = 0.0; }
     else if (offset > 1.0) { offset = 1.0; }
 
-    // phase is relative to parent freq, except in case of root
-    unsigned relativeTo = nodeID == 0 ? nodeID : getNode(nodeID).getParentID();
+    // phase is relative to parent freq, except where has no parent
+	unsigned parent = getNode(nodeID).getParentID();
+    unsigned relativeTo = parent == -1 ? nodeID : parent;
     double freq = _nodes[relativeTo].getFrequency(_sampleRate);
 	unsigned offSamp = (unsigned)((offset * _sampleRate) / freq);
     _nodes[nodeID].setNodeOutputDelay(offSamp);
@@ -571,7 +534,8 @@ void CPG::disconnect(unsigned nodeFrom, unsigned nodeTo)
     if (!exists(nodeFrom)) { throw std::invalid_argument("invalid node ID"); }
     if (!exists(nodeTo)) { throw std::invalid_argument("invalid node ID"); }
     if (nodeFrom == _nodes[nodeTo].getParentID()) {
-        throw std::invalid_argument("cannot remove connection to parent");
+		_nodes[nodeFrom].removeChild(nodeTo);
+		_nodes[nodeTo].setParent(-1);
     }
     _nodes[nodeTo].removeInput(nodeFrom);
 }
@@ -617,7 +581,7 @@ void CPG::getRootParams(double &t1, double &t2, double &c1,
 void CPG::connect(unsigned NodeID_A, unsigned NodeID_B, double weightAtoB,
     double weightBtoA, bool bothWays)
 {
-    if (!exists(NodeID_A)) { throw std::invalid_argument("invalid node ID A"); }
+    if (!exists(NodeID_A)) { throw std::invalid_argument("invalid node ID A"); } 
     if (!exists(NodeID_B)) { throw std::invalid_argument("invalid node ID B"); }
 
     // scale weights based on frequency ratios;
@@ -686,10 +650,11 @@ unsigned CPG::calculateDelayLineLength(unsigned nodeID)
     // in case of root, always 
     double slowestFreq;
     double thisNodeFreq = _nodes[nodeID].getFrequency(_sampleRate);
-    if(nodeID==0){
+	unsigned parent = _nodes[nodeID].getParentID();
+    if(parent==-1){
         slowestFreq = thisNodeFreq;
     } else {
-        slowestFreq = _nodes[getNode(nodeID).getParentID()].getFrequency(_sampleRate);
+        slowestFreq = _nodes[parent].getFrequency(_sampleRate);
         slowestFreq = slowestFreq < thisNodeFreq ? slowestFreq : thisNodeFreq;
     }
     unsigned len = (unsigned) ((double)_sampleRate / slowestFreq);

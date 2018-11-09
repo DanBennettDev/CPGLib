@@ -276,6 +276,22 @@ unsigned MatsuokaEngine::addChild(unsigned parentID, unsigned newID)
     return 0;
 }
 
+
+/// Queue an addNode instruction
+unsigned MatsuokaEngine::addNode(unsigned newID)
+{
+	void (CPG::*fptr)(unsigned) = &CPG::addNode;
+
+	std::function<void()> fn = std::bind(fptr, &_cpg, newID);
+
+	std::lock_guard<std::mutex> lock(_actions_mutex);
+	_actions.push(fn);
+
+	return 0;
+}
+
+
+
 void MatsuokaEngine::reset() 
 {
     void (CPG::*fptr)() = &CPG::reset;
@@ -351,20 +367,6 @@ void MatsuokaEngine::removeConnection(unsigned nodeFrom, unsigned nodeTo)
     _actions.push(fn);
 }
 
-
-void MatsuokaEngine::moveNode(unsigned nodeID, unsigned newParentID,
-    bool breakCurrParentChildConn, bool breakCurrChildParentConn)
-{
-    void (CPG::*fptr)(unsigned, unsigned, bool, bool)
-        = &CPG::moveNode;
-    std::function<void()> fn = std::bind(fptr, &_cpg,
-                                            nodeID, newParentID, 
-                                            breakCurrParentChildConn, 
-                                            breakCurrChildParentConn);
-
-    std::lock_guard<std::mutex> lock(_actions_mutex);
-    _actions.push(fn);
-}
 
 void MatsuokaEngine::deleteNode(unsigned nodeID)
 {
@@ -453,24 +455,6 @@ void MatsuokaEngine::setNodeFrequency(unsigned nodeID, double freq,
 
 }
 
-
-void MatsuokaEngine::setNodeFrequencyMultiple(unsigned nodeID, 
-    double multipleOfParent,  bool inherit)
-{
-    void (CPG::*fptr)(unsigned, double, bool)
-        = &CPG::setNodeFrequencyMultiple;
-    std::function<void()> fn = std::bind(fptr, &_cpg, nodeID, multipleOfParent,
-                                             inherit);
-    // then update quantiser tempo
-    std::function<void(void)> fn2
-        = std::bind(&MatsuokaEngine::updateQuantiserTempo, this);
-
-
-    std::lock_guard<std::mutex> lock(_actions_mutex);
-    _actions.push(fn);
-    _actions.push(fn2);
-
-}
 
 void MatsuokaEngine::setNodePhaseOffset(unsigned nodeID, double phase)
 {

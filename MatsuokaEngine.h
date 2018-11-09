@@ -156,7 +156,10 @@ public:
 
     /// QUEUED ACTION - adds a child node to the indicated node, with the requested id
     unsigned addChild(unsigned parentID, unsigned newID);
-   
+
+	/// QUEUED ACTION - adds a child node to the indicated node, with the requested id
+	unsigned addNode(unsigned newID);
+
     /// QUEUED ACTION - clears the entire network back to a single root node
     void reset();
 
@@ -177,12 +180,6 @@ public:
 
     /// QUEUED ACTION - removes connection between indicated nodes if one exists
     void removeConnection(unsigned nodeFrom, unsigned NodeTo);
-    
-    /// QUEUED ACTION - moves the node in the network topology to the indicated parent
-    /// optional parameters to break current parent and child connections as well as 
-    /// create new parent connection
-    void moveNode(unsigned nodeID, unsigned newParentID,
-        bool breakCurrParentChildConn, bool breakCurrChildParentConn);
     
     /// QUEUED ACTION -deletes the node, removing any connections to/from
     void deleteNode(unsigned nodeID);
@@ -208,14 +205,6 @@ public:
     /// have been called. If inherit=true it changes child nodes frequencies 
     /// proportionally
     void setNodeFrequency(unsigned nodeID, double freq, bool inherit);
-
-    /// QUEUED ACTION - sets frequency of the node  as multiple of its parent
-    /// node's frequency (assumes compensation has been
-    /// set or calibrate() run since system start, or since setParam_ methods
-    /// have been called. If inherit=true it changes child nodes frequencies 
-    /// proportionally
-    void setNodeFrequencyMultiple(unsigned nodeID, double multipleOfParent,
-         bool inherit);
 
     /// QUEUED ACTION - sets the phase offset of the node's output (0-1)
     /// handled via delay

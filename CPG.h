@@ -131,9 +131,11 @@ public:
 
 
     void addChild(unsigned parentID, unsigned newID);
+	void addNode(unsigned newID);
 
-    void moveNode(unsigned nodeID, unsigned newParentID,
-        bool breakCurrParentChildConn, bool breakCurrChildParentConn);
+
+    //void moveNode(unsigned nodeID, unsigned newParentID,
+        //bool breakCurrParentChildConn, bool breakCurrChildParentConn);
 
 
     // moves children of deleted node up one in heirarchy. New connections from parent->child have weight 0.0
@@ -165,8 +167,8 @@ public:
 
     void setNodeFrequency(unsigned nodeID, double freq, bool inherit);
 
-    void setNodeFrequencyMultiple(unsigned nodeID, double multipleOfParent,
-         bool inherit);
+    //void setNodeFrequencyMultiple(unsigned nodeID, double multipleOfParent,
+    //     bool inherit);
 
     void setNodePhaseOffset(unsigned nodeID, double offset);
 
