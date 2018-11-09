@@ -172,6 +172,15 @@ float QuantiseGrid_soft::getQuantiseAmount()
 }
 
 
+QuantiseGrid_soft::noteCoordinate  QuantiseGrid_soft::getNoteCoordinateUnquantised() 
+{
+	// project forward by min delay - all notes are delayed this much
+	uint64_t rawGrid = _gridMarker + _delayGrid;
+	float rawPhase = _phase + _delayPhase;
+	return noteCoordinate(rawGrid, rawPhase);
+}
+
+
 QuantiseGrid_soft::noteCoordinate  QuantiseGrid_soft::getNoteCoordinate(unsigned gridMultiple, unsigned offset)
 {
     // project forward by min delay - all notes are delayed this much

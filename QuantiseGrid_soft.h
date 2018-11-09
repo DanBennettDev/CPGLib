@@ -54,7 +54,7 @@ public:
     bool   getIsNoteDue(noteCoordinate noteMarker);
 
     noteCoordinate  getNoteCoordinate(unsigned gridMultiple, unsigned offset);
-
+	noteCoordinate  getNoteCoordinateUnquantised();
 
     float getQuantiseAmount();
     void setQuantiseAmount(float amount);

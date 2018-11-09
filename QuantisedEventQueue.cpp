@@ -41,7 +41,6 @@ void QuantisedEventQueue::addEvent(outputEvent e)
     if (nodes[e.nodeID].grid!= gridType::unQuantised) {
         unsigned mult = nodes[e.nodeID].multiple;
         unsigned off = nodes[e.nodeID].offset;
-        std::list<queuedEvent>::iterator eventIt;
         queuedEvent qe ;
         qe.event = e;
         // add to correct place in relevant queue
@@ -63,10 +62,10 @@ void QuantisedEventQueue::addEvent(outputEvent e)
         }
 
     } else {
-        queuedEvent_free qe;
-        qe.event = e;
-        qe.countDown = (float)_delayNotes;
-        _eventQueueFree.push_back(qe);
+		queuedEvent qe;
+		qe.event = e;
+		qe.queueMarker = _grid32.getNoteCoordinateUnquantised();
+		_eventQueue32.add(qe);
     }
 }
 
@@ -74,9 +73,6 @@ void QuantisedEventQueue::addEvent(outputEvent e)
 
 void QuantisedEventQueue::tick()
 {
-    for (auto &e : _eventQueueFree) {
-        e.countDown -= e.delta;
-    }
     _mark32 = _grid32.tick();
     _mark24 = _grid24.tick();
 }
@@ -87,18 +83,13 @@ QuantisedEventQueue::outputEvent QuantisedEventQueue::getNote()
 	outputEvent *e = _eventQueue24.getEvent(_mark24);
 	if (e != nullptr) { return *e; };
 	e = _eventQueue32.getEvent(_mark32);
-	if (e != nullptr) { return *e; };
+	if (e != nullptr) { 
+		if (e->nodeID == 0) {
+			syncToBarStart();
+		}
+		return *e; 
+	};
 
-
-    if (!_eventQueueFree.empty() && _eventQueueFree.begin()->countDown<=0) {
-        outputEvent e = _eventQueueFree.front().event;
-        // note 0 is the root and sets the tempo
-        if (e.nodeID == 0) {
-            syncToBarStart();
-        }
-        _eventQueueFree.pop_front();
-		return e;
-    }
 
     return _nullEvent;
 }
@@ -119,10 +110,6 @@ void QuantisedEventQueue::setTempo(float tempo)
     _grid24.setTempo(tempo);
     _grid32.setTempo(tempo);
     setNoteDelays();
-
-    for (auto e : _eventQueueFree) {
-        e.delta *= changeTempo;
-    }
 }
 
 void QuantisedEventQueue::setQuantiseAmount(float amount)

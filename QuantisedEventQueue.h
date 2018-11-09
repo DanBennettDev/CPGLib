@@ -1,7 +1,5 @@
 #pragma once
 #include <cstdint>
-#include <list>
-#include <vector>
 #include <array>
 #include <mutex>
 #include "QuantiseGrid_soft.h"
@@ -111,19 +109,6 @@ private:
         {}
     } ;
 
-    struct queuedEvent_free
-    {
-        outputEvent event;
-        float countDown;
-        float delta;
-
-        queuedEvent_free() :
-            event()
-        {
-            countDown = 1;
-            delta = 1;
-        }
-    };
 
 
     struct nodeDetails
@@ -227,7 +212,7 @@ private:
     nodeDetails nodes[MAX_NODES];
 	EventQueue _eventQueue24;
 	EventQueue _eventQueue32;
-    std::list<queuedEvent_free> _eventQueueFree;
+
 	outputEvent _nullEvent;
 
     QuantiseGrid_soft _grid24;
