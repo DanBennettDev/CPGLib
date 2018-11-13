@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['haschanged_5finputs',['hasChanged_Inputs',['../classMatsuNode.html#a28d7cc7a1e352f941d5fa696031c4bbc',1,'MatsuNode']]],
-  ['haschanged_5fparams',['hasChanged_Params',['../classMatsuNode.html#ac7db555868e678c3850e9835f22c54d7',1,'MatsuNode']]]
+  ['haschanged_5finputs',['hasChanged_Inputs',['../classMatsuNode.html#a69b3731ac308a48a46ccbb2c87de4e1c',1,'MatsuNode']]],
+  ['haschanged_5fparams',['hasChanged_Params',['../classMatsuNode.html#ae1cb6a1670959b209cfd68d634f3dbb1',1,'MatsuNode']]]
 ];

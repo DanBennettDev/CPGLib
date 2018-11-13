@@ -2,7 +2,7 @@
 \label{classMatsuokaEngine}\index{Matsuoka\+Engine@{Matsuoka\+Engine}}
 
 
-Main interface / top level class for most purposes. Create, manipulate and simulate a \mbox{\hyperlink{classCPG}{C\+PG}} network via this class.  
+Engine\+: Main interface for controlling and calculating the \hyperlink{classCPG}{C\+PG} network.  
 
 
 
@@ -12,837 +12,932 @@ Main interface / top level class for most purposes. Create, manipulate and simul
 \subsection*{Public Types}
 \begin{DoxyCompactItemize}
 \item 
-enum \mbox{\hyperlink{classMatsuokaEngine_ad8f471b2f1ca479174d5514b9a3597ec}{external\+Sync}} \{ \mbox{\hyperlink{classMatsuokaEngine_ad8f471b2f1ca479174d5514b9a3597eca4c1d8f9abc3142b344a24624ea7c0a96}{none}}, 
-\mbox{\hyperlink{classMatsuokaEngine_ad8f471b2f1ca479174d5514b9a3597ecaf17848b3aa2effcdfd4576b7723ffc7b}{driving}}, 
-\mbox{\hyperlink{classMatsuokaEngine_ad8f471b2f1ca479174d5514b9a3597eca66dfc95cb0e1248f30385a100203920c}{reseting}}
+enum \hyperlink{classMatsuokaEngine_ad8f471b2f1ca479174d5514b9a3597ec}{external\+Sync} \{ \hyperlink{classMatsuokaEngine_ad8f471b2f1ca479174d5514b9a3597eca4c1d8f9abc3142b344a24624ea7c0a96}{none}, 
+\hyperlink{classMatsuokaEngine_ad8f471b2f1ca479174d5514b9a3597ecaf17848b3aa2effcdfd4576b7723ffc7b}{driving}, 
+\hyperlink{classMatsuokaEngine_ad8f471b2f1ca479174d5514b9a3597eca66dfc95cb0e1248f30385a100203920c}{reseting}
  \}
 \item 
-using \mbox{\hyperlink{classMatsuokaEngine_a811a5449f07004a2eb6b34e8c9bd862f}{input}} = \mbox{\hyperlink{structCPG_1_1input}{C\+P\+G\+::input}}
+using \hyperlink{classMatsuokaEngine_a811a5449f07004a2eb6b34e8c9bd862f}{input} = \hyperlink{structCPG_1_1input}{C\+P\+G\+::input}
 \item 
-using \mbox{\hyperlink{classMatsuokaEngine_acbf2fcb6ddd3b8edc414753248b95fc2}{synch\+Mode}} = \mbox{\hyperlink{classMatsuNode_a725e228db39b8842f851ddf88f640bed}{Matsu\+Node\+::synch\+Mode}}
+using \hyperlink{classMatsuokaEngine_acbf2fcb6ddd3b8edc414753248b95fc2}{synch\+Mode} = \hyperlink{classMatsuNode_a725e228db39b8842f851ddf88f640bed}{Matsu\+Node\+::synch\+Mode}
 \item 
-using \mbox{\hyperlink{classMatsuokaEngine_a09035e4918ce82c9378821c88375f843}{output\+Event}} = \mbox{\hyperlink{structQuantisedEventQueue_1_1outputEvent}{Quantised\+Event\+Queue\+::output\+Event}}
+using \hyperlink{classMatsuokaEngine_a09035e4918ce82c9378821c88375f843}{output\+Event} = \hyperlink{structQuantisedEventQueue_1_1outputEvent}{Quantised\+Event\+Queue\+::output\+Event}
 \item 
-using \mbox{\hyperlink{classMatsuokaEngine_aaf41ce5bf63099a1d864e4eb91527cb5}{grid\+Type}} = \mbox{\hyperlink{classQuantisedEventQueue_ae186d50bd503038452edbbdd0c7c259e}{Quantised\+Event\+Queue\+::grid\+Type}}
+using \hyperlink{classMatsuokaEngine_aaf41ce5bf63099a1d864e4eb91527cb5}{grid\+Type} = \hyperlink{classQuantisedEventQueue_ae186d50bd503038452edbbdd0c7c259e}{Quantised\+Event\+Queue\+::grid\+Type}
 \end{DoxyCompactItemize}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\hyperlink{classMatsuokaEngine_a25f70ceddea44651433ea8547b332ecf}{Matsuoka\+Engine}} ()
-\begin{DoxyCompactList}\small\item\em Constructor initialising with D\+E\+F\+A\+U\+L\+T\+S\+A\+M\+P\+L\+E\+R\+A\+TE (see \mbox{\hyperlink{core_8h}{core.\+h}}). This sets up the engine to generate a single event per cycle of each node, occuring at the outputs positive zero crossing. Other configurations are possible using the constructor overload(s) \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classMatsuokaEngine_a4d26cc1bf5144ea89611377701716fea}{Matsuoka\+Engine}} (unsigned sample\+Rate, bool event\+On\+Rise=true, bool event\+On\+Fall=false, bool fire\+On\+Peak=false)
-\begin{DoxyCompactList}\small\item\em Constructor determining sample rate and event output behaviour. Events can thus be generated 0 1 or 2 times per cycle, at rising and/or falling zero crossings, or at first signal peak and/or trough. \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classMatsuokaEngine_ab0c8d7fd6eb27c8a8dae7e5fa3742ff9}{Matsuoka\+Engine}} (const \mbox{\hyperlink{classMatsuokaEngine}{Matsuoka\+Engine}} \&rhs)
+\hyperlink{classMatsuokaEngine_a25f70ceddea44651433ea8547b332ecf}{Matsuoka\+Engine} ()
 \item 
-void \mbox{\hyperlink{classMatsuokaEngine_a4fa468dc0814f1ad92594f7a4d5abd00}{step}} ()
-\begin{DoxyCompactList}\small\item\em calculate one step of network calculations, and populate the event queue, \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classMatsuokaEngine_a12519e69a1b16fe9c07717ded5249cdf}{step\+Bare\+Bones}} ()
+\hyperlink{classMatsuokaEngine_a4d26cc1bf5144ea89611377701716fea}{Matsuoka\+Engine} (unsigned sample\+Rate, bool event\+On\+Rise=true, bool event\+On\+Fall=false, bool fire\+On\+Peak=false)
+\item 
+\hyperlink{classMatsuokaEngine_ab0c8d7fd6eb27c8a8dae7e5fa3742ff9}{Matsuoka\+Engine} (const \hyperlink{classMatsuokaEngine}{Matsuoka\+Engine} \&rhs)
+\item 
+void \hyperlink{classMatsuokaEngine_a4fa468dc0814f1ad92594f7a4d5abd00}{step} ()
+\begin{DoxyCompactList}\small\item\em calculate \hyperlink{classCPG}{C\+PG} and populate event queue, \end{DoxyCompactList}\item 
+void \hyperlink{classMatsuokaEngine_aedf2583d11befa98a8a9d74c700635d6}{step} (unsigned node\+ID)
+\begin{DoxyCompactList}\small\item\em calculate indicated node, \end{DoxyCompactList}\item 
+void \hyperlink{classMatsuokaEngine_a12519e69a1b16fe9c07717ded5249cdf}{step\+Bare\+Bones} ()
 \begin{DoxyCompactList}\small\item\em no syncing, no quantiser, no freq Compensation Calcs etc., \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classMatsuokaEngine_aedf2583d11befa98a8a9d74c700635d6}{step}} (unsigned node\+ID)
-\begin{DoxyCompactList}\small\item\em do one calculation step for the indicated node, \end{DoxyCompactList}\item 
-std\+::vector$<$ unsigned $>$ \mbox{\hyperlink{classMatsuokaEngine_ae8f070a75e9005f6cc1f3c2b33c4baf5}{get\+Node\+List}} () const
-\begin{DoxyCompactList}\small\item\em list ids of all nodes in the network \end{DoxyCompactList}\item 
-std\+::vector$<$ \mbox{\hyperlink{structCPG_1_1input}{C\+P\+G\+::input}} $>$ \mbox{\hyperlink{classMatsuokaEngine_a7b8067a4f72a8376635ce2d61bece1f2}{get\+Inputs}} (unsigned node\+ID) const
-\begin{DoxyCompactList}\small\item\em return details of the inputs from other nodes, into the requested node \end{DoxyCompactList}\item 
-bool \mbox{\hyperlink{classMatsuokaEngine_aac87afef0c7c99601fa77e2be27b2b74}{node\+Exists}} (unsigned node\+ID) const
+std\+::vector$<$ unsigned $>$ \hyperlink{classMatsuokaEngine_a211fdfa8f1f445442a8812cf3f598086}{get\+Node\+List} () const 
+\begin{DoxyCompactList}\small\item\em list active nodes in the network \end{DoxyCompactList}\item 
+std\+::vector$<$ \hyperlink{structCPG_1_1input}{C\+P\+G\+::input} $>$ \hyperlink{classMatsuokaEngine_a8e159d5e92deacb678ee16229a54c84c}{get\+Inputs} (unsigned node\+ID) const 
+\begin{DoxyCompactList}\small\item\em return inputs for the requested node \end{DoxyCompactList}\item 
+bool \hyperlink{classMatsuokaEngine_ab768643e41c3801b2d734b7432dc1a4c}{node\+Exists} (unsigned node\+ID) const 
 \begin{DoxyCompactList}\small\item\em returns true if the node\+ID exists in the network \end{DoxyCompactList}\item 
-const \mbox{\hyperlink{classMatsuNode}{Matsu\+Node}} \& \mbox{\hyperlink{classMatsuokaEngine_ae2d2de39e55b20e6c579039eb6081246}{get\+Node}} (unsigned node\+ID) const
+const \hyperlink{classMatsuNode}{Matsu\+Node} \& \hyperlink{classMatsuokaEngine_ae0dfa755bb0a0c5d4d1c78e22c498ee1}{get\+Node} (unsigned node\+ID) const 
 \begin{DoxyCompactList}\small\item\em returns const reference to the requested node \end{DoxyCompactList}\item 
-unsigned \mbox{\hyperlink{classMatsuokaEngine_a2757e406e811cbe2e28f8b661cf29472}{get\+Sample\+Rate}} () const
+unsigned \hyperlink{classMatsuokaEngine_a486763527331bfc9ccd617b312d6c611}{get\+Sample\+Rate} () const 
 \begin{DoxyCompactList}\small\item\em returns sample rate of the system \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classMatsuokaEngine_adb864bf26563682f94ba2e131fb8b793}{set\+Connection\+Weight\+Scaling}} (bool on)
+void \hyperlink{classMatsuokaEngine_adb864bf26563682f94ba2e131fb8b793}{set\+Connection\+Weight\+Scaling} (bool on)
 \item 
-bool \mbox{\hyperlink{classMatsuokaEngine_ae2ad27d38196e2217bdb0b5da35fd095}{load\+Connection\+Weight\+Curve}} (std\+::string source)
+bool \hyperlink{classMatsuokaEngine_ae2ad27d38196e2217bdb0b5da35fd095}{load\+Connection\+Weight\+Curve} (std\+::string source)
 \item 
-bool \mbox{\hyperlink{classMatsuokaEngine_ad05eb51876bee90334426757a981139b}{load\+Connection\+Weight\+Curve}} (std\+::vector$<$ float $>$ x, std\+::vector$<$ float $>$ y)
+bool \hyperlink{classMatsuokaEngine_ad05eb51876bee90334426757a981139b}{load\+Connection\+Weight\+Curve} (std\+::vector$<$ float $>$ x, std\+::vector$<$ float $>$ y)
 \item 
-void \mbox{\hyperlink{classMatsuokaEngine_aa7254e0141ad5763ff6267a8430b30ab}{set\+Unity\+Connection\+Weight}} (float unity)
-\begin{DoxyCompactList}\small\item\em Scales the inputs\+: sets the incoming value which should map to weight of 1 when setting connections. \end{DoxyCompactList}\item 
-double \mbox{\hyperlink{classMatsuokaEngine_a88d27453816ff152b17b6e744979e994}{get\+Node\+Frequency}} (unsigned node\+ID) const
+void \hyperlink{classMatsuokaEngine_aa7254e0141ad5763ff6267a8430b30ab}{set\+Unity\+Connection\+Weight} (float unity)
+\begin{DoxyCompactList}\small\item\em sets the input value which should map to weight of 1 when setting connections \end{DoxyCompactList}\item 
+double \hyperlink{classMatsuokaEngine_a620e21099810accc4c7e40f37020f444}{get\+Node\+Frequency} (unsigned node\+ID) const 
 \begin{DoxyCompactList}\small\item\em returns the frequency of the requested node \end{DoxyCompactList}\item 
-unsigned \mbox{\hyperlink{classMatsuokaEngine_a5d808db0af62f65826f0fcbc47625205}{get\+Node\+Parent}} (unsigned node\+ID) const
+unsigned \hyperlink{classMatsuokaEngine_a6aeab33df18150b97190ff502881960e}{get\+Node\+Parent} (unsigned node\+ID) const 
 \begin{DoxyCompactList}\small\item\em returns the parent id of the requested node \end{DoxyCompactList}\item 
-std\+::vector$<$ unsigned $>$ \mbox{\hyperlink{classMatsuokaEngine_a8eb45ab4f1c523f979b3d44dd2c5e508}{get\+Node\+Children}} (unsigned node\+ID) const
+std\+::vector$<$ unsigned $>$ \hyperlink{classMatsuokaEngine_a17ad3eb6cd60eed4d9abe99231f03ade}{get\+Node\+Children} (unsigned node\+ID) const 
 \begin{DoxyCompactList}\small\item\em returns list of I\+Ds of children of the requested node \end{DoxyCompactList}\item 
-double \mbox{\hyperlink{classMatsuokaEngine_a72ba599f12e55273f7298a70e7f0eff7}{get\+Node\+Output}} (unsigned node\+ID, unsigned sample\+Offset=0, bool match\+Quantiser=false) const
-\item 
-double \mbox{\hyperlink{classMatsuokaEngine_a87b0d0b8fe0447fba1fe7456dbea4e11}{get\+Frequency\+Compensation}} () const
-\item 
-double \mbox{\hyperlink{classMatsuokaEngine_a201de701852d315d3eac20c749b19752}{get\+Node\+Phase\+Offset}} (unsigned node\+ID) const
-\item 
-double \mbox{\hyperlink{classMatsuokaEngine_a6857e20e39f058a4145fdc4493df6583}{get\+Node\+Self\+Noise}} (unsigned node\+ID) const
+double \hyperlink{classMatsuokaEngine_acb7268dacec8e66b987e34c17eddff9c}{get\+Node\+Output} (unsigned node\+ID, unsigned sample\+Offset=0, bool match\+Quantiser=false) const 
+\begin{DoxyCompactList}\small\item\em returns the current oscillator output value of the requested node \end{DoxyCompactList}\item 
+double \hyperlink{classMatsuokaEngine_a9437f514466a7140d0e56cf8412c4b4b}{get\+Frequency\+Compensation} () const 
+\begin{DoxyCompactList}\small\item\em returns the frequency error correction value currently set for the network \end{DoxyCompactList}\item 
+double \hyperlink{classMatsuokaEngine_a4210f67e9d3b63b89bd95efb9bd25a75}{get\+Node\+Phase\+Offset} (unsigned node\+ID) const 
+\begin{DoxyCompactList}\small\item\em returns the phase offset for the output of the requested node (0-\/1) \end{DoxyCompactList}\item 
+double \hyperlink{classMatsuokaEngine_ad51317a2033abd4f8a54816805b3fb38}{get\+Node\+Self\+Noise} (unsigned node\+ID) const 
 \begin{DoxyCompactList}\small\item\em returns the amplitude of the noise input to the requested node \end{DoxyCompactList}\item 
-double \mbox{\hyperlink{classMatsuokaEngine_a0f7aa58c722f9bce30724d4a62c72374}{get\+Node\+Input\+Phase}} (unsigned node\+ID, unsigned input\+ID) const
-\begin{DoxyCompactList}\small\item\em returns the phase offset applied to the signal connection between nodes input\+ID and node\+ID (0-\/1) \end{DoxyCompactList}\item 
-const std\+::vector$<$ \mbox{\hyperlink{classMatsuokaEngine_a09035e4918ce82c9378821c88375f843}{output\+Event}} $>$ \mbox{\hyperlink{classMatsuokaEngine_a70444163eee59d0df5b282bb8696f5a1}{get\+Events}} ()
-\begin{DoxyCompactList}\small\item\em Returns vector of queued events and clears the event queue. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classMatsuokaEngine_a68d6295dfa0d28e3bc9d743e763d6ee9}{calibrate}} ()
+double \hyperlink{classMatsuokaEngine_a17f7d97d16ee60a54a42bf132e2c8519}{get\+Node\+Input\+Phase} (unsigned node\+ID, unsigned input\+ID) const 
+\begin{DoxyCompactList}\small\item\em returns the phase offset of the connection to node node\+ID, from node input\+ID (0-\/1) \end{DoxyCompactList}\item 
+const std\+::vector$<$ \hyperlink{classMatsuokaEngine_a09035e4918ce82c9378821c88375f843}{output\+Event} $>$ \hyperlink{classMatsuokaEngine_a70444163eee59d0df5b282bb8696f5a1}{get\+Events} ()
+\begin{DoxyCompactList}\small\item\em Returns vector of queued events. If sort ==true (default), sorted by parent\+ID. \end{DoxyCompactList}\item 
+void \hyperlink{classMatsuokaEngine_a68d6295dfa0d28e3bc9d743e763d6ee9}{calibrate} ()
 \item 
-void \mbox{\hyperlink{classMatsuokaEngine_a7b665074cd1e6fddc875c7d36b305f66}{calc\+Frequency\+Compensation}} ()
+void \hyperlink{classMatsuokaEngine_a7b665074cd1e6fddc875c7d36b305f66}{calc\+Frequency\+Compensation} ()
 \item 
-void \mbox{\hyperlink{classMatsuokaEngine_a7937f29c227ad663eb153b01b11d307f}{quit\+Frequency\+Compensation\+Calcs}} ()
+void \hyperlink{classMatsuokaEngine_a7937f29c227ad663eb153b01b11d307f}{quit\+Frequency\+Compensation\+Calcs} ()
 \item 
-unsigned \mbox{\hyperlink{classMatsuokaEngine_a2e441b2259ae96759bf300c1f2af4ab1}{add\+Child}} (unsigned parent\+ID, unsigned new\+ID)
-\begin{DoxyCompactList}\small\item\em Queue an add\+Child instruction. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classMatsuokaEngine_a627983362b1b84ee5d3c72d7540d9a47}{reset}} ()
-\begin{DoxyCompactList}\small\item\em Q\+U\+E\+U\+ED A\+C\+T\+I\+ON -\/ clears the entire network back to a single root node -\/ node 0. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classMatsuokaEngine_aa2a425173fed2f3f30c1fa5c6e680764}{reset}} (unsigned node\+ID, double x1, double x2, double v1, double v2)
+unsigned \hyperlink{classMatsuokaEngine_a2e441b2259ae96759bf300c1f2af4ab1}{add\+Child} (unsigned parent\+ID, unsigned new\+ID)
+\begin{DoxyCompactList}\small\item\em Q\+U\+E\+U\+ED A\+C\+T\+I\+ON -\/ adds a child node to the indicated node, with the requested id. \end{DoxyCompactList}\item 
+unsigned \hyperlink{classMatsuokaEngine_a0c27d6c36b0b65e1a6ec0261d83a2495}{add\+Node} (unsigned new\+ID)
+\begin{DoxyCompactList}\small\item\em Q\+U\+E\+U\+ED A\+C\+T\+I\+ON -\/ adds a child node to the indicated node, with the requested id. \end{DoxyCompactList}\item 
+void \hyperlink{classMatsuokaEngine_a627983362b1b84ee5d3c72d7540d9a47}{reset} ()
+\begin{DoxyCompactList}\small\item\em Q\+U\+E\+U\+ED A\+C\+T\+I\+ON -\/ clears the entire network back to a single root node. \end{DoxyCompactList}\item 
+void \hyperlink{classMatsuokaEngine_aa2a425173fed2f3f30c1fa5c6e680764}{reset} (unsigned node\+ID, double x1, double x2, double v1, double v2)
+\begin{DoxyCompactList}\small\item\em Q\+U\+E\+U\+ED A\+C\+T\+I\+ON -\/ resets the internal state of the indicated node to the requested values. \end{DoxyCompactList}\item 
+void \hyperlink{classMatsuokaEngine_a716d4e8f1dc446179c5424007995ab59}{set\+Connection} (unsigned Node\+From, unsigned Node\+To, double weight)
 \item 
-void \mbox{\hyperlink{classMatsuokaEngine_a716d4e8f1dc446179c5424007995ab59}{set\+Connection}} (unsigned Node\+From, unsigned Node\+To, double weight)
+void \hyperlink{classMatsuokaEngine_a1335ac9672e6443135d78a8192b5aad5}{set\+Connection} (unsigned NodeA, unsigned NodeB, double weight\+AtoB, double weight\+BtoA)
 \item 
-void \mbox{\hyperlink{classMatsuokaEngine_a1335ac9672e6443135d78a8192b5aad5}{set\+Connection}} (unsigned NodeA, unsigned NodeB, double weight\+AtoB, double weight\+BtoA)
-\item 
-void \mbox{\hyperlink{classMatsuokaEngine_a22045d1c6d6c8bcf2b282c9c98e46f13}{set\+Connection\+Phase\+Offset}} (unsigned Node\+From, unsigned Node\+To, double phase)
-\begin{DoxyCompactList}\small\item\em Q\+U\+E\+U\+ED A\+C\+T\+I\+ON -\/ sets the phase offset of the connection (phase 0-\/1 for 0-\/2pi relative to parent\textquotesingle{}s wavelength) \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classMatsuokaEngine_a5a6d42576cafa238d020e62bdc9e2204}{remove\+Connection}} (unsigned node\+From, unsigned Node\+To)
+void \hyperlink{classMatsuokaEngine_a22045d1c6d6c8bcf2b282c9c98e46f13}{set\+Connection\+Phase\+Offset} (unsigned Node\+From, unsigned Node\+To, double phase)
+\begin{DoxyCompactList}\small\item\em Q\+U\+E\+U\+ED A\+C\+T\+I\+ON -\/ sets the phase offset of the connection (phase 0-\/1) \end{DoxyCompactList}\item 
+void \hyperlink{classMatsuokaEngine_a5a6d42576cafa238d020e62bdc9e2204}{remove\+Connection} (unsigned node\+From, unsigned Node\+To)
 \begin{DoxyCompactList}\small\item\em Q\+U\+E\+U\+ED A\+C\+T\+I\+ON -\/ removes connection between indicated nodes if one exists. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classMatsuokaEngine_abf37008845614f7b6a7ec0440141e06f}{move\+Node}} (unsigned node\+ID, unsigned new\+Parent\+ID, bool break\+Curr\+Parent\+Child\+Conn, bool break\+Curr\+Child\+Parent\+Conn)
+void \hyperlink{classMatsuokaEngine_a475f866cfa6cf0e4249483a4ea2d5816}{delete\+Node} (unsigned node\+ID)
+\begin{DoxyCompactList}\small\item\em Q\+U\+E\+U\+ED A\+C\+T\+I\+ON -\/deletes the node, removing any connections to/from. \end{DoxyCompactList}\item 
+void \hyperlink{classMatsuokaEngine_a1b932496b53001762dd0224eced6bd09}{set\+Freq\+Compensation} (double compensation)
 \item 
-void \mbox{\hyperlink{classMatsuokaEngine_a475f866cfa6cf0e4249483a4ea2d5816}{delete\+Node}} (unsigned node\+ID)
-\begin{DoxyCompactList}\small\item\em Q\+U\+E\+U\+ED A\+C\+T\+I\+ON -\/deletes the node, removes any connections to/from it. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classMatsuokaEngine_a1b932496b53001762dd0224eced6bd09}{set\+Freq\+Compensation}} (double compensation)
+void \hyperlink{classMatsuokaEngine_a22a2a27ba2ad7f8ea7a4121326ac8a21}{set\+Param\+\_\+t2\+Overt1} (double val)
+\begin{DoxyCompactList}\small\item\em Q\+U\+E\+U\+ED A\+C\+T\+I\+ON -\/sets the ratio between the matsuoka\textquotesingle{}s oscillator parameters t2 and t1. \end{DoxyCompactList}\item 
+void \hyperlink{classMatsuokaEngine_ad210d56ae83d896c39e72d93a6263035}{set\+Param\+\_\+c} (double val)
+\begin{DoxyCompactList}\small\item\em Q\+U\+E\+U\+ED A\+C\+T\+I\+ON -\/ sets the matsuoka\textquotesingle{}s oscillator parameter C. \end{DoxyCompactList}\item 
+void \hyperlink{classMatsuokaEngine_aa568d548269415a9104a74eaec19d958}{set\+Param\+\_\+b} (double val)
+\begin{DoxyCompactList}\small\item\em Q\+U\+E\+U\+ED A\+C\+T\+I\+ON -\/ sets the matsuoka\textquotesingle{}s oscillator parameter b. \end{DoxyCompactList}\item 
+void \hyperlink{classMatsuokaEngine_aba4ab083a57717c7dba5d75ff3d1987a}{set\+Param\+\_\+g} (double val)
+\begin{DoxyCompactList}\small\item\em Q\+U\+E\+U\+ED A\+C\+T\+I\+ON -\/ sets the matsuoka\textquotesingle{}s oscillator parameter g. \end{DoxyCompactList}\item 
+void \hyperlink{classMatsuokaEngine_acd76608c9b7fb30bf9e0ed2ecd1ba40a}{set\+Node\+Frequency} (unsigned node\+ID, double freq, bool inherit)
 \item 
-void \mbox{\hyperlink{classMatsuokaEngine_a22a2a27ba2ad7f8ea7a4121326ac8a21}{set\+Param\+\_\+t2\+Overt1}} (double val)
+void \hyperlink{classMatsuokaEngine_a858deaa3246c884cc0693b494e398849}{set\+Node\+Phase\+Offset} (unsigned node\+ID, double phase)
 \item 
-void \mbox{\hyperlink{classMatsuokaEngine_ad210d56ae83d896c39e72d93a6263035}{set\+Param\+\_\+c}} (double val)
-\begin{DoxyCompactList}\small\item\em Q\+U\+E\+U\+ED A\+C\+T\+I\+ON -\/ sets the matsuoka\textquotesingle{}s oscillator parameter C (tonic input\+: mainly controls amplitude) \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classMatsuokaEngine_aa568d548269415a9104a74eaec19d958}{set\+Param\+\_\+b}} (double val)
-\begin{DoxyCompactList}\small\item\em Q\+U\+E\+U\+ED A\+C\+T\+I\+ON -\/ sets the matsuoka\textquotesingle{}s oscillator parameter b (adaptation to signal -\/ mainly controls waveshape) \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classMatsuokaEngine_aba4ab083a57717c7dba5d75ff3d1987a}{set\+Param\+\_\+g}} (double val)
-\begin{DoxyCompactList}\small\item\em Q\+U\+E\+U\+ED A\+C\+T\+I\+ON -\/ sets the matsuoka\textquotesingle{}s oscillator parameter g (adaptation between neurons\+: mainly controls waveshape) \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classMatsuokaEngine_acd76608c9b7fb30bf9e0ed2ecd1ba40a}{set\+Node\+Frequency}} (unsigned node\+ID, double freq, bool inherit)
+void \hyperlink{classMatsuokaEngine_a4e564e80779a3cd89cb3d4347920ba7d}{set\+Node\+Self\+Noise} (unsigned node\+ID, double amount)
+\begin{DoxyCompactList}\small\item\em Q\+U\+E\+U\+ED A\+C\+T\+I\+ON -\/sets the amplitude of white noise to the node input. \end{DoxyCompactList}\item 
+void \hyperlink{classMatsuokaEngine_aa037d1bcb48e395ef6e789feab20b144}{set\+Node\+Synch\+Mode} (unsigned node\+ID, \hyperlink{classMatsuNode_a725e228db39b8842f851ddf88f640bed}{synch\+Mode} mode)
 \item 
-void \mbox{\hyperlink{classMatsuokaEngine_a304bbae799a46734b1db0ac679f032e4}{set\+Node\+Frequency\+Multiple}} (unsigned node\+ID, double multiple\+Of\+Parent, bool inherit)
+void \hyperlink{classMatsuokaEngine_a8eb38eaa5de05677243c5c7cd809af4d}{set\+Node\+External\+Input} (unsigned node\+ID, double weight, double \hyperlink{classMatsuokaEngine_a811a5449f07004a2eb6b34e8c9bd862f}{input})
 \item 
-void \mbox{\hyperlink{classMatsuokaEngine_a858deaa3246c884cc0693b494e398849}{set\+Node\+Phase\+Offset}} (unsigned node\+ID, double phase)
-\item 
-void \mbox{\hyperlink{classMatsuokaEngine_a4e564e80779a3cd89cb3d4347920ba7d}{set\+Node\+Self\+Noise}} (unsigned node\+ID, double amount)
-\begin{DoxyCompactList}\small\item\em Q\+U\+E\+U\+ED A\+C\+T\+I\+ON -\/sets the amplitude of white noise going into the node. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classMatsuokaEngine_aa037d1bcb48e395ef6e789feab20b144}{set\+Node\+Synch\+Mode}} (unsigned node\+ID, \mbox{\hyperlink{classMatsuNode_a725e228db39b8842f851ddf88f640bed}{synch\+Mode}} mode)
-\item 
-void \mbox{\hyperlink{classMatsuokaEngine_a8eb38eaa5de05677243c5c7cd809af4d}{set\+Node\+External\+Input}} (unsigned node\+ID, double weight, double \mbox{\hyperlink{classMatsuokaEngine_a811a5449f07004a2eb6b34e8c9bd862f}{input}})
-\item 
-void \mbox{\hyperlink{classMatsuokaEngine_afc55b8350937748e0c0187a08130ca31}{reset\+Node\+Change\+Flag\+\_\+\+Params}} (unsigned node\+ID)
-\item 
-void \mbox{\hyperlink{classMatsuokaEngine_a19fd8a9446e6bea6986d8de5c5c7bfd1}{reset\+Node\+Change\+Flag\+\_\+\+Inputs}} (unsigned node\+ID)
-\item 
-void \mbox{\hyperlink{classMatsuokaEngine_aeb46c52bb2a430616aea63732aba7e32}{set\+Node\+Quantiser\+\_\+\+Grid}} (unsigned node\+ID, \mbox{\hyperlink{classQuantisedEventQueue_ae186d50bd503038452edbbdd0c7c259e}{grid\+Type}} grid)
+void \hyperlink{classMatsuokaEngine_afc55b8350937748e0c0187a08130ca31}{reset\+Node\+Change\+Flag\+\_\+\+Params} (unsigned node\+ID)
+\begin{DoxyCompactList}\small\item\em resets the flag that indicates that node parameters have been changed \end{DoxyCompactList}\item 
+void \hyperlink{classMatsuokaEngine_a19fd8a9446e6bea6986d8de5c5c7bfd1}{reset\+Node\+Change\+Flag\+\_\+\+Inputs} (unsigned node\+ID)
+\begin{DoxyCompactList}\small\item\em resets the flag that indicates that node inputs have been changed \end{DoxyCompactList}\item 
+void \hyperlink{classMatsuokaEngine_aeb46c52bb2a430616aea63732aba7e32}{set\+Node\+Quantiser\+\_\+\+Grid} (unsigned node\+ID, \hyperlink{classQuantisedEventQueue_ae186d50bd503038452edbbdd0c7c259e}{grid\+Type} grid)
 \begin{DoxyCompactList}\small\item\em sets the grid type for the quantiser for the node \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classMatsuokaEngine_a1220a5a72f9bf35a9e6cd5a4f999f7e5}{set\+Node\+Quantiser\+\_\+\+Multiple}} (unsigned node\+ID, float mult)
-\begin{DoxyCompactList}\small\item\em sets the multiplier for grid coarseness (defines resolution of grid / no of valid positions on grid) \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classMatsuokaEngine_a12aafa189a6c9302937a00de6d291d42}{set\+Node\+Quantiser\+\_\+\+Offset}} (unsigned node\+ID, float off)
-\begin{DoxyCompactList}\small\item\em sets the offset of the grid -\/ shifts the grid by this many base units \end{DoxyCompactList}\item 
-\mbox{\hyperlink{classQuantisedEventQueue_ae186d50bd503038452edbbdd0c7c259e}{grid\+Type}} \mbox{\hyperlink{classMatsuokaEngine_adce59f3e8b45ab4c0ca804b17d8eb749}{get\+Node\+Quantiser\+\_\+\+Grid}} (unsigned node\+ID)
+void \hyperlink{classMatsuokaEngine_a1220a5a72f9bf35a9e6cd5a4f999f7e5}{set\+Node\+Quantiser\+\_\+\+Multiple} (unsigned node\+ID, float mult)
+\begin{DoxyCompactList}\small\item\em sets the multiplier for grid coarseness (defines no of valid positions on grid and gaps between them) \end{DoxyCompactList}\item 
+void \hyperlink{classMatsuokaEngine_a12aafa189a6c9302937a00de6d291d42}{set\+Node\+Quantiser\+\_\+\+Offset} (unsigned node\+ID, float off)
+\begin{DoxyCompactList}\small\item\em sets the offset from zero of the valid positions on the grid for the quantiser for the node \end{DoxyCompactList}\item 
+\hyperlink{classQuantisedEventQueue_ae186d50bd503038452edbbdd0c7c259e}{grid\+Type} \hyperlink{classMatsuokaEngine_adce59f3e8b45ab4c0ca804b17d8eb749}{get\+Node\+Quantiser\+\_\+\+Grid} (unsigned node\+ID)
 \begin{DoxyCompactList}\small\item\em returns the grid type of the quantiser for the node \end{DoxyCompactList}\item 
-float \mbox{\hyperlink{classMatsuokaEngine_a1d0b1a452f3d9252d460177779b2d681}{get\+Node\+Quantiser\+\_\+\+Multiple}} (unsigned node\+ID)
-\begin{DoxyCompactList}\small\item\em returns the multiplier for grid coarseness (defines resolution of grid / no of valid positions on grid) \end{DoxyCompactList}\item 
-float \mbox{\hyperlink{classMatsuokaEngine_a05ab0eeb8a7d0b7f3a478ba41735cb8d}{get\+Node\+Quantiser\+\_\+\+Offset}} (unsigned node\+ID)
-\begin{DoxyCompactList}\small\item\em returns the offset of the grid (the number of base units the grid is shifted by) \end{DoxyCompactList}\item 
-unsigned \mbox{\hyperlink{classMatsuokaEngine_af7edec268c651be3a45061cf9e90c123}{get\+Node\+Quantiser\+\_\+\+Bar\+Division}} (unsigned node\+ID)
+float \hyperlink{classMatsuokaEngine_a1d0b1a452f3d9252d460177779b2d681}{get\+Node\+Quantiser\+\_\+\+Multiple} (unsigned node\+ID)
+\begin{DoxyCompactList}\small\item\em returns the multiplier for grid coarseness (defines no of valid positions on grid and gaps between them) \end{DoxyCompactList}\item 
+float \hyperlink{classMatsuokaEngine_a05ab0eeb8a7d0b7f3a478ba41735cb8d}{get\+Node\+Quantiser\+\_\+\+Offset} (unsigned node\+ID)
+\begin{DoxyCompactList}\small\item\em returns the offset from zero of the valid positions on the grid for the quantiser for the node \end{DoxyCompactList}\item 
+unsigned \hyperlink{classMatsuokaEngine_af7edec268c651be3a45061cf9e90c123}{get\+Node\+Quantiser\+\_\+\+Bar\+Division} (unsigned node\+ID)
 \item 
-void \mbox{\hyperlink{classMatsuokaEngine_a9057153267968489cd83ca31a1fbd985}{set\+Quantise\+Amount}} (float amount)
+void \hyperlink{classMatsuokaEngine_a9057153267968489cd83ca31a1fbd985}{set\+Quantise\+Amount} (float amount)
+\begin{DoxyCompactList}\small\item\em sets the strength of quantisation effect (0=no quantisation 1= strict quantisation) \end{DoxyCompactList}\item 
+void \hyperlink{classMatsuokaEngine_ae053fd0bdd438fa8a7f4cbd151122f89}{set\+Quantise\+Amount} (unsigned node, float amount)
 \item 
-void \mbox{\hyperlink{classMatsuokaEngine_ae053fd0bdd438fa8a7f4cbd151122f89}{set\+Quantise\+Amount}} (unsigned node, float amount)
-\item 
-float \mbox{\hyperlink{classMatsuokaEngine_aaf73c32f2c81d4895e98e1a8fe31cea1}{get\+Quantise\+Amount}} ()
+float \hyperlink{classMatsuokaEngine_aaf73c32f2c81d4895e98e1a8fe31cea1}{get\+Quantise\+Amount} ()
 \begin{DoxyCompactList}\small\item\em gets the strength of quantisation effect (0=no quantisation 1= strict quantisation) \end{DoxyCompactList}\item 
-float \mbox{\hyperlink{classMatsuokaEngine_a8150c0efacb8f3d5ec2c3fb5731dfc97}{get\+Quantise\+Amount}} (unsigned node)
+float \hyperlink{classMatsuokaEngine_a8150c0efacb8f3d5ec2c3fb5731dfc97}{get\+Quantise\+Amount} (unsigned node)
 \item 
-void \mbox{\hyperlink{classMatsuokaEngine_a23ee17f0e948af6fcccdaeefa2c4e246}{set\+Sample\+Rate}} (unsigned sample\+Rate)
+void \hyperlink{classMatsuokaEngine_a23ee17f0e948af6fcccdaeefa2c4e246}{set\+Sample\+Rate} (unsigned sample\+Rate)
 \item 
-void \mbox{\hyperlink{classMatsuokaEngine_a3bf65a238e682b78fee81cd13b49174d}{clear}} ()
-\begin{DoxyCompactList}\small\item\em clears the network back to single root node (node 0), resets all values to defaults \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classMatsuokaEngine_affd6ef89f68c1aa654229a07e0160f2e}{do\+Queued\+Actions}} ()
+void \hyperlink{classMatsuokaEngine_a3bf65a238e682b78fee81cd13b49174d}{clear} ()
+\begin{DoxyCompactList}\small\item\em clears the network back to single root node, resets all values to defaults \end{DoxyCompactList}\item 
+void \hyperlink{classMatsuokaEngine_affd6ef89f68c1aa654229a07e0160f2e}{do\+Queued\+Actions} ()
+\begin{DoxyCompactList}\small\item\em actions results of any methods called which are commented Q\+U\+E\+U\+ED A\+C\+T\+I\+ON \end{DoxyCompactList}\item 
+void \hyperlink{classMatsuokaEngine_acaa099b8d5f49430d0fc84c16e0f4e67}{set\+Event\+Callback} (Callback cb)
 \item 
-void \mbox{\hyperlink{classMatsuokaEngine_acaa099b8d5f49430d0fc84c16e0f4e67}{set\+Event\+Callback}} (Callback cb)
-\item 
-void \mbox{\hyperlink{classMatsuokaEngine_afca77a2464c5852a0dbb9eed2d191ecb}{set\+Shutdown}} (bool shutdown)
+void \hyperlink{classMatsuokaEngine_afca77a2464c5852a0dbb9eed2d191ecb}{set\+Shutdown} (bool shutdown)
 \begin{DoxyCompactList}\small\item\em tells the engine to shutdown \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classMatsuokaEngine_a929ade3a9ce6497e47183190255cbfae}{set\+Pause}} (bool pause)
-\begin{DoxyCompactList}\small\item\em (un/)pauses the engine (\mbox{\hyperlink{classMatsuokaEngine_a4fa468dc0814f1ad92594f7a4d5abd00}{step()}} will have no effect while paused \end{DoxyCompactList}\item 
-bool \mbox{\hyperlink{classMatsuokaEngine_a5d7bb7f68eb7338a6c34eef10d421f68}{is\+Shutting\+Down}} ()
+void \hyperlink{classMatsuokaEngine_a929ade3a9ce6497e47183190255cbfae}{set\+Pause} (bool pause)
+\begin{DoxyCompactList}\small\item\em (un)pauses the engine (\hyperlink{classMatsuokaEngine_a4fa468dc0814f1ad92594f7a4d5abd00}{step()} will have no effect while paused \end{DoxyCompactList}\item 
+bool \hyperlink{classMatsuokaEngine_a5d7bb7f68eb7338a6c34eef10d421f68}{is\+Shutting\+Down} ()
 \begin{DoxyCompactList}\small\item\em reports true if the system is in the process of shutting down \end{DoxyCompactList}\item 
-bool \mbox{\hyperlink{classMatsuokaEngine_a1b6e6f86762e4541854b4262eb217f7e}{is\+Idle}} ()
+bool \hyperlink{classMatsuokaEngine_a1b6e6f86762e4541854b4262eb217f7e}{is\+Idle} ()
 \begin{DoxyCompactList}\small\item\em reports true if not currently calculating a step \end{DoxyCompactList}\item 
-uint64\+\_\+t \mbox{\hyperlink{classMatsuokaEngine_a40114e7866da03ae1b7f37bcbde09876}{get\+Engine\+Step\+Counter}} ()
+uint64\+\_\+t \hyperlink{classMatsuokaEngine_a40114e7866da03ae1b7f37bcbde09876}{get\+Engine\+Step\+Counter} ()
 \item 
-void \mbox{\hyperlink{classMatsuokaEngine_a738106afa4c313de36150a9687700193}{set\+Driven}} (\mbox{\hyperlink{classMatsuokaEngine_ad8f471b2f1ca479174d5514b9a3597ec}{external\+Sync}} driven)
-\item 
-void \mbox{\hyperlink{classMatsuokaEngine_a08b0d367297310a788461e3610e80623}{set\+Driving\+Input}} (float val)
-\item 
-void \mbox{\hyperlink{classMatsuokaEngine_a9ecbc93a17a602d8358c189363397575}{zero\+Sync}} (unsigned node\+ID)
-\begin{DoxyCompactList}\small\item\em if Set\+Driven has been called, with value other than \char`\"{}none\char`\"{}, this \end{DoxyCompactList}\end{DoxyCompactItemize}
+void \hyperlink{classMatsuokaEngine_a738106afa4c313de36150a9687700193}{set\+Driven} (\hyperlink{classMatsuokaEngine_ad8f471b2f1ca479174d5514b9a3597ec}{external\+Sync} driven)
+\begin{DoxyCompactList}\small\item\em Set system to be driven by external phasor (drives node0) \end{DoxyCompactList}\item 
+void \hyperlink{classMatsuokaEngine_a08b0d367297310a788461e3610e80623}{set\+Driving\+Input} (float val)
+\begin{DoxyCompactList}\small\item\em Set value of external driving phasor (drives node0) \end{DoxyCompactList}\item 
+void \hyperlink{classMatsuokaEngine_a9ecbc93a17a602d8358c189363397575}{zero\+Sync} (unsigned node\+ID)
+\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
-Main interface / top level class for most purposes. Create, manipulate and simulate a \mbox{\hyperlink{classCPG}{C\+PG}} network via this class. 
+Engine\+: Main interface for controlling and calculating the \hyperlink{classCPG}{C\+PG} network. 
 
-Threadsafe -\/ \mbox{\hyperlink{classMatsuokaEngine_a4fa468dc0814f1ad92594f7a4d5abd00}{step()}}, \mbox{\hyperlink{classMatsuokaEngine_a70444163eee59d0df5b282bb8696f5a1}{get\+Events()}} etc. can be run in the signal-\/rate thread, while controlling the system using the other functions from another control thread (e.\+g. gui / etc.). To support this, some functions are not immediately actioned, but queued for actioning by the signal thread These queued functions are commented Q\+U\+E\+U\+ED A\+C\+T\+I\+ON All actions in the queue are executed when \mbox{\hyperlink{classMatsuokaEngine_affd6ef89f68c1aa654229a07e0160f2e}{do\+Queued\+Actions()}} is called (e.\+g. once per vector before doing signal calcs).
+Threadsafe -\/ \hyperlink{classMatsuokaEngine_a4fa468dc0814f1ad92594f7a4d5abd00}{step()}, \hyperlink{classMatsuokaEngine_a70444163eee59d0df5b282bb8696f5a1}{get\+Events()} etc. can be run in one thread, while controlling the system using the other functions from another thread
 
-The two main outputs from the network are the signals of the nodes, and \char`\"{}events\char`\"{} Events are triggers -\/ generated either by e.\+g positive zero crossing of the signal These events typically happen once per cycle and can be used for e.\+g. note triggers Events may be quantised to a timing-\/grid 
+Some functions are immediately actioned, some are queued and actioned on calling \hyperlink{classMatsuokaEngine_affd6ef89f68c1aa654229a07e0160f2e}{do\+Queued\+Actions()}. If queued this is commented 
 
 \subsection{Member Typedef Documentation}
-\mbox{\Hypertarget{classMatsuokaEngine_aaf41ce5bf63099a1d864e4eb91527cb5}\label{classMatsuokaEngine_aaf41ce5bf63099a1d864e4eb91527cb5}} 
 \index{Matsuoka\+Engine@{Matsuoka\+Engine}!grid\+Type@{grid\+Type}}
 \index{grid\+Type@{grid\+Type}!Matsuoka\+Engine@{Matsuoka\+Engine}}
-\subsubsection{\texorpdfstring{grid\+Type}{gridType}}
-{\footnotesize\ttfamily using \mbox{\hyperlink{classQuantisedEventQueue_ae186d50bd503038452edbbdd0c7c259e}{Matsuoka\+Engine\+::grid\+Type}} =  \mbox{\hyperlink{classQuantisedEventQueue_ae186d50bd503038452edbbdd0c7c259e}{Quantised\+Event\+Queue\+::grid\+Type}}}
-
-\mbox{\Hypertarget{classMatsuokaEngine_a811a5449f07004a2eb6b34e8c9bd862f}\label{classMatsuokaEngine_a811a5449f07004a2eb6b34e8c9bd862f}} 
+\subsubsection[{\texorpdfstring{grid\+Type}{gridType}}]{\setlength{\rightskip}{0pt plus 5cm}using {\bf Matsuoka\+Engine\+::grid\+Type} =  {\bf Quantised\+Event\+Queue\+::grid\+Type}}\hypertarget{classMatsuokaEngine_aaf41ce5bf63099a1d864e4eb91527cb5}{}\label{classMatsuokaEngine_aaf41ce5bf63099a1d864e4eb91527cb5}
 \index{Matsuoka\+Engine@{Matsuoka\+Engine}!input@{input}}
 \index{input@{input}!Matsuoka\+Engine@{Matsuoka\+Engine}}
-\subsubsection{\texorpdfstring{input}{input}}
-{\footnotesize\ttfamily using \mbox{\hyperlink{classMatsuokaEngine_a811a5449f07004a2eb6b34e8c9bd862f}{Matsuoka\+Engine\+::input}} =  \mbox{\hyperlink{structCPG_1_1input}{C\+P\+G\+::input}}}
-
-\mbox{\Hypertarget{classMatsuokaEngine_a09035e4918ce82c9378821c88375f843}\label{classMatsuokaEngine_a09035e4918ce82c9378821c88375f843}} 
+\subsubsection[{\texorpdfstring{input}{input}}]{\setlength{\rightskip}{0pt plus 5cm}using {\bf Matsuoka\+Engine\+::input} =  {\bf C\+P\+G\+::input}}\hypertarget{classMatsuokaEngine_a811a5449f07004a2eb6b34e8c9bd862f}{}\label{classMatsuokaEngine_a811a5449f07004a2eb6b34e8c9bd862f}
 \index{Matsuoka\+Engine@{Matsuoka\+Engine}!output\+Event@{output\+Event}}
 \index{output\+Event@{output\+Event}!Matsuoka\+Engine@{Matsuoka\+Engine}}
-\subsubsection{\texorpdfstring{output\+Event}{outputEvent}}
-{\footnotesize\ttfamily using \mbox{\hyperlink{classMatsuokaEngine_a09035e4918ce82c9378821c88375f843}{Matsuoka\+Engine\+::output\+Event}} =  \mbox{\hyperlink{structQuantisedEventQueue_1_1outputEvent}{Quantised\+Event\+Queue\+::output\+Event}}}
-
-\mbox{\Hypertarget{classMatsuokaEngine_acbf2fcb6ddd3b8edc414753248b95fc2}\label{classMatsuokaEngine_acbf2fcb6ddd3b8edc414753248b95fc2}} 
+\subsubsection[{\texorpdfstring{output\+Event}{outputEvent}}]{\setlength{\rightskip}{0pt plus 5cm}using {\bf Matsuoka\+Engine\+::output\+Event} =  {\bf Quantised\+Event\+Queue\+::output\+Event}}\hypertarget{classMatsuokaEngine_a09035e4918ce82c9378821c88375f843}{}\label{classMatsuokaEngine_a09035e4918ce82c9378821c88375f843}
 \index{Matsuoka\+Engine@{Matsuoka\+Engine}!synch\+Mode@{synch\+Mode}}
 \index{synch\+Mode@{synch\+Mode}!Matsuoka\+Engine@{Matsuoka\+Engine}}
-\subsubsection{\texorpdfstring{synch\+Mode}{synchMode}}
-{\footnotesize\ttfamily using \mbox{\hyperlink{classMatsuNode_a725e228db39b8842f851ddf88f640bed}{Matsuoka\+Engine\+::synch\+Mode}} =  \mbox{\hyperlink{classMatsuNode_a725e228db39b8842f851ddf88f640bed}{Matsu\+Node\+::synch\+Mode}}}
-
+\subsubsection[{\texorpdfstring{synch\+Mode}{synchMode}}]{\setlength{\rightskip}{0pt plus 5cm}using {\bf Matsuoka\+Engine\+::synch\+Mode} =  {\bf Matsu\+Node\+::synch\+Mode}}\hypertarget{classMatsuokaEngine_acbf2fcb6ddd3b8edc414753248b95fc2}{}\label{classMatsuokaEngine_acbf2fcb6ddd3b8edc414753248b95fc2}
 
 
 \subsection{Member Enumeration Documentation}
-\mbox{\Hypertarget{classMatsuokaEngine_ad8f471b2f1ca479174d5514b9a3597ec}\label{classMatsuokaEngine_ad8f471b2f1ca479174d5514b9a3597ec}} 
 \index{Matsuoka\+Engine@{Matsuoka\+Engine}!external\+Sync@{external\+Sync}}
 \index{external\+Sync@{external\+Sync}!Matsuoka\+Engine@{Matsuoka\+Engine}}
-\subsubsection{\texorpdfstring{external\+Sync}{externalSync}}
-{\footnotesize\ttfamily enum \mbox{\hyperlink{classMatsuokaEngine_ad8f471b2f1ca479174d5514b9a3597ec}{Matsuoka\+Engine\+::external\+Sync}}}
-
-\begin{DoxyEnumFields}{Enumerator}
-\raisebox{\heightof{T}}[0pt][0pt]{\index{none@{none}!Matsuoka\+Engine@{Matsuoka\+Engine}}\index{Matsuoka\+Engine@{Matsuoka\+Engine}!none@{none}}}\mbox{\Hypertarget{classMatsuokaEngine_ad8f471b2f1ca479174d5514b9a3597eca4c1d8f9abc3142b344a24624ea7c0a96}\label{classMatsuokaEngine_ad8f471b2f1ca479174d5514b9a3597eca4c1d8f9abc3142b344a24624ea7c0a96}} 
-none&\\
-\hline
-
-\raisebox{\heightof{T}}[0pt][0pt]{\index{driving@{driving}!Matsuoka\+Engine@{Matsuoka\+Engine}}\index{Matsuoka\+Engine@{Matsuoka\+Engine}!driving@{driving}}}\mbox{\Hypertarget{classMatsuokaEngine_ad8f471b2f1ca479174d5514b9a3597ecaf17848b3aa2effcdfd4576b7723ffc7b}\label{classMatsuokaEngine_ad8f471b2f1ca479174d5514b9a3597ecaf17848b3aa2effcdfd4576b7723ffc7b}} 
-driving&\\
-\hline
-
-\raisebox{\heightof{T}}[0pt][0pt]{\index{reseting@{reseting}!Matsuoka\+Engine@{Matsuoka\+Engine}}\index{Matsuoka\+Engine@{Matsuoka\+Engine}!reseting@{reseting}}}\mbox{\Hypertarget{classMatsuokaEngine_ad8f471b2f1ca479174d5514b9a3597eca66dfc95cb0e1248f30385a100203920c}\label{classMatsuokaEngine_ad8f471b2f1ca479174d5514b9a3597eca66dfc95cb0e1248f30385a100203920c}} 
-reseting&\\
-\hline
-
-\end{DoxyEnumFields}
+\subsubsection[{\texorpdfstring{external\+Sync}{externalSync}}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Matsuoka\+Engine\+::external\+Sync}}\hypertarget{classMatsuokaEngine_ad8f471b2f1ca479174d5514b9a3597ec}{}\label{classMatsuokaEngine_ad8f471b2f1ca479174d5514b9a3597ec}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{none@{none}!Matsuoka\+Engine@{Matsuoka\+Engine}}\index{Matsuoka\+Engine@{Matsuoka\+Engine}!none@{none}}\item[{\em 
+none\hypertarget{classMatsuokaEngine_ad8f471b2f1ca479174d5514b9a3597eca4c1d8f9abc3142b344a24624ea7c0a96}{}\label{classMatsuokaEngine_ad8f471b2f1ca479174d5514b9a3597eca4c1d8f9abc3142b344a24624ea7c0a96}
+}]\index{driving@{driving}!Matsuoka\+Engine@{Matsuoka\+Engine}}\index{Matsuoka\+Engine@{Matsuoka\+Engine}!driving@{driving}}\item[{\em 
+driving\hypertarget{classMatsuokaEngine_ad8f471b2f1ca479174d5514b9a3597ecaf17848b3aa2effcdfd4576b7723ffc7b}{}\label{classMatsuokaEngine_ad8f471b2f1ca479174d5514b9a3597ecaf17848b3aa2effcdfd4576b7723ffc7b}
+}]\index{reseting@{reseting}!Matsuoka\+Engine@{Matsuoka\+Engine}}\index{Matsuoka\+Engine@{Matsuoka\+Engine}!reseting@{reseting}}\item[{\em 
+reseting\hypertarget{classMatsuokaEngine_ad8f471b2f1ca479174d5514b9a3597eca66dfc95cb0e1248f30385a100203920c}{}\label{classMatsuokaEngine_ad8f471b2f1ca479174d5514b9a3597eca66dfc95cb0e1248f30385a100203920c}
+}]\end{description}
+\end{Desc}
 
 
 \subsection{Constructor \& Destructor Documentation}
-\mbox{\Hypertarget{classMatsuokaEngine_a25f70ceddea44651433ea8547b332ecf}\label{classMatsuokaEngine_a25f70ceddea44651433ea8547b332ecf}} 
 \index{Matsuoka\+Engine@{Matsuoka\+Engine}!Matsuoka\+Engine@{Matsuoka\+Engine}}
 \index{Matsuoka\+Engine@{Matsuoka\+Engine}!Matsuoka\+Engine@{Matsuoka\+Engine}}
-\subsubsection{\texorpdfstring{Matsuoka\+Engine()}{MatsuokaEngine()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
-{\footnotesize\ttfamily Matsuoka\+Engine\+::\+Matsuoka\+Engine (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-
-
-Constructor initialising with D\+E\+F\+A\+U\+L\+T\+S\+A\+M\+P\+L\+E\+R\+A\+TE (see \mbox{\hyperlink{core_8h}{core.\+h}}). This sets up the engine to generate a single event per cycle of each node, occuring at the outputs positive zero crossing. Other configurations are possible using the constructor overload(s) 
-
-\mbox{\Hypertarget{classMatsuokaEngine_a4d26cc1bf5144ea89611377701716fea}\label{classMatsuokaEngine_a4d26cc1bf5144ea89611377701716fea}} 
+\subsubsection[{\texorpdfstring{Matsuoka\+Engine()}{MatsuokaEngine()}}]{\setlength{\rightskip}{0pt plus 5cm}Matsuoka\+Engine\+::\+Matsuoka\+Engine (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classMatsuokaEngine_a25f70ceddea44651433ea8547b332ecf}{}\label{classMatsuokaEngine_a25f70ceddea44651433ea8547b332ecf}
 \index{Matsuoka\+Engine@{Matsuoka\+Engine}!Matsuoka\+Engine@{Matsuoka\+Engine}}
 \index{Matsuoka\+Engine@{Matsuoka\+Engine}!Matsuoka\+Engine@{Matsuoka\+Engine}}
-\subsubsection{\texorpdfstring{Matsuoka\+Engine()}{MatsuokaEngine()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
-{\footnotesize\ttfamily Matsuoka\+Engine\+::\+Matsuoka\+Engine (\begin{DoxyParamCaption}\item[{unsigned}]{sample\+Rate,  }\item[{bool}]{event\+On\+Rise = {\ttfamily true},  }\item[{bool}]{event\+On\+Fall = {\ttfamily false},  }\item[{bool}]{fire\+On\+Peak = {\ttfamily false} }\end{DoxyParamCaption})}
-
-
-
-Constructor determining sample rate and event output behaviour. Events can thus be generated 0 1 or 2 times per cycle, at rising and/or falling zero crossings, or at first signal peak and/or trough. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em sample\+Rate} & sample rate in Hz \\
-\hline
-{\em event\+On\+Rise} & generate 1 event per cycle when signal is rising \\
-\hline
-{\em event\+On\+Fall} & event\+On\+Fall -\/ generate 1 event per cycle when signal is falling \\
-\hline
-{\em fire\+On\+Peak} & fire\+On\+Peak -\/ event(s) are generated at signal peak (and/or trough) rather than zero crossing \\
-\hline
-\end{DoxyParams}
-\mbox{\Hypertarget{classMatsuokaEngine_ab0c8d7fd6eb27c8a8dae7e5fa3742ff9}\label{classMatsuokaEngine_ab0c8d7fd6eb27c8a8dae7e5fa3742ff9}} 
+\subsubsection[{\texorpdfstring{Matsuoka\+Engine(unsigned sample\+Rate, bool event\+On\+Rise=true, bool event\+On\+Fall=false, bool fire\+On\+Peak=false)}{MatsuokaEngine(unsigned sampleRate, bool eventOnRise=true, bool eventOnFall=false, bool fireOnPeak=false)}}]{\setlength{\rightskip}{0pt plus 5cm}Matsuoka\+Engine\+::\+Matsuoka\+Engine (
+\begin{DoxyParamCaption}
+\item[{unsigned}]{sample\+Rate, }
+\item[{bool}]{event\+On\+Rise = {\ttfamily true}, }
+\item[{bool}]{event\+On\+Fall = {\ttfamily false}, }
+\item[{bool}]{fire\+On\+Peak = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}\hypertarget{classMatsuokaEngine_a4d26cc1bf5144ea89611377701716fea}{}\label{classMatsuokaEngine_a4d26cc1bf5144ea89611377701716fea}
 \index{Matsuoka\+Engine@{Matsuoka\+Engine}!Matsuoka\+Engine@{Matsuoka\+Engine}}
 \index{Matsuoka\+Engine@{Matsuoka\+Engine}!Matsuoka\+Engine@{Matsuoka\+Engine}}
-\subsubsection{\texorpdfstring{Matsuoka\+Engine()}{MatsuokaEngine()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
-{\footnotesize\ttfamily Matsuoka\+Engine\+::\+Matsuoka\+Engine (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classMatsuokaEngine}{Matsuoka\+Engine}} \&}]{rhs }\end{DoxyParamCaption})}
-
+\subsubsection[{\texorpdfstring{Matsuoka\+Engine(const Matsuoka\+Engine \&rhs)}{MatsuokaEngine(const MatsuokaEngine &rhs)}}]{\setlength{\rightskip}{0pt plus 5cm}Matsuoka\+Engine\+::\+Matsuoka\+Engine (
+\begin{DoxyParamCaption}
+\item[{const {\bf Matsuoka\+Engine} \&}]{rhs}
+\end{DoxyParamCaption}
+)}\hypertarget{classMatsuokaEngine_ab0c8d7fd6eb27c8a8dae7e5fa3742ff9}{}\label{classMatsuokaEngine_ab0c8d7fd6eb27c8a8dae7e5fa3742ff9}
 
 
 \subsection{Member Function Documentation}
-\mbox{\Hypertarget{classMatsuokaEngine_a2e441b2259ae96759bf300c1f2af4ab1}\label{classMatsuokaEngine_a2e441b2259ae96759bf300c1f2af4ab1}} 
 \index{Matsuoka\+Engine@{Matsuoka\+Engine}!add\+Child@{add\+Child}}
 \index{add\+Child@{add\+Child}!Matsuoka\+Engine@{Matsuoka\+Engine}}
-\subsubsection{\texorpdfstring{add\+Child()}{addChild()}}
-{\footnotesize\ttfamily unsigned Matsuoka\+Engine\+::add\+Child (\begin{DoxyParamCaption}\item[{unsigned}]{parent\+ID,  }\item[{unsigned}]{new\+ID }\end{DoxyParamCaption})}
+\subsubsection[{\texorpdfstring{add\+Child(unsigned parent\+I\+D, unsigned new\+I\+D)}{addChild(unsigned parentID, unsigned newID)}}]{\setlength{\rightskip}{0pt plus 5cm}unsigned Matsuoka\+Engine\+::add\+Child (
+\begin{DoxyParamCaption}
+\item[{unsigned}]{parent\+ID, }
+\item[{unsigned}]{new\+ID}
+\end{DoxyParamCaption}
+)}\hypertarget{classMatsuokaEngine_a2e441b2259ae96759bf300c1f2af4ab1}{}\label{classMatsuokaEngine_a2e441b2259ae96759bf300c1f2af4ab1}
 
 
+Q\+U\+E\+U\+ED A\+C\+T\+I\+ON -\/ adds a child node to the indicated node, with the requested id. 
 
-Queue an add\+Child instruction. 
+Queue an add\+Child instruction. \index{Matsuoka\+Engine@{Matsuoka\+Engine}!add\+Node@{add\+Node}}
+\index{add\+Node@{add\+Node}!Matsuoka\+Engine@{Matsuoka\+Engine}}
+\subsubsection[{\texorpdfstring{add\+Node(unsigned new\+I\+D)}{addNode(unsigned newID)}}]{\setlength{\rightskip}{0pt plus 5cm}unsigned Matsuoka\+Engine\+::add\+Node (
+\begin{DoxyParamCaption}
+\item[{unsigned}]{new\+ID}
+\end{DoxyParamCaption}
+)}\hypertarget{classMatsuokaEngine_a0c27d6c36b0b65e1a6ec0261d83a2495}{}\label{classMatsuokaEngine_a0c27d6c36b0b65e1a6ec0261d83a2495}
 
-Q\+U\+E\+U\+ED A\+C\+T\+I\+ON -\/ adds a node to the network, with an incoming signal from the indicated node, the node is treated as \char`\"{}child\char`\"{} of node parent\+ID when setting frequencies The node is assigned the requested id (so you need to make sure that ID is not in use). \mbox{\Hypertarget{classMatsuokaEngine_a7b665074cd1e6fddc875c7d36b305f66}\label{classMatsuokaEngine_a7b665074cd1e6fddc875c7d36b305f66}} 
-\index{Matsuoka\+Engine@{Matsuoka\+Engine}!calc\+Frequency\+Compensation@{calc\+Frequency\+Compensation}}
+
+Q\+U\+E\+U\+ED A\+C\+T\+I\+ON -\/ adds a child node to the indicated node, with the requested id. 
+
+Queue an add\+Node instruction. \index{Matsuoka\+Engine@{Matsuoka\+Engine}!calc\+Frequency\+Compensation@{calc\+Frequency\+Compensation}}
 \index{calc\+Frequency\+Compensation@{calc\+Frequency\+Compensation}!Matsuoka\+Engine@{Matsuoka\+Engine}}
-\subsubsection{\texorpdfstring{calc\+Frequency\+Compensation()}{calcFrequencyCompensation()}}
-{\footnotesize\ttfamily void Matsuoka\+Engine\+::calc\+Frequency\+Compensation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-Avoid using. Superceded by calibrate. Will probably deprecate. starts frequency compensation calculations to set the error correction \mbox{\Hypertarget{classMatsuokaEngine_a68d6295dfa0d28e3bc9d743e763d6ee9}\label{classMatsuokaEngine_a68d6295dfa0d28e3bc9d743e763d6ee9}} 
-\index{Matsuoka\+Engine@{Matsuoka\+Engine}!calibrate@{calibrate}}
+\subsubsection[{\texorpdfstring{calc\+Frequency\+Compensation()}{calcFrequencyCompensation()}}]{\setlength{\rightskip}{0pt plus 5cm}void Matsuoka\+Engine\+::calc\+Frequency\+Compensation (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classMatsuokaEngine_a7b665074cd1e6fddc875c7d36b305f66}{}\label{classMatsuokaEngine_a7b665074cd1e6fddc875c7d36b305f66}
+starts frequency compensation calculations to set the error correction value for the network -\/ use calibrate instead unless you have a very good reason \index{Matsuoka\+Engine@{Matsuoka\+Engine}!calibrate@{calibrate}}
 \index{calibrate@{calibrate}!Matsuoka\+Engine@{Matsuoka\+Engine}}
-\subsubsection{\texorpdfstring{calibrate()}{calibrate()}}
-{\footnotesize\ttfamily void Matsuoka\+Engine\+::calibrate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-runs a calibration routine which sets a frequency error correction value for the current equation values. Should be run while engine is paused / not \mbox{\hyperlink{classMatsuokaEngine_a4fa468dc0814f1ad92594f7a4d5abd00}{step()}}-\/ing This ensures that when a node\textquotesingle{}s frequency is set to 1hz, it is actually 1hz. this needs to be run once at startup. A\+Fter that, it need only be run after equation parameters other than t1 and t2 are changed. \mbox{\Hypertarget{classMatsuokaEngine_a3bf65a238e682b78fee81cd13b49174d}\label{classMatsuokaEngine_a3bf65a238e682b78fee81cd13b49174d}} 
-\index{Matsuoka\+Engine@{Matsuoka\+Engine}!clear@{clear}}
+\subsubsection[{\texorpdfstring{calibrate()}{calibrate()}}]{\setlength{\rightskip}{0pt plus 5cm}void Matsuoka\+Engine\+::calibrate (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classMatsuokaEngine_a68d6295dfa0d28e3bc9d743e763d6ee9}{}\label{classMatsuokaEngine_a68d6295dfa0d28e3bc9d743e763d6ee9}
+runs a calibration routine which sets the frequency error correction value for the set of equation values set. Should be run while engine is paused / not \hyperlink{classMatsuokaEngine_a4fa468dc0814f1ad92594f7a4d5abd00}{step()}ing \index{Matsuoka\+Engine@{Matsuoka\+Engine}!clear@{clear}}
 \index{clear@{clear}!Matsuoka\+Engine@{Matsuoka\+Engine}}
-\subsubsection{\texorpdfstring{clear()}{clear()}}
-{\footnotesize\ttfamily void Matsuoka\+Engine\+::clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+\subsubsection[{\texorpdfstring{clear()}{clear()}}]{\setlength{\rightskip}{0pt plus 5cm}void Matsuoka\+Engine\+::clear (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classMatsuokaEngine_a3bf65a238e682b78fee81cd13b49174d}{}\label{classMatsuokaEngine_a3bf65a238e682b78fee81cd13b49174d}
 
 
+clears the network back to single root node, resets all values to defaults 
 
-clears the network back to single root node (node 0), resets all values to defaults 
-
-\mbox{\Hypertarget{classMatsuokaEngine_a475f866cfa6cf0e4249483a4ea2d5816}\label{classMatsuokaEngine_a475f866cfa6cf0e4249483a4ea2d5816}} 
 \index{Matsuoka\+Engine@{Matsuoka\+Engine}!delete\+Node@{delete\+Node}}
 \index{delete\+Node@{delete\+Node}!Matsuoka\+Engine@{Matsuoka\+Engine}}
-\subsubsection{\texorpdfstring{delete\+Node()}{deleteNode()}}
-{\footnotesize\ttfamily void Matsuoka\+Engine\+::delete\+Node (\begin{DoxyParamCaption}\item[{unsigned}]{node\+ID }\end{DoxyParamCaption})}
+\subsubsection[{\texorpdfstring{delete\+Node(unsigned node\+I\+D)}{deleteNode(unsigned nodeID)}}]{\setlength{\rightskip}{0pt plus 5cm}void Matsuoka\+Engine\+::delete\+Node (
+\begin{DoxyParamCaption}
+\item[{unsigned}]{node\+ID}
+\end{DoxyParamCaption}
+)}\hypertarget{classMatsuokaEngine_a475f866cfa6cf0e4249483a4ea2d5816}{}\label{classMatsuokaEngine_a475f866cfa6cf0e4249483a4ea2d5816}
 
 
+Q\+U\+E\+U\+ED A\+C\+T\+I\+ON -\/deletes the node, removing any connections to/from. 
 
-Q\+U\+E\+U\+ED A\+C\+T\+I\+ON -\/deletes the node, removes any connections to/from it. 
-
-\mbox{\Hypertarget{classMatsuokaEngine_affd6ef89f68c1aa654229a07e0160f2e}\label{classMatsuokaEngine_affd6ef89f68c1aa654229a07e0160f2e}} 
 \index{Matsuoka\+Engine@{Matsuoka\+Engine}!do\+Queued\+Actions@{do\+Queued\+Actions}}
 \index{do\+Queued\+Actions@{do\+Queued\+Actions}!Matsuoka\+Engine@{Matsuoka\+Engine}}
-\subsubsection{\texorpdfstring{do\+Queued\+Actions()}{doQueuedActions()}}
-{\footnotesize\ttfamily void Matsuoka\+Engine\+::do\+Queued\+Actions (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+\subsubsection[{\texorpdfstring{do\+Queued\+Actions()}{doQueuedActions()}}]{\setlength{\rightskip}{0pt plus 5cm}void Matsuoka\+Engine\+::do\+Queued\+Actions (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classMatsuokaEngine_affd6ef89f68c1aa654229a07e0160f2e}{}\label{classMatsuokaEngine_affd6ef89f68c1aa654229a07e0160f2e}
 
-enacts the requests of methods which are commented Q\+U\+E\+U\+ED A\+C\+T\+I\+ON e.\+g. applies any queued requests to add nodes, change frequencies, etc. should be called e.\+g. once per signal vector, before doing the network calculations. \mbox{\Hypertarget{classMatsuokaEngine_a40114e7866da03ae1b7f37bcbde09876}\label{classMatsuokaEngine_a40114e7866da03ae1b7f37bcbde09876}} 
+
+actions results of any methods called which are commented Q\+U\+E\+U\+ED A\+C\+T\+I\+ON 
+
 \index{Matsuoka\+Engine@{Matsuoka\+Engine}!get\+Engine\+Step\+Counter@{get\+Engine\+Step\+Counter}}
 \index{get\+Engine\+Step\+Counter@{get\+Engine\+Step\+Counter}!Matsuoka\+Engine@{Matsuoka\+Engine}}
-\subsubsection{\texorpdfstring{get\+Engine\+Step\+Counter()}{getEngineStepCounter()}}
-{\footnotesize\ttfamily uint64\+\_\+t Matsuoka\+Engine\+::get\+Engine\+Step\+Counter (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-The step counter begins at zero on initialisation and increments by one each time \mbox{\hyperlink{classMatsuokaEngine_a4fa468dc0814f1ad92594f7a4d5abd00}{step()}} is called. this reports the current value of the step counter \mbox{\Hypertarget{classMatsuokaEngine_a70444163eee59d0df5b282bb8696f5a1}\label{classMatsuokaEngine_a70444163eee59d0df5b282bb8696f5a1}} 
-\index{Matsuoka\+Engine@{Matsuoka\+Engine}!get\+Events@{get\+Events}}
+\subsubsection[{\texorpdfstring{get\+Engine\+Step\+Counter()}{getEngineStepCounter()}}]{\setlength{\rightskip}{0pt plus 5cm}uint64\+\_\+t Matsuoka\+Engine\+::get\+Engine\+Step\+Counter (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classMatsuokaEngine_a40114e7866da03ae1b7f37bcbde09876}{}\label{classMatsuokaEngine_a40114e7866da03ae1b7f37bcbde09876}
+Step counter begins at zero on initialisation and increments by one each step. this reports the current value of the step counter \index{Matsuoka\+Engine@{Matsuoka\+Engine}!get\+Events@{get\+Events}}
 \index{get\+Events@{get\+Events}!Matsuoka\+Engine@{Matsuoka\+Engine}}
-\subsubsection{\texorpdfstring{get\+Events()}{getEvents()}}
-{\footnotesize\ttfamily const std\+::vector$<$ \mbox{\hyperlink{classMatsuokaEngine_a09035e4918ce82c9378821c88375f843}{Matsuoka\+Engine\+::output\+Event}} $>$ Matsuoka\+Engine\+::get\+Events (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+\subsubsection[{\texorpdfstring{get\+Events()}{getEvents()}}]{\setlength{\rightskip}{0pt plus 5cm}const std\+::vector$<$ {\bf Matsuoka\+Engine\+::output\+Event} $>$ Matsuoka\+Engine\+::get\+Events (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classMatsuokaEngine_a70444163eee59d0df5b282bb8696f5a1}{}\label{classMatsuokaEngine_a70444163eee59d0df5b282bb8696f5a1}
 
 
+Returns vector of queued events. If sort ==true (default), sorted by parent\+ID. 
 
-Returns vector of queued events and clears the event queue. 
-
-\mbox{\Hypertarget{classMatsuokaEngine_a87b0d0b8fe0447fba1fe7456dbea4e11}\label{classMatsuokaEngine_a87b0d0b8fe0447fba1fe7456dbea4e11}} 
 \index{Matsuoka\+Engine@{Matsuoka\+Engine}!get\+Frequency\+Compensation@{get\+Frequency\+Compensation}}
 \index{get\+Frequency\+Compensation@{get\+Frequency\+Compensation}!Matsuoka\+Engine@{Matsuoka\+Engine}}
-\subsubsection{\texorpdfstring{get\+Frequency\+Compensation()}{getFrequencyCompensation()}}
-{\footnotesize\ttfamily double Matsuoka\+Engine\+::get\+Frequency\+Compensation (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+\subsubsection[{\texorpdfstring{get\+Frequency\+Compensation() const }{getFrequencyCompensation() const }}]{\setlength{\rightskip}{0pt plus 5cm}double Matsuoka\+Engine\+::get\+Frequency\+Compensation (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classMatsuokaEngine_a9437f514466a7140d0e56cf8412c4b4b}{}\label{classMatsuokaEngine_a9437f514466a7140d0e56cf8412c4b4b}
 
-returns the frequency error correction value currently set for the network See calc\+Frequency\+Compensation \mbox{\Hypertarget{classMatsuokaEngine_a7b8067a4f72a8376635ce2d61bece1f2}\label{classMatsuokaEngine_a7b8067a4f72a8376635ce2d61bece1f2}} 
+
+returns the frequency error correction value currently set for the network 
+
 \index{Matsuoka\+Engine@{Matsuoka\+Engine}!get\+Inputs@{get\+Inputs}}
 \index{get\+Inputs@{get\+Inputs}!Matsuoka\+Engine@{Matsuoka\+Engine}}
-\subsubsection{\texorpdfstring{get\+Inputs()}{getInputs()}}
-{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{classMatsuokaEngine_a811a5449f07004a2eb6b34e8c9bd862f}{input}} $>$ Matsuoka\+Engine\+::get\+Inputs (\begin{DoxyParamCaption}\item[{unsigned}]{node\+ID }\end{DoxyParamCaption}) const}
+\subsubsection[{\texorpdfstring{get\+Inputs(unsigned node\+I\+D) const }{getInputs(unsigned nodeID) const }}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<$ {\bf input} $>$ Matsuoka\+Engine\+::get\+Inputs (
+\begin{DoxyParamCaption}
+\item[{unsigned}]{node\+ID}
+\end{DoxyParamCaption}
+) const}\hypertarget{classMatsuokaEngine_a8e159d5e92deacb678ee16229a54c84c}{}\label{classMatsuokaEngine_a8e159d5e92deacb678ee16229a54c84c}
 
 
+return inputs for the requested node 
 
-return details of the inputs from other nodes, into the requested node 
-
-\mbox{\Hypertarget{classMatsuokaEngine_ae2d2de39e55b20e6c579039eb6081246}\label{classMatsuokaEngine_ae2d2de39e55b20e6c579039eb6081246}} 
 \index{Matsuoka\+Engine@{Matsuoka\+Engine}!get\+Node@{get\+Node}}
 \index{get\+Node@{get\+Node}!Matsuoka\+Engine@{Matsuoka\+Engine}}
-\subsubsection{\texorpdfstring{get\+Node()}{getNode()}}
-{\footnotesize\ttfamily const \mbox{\hyperlink{classMatsuNode}{Matsu\+Node}} \& Matsuoka\+Engine\+::get\+Node (\begin{DoxyParamCaption}\item[{unsigned}]{node\+ID }\end{DoxyParamCaption}) const}
-
+\subsubsection[{\texorpdfstring{get\+Node(unsigned node\+I\+D) const }{getNode(unsigned nodeID) const }}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Matsu\+Node} \& Matsuoka\+Engine\+::get\+Node (
+\begin{DoxyParamCaption}
+\item[{unsigned}]{node\+ID}
+\end{DoxyParamCaption}
+) const}\hypertarget{classMatsuokaEngine_ae0dfa755bb0a0c5d4d1c78e22c498ee1}{}\label{classMatsuokaEngine_ae0dfa755bb0a0c5d4d1c78e22c498ee1}
 
 
 returns const reference to the requested node 
 
-\mbox{\Hypertarget{classMatsuokaEngine_a8eb45ab4f1c523f979b3d44dd2c5e508}\label{classMatsuokaEngine_a8eb45ab4f1c523f979b3d44dd2c5e508}} 
 \index{Matsuoka\+Engine@{Matsuoka\+Engine}!get\+Node\+Children@{get\+Node\+Children}}
 \index{get\+Node\+Children@{get\+Node\+Children}!Matsuoka\+Engine@{Matsuoka\+Engine}}
-\subsubsection{\texorpdfstring{get\+Node\+Children()}{getNodeChildren()}}
-{\footnotesize\ttfamily std\+::vector$<$ unsigned $>$ Matsuoka\+Engine\+::get\+Node\+Children (\begin{DoxyParamCaption}\item[{unsigned}]{node\+ID }\end{DoxyParamCaption}) const}
-
+\subsubsection[{\texorpdfstring{get\+Node\+Children(unsigned node\+I\+D) const }{getNodeChildren(unsigned nodeID) const }}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<$ unsigned $>$ Matsuoka\+Engine\+::get\+Node\+Children (
+\begin{DoxyParamCaption}
+\item[{unsigned}]{node\+ID}
+\end{DoxyParamCaption}
+) const}\hypertarget{classMatsuokaEngine_a17ad3eb6cd60eed4d9abe99231f03ade}{}\label{classMatsuokaEngine_a17ad3eb6cd60eed4d9abe99231f03ade}
 
 
 returns list of I\+Ds of children of the requested node 
 
-\mbox{\Hypertarget{classMatsuokaEngine_a88d27453816ff152b17b6e744979e994}\label{classMatsuokaEngine_a88d27453816ff152b17b6e744979e994}} 
 \index{Matsuoka\+Engine@{Matsuoka\+Engine}!get\+Node\+Frequency@{get\+Node\+Frequency}}
 \index{get\+Node\+Frequency@{get\+Node\+Frequency}!Matsuoka\+Engine@{Matsuoka\+Engine}}
-\subsubsection{\texorpdfstring{get\+Node\+Frequency()}{getNodeFrequency()}}
-{\footnotesize\ttfamily double Matsuoka\+Engine\+::get\+Node\+Frequency (\begin{DoxyParamCaption}\item[{unsigned}]{node\+ID }\end{DoxyParamCaption}) const}
-
+\subsubsection[{\texorpdfstring{get\+Node\+Frequency(unsigned node\+I\+D) const }{getNodeFrequency(unsigned nodeID) const }}]{\setlength{\rightskip}{0pt plus 5cm}double Matsuoka\+Engine\+::get\+Node\+Frequency (
+\begin{DoxyParamCaption}
+\item[{unsigned}]{node\+ID}
+\end{DoxyParamCaption}
+) const}\hypertarget{classMatsuokaEngine_a620e21099810accc4c7e40f37020f444}{}\label{classMatsuokaEngine_a620e21099810accc4c7e40f37020f444}
 
 
 returns the frequency of the requested node 
 
-\mbox{\Hypertarget{classMatsuokaEngine_a0f7aa58c722f9bce30724d4a62c72374}\label{classMatsuokaEngine_a0f7aa58c722f9bce30724d4a62c72374}} 
 \index{Matsuoka\+Engine@{Matsuoka\+Engine}!get\+Node\+Input\+Phase@{get\+Node\+Input\+Phase}}
 \index{get\+Node\+Input\+Phase@{get\+Node\+Input\+Phase}!Matsuoka\+Engine@{Matsuoka\+Engine}}
-\subsubsection{\texorpdfstring{get\+Node\+Input\+Phase()}{getNodeInputPhase()}}
-{\footnotesize\ttfamily double Matsuoka\+Engine\+::get\+Node\+Input\+Phase (\begin{DoxyParamCaption}\item[{unsigned}]{node\+ID,  }\item[{unsigned}]{input\+ID }\end{DoxyParamCaption}) const}
+\subsubsection[{\texorpdfstring{get\+Node\+Input\+Phase(unsigned node\+I\+D, unsigned input\+I\+D) const }{getNodeInputPhase(unsigned nodeID, unsigned inputID) const }}]{\setlength{\rightskip}{0pt plus 5cm}double Matsuoka\+Engine\+::get\+Node\+Input\+Phase (
+\begin{DoxyParamCaption}
+\item[{unsigned}]{node\+ID, }
+\item[{unsigned}]{input\+ID}
+\end{DoxyParamCaption}
+) const}\hypertarget{classMatsuokaEngine_a17f7d97d16ee60a54a42bf132e2c8519}{}\label{classMatsuokaEngine_a17f7d97d16ee60a54a42bf132e2c8519}
 
 
+returns the phase offset of the connection to node node\+ID, from node input\+ID (0-\/1) 
 
-returns the phase offset applied to the signal connection between nodes input\+ID and node\+ID (0-\/1) 
-
-\mbox{\Hypertarget{classMatsuokaEngine_ae8f070a75e9005f6cc1f3c2b33c4baf5}\label{classMatsuokaEngine_ae8f070a75e9005f6cc1f3c2b33c4baf5}} 
 \index{Matsuoka\+Engine@{Matsuoka\+Engine}!get\+Node\+List@{get\+Node\+List}}
 \index{get\+Node\+List@{get\+Node\+List}!Matsuoka\+Engine@{Matsuoka\+Engine}}
-\subsubsection{\texorpdfstring{get\+Node\+List()}{getNodeList()}}
-{\footnotesize\ttfamily std\+::vector$<$ unsigned $>$ Matsuoka\+Engine\+::get\+Node\+List (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+\subsubsection[{\texorpdfstring{get\+Node\+List() const }{getNodeList() const }}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<$ unsigned $>$ Matsuoka\+Engine\+::get\+Node\+List (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classMatsuokaEngine_a211fdfa8f1f445442a8812cf3f598086}{}\label{classMatsuokaEngine_a211fdfa8f1f445442a8812cf3f598086}
 
 
+list active nodes in the network 
 
-list ids of all nodes in the network 
-
-\mbox{\Hypertarget{classMatsuokaEngine_a72ba599f12e55273f7298a70e7f0eff7}\label{classMatsuokaEngine_a72ba599f12e55273f7298a70e7f0eff7}} 
 \index{Matsuoka\+Engine@{Matsuoka\+Engine}!get\+Node\+Output@{get\+Node\+Output}}
 \index{get\+Node\+Output@{get\+Node\+Output}!Matsuoka\+Engine@{Matsuoka\+Engine}}
-\subsubsection{\texorpdfstring{get\+Node\+Output()}{getNodeOutput()}}
-{\footnotesize\ttfamily double Matsuoka\+Engine\+::get\+Node\+Output (\begin{DoxyParamCaption}\item[{unsigned}]{node\+ID,  }\item[{unsigned}]{sample\+Offset = {\ttfamily 0},  }\item[{bool}]{match\+Quantiser = {\ttfamily false} }\end{DoxyParamCaption}) const}
+\subsubsection[{\texorpdfstring{get\+Node\+Output(unsigned node\+I\+D, unsigned sample\+Offset=0, bool match\+Quantiser=false) const }{getNodeOutput(unsigned nodeID, unsigned sampleOffset=0, bool matchQuantiser=false) const }}]{\setlength{\rightskip}{0pt plus 5cm}double Matsuoka\+Engine\+::get\+Node\+Output (
+\begin{DoxyParamCaption}
+\item[{unsigned}]{node\+ID, }
+\item[{unsigned}]{sample\+Offset = {\ttfamily 0}, }
+\item[{bool}]{match\+Quantiser = {\ttfamily false}}
+\end{DoxyParamCaption}
+) const}\hypertarget{classMatsuokaEngine_acb7268dacec8e66b987e34c17eddff9c}{}\label{classMatsuokaEngine_acb7268dacec8e66b987e34c17eddff9c}
 
-returns the current oscillator output signal value of the requested node sample\+Offset\+: delay in samples applied to the output match\+Quantiser\+: if using the quantiser, True will apply an additional delay to synchronise the signal output with the quantiser events \mbox{\Hypertarget{classMatsuokaEngine_a5d808db0af62f65826f0fcbc47625205}\label{classMatsuokaEngine_a5d808db0af62f65826f0fcbc47625205}} 
+
+returns the current oscillator output value of the requested node 
+
 \index{Matsuoka\+Engine@{Matsuoka\+Engine}!get\+Node\+Parent@{get\+Node\+Parent}}
 \index{get\+Node\+Parent@{get\+Node\+Parent}!Matsuoka\+Engine@{Matsuoka\+Engine}}
-\subsubsection{\texorpdfstring{get\+Node\+Parent()}{getNodeParent()}}
-{\footnotesize\ttfamily unsigned Matsuoka\+Engine\+::get\+Node\+Parent (\begin{DoxyParamCaption}\item[{unsigned}]{node\+ID }\end{DoxyParamCaption}) const}
-
+\subsubsection[{\texorpdfstring{get\+Node\+Parent(unsigned node\+I\+D) const }{getNodeParent(unsigned nodeID) const }}]{\setlength{\rightskip}{0pt plus 5cm}unsigned Matsuoka\+Engine\+::get\+Node\+Parent (
+\begin{DoxyParamCaption}
+\item[{unsigned}]{node\+ID}
+\end{DoxyParamCaption}
+) const}\hypertarget{classMatsuokaEngine_a6aeab33df18150b97190ff502881960e}{}\label{classMatsuokaEngine_a6aeab33df18150b97190ff502881960e}
 
 
 returns the parent id of the requested node 
 
-\mbox{\Hypertarget{classMatsuokaEngine_a201de701852d315d3eac20c749b19752}\label{classMatsuokaEngine_a201de701852d315d3eac20c749b19752}} 
 \index{Matsuoka\+Engine@{Matsuoka\+Engine}!get\+Node\+Phase\+Offset@{get\+Node\+Phase\+Offset}}
 \index{get\+Node\+Phase\+Offset@{get\+Node\+Phase\+Offset}!Matsuoka\+Engine@{Matsuoka\+Engine}}
-\subsubsection{\texorpdfstring{get\+Node\+Phase\+Offset()}{getNodePhaseOffset()}}
-{\footnotesize\ttfamily double Matsuoka\+Engine\+::get\+Node\+Phase\+Offset (\begin{DoxyParamCaption}\item[{unsigned}]{node\+ID }\end{DoxyParamCaption}) const}
+\subsubsection[{\texorpdfstring{get\+Node\+Phase\+Offset(unsigned node\+I\+D) const }{getNodePhaseOffset(unsigned nodeID) const }}]{\setlength{\rightskip}{0pt plus 5cm}double Matsuoka\+Engine\+::get\+Node\+Phase\+Offset (
+\begin{DoxyParamCaption}
+\item[{unsigned}]{node\+ID}
+\end{DoxyParamCaption}
+) const}\hypertarget{classMatsuokaEngine_a4210f67e9d3b63b89bd95efb9bd25a75}{}\label{classMatsuokaEngine_a4210f67e9d3b63b89bd95efb9bd25a75}
 
-returns the phase offset applied to the output of the requested node (0-\/1) phase offset is set by user -\/ effectively a delay between 0 and 1.\+0 times the node 0s signal wavelength. Useful for rhythmic offsetting. \mbox{\Hypertarget{classMatsuokaEngine_af7edec268c651be3a45061cf9e90c123}\label{classMatsuokaEngine_af7edec268c651be3a45061cf9e90c123}} 
+
+returns the phase offset for the output of the requested node (0-\/1) 
+
 \index{Matsuoka\+Engine@{Matsuoka\+Engine}!get\+Node\+Quantiser\+\_\+\+Bar\+Division@{get\+Node\+Quantiser\+\_\+\+Bar\+Division}}
 \index{get\+Node\+Quantiser\+\_\+\+Bar\+Division@{get\+Node\+Quantiser\+\_\+\+Bar\+Division}!Matsuoka\+Engine@{Matsuoka\+Engine}}
-\subsubsection{\texorpdfstring{get\+Node\+Quantiser\+\_\+\+Bar\+Division()}{getNodeQuantiser\_BarDivision()}}
-{\footnotesize\ttfamily unsigned Matsuoka\+Engine\+::get\+Node\+Quantiser\+\_\+\+Bar\+Division (\begin{DoxyParamCaption}\item[{unsigned}]{node\+ID }\end{DoxyParamCaption})}
-
-returns the no of base units per \char`\"{}bar\char`\"{} of the grid (a \char`\"{}bar\char`\"{} is 1 cycle of node 0) set by set\+Node\+Quantiser\+\_\+\+Multiple \mbox{\Hypertarget{classMatsuokaEngine_adce59f3e8b45ab4c0ca804b17d8eb749}\label{classMatsuokaEngine_adce59f3e8b45ab4c0ca804b17d8eb749}} 
-\index{Matsuoka\+Engine@{Matsuoka\+Engine}!get\+Node\+Quantiser\+\_\+\+Grid@{get\+Node\+Quantiser\+\_\+\+Grid}}
+\subsubsection[{\texorpdfstring{get\+Node\+Quantiser\+\_\+\+Bar\+Division(unsigned node\+I\+D)}{getNodeQuantiser_BarDivision(unsigned nodeID)}}]{\setlength{\rightskip}{0pt plus 5cm}unsigned Matsuoka\+Engine\+::get\+Node\+Quantiser\+\_\+\+Bar\+Division (
+\begin{DoxyParamCaption}
+\item[{unsigned}]{node\+ID}
+\end{DoxyParamCaption}
+)}\hypertarget{classMatsuokaEngine_af7edec268c651be3a45061cf9e90c123}{}\label{classMatsuokaEngine_af7edec268c651be3a45061cf9e90c123}
+returns the no of valid positions on the grid for the quantiser for the node set by set\+Node\+Quantiser\+\_\+\+Multiple \index{Matsuoka\+Engine@{Matsuoka\+Engine}!get\+Node\+Quantiser\+\_\+\+Grid@{get\+Node\+Quantiser\+\_\+\+Grid}}
 \index{get\+Node\+Quantiser\+\_\+\+Grid@{get\+Node\+Quantiser\+\_\+\+Grid}!Matsuoka\+Engine@{Matsuoka\+Engine}}
-\subsubsection{\texorpdfstring{get\+Node\+Quantiser\+\_\+\+Grid()}{getNodeQuantiser\_Grid()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{classQuantisedEventQueue_ae186d50bd503038452edbbdd0c7c259e}{Matsuoka\+Engine\+::grid\+Type}} Matsuoka\+Engine\+::get\+Node\+Quantiser\+\_\+\+Grid (\begin{DoxyParamCaption}\item[{unsigned}]{node\+ID }\end{DoxyParamCaption})}
-
+\subsubsection[{\texorpdfstring{get\+Node\+Quantiser\+\_\+\+Grid(unsigned node\+I\+D)}{getNodeQuantiser_Grid(unsigned nodeID)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Matsuoka\+Engine\+::grid\+Type} Matsuoka\+Engine\+::get\+Node\+Quantiser\+\_\+\+Grid (
+\begin{DoxyParamCaption}
+\item[{unsigned}]{node\+ID}
+\end{DoxyParamCaption}
+)}\hypertarget{classMatsuokaEngine_adce59f3e8b45ab4c0ca804b17d8eb749}{}\label{classMatsuokaEngine_adce59f3e8b45ab4c0ca804b17d8eb749}
 
 
 returns the grid type of the quantiser for the node 
 
-\mbox{\Hypertarget{classMatsuokaEngine_a1d0b1a452f3d9252d460177779b2d681}\label{classMatsuokaEngine_a1d0b1a452f3d9252d460177779b2d681}} 
 \index{Matsuoka\+Engine@{Matsuoka\+Engine}!get\+Node\+Quantiser\+\_\+\+Multiple@{get\+Node\+Quantiser\+\_\+\+Multiple}}
 \index{get\+Node\+Quantiser\+\_\+\+Multiple@{get\+Node\+Quantiser\+\_\+\+Multiple}!Matsuoka\+Engine@{Matsuoka\+Engine}}
-\subsubsection{\texorpdfstring{get\+Node\+Quantiser\+\_\+\+Multiple()}{getNodeQuantiser\_Multiple()}}
-{\footnotesize\ttfamily float Matsuoka\+Engine\+::get\+Node\+Quantiser\+\_\+\+Multiple (\begin{DoxyParamCaption}\item[{unsigned}]{node\+ID }\end{DoxyParamCaption})}
+\subsubsection[{\texorpdfstring{get\+Node\+Quantiser\+\_\+\+Multiple(unsigned node\+I\+D)}{getNodeQuantiser_Multiple(unsigned nodeID)}}]{\setlength{\rightskip}{0pt plus 5cm}float Matsuoka\+Engine\+::get\+Node\+Quantiser\+\_\+\+Multiple (
+\begin{DoxyParamCaption}
+\item[{unsigned}]{node\+ID}
+\end{DoxyParamCaption}
+)}\hypertarget{classMatsuokaEngine_a1d0b1a452f3d9252d460177779b2d681}{}\label{classMatsuokaEngine_a1d0b1a452f3d9252d460177779b2d681}
 
 
+returns the multiplier for grid coarseness (defines no of valid positions on grid and gaps between them) 
 
-returns the multiplier for grid coarseness (defines resolution of grid / no of valid positions on grid) 
-
-\mbox{\Hypertarget{classMatsuokaEngine_a05ab0eeb8a7d0b7f3a478ba41735cb8d}\label{classMatsuokaEngine_a05ab0eeb8a7d0b7f3a478ba41735cb8d}} 
 \index{Matsuoka\+Engine@{Matsuoka\+Engine}!get\+Node\+Quantiser\+\_\+\+Offset@{get\+Node\+Quantiser\+\_\+\+Offset}}
 \index{get\+Node\+Quantiser\+\_\+\+Offset@{get\+Node\+Quantiser\+\_\+\+Offset}!Matsuoka\+Engine@{Matsuoka\+Engine}}
-\subsubsection{\texorpdfstring{get\+Node\+Quantiser\+\_\+\+Offset()}{getNodeQuantiser\_Offset()}}
-{\footnotesize\ttfamily float Matsuoka\+Engine\+::get\+Node\+Quantiser\+\_\+\+Offset (\begin{DoxyParamCaption}\item[{unsigned}]{node\+ID }\end{DoxyParamCaption})}
+\subsubsection[{\texorpdfstring{get\+Node\+Quantiser\+\_\+\+Offset(unsigned node\+I\+D)}{getNodeQuantiser_Offset(unsigned nodeID)}}]{\setlength{\rightskip}{0pt plus 5cm}float Matsuoka\+Engine\+::get\+Node\+Quantiser\+\_\+\+Offset (
+\begin{DoxyParamCaption}
+\item[{unsigned}]{node\+ID}
+\end{DoxyParamCaption}
+)}\hypertarget{classMatsuokaEngine_a05ab0eeb8a7d0b7f3a478ba41735cb8d}{}\label{classMatsuokaEngine_a05ab0eeb8a7d0b7f3a478ba41735cb8d}
 
 
+returns the offset from zero of the valid positions on the grid for the quantiser for the node 
 
-returns the offset of the grid (the number of base units the grid is shifted by) 
-
-\mbox{\Hypertarget{classMatsuokaEngine_a6857e20e39f058a4145fdc4493df6583}\label{classMatsuokaEngine_a6857e20e39f058a4145fdc4493df6583}} 
 \index{Matsuoka\+Engine@{Matsuoka\+Engine}!get\+Node\+Self\+Noise@{get\+Node\+Self\+Noise}}
 \index{get\+Node\+Self\+Noise@{get\+Node\+Self\+Noise}!Matsuoka\+Engine@{Matsuoka\+Engine}}
-\subsubsection{\texorpdfstring{get\+Node\+Self\+Noise()}{getNodeSelfNoise()}}
-{\footnotesize\ttfamily double Matsuoka\+Engine\+::get\+Node\+Self\+Noise (\begin{DoxyParamCaption}\item[{unsigned}]{node\+ID }\end{DoxyParamCaption}) const}
-
+\subsubsection[{\texorpdfstring{get\+Node\+Self\+Noise(unsigned node\+I\+D) const }{getNodeSelfNoise(unsigned nodeID) const }}]{\setlength{\rightskip}{0pt plus 5cm}double Matsuoka\+Engine\+::get\+Node\+Self\+Noise (
+\begin{DoxyParamCaption}
+\item[{unsigned}]{node\+ID}
+\end{DoxyParamCaption}
+) const}\hypertarget{classMatsuokaEngine_ad51317a2033abd4f8a54816805b3fb38}{}\label{classMatsuokaEngine_ad51317a2033abd4f8a54816805b3fb38}
 
 
 returns the amplitude of the noise input to the requested node 
 
-\mbox{\Hypertarget{classMatsuokaEngine_aaf73c32f2c81d4895e98e1a8fe31cea1}\label{classMatsuokaEngine_aaf73c32f2c81d4895e98e1a8fe31cea1}} 
 \index{Matsuoka\+Engine@{Matsuoka\+Engine}!get\+Quantise\+Amount@{get\+Quantise\+Amount}}
 \index{get\+Quantise\+Amount@{get\+Quantise\+Amount}!Matsuoka\+Engine@{Matsuoka\+Engine}}
-\subsubsection{\texorpdfstring{get\+Quantise\+Amount()}{getQuantiseAmount()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily float Matsuoka\+Engine\+::get\+Quantise\+Amount (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
+\subsubsection[{\texorpdfstring{get\+Quantise\+Amount()}{getQuantiseAmount()}}]{\setlength{\rightskip}{0pt plus 5cm}float Matsuoka\+Engine\+::get\+Quantise\+Amount (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classMatsuokaEngine_aaf73c32f2c81d4895e98e1a8fe31cea1}{}\label{classMatsuokaEngine_aaf73c32f2c81d4895e98e1a8fe31cea1}
 
 
 gets the strength of quantisation effect (0=no quantisation 1= strict quantisation) 
 
-\mbox{\Hypertarget{classMatsuokaEngine_a8150c0efacb8f3d5ec2c3fb5731dfc97}\label{classMatsuokaEngine_a8150c0efacb8f3d5ec2c3fb5731dfc97}} 
 \index{Matsuoka\+Engine@{Matsuoka\+Engine}!get\+Quantise\+Amount@{get\+Quantise\+Amount}}
 \index{get\+Quantise\+Amount@{get\+Quantise\+Amount}!Matsuoka\+Engine@{Matsuoka\+Engine}}
-\subsubsection{\texorpdfstring{get\+Quantise\+Amount()}{getQuantiseAmount()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily float Matsuoka\+Engine\+::get\+Quantise\+Amount (\begin{DoxyParamCaption}\item[{unsigned}]{node }\end{DoxyParamCaption})}
-
-\mbox{\Hypertarget{classMatsuokaEngine_a2757e406e811cbe2e28f8b661cf29472}\label{classMatsuokaEngine_a2757e406e811cbe2e28f8b661cf29472}} 
+\subsubsection[{\texorpdfstring{get\+Quantise\+Amount(unsigned node)}{getQuantiseAmount(unsigned node)}}]{\setlength{\rightskip}{0pt plus 5cm}float Matsuoka\+Engine\+::get\+Quantise\+Amount (
+\begin{DoxyParamCaption}
+\item[{unsigned}]{node}
+\end{DoxyParamCaption}
+)}\hypertarget{classMatsuokaEngine_a8150c0efacb8f3d5ec2c3fb5731dfc97}{}\label{classMatsuokaEngine_a8150c0efacb8f3d5ec2c3fb5731dfc97}
 \index{Matsuoka\+Engine@{Matsuoka\+Engine}!get\+Sample\+Rate@{get\+Sample\+Rate}}
 \index{get\+Sample\+Rate@{get\+Sample\+Rate}!Matsuoka\+Engine@{Matsuoka\+Engine}}
-\subsubsection{\texorpdfstring{get\+Sample\+Rate()}{getSampleRate()}}
-{\footnotesize\ttfamily unsigned Matsuoka\+Engine\+::get\+Sample\+Rate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
-
+\subsubsection[{\texorpdfstring{get\+Sample\+Rate() const }{getSampleRate() const }}]{\setlength{\rightskip}{0pt plus 5cm}unsigned Matsuoka\+Engine\+::get\+Sample\+Rate (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classMatsuokaEngine_a486763527331bfc9ccd617b312d6c611}{}\label{classMatsuokaEngine_a486763527331bfc9ccd617b312d6c611}
 
 
 returns sample rate of the system 
 
-\mbox{\Hypertarget{classMatsuokaEngine_a1b6e6f86762e4541854b4262eb217f7e}\label{classMatsuokaEngine_a1b6e6f86762e4541854b4262eb217f7e}} 
 \index{Matsuoka\+Engine@{Matsuoka\+Engine}!is\+Idle@{is\+Idle}}
 \index{is\+Idle@{is\+Idle}!Matsuoka\+Engine@{Matsuoka\+Engine}}
-\subsubsection{\texorpdfstring{is\+Idle()}{isIdle()}}
-{\footnotesize\ttfamily bool Matsuoka\+Engine\+::is\+Idle (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
+\subsubsection[{\texorpdfstring{is\+Idle()}{isIdle()}}]{\setlength{\rightskip}{0pt plus 5cm}bool Matsuoka\+Engine\+::is\+Idle (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classMatsuokaEngine_a1b6e6f86762e4541854b4262eb217f7e}{}\label{classMatsuokaEngine_a1b6e6f86762e4541854b4262eb217f7e}
 
 
 reports true if not currently calculating a step 
 
-\mbox{\Hypertarget{classMatsuokaEngine_a5d7bb7f68eb7338a6c34eef10d421f68}\label{classMatsuokaEngine_a5d7bb7f68eb7338a6c34eef10d421f68}} 
 \index{Matsuoka\+Engine@{Matsuoka\+Engine}!is\+Shutting\+Down@{is\+Shutting\+Down}}
 \index{is\+Shutting\+Down@{is\+Shutting\+Down}!Matsuoka\+Engine@{Matsuoka\+Engine}}
-\subsubsection{\texorpdfstring{is\+Shutting\+Down()}{isShuttingDown()}}
-{\footnotesize\ttfamily bool Matsuoka\+Engine\+::is\+Shutting\+Down (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
+\subsubsection[{\texorpdfstring{is\+Shutting\+Down()}{isShuttingDown()}}]{\setlength{\rightskip}{0pt plus 5cm}bool Matsuoka\+Engine\+::is\+Shutting\+Down (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classMatsuokaEngine_a5d7bb7f68eb7338a6c34eef10d421f68}{}\label{classMatsuokaEngine_a5d7bb7f68eb7338a6c34eef10d421f68}
 
 
 reports true if the system is in the process of shutting down 
 
-\mbox{\Hypertarget{classMatsuokaEngine_ae2ad27d38196e2217bdb0b5da35fd095}\label{classMatsuokaEngine_ae2ad27d38196e2217bdb0b5da35fd095}} 
 \index{Matsuoka\+Engine@{Matsuoka\+Engine}!load\+Connection\+Weight\+Curve@{load\+Connection\+Weight\+Curve}}
 \index{load\+Connection\+Weight\+Curve@{load\+Connection\+Weight\+Curve}!Matsuoka\+Engine@{Matsuoka\+Engine}}
-\subsubsection{\texorpdfstring{load\+Connection\+Weight\+Curve()}{loadConnectionWeightCurve()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily bool Matsuoka\+Engine\+::load\+Connection\+Weight\+Curve (\begin{DoxyParamCaption}\item[{std\+::string}]{source }\end{DoxyParamCaption})}
-
-expects a table of values\+: used to scale connection weights between nodes Each line should hold two floats, one for frequency ratio, the other for the weight multiplier. See \mbox{\hyperlink{classMatsuokaEngine_adb864bf26563682f94ba2e131fb8b793}{set\+Connection\+Weight\+Scaling()}} and \mbox{\hyperlink{ScalingCurve_8h}{Scaling\+Curve.\+h}} \mbox{\Hypertarget{classMatsuokaEngine_ad05eb51876bee90334426757a981139b}\label{classMatsuokaEngine_ad05eb51876bee90334426757a981139b}} 
-\index{Matsuoka\+Engine@{Matsuoka\+Engine}!load\+Connection\+Weight\+Curve@{load\+Connection\+Weight\+Curve}}
+\subsubsection[{\texorpdfstring{load\+Connection\+Weight\+Curve(std\+::string source)}{loadConnectionWeightCurve(std::string source)}}]{\setlength{\rightskip}{0pt plus 5cm}bool Matsuoka\+Engine\+::load\+Connection\+Weight\+Curve (
+\begin{DoxyParamCaption}
+\item[{std\+::string}]{source}
+\end{DoxyParamCaption}
+)}\hypertarget{classMatsuokaEngine_ae2ad27d38196e2217bdb0b5da35fd095}{}\label{classMatsuokaEngine_ae2ad27d38196e2217bdb0b5da35fd095}
+pass a table of values to be used as source for scaling connection weights based on frequency ratios of the nodes connected. Each line should hold two floats, one for frequency ratio, the other for the weight multiplier. See \hyperlink{ScalingCurve_8h}{Scaling\+Curve.\+h} \index{Matsuoka\+Engine@{Matsuoka\+Engine}!load\+Connection\+Weight\+Curve@{load\+Connection\+Weight\+Curve}}
 \index{load\+Connection\+Weight\+Curve@{load\+Connection\+Weight\+Curve}!Matsuoka\+Engine@{Matsuoka\+Engine}}
-\subsubsection{\texorpdfstring{load\+Connection\+Weight\+Curve()}{loadConnectionWeightCurve()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily bool Matsuoka\+Engine\+::load\+Connection\+Weight\+Curve (\begin{DoxyParamCaption}\item[{std\+::vector$<$ float $>$}]{x,  }\item[{std\+::vector$<$ float $>$}]{y }\end{DoxyParamCaption})}
-
-expects a table of values\+: used to scale connection weights between nodes Each line should hold two floats, one (x) for frequency ratio, the other (y) for the weight multiplier. See \mbox{\hyperlink{classMatsuokaEngine_adb864bf26563682f94ba2e131fb8b793}{set\+Connection\+Weight\+Scaling()}} and \mbox{\hyperlink{ScalingCurve_8h}{Scaling\+Curve.\+h}} \mbox{\Hypertarget{classMatsuokaEngine_abf37008845614f7b6a7ec0440141e06f}\label{classMatsuokaEngine_abf37008845614f7b6a7ec0440141e06f}} 
-\index{Matsuoka\+Engine@{Matsuoka\+Engine}!move\+Node@{move\+Node}}
-\index{move\+Node@{move\+Node}!Matsuoka\+Engine@{Matsuoka\+Engine}}
-\subsubsection{\texorpdfstring{move\+Node()}{moveNode()}}
-{\footnotesize\ttfamily void Matsuoka\+Engine\+::move\+Node (\begin{DoxyParamCaption}\item[{unsigned}]{node\+ID,  }\item[{unsigned}]{new\+Parent\+ID,  }\item[{bool}]{break\+Curr\+Parent\+Child\+Conn,  }\item[{bool}]{break\+Curr\+Child\+Parent\+Conn }\end{DoxyParamCaption})}
-
-Q\+U\+E\+U\+ED A\+C\+T\+I\+ON -\/ moves the node in the network topology to the indicated parent optional parameters to break current parent and child connections as well as create new parent connection I can\textquotesingle{}t remember why I thought we needed this. Has not been used much. Caution. \mbox{\Hypertarget{classMatsuokaEngine_aac87afef0c7c99601fa77e2be27b2b74}\label{classMatsuokaEngine_aac87afef0c7c99601fa77e2be27b2b74}} 
+\subsubsection[{\texorpdfstring{load\+Connection\+Weight\+Curve(std\+::vector$<$ float $>$ x, std\+::vector$<$ float $>$ y)}{loadConnectionWeightCurve(std::vector< float > x, std::vector< float > y)}}]{\setlength{\rightskip}{0pt plus 5cm}bool Matsuoka\+Engine\+::load\+Connection\+Weight\+Curve (
+\begin{DoxyParamCaption}
+\item[{std\+::vector$<$ float $>$}]{x, }
+\item[{std\+::vector$<$ float $>$}]{y}
+\end{DoxyParamCaption}
+)}\hypertarget{classMatsuokaEngine_ad05eb51876bee90334426757a981139b}{}\label{classMatsuokaEngine_ad05eb51876bee90334426757a981139b}
 \index{Matsuoka\+Engine@{Matsuoka\+Engine}!node\+Exists@{node\+Exists}}
 \index{node\+Exists@{node\+Exists}!Matsuoka\+Engine@{Matsuoka\+Engine}}
-\subsubsection{\texorpdfstring{node\+Exists()}{nodeExists()}}
-{\footnotesize\ttfamily bool Matsuoka\+Engine\+::node\+Exists (\begin{DoxyParamCaption}\item[{unsigned}]{node\+ID }\end{DoxyParamCaption}) const}
-
+\subsubsection[{\texorpdfstring{node\+Exists(unsigned node\+I\+D) const }{nodeExists(unsigned nodeID) const }}]{\setlength{\rightskip}{0pt plus 5cm}bool Matsuoka\+Engine\+::node\+Exists (
+\begin{DoxyParamCaption}
+\item[{unsigned}]{node\+ID}
+\end{DoxyParamCaption}
+) const}\hypertarget{classMatsuokaEngine_ab768643e41c3801b2d734b7432dc1a4c}{}\label{classMatsuokaEngine_ab768643e41c3801b2d734b7432dc1a4c}
 
 
 returns true if the node\+ID exists in the network 
 
-\mbox{\Hypertarget{classMatsuokaEngine_a7937f29c227ad663eb153b01b11d307f}\label{classMatsuokaEngine_a7937f29c227ad663eb153b01b11d307f}} 
 \index{Matsuoka\+Engine@{Matsuoka\+Engine}!quit\+Frequency\+Compensation\+Calcs@{quit\+Frequency\+Compensation\+Calcs}}
 \index{quit\+Frequency\+Compensation\+Calcs@{quit\+Frequency\+Compensation\+Calcs}!Matsuoka\+Engine@{Matsuoka\+Engine}}
-\subsubsection{\texorpdfstring{quit\+Frequency\+Compensation\+Calcs()}{quitFrequencyCompensationCalcs()}}
-{\footnotesize\ttfamily void Matsuoka\+Engine\+::quit\+Frequency\+Compensation\+Calcs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
-quits frequency compensation calculations. If called during \mbox{\hyperlink{classMatsuokaEngine_a68d6295dfa0d28e3bc9d743e763d6ee9}{calibrate()}} will ruin the results avoid using. was used alongside calc\+Frequency\+Compensation, now superceded by calibrate \mbox{\Hypertarget{classMatsuokaEngine_a5a6d42576cafa238d020e62bdc9e2204}\label{classMatsuokaEngine_a5a6d42576cafa238d020e62bdc9e2204}} 
-\index{Matsuoka\+Engine@{Matsuoka\+Engine}!remove\+Connection@{remove\+Connection}}
+\subsubsection[{\texorpdfstring{quit\+Frequency\+Compensation\+Calcs()}{quitFrequencyCompensationCalcs()}}]{\setlength{\rightskip}{0pt plus 5cm}void Matsuoka\+Engine\+::quit\+Frequency\+Compensation\+Calcs (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classMatsuokaEngine_a7937f29c227ad663eb153b01b11d307f}{}\label{classMatsuokaEngine_a7937f29c227ad663eb153b01b11d307f}
+quits frequency compensation calculations. If called during \hyperlink{classMatsuokaEngine_a68d6295dfa0d28e3bc9d743e763d6ee9}{calibrate()} will ruin the results \index{Matsuoka\+Engine@{Matsuoka\+Engine}!remove\+Connection@{remove\+Connection}}
 \index{remove\+Connection@{remove\+Connection}!Matsuoka\+Engine@{Matsuoka\+Engine}}
-\subsubsection{\texorpdfstring{remove\+Connection()}{removeConnection()}}
-{\footnotesize\ttfamily void Matsuoka\+Engine\+::remove\+Connection (\begin{DoxyParamCaption}\item[{unsigned}]{node\+From,  }\item[{unsigned}]{Node\+To }\end{DoxyParamCaption})}
-
+\subsubsection[{\texorpdfstring{remove\+Connection(unsigned node\+From, unsigned Node\+To)}{removeConnection(unsigned nodeFrom, unsigned NodeTo)}}]{\setlength{\rightskip}{0pt plus 5cm}void Matsuoka\+Engine\+::remove\+Connection (
+\begin{DoxyParamCaption}
+\item[{unsigned}]{node\+From, }
+\item[{unsigned}]{Node\+To}
+\end{DoxyParamCaption}
+)}\hypertarget{classMatsuokaEngine_a5a6d42576cafa238d020e62bdc9e2204}{}\label{classMatsuokaEngine_a5a6d42576cafa238d020e62bdc9e2204}
 
 
 Q\+U\+E\+U\+ED A\+C\+T\+I\+ON -\/ removes connection between indicated nodes if one exists. 
 
-\mbox{\Hypertarget{classMatsuokaEngine_a627983362b1b84ee5d3c72d7540d9a47}\label{classMatsuokaEngine_a627983362b1b84ee5d3c72d7540d9a47}} 
 \index{Matsuoka\+Engine@{Matsuoka\+Engine}!reset@{reset}}
 \index{reset@{reset}!Matsuoka\+Engine@{Matsuoka\+Engine}}
-\subsubsection{\texorpdfstring{reset()}{reset()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily void Matsuoka\+Engine\+::reset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+\subsubsection[{\texorpdfstring{reset()}{reset()}}]{\setlength{\rightskip}{0pt plus 5cm}void Matsuoka\+Engine\+::reset (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classMatsuokaEngine_a627983362b1b84ee5d3c72d7540d9a47}{}\label{classMatsuokaEngine_a627983362b1b84ee5d3c72d7540d9a47}
 
 
+Q\+U\+E\+U\+ED A\+C\+T\+I\+ON -\/ clears the entire network back to a single root node. 
 
-Q\+U\+E\+U\+ED A\+C\+T\+I\+ON -\/ clears the entire network back to a single root node -\/ node 0. 
-
-\mbox{\Hypertarget{classMatsuokaEngine_aa2a425173fed2f3f30c1fa5c6e680764}\label{classMatsuokaEngine_aa2a425173fed2f3f30c1fa5c6e680764}} 
 \index{Matsuoka\+Engine@{Matsuoka\+Engine}!reset@{reset}}
 \index{reset@{reset}!Matsuoka\+Engine@{Matsuoka\+Engine}}
-\subsubsection{\texorpdfstring{reset()}{reset()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily void Matsuoka\+Engine\+::reset (\begin{DoxyParamCaption}\item[{unsigned}]{node\+ID,  }\item[{double}]{x1,  }\item[{double}]{x2,  }\item[{double}]{v1,  }\item[{double}]{v2 }\end{DoxyParamCaption})}
+\subsubsection[{\texorpdfstring{reset(unsigned node\+I\+D, double x1, double x2, double v1, double v2)}{reset(unsigned nodeID, double x1, double x2, double v1, double v2)}}]{\setlength{\rightskip}{0pt plus 5cm}void Matsuoka\+Engine\+::reset (
+\begin{DoxyParamCaption}
+\item[{unsigned}]{node\+ID, }
+\item[{double}]{x1, }
+\item[{double}]{x2, }
+\item[{double}]{v1, }
+\item[{double}]{v2}
+\end{DoxyParamCaption}
+)}\hypertarget{classMatsuokaEngine_aa2a425173fed2f3f30c1fa5c6e680764}{}\label{classMatsuokaEngine_aa2a425173fed2f3f30c1fa5c6e680764}
 
-Q\+U\+E\+U\+ED A\+C\+T\+I\+ON -\/ resets the internal state of the indicated node to the requested values Very badly named given the presense of \mbox{\hyperlink{classMatsuokaEngine_a627983362b1b84ee5d3c72d7540d9a47}{reset()}}. Apologies! I didn\textquotesingle{}t sleep very much towards the end of my Msc. \mbox{\Hypertarget{classMatsuokaEngine_a19fd8a9446e6bea6986d8de5c5c7bfd1}\label{classMatsuokaEngine_a19fd8a9446e6bea6986d8de5c5c7bfd1}} 
+
+Q\+U\+E\+U\+ED A\+C\+T\+I\+ON -\/ resets the internal state of the indicated node to the requested values. 
+
 \index{Matsuoka\+Engine@{Matsuoka\+Engine}!reset\+Node\+Change\+Flag\+\_\+\+Inputs@{reset\+Node\+Change\+Flag\+\_\+\+Inputs}}
 \index{reset\+Node\+Change\+Flag\+\_\+\+Inputs@{reset\+Node\+Change\+Flag\+\_\+\+Inputs}!Matsuoka\+Engine@{Matsuoka\+Engine}}
-\subsubsection{\texorpdfstring{reset\+Node\+Change\+Flag\+\_\+\+Inputs()}{resetNodeChangeFlag\_Inputs()}}
-{\footnotesize\ttfamily void Matsuoka\+Engine\+::reset\+Node\+Change\+Flag\+\_\+\+Inputs (\begin{DoxyParamCaption}\item[{unsigned}]{node\+ID }\end{DoxyParamCaption})}
+\subsubsection[{\texorpdfstring{reset\+Node\+Change\+Flag\+\_\+\+Inputs(unsigned node\+I\+D)}{resetNodeChangeFlag_Inputs(unsigned nodeID)}}]{\setlength{\rightskip}{0pt plus 5cm}void Matsuoka\+Engine\+::reset\+Node\+Change\+Flag\+\_\+\+Inputs (
+\begin{DoxyParamCaption}
+\item[{unsigned}]{node\+ID}
+\end{DoxyParamCaption}
+)}\hypertarget{classMatsuokaEngine_a19fd8a9446e6bea6986d8de5c5c7bfd1}{}\label{classMatsuokaEngine_a19fd8a9446e6bea6986d8de5c5c7bfd1}
 
-resets the flag that indicates that node inputs have been changed useful for G\+UI development \mbox{\Hypertarget{classMatsuokaEngine_afc55b8350937748e0c0187a08130ca31}\label{classMatsuokaEngine_afc55b8350937748e0c0187a08130ca31}} 
+
+resets the flag that indicates that node inputs have been changed 
+
 \index{Matsuoka\+Engine@{Matsuoka\+Engine}!reset\+Node\+Change\+Flag\+\_\+\+Params@{reset\+Node\+Change\+Flag\+\_\+\+Params}}
 \index{reset\+Node\+Change\+Flag\+\_\+\+Params@{reset\+Node\+Change\+Flag\+\_\+\+Params}!Matsuoka\+Engine@{Matsuoka\+Engine}}
-\subsubsection{\texorpdfstring{reset\+Node\+Change\+Flag\+\_\+\+Params()}{resetNodeChangeFlag\_Params()}}
-{\footnotesize\ttfamily void Matsuoka\+Engine\+::reset\+Node\+Change\+Flag\+\_\+\+Params (\begin{DoxyParamCaption}\item[{unsigned}]{node\+ID }\end{DoxyParamCaption})}
+\subsubsection[{\texorpdfstring{reset\+Node\+Change\+Flag\+\_\+\+Params(unsigned node\+I\+D)}{resetNodeChangeFlag_Params(unsigned nodeID)}}]{\setlength{\rightskip}{0pt plus 5cm}void Matsuoka\+Engine\+::reset\+Node\+Change\+Flag\+\_\+\+Params (
+\begin{DoxyParamCaption}
+\item[{unsigned}]{node\+ID}
+\end{DoxyParamCaption}
+)}\hypertarget{classMatsuokaEngine_afc55b8350937748e0c0187a08130ca31}{}\label{classMatsuokaEngine_afc55b8350937748e0c0187a08130ca31}
 
-resets the flag that indicates that node parameters have been changed useful for G\+UI development \mbox{\Hypertarget{classMatsuokaEngine_a716d4e8f1dc446179c5424007995ab59}\label{classMatsuokaEngine_a716d4e8f1dc446179c5424007995ab59}} 
+
+resets the flag that indicates that node parameters have been changed 
+
 \index{Matsuoka\+Engine@{Matsuoka\+Engine}!set\+Connection@{set\+Connection}}
 \index{set\+Connection@{set\+Connection}!Matsuoka\+Engine@{Matsuoka\+Engine}}
-\subsubsection{\texorpdfstring{set\+Connection()}{setConnection()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily void Matsuoka\+Engine\+::set\+Connection (\begin{DoxyParamCaption}\item[{unsigned}]{Node\+From,  }\item[{unsigned}]{Node\+To,  }\item[{double}]{weight }\end{DoxyParamCaption})}
-
-Q\+U\+E\+U\+ED A\+C\+T\+I\+ON -\/ sets the connection weight between indicated nodes. Adds the connection if one does not already exist \mbox{\Hypertarget{classMatsuokaEngine_a1335ac9672e6443135d78a8192b5aad5}\label{classMatsuokaEngine_a1335ac9672e6443135d78a8192b5aad5}} 
-\index{Matsuoka\+Engine@{Matsuoka\+Engine}!set\+Connection@{set\+Connection}}
+\subsubsection[{\texorpdfstring{set\+Connection(unsigned Node\+From, unsigned Node\+To, double weight)}{setConnection(unsigned NodeFrom, unsigned NodeTo, double weight)}}]{\setlength{\rightskip}{0pt plus 5cm}void Matsuoka\+Engine\+::set\+Connection (
+\begin{DoxyParamCaption}
+\item[{unsigned}]{Node\+From, }
+\item[{unsigned}]{Node\+To, }
+\item[{double}]{weight}
+\end{DoxyParamCaption}
+)}\hypertarget{classMatsuokaEngine_a716d4e8f1dc446179c5424007995ab59}{}\label{classMatsuokaEngine_a716d4e8f1dc446179c5424007995ab59}
+Q\+U\+E\+U\+ED A\+C\+T\+I\+ON -\/ sets the connection weight between indicated nodes. Adds connection if one does not already exist \index{Matsuoka\+Engine@{Matsuoka\+Engine}!set\+Connection@{set\+Connection}}
 \index{set\+Connection@{set\+Connection}!Matsuoka\+Engine@{Matsuoka\+Engine}}
-\subsubsection{\texorpdfstring{set\+Connection()}{setConnection()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily void Matsuoka\+Engine\+::set\+Connection (\begin{DoxyParamCaption}\item[{unsigned}]{NodeA,  }\item[{unsigned}]{NodeB,  }\item[{double}]{weight\+AtoB,  }\item[{double}]{weight\+BtoA }\end{DoxyParamCaption})}
-
-Q\+U\+E\+U\+ED A\+C\+T\+I\+ON -\/ sets connection weight both ways between indicated nodes adds connections if they do not exist \mbox{\Hypertarget{classMatsuokaEngine_a22045d1c6d6c8bcf2b282c9c98e46f13}\label{classMatsuokaEngine_a22045d1c6d6c8bcf2b282c9c98e46f13}} 
-\index{Matsuoka\+Engine@{Matsuoka\+Engine}!set\+Connection\+Phase\+Offset@{set\+Connection\+Phase\+Offset}}
+\subsubsection[{\texorpdfstring{set\+Connection(unsigned Node\+A, unsigned Node\+B, double weight\+Ato\+B, double weight\+Bto\+A)}{setConnection(unsigned NodeA, unsigned NodeB, double weightAtoB, double weightBtoA)}}]{\setlength{\rightskip}{0pt plus 5cm}void Matsuoka\+Engine\+::set\+Connection (
+\begin{DoxyParamCaption}
+\item[{unsigned}]{NodeA, }
+\item[{unsigned}]{NodeB, }
+\item[{double}]{weight\+AtoB, }
+\item[{double}]{weight\+BtoA}
+\end{DoxyParamCaption}
+)}\hypertarget{classMatsuokaEngine_a1335ac9672e6443135d78a8192b5aad5}{}\label{classMatsuokaEngine_a1335ac9672e6443135d78a8192b5aad5}
+Q\+U\+E\+U\+ED A\+C\+T\+I\+ON -\/ sets connection weight both ways between indicated nodes adds connections if they do not exist \index{Matsuoka\+Engine@{Matsuoka\+Engine}!set\+Connection\+Phase\+Offset@{set\+Connection\+Phase\+Offset}}
 \index{set\+Connection\+Phase\+Offset@{set\+Connection\+Phase\+Offset}!Matsuoka\+Engine@{Matsuoka\+Engine}}
-\subsubsection{\texorpdfstring{set\+Connection\+Phase\+Offset()}{setConnectionPhaseOffset()}}
-{\footnotesize\ttfamily void Matsuoka\+Engine\+::set\+Connection\+Phase\+Offset (\begin{DoxyParamCaption}\item[{unsigned}]{Node\+From,  }\item[{unsigned}]{Node\+To,  }\item[{double}]{phase }\end{DoxyParamCaption})}
+\subsubsection[{\texorpdfstring{set\+Connection\+Phase\+Offset(unsigned Node\+From, unsigned Node\+To, double phase)}{setConnectionPhaseOffset(unsigned NodeFrom, unsigned NodeTo, double phase)}}]{\setlength{\rightskip}{0pt plus 5cm}void Matsuoka\+Engine\+::set\+Connection\+Phase\+Offset (
+\begin{DoxyParamCaption}
+\item[{unsigned}]{Node\+From, }
+\item[{unsigned}]{Node\+To, }
+\item[{double}]{phase}
+\end{DoxyParamCaption}
+)}\hypertarget{classMatsuokaEngine_a22045d1c6d6c8bcf2b282c9c98e46f13}{}\label{classMatsuokaEngine_a22045d1c6d6c8bcf2b282c9c98e46f13}
 
 
+Q\+U\+E\+U\+ED A\+C\+T\+I\+ON -\/ sets the phase offset of the connection (phase 0-\/1) 
 
-Q\+U\+E\+U\+ED A\+C\+T\+I\+ON -\/ sets the phase offset of the connection (phase 0-\/1 for 0-\/2pi relative to parent\textquotesingle{}s wavelength) 
-
-\mbox{\Hypertarget{classMatsuokaEngine_adb864bf26563682f94ba2e131fb8b793}\label{classMatsuokaEngine_adb864bf26563682f94ba2e131fb8b793}} 
 \index{Matsuoka\+Engine@{Matsuoka\+Engine}!set\+Connection\+Weight\+Scaling@{set\+Connection\+Weight\+Scaling}}
 \index{set\+Connection\+Weight\+Scaling@{set\+Connection\+Weight\+Scaling}!Matsuoka\+Engine@{Matsuoka\+Engine}}
-\subsubsection{\texorpdfstring{set\+Connection\+Weight\+Scaling()}{setConnectionWeightScaling()}}
-{\footnotesize\ttfamily void Matsuoka\+Engine\+::set\+Connection\+Weight\+Scaling (\begin{DoxyParamCaption}\item[{bool}]{on }\end{DoxyParamCaption})}
-
-turns on or off the contextual scaling of connection weights. This scales input weights based on the ratio of the source node\textquotesingle{}s frequency to the destination node\textquotesingle{}s frequency. Matsuoka\textquotesingle{}s oscillator responds to incoming signals more or less strongly depending on the relationshpi between the incoming signal frequency and its own freq This contextual scaling counteracts this effect so that the oscillator behaves more consistently. So that e.\+g. a weight of 1.\+0 has a similar effect whether the incoming signal is 3 or 5 times the node\textquotesingle{}s current oscillation frequency. Using this requires that you have set the appropriate curve for your equation parameters, using load\+Connection\+Weight\+Curve. These curves must be generated by simulation and there is currently no facility in the library to generate these curves (T\+O\+DO). \mbox{\Hypertarget{classMatsuokaEngine_a738106afa4c313de36150a9687700193}\label{classMatsuokaEngine_a738106afa4c313de36150a9687700193}} 
-\index{Matsuoka\+Engine@{Matsuoka\+Engine}!set\+Driven@{set\+Driven}}
+\subsubsection[{\texorpdfstring{set\+Connection\+Weight\+Scaling(bool on)}{setConnectionWeightScaling(bool on)}}]{\setlength{\rightskip}{0pt plus 5cm}void Matsuoka\+Engine\+::set\+Connection\+Weight\+Scaling (
+\begin{DoxyParamCaption}
+\item[{bool}]{on}
+\end{DoxyParamCaption}
+)}\hypertarget{classMatsuokaEngine_adb864bf26563682f94ba2e131fb8b793}{}\label{classMatsuokaEngine_adb864bf26563682f94ba2e131fb8b793}
+turns on or off the contextual scaling of connection weights based on the ratio of frequencies of the nodes connected (the entrainment threshold of Matsuoka\textquotesingle{}s oscillator depends on this ratio, turning this on and setting an appropriate curve for your equation tuning, using load\+Connection\+Weight\+Curve ensures that when two different are set to the same value they will have the same effect, regardless of node frequencies involved \index{Matsuoka\+Engine@{Matsuoka\+Engine}!set\+Driven@{set\+Driven}}
 \index{set\+Driven@{set\+Driven}!Matsuoka\+Engine@{Matsuoka\+Engine}}
-\subsubsection{\texorpdfstring{set\+Driven()}{setDriven()}}
-{\footnotesize\ttfamily void Matsuoka\+Engine\+::set\+Driven (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMatsuokaEngine_ad8f471b2f1ca479174d5514b9a3597ec}{external\+Sync}}}]{driven }\end{DoxyParamCaption})}
+\subsubsection[{\texorpdfstring{set\+Driven(external\+Sync driven)}{setDriven(externalSync driven)}}]{\setlength{\rightskip}{0pt plus 5cm}void Matsuoka\+Engine\+::set\+Driven (
+\begin{DoxyParamCaption}
+\item[{{\bf external\+Sync}}]{driven}
+\end{DoxyParamCaption}
+)}\hypertarget{classMatsuokaEngine_a738106afa4c313de36150a9687700193}{}\label{classMatsuokaEngine_a738106afa4c313de36150a9687700193}
 
-Set system to be driven by an external phasor this allows for synchronisation to e.\+g. sequencers. none\+: the system runs freely driven\+: the phasor input drives node 0 directly (signal feedback into node 0 has no effect). in this mode, node 0 is a wavetable oscillator whose wavetable is one cycle of the oscillator without input reseting\+: the phasor calculates as normal, but is reset to its state at positive zero crossing every time the phasor wraps in this mode signal feedback into node 0 has some limited effect, but the system re-\/synchronises to input at each bar. \mbox{\Hypertarget{classMatsuokaEngine_a08b0d367297310a788461e3610e80623}\label{classMatsuokaEngine_a08b0d367297310a788461e3610e80623}} 
+
+Set system to be driven by external phasor (drives node0) 
+
 \index{Matsuoka\+Engine@{Matsuoka\+Engine}!set\+Driving\+Input@{set\+Driving\+Input}}
 \index{set\+Driving\+Input@{set\+Driving\+Input}!Matsuoka\+Engine@{Matsuoka\+Engine}}
-\subsubsection{\texorpdfstring{set\+Driving\+Input()}{setDrivingInput()}}
-{\footnotesize\ttfamily void Matsuoka\+Engine\+::set\+Driving\+Input (\begin{DoxyParamCaption}\item[{float}]{val }\end{DoxyParamCaption})}
+\subsubsection[{\texorpdfstring{set\+Driving\+Input(float val)}{setDrivingInput(float val)}}]{\setlength{\rightskip}{0pt plus 5cm}void Matsuoka\+Engine\+::set\+Driving\+Input (
+\begin{DoxyParamCaption}
+\item[{float}]{val}
+\end{DoxyParamCaption}
+)}\hypertarget{classMatsuokaEngine_a08b0d367297310a788461e3610e80623}{}\label{classMatsuokaEngine_a08b0d367297310a788461e3610e80623}
 
-Set value of external driving phasor (drives node0) needs to be called once per sample if the network is driven (see \mbox{\hyperlink{classMatsuokaEngine_a738106afa4c313de36150a9687700193}{set\+Driven()}}) \mbox{\Hypertarget{classMatsuokaEngine_acaa099b8d5f49430d0fc84c16e0f4e67}\label{classMatsuokaEngine_acaa099b8d5f49430d0fc84c16e0f4e67}} 
+
+Set value of external driving phasor (drives node0) 
+
 \index{Matsuoka\+Engine@{Matsuoka\+Engine}!set\+Event\+Callback@{set\+Event\+Callback}}
 \index{set\+Event\+Callback@{set\+Event\+Callback}!Matsuoka\+Engine@{Matsuoka\+Engine}}
-\subsubsection{\texorpdfstring{set\+Event\+Callback()}{setEventCallback()}}
-{\footnotesize\ttfamily void Matsuoka\+Engine\+::set\+Event\+Callback (\begin{DoxyParamCaption}\item[{Callback}]{cb }\end{DoxyParamCaption})}
-
-sets a callback which will be called for each output event for details of output events see class constructor. calback should take an int (node\+ID) and a float (amplitude peak at event) \mbox{\Hypertarget{classMatsuokaEngine_a1b932496b53001762dd0224eced6bd09}\label{classMatsuokaEngine_a1b932496b53001762dd0224eced6bd09}} 
-\index{Matsuoka\+Engine@{Matsuoka\+Engine}!set\+Freq\+Compensation@{set\+Freq\+Compensation}}
+\subsubsection[{\texorpdfstring{set\+Event\+Callback(\+Callback cb)}{setEventCallback(Callback cb)}}]{\setlength{\rightskip}{0pt plus 5cm}void Matsuoka\+Engine\+::set\+Event\+Callback (
+\begin{DoxyParamCaption}
+\item[{Callback}]{cb}
+\end{DoxyParamCaption}
+)}\hypertarget{classMatsuokaEngine_acaa099b8d5f49430d0fc84c16e0f4e67}{}\label{classMatsuokaEngine_acaa099b8d5f49430d0fc84c16e0f4e67}
+sets a callback to be actioned upon a network output event (e.\+g. on first peak after pos zero crossing for a node) calback should take an int (node\+ID) and a float (amplitude peak at event) \index{Matsuoka\+Engine@{Matsuoka\+Engine}!set\+Freq\+Compensation@{set\+Freq\+Compensation}}
 \index{set\+Freq\+Compensation@{set\+Freq\+Compensation}!Matsuoka\+Engine@{Matsuoka\+Engine}}
-\subsubsection{\texorpdfstring{set\+Freq\+Compensation()}{setFreqCompensation()}}
-{\footnotesize\ttfamily void Matsuoka\+Engine\+::set\+Freq\+Compensation (\begin{DoxyParamCaption}\item[{double}]{compensation }\end{DoxyParamCaption})}
-
-Q\+U\+E\+U\+ED A\+C\+T\+I\+ON -\/directly sets the frequency compensation which is used for the control of node frequency in most cases, just use \mbox{\hyperlink{classMatsuokaEngine_a68d6295dfa0d28e3bc9d743e763d6ee9}{calibrate()}} instead. \mbox{\Hypertarget{classMatsuokaEngine_a8eb38eaa5de05677243c5c7cd809af4d}\label{classMatsuokaEngine_a8eb38eaa5de05677243c5c7cd809af4d}} 
-\index{Matsuoka\+Engine@{Matsuoka\+Engine}!set\+Node\+External\+Input@{set\+Node\+External\+Input}}
+\subsubsection[{\texorpdfstring{set\+Freq\+Compensation(double compensation)}{setFreqCompensation(double compensation)}}]{\setlength{\rightskip}{0pt plus 5cm}void Matsuoka\+Engine\+::set\+Freq\+Compensation (
+\begin{DoxyParamCaption}
+\item[{double}]{compensation}
+\end{DoxyParamCaption}
+)}\hypertarget{classMatsuokaEngine_a1b932496b53001762dd0224eced6bd09}{}\label{classMatsuokaEngine_a1b932496b53001762dd0224eced6bd09}
+Q\+U\+E\+U\+ED A\+C\+T\+I\+ON -\/directly sets the frequency compensation for the control of node frequency in most cases, just use \hyperlink{classMatsuokaEngine_a68d6295dfa0d28e3bc9d743e763d6ee9}{calibrate()} instead. \index{Matsuoka\+Engine@{Matsuoka\+Engine}!set\+Node\+External\+Input@{set\+Node\+External\+Input}}
 \index{set\+Node\+External\+Input@{set\+Node\+External\+Input}!Matsuoka\+Engine@{Matsuoka\+Engine}}
-\subsubsection{\texorpdfstring{set\+Node\+External\+Input()}{setNodeExternalInput()}}
-{\footnotesize\ttfamily void Matsuoka\+Engine\+::set\+Node\+External\+Input (\begin{DoxyParamCaption}\item[{unsigned}]{node\+ID,  }\item[{double}]{weight,  }\item[{double}]{input }\end{DoxyParamCaption})}
-
-Q\+U\+E\+U\+ED A\+C\+T\+I\+ON -\/ set input of 1 sample of an external signal to a node Just 1 sample, so needs to be called every step. T\+O\+DO\+: input-\/pointer version so you can set and forget. \mbox{\Hypertarget{classMatsuokaEngine_acd76608c9b7fb30bf9e0ed2ecd1ba40a}\label{classMatsuokaEngine_acd76608c9b7fb30bf9e0ed2ecd1ba40a}} 
-\index{Matsuoka\+Engine@{Matsuoka\+Engine}!set\+Node\+Frequency@{set\+Node\+Frequency}}
+\subsubsection[{\texorpdfstring{set\+Node\+External\+Input(unsigned node\+I\+D, double weight, double input)}{setNodeExternalInput(unsigned nodeID, double weight, double input)}}]{\setlength{\rightskip}{0pt plus 5cm}void Matsuoka\+Engine\+::set\+Node\+External\+Input (
+\begin{DoxyParamCaption}
+\item[{unsigned}]{node\+ID, }
+\item[{double}]{weight, }
+\item[{double}]{input}
+\end{DoxyParamCaption}
+)}\hypertarget{classMatsuokaEngine_a8eb38eaa5de05677243c5c7cd809af4d}{}\label{classMatsuokaEngine_a8eb38eaa5de05677243c5c7cd809af4d}
+Q\+U\+E\+U\+ED A\+C\+T\+I\+ON -\/allows input of external signals to nodes in the network. Sets connection. weight and pointer to the input value. Update the input value with signal \index{Matsuoka\+Engine@{Matsuoka\+Engine}!set\+Node\+Frequency@{set\+Node\+Frequency}}
 \index{set\+Node\+Frequency@{set\+Node\+Frequency}!Matsuoka\+Engine@{Matsuoka\+Engine}}
-\subsubsection{\texorpdfstring{set\+Node\+Frequency()}{setNodeFrequency()}}
-{\footnotesize\ttfamily void Matsuoka\+Engine\+::set\+Node\+Frequency (\begin{DoxyParamCaption}\item[{unsigned}]{node\+ID,  }\item[{double}]{freq,  }\item[{bool}]{inherit }\end{DoxyParamCaption})}
-
-Q\+U\+E\+U\+ED A\+C\+T\+I\+ON -\/ sets frequency of the node If inherit=true it also changes child nodes\textquotesingle{} frequencies, proportionally (e.\+g. if you double the freq of this node, the freqs of the child nodes double too). (this function assumes that \mbox{\hyperlink{classMatsuokaEngine_a68d6295dfa0d28e3bc9d743e763d6ee9}{calibrate()}} has been run more recently than any of the set\+Param\+\_\+ methods otherwise frequency will not be set accurately). \mbox{\Hypertarget{classMatsuokaEngine_a304bbae799a46734b1db0ac679f032e4}\label{classMatsuokaEngine_a304bbae799a46734b1db0ac679f032e4}} 
-\index{Matsuoka\+Engine@{Matsuoka\+Engine}!set\+Node\+Frequency\+Multiple@{set\+Node\+Frequency\+Multiple}}
-\index{set\+Node\+Frequency\+Multiple@{set\+Node\+Frequency\+Multiple}!Matsuoka\+Engine@{Matsuoka\+Engine}}
-\subsubsection{\texorpdfstring{set\+Node\+Frequency\+Multiple()}{setNodeFrequencyMultiple()}}
-{\footnotesize\ttfamily void Matsuoka\+Engine\+::set\+Node\+Frequency\+Multiple (\begin{DoxyParamCaption}\item[{unsigned}]{node\+ID,  }\item[{double}]{multiple\+Of\+Parent,  }\item[{bool}]{inherit }\end{DoxyParamCaption})}
-
-Q\+U\+E\+U\+ED A\+C\+T\+I\+ON -\/ sets frequency of the node as a multiple of its parent node\textquotesingle{}s frequency ~\newline
-If inherit=true it also changes child nodes\textquotesingle{} frequencies, proportionally (e.\+g. if you double the freq of this node, the freqs of the child nodes double too). (this function assumes that \mbox{\hyperlink{classMatsuokaEngine_a68d6295dfa0d28e3bc9d743e763d6ee9}{calibrate()}} has been run more recently than any of the set\+Param\+\_\+ methods otherwise frequency will not be set accurately). \mbox{\Hypertarget{classMatsuokaEngine_a858deaa3246c884cc0693b494e398849}\label{classMatsuokaEngine_a858deaa3246c884cc0693b494e398849}} 
-\index{Matsuoka\+Engine@{Matsuoka\+Engine}!set\+Node\+Phase\+Offset@{set\+Node\+Phase\+Offset}}
+\subsubsection[{\texorpdfstring{set\+Node\+Frequency(unsigned node\+I\+D, double freq, bool inherit)}{setNodeFrequency(unsigned nodeID, double freq, bool inherit)}}]{\setlength{\rightskip}{0pt plus 5cm}void Matsuoka\+Engine\+::set\+Node\+Frequency (
+\begin{DoxyParamCaption}
+\item[{unsigned}]{node\+ID, }
+\item[{double}]{freq, }
+\item[{bool}]{inherit}
+\end{DoxyParamCaption}
+)}\hypertarget{classMatsuokaEngine_acd76608c9b7fb30bf9e0ed2ecd1ba40a}{}\label{classMatsuokaEngine_acd76608c9b7fb30bf9e0ed2ecd1ba40a}
+Q\+U\+E\+U\+ED A\+C\+T\+I\+ON -\/ sets frequency of the node (assumes compensation has been set or \hyperlink{classMatsuokaEngine_a68d6295dfa0d28e3bc9d743e763d6ee9}{calibrate()} run since system start, or since set\+Param\+\_\+ methods have been called. If inherit=true it changes child nodes frequencies proportionally \index{Matsuoka\+Engine@{Matsuoka\+Engine}!set\+Node\+Phase\+Offset@{set\+Node\+Phase\+Offset}}
 \index{set\+Node\+Phase\+Offset@{set\+Node\+Phase\+Offset}!Matsuoka\+Engine@{Matsuoka\+Engine}}
-\subsubsection{\texorpdfstring{set\+Node\+Phase\+Offset()}{setNodePhaseOffset()}}
-{\footnotesize\ttfamily void Matsuoka\+Engine\+::set\+Node\+Phase\+Offset (\begin{DoxyParamCaption}\item[{unsigned}]{node\+ID,  }\item[{double}]{phase }\end{DoxyParamCaption})}
-
-Q\+U\+E\+U\+ED A\+C\+T\+I\+ON -\/ sets the phase offset of the node\textquotesingle{}s output (0-\/1 as proportion of parent\textquotesingle{}s wavelength) handled via delay \mbox{\Hypertarget{classMatsuokaEngine_aeb46c52bb2a430616aea63732aba7e32}\label{classMatsuokaEngine_aeb46c52bb2a430616aea63732aba7e32}} 
-\index{Matsuoka\+Engine@{Matsuoka\+Engine}!set\+Node\+Quantiser\+\_\+\+Grid@{set\+Node\+Quantiser\+\_\+\+Grid}}
+\subsubsection[{\texorpdfstring{set\+Node\+Phase\+Offset(unsigned node\+I\+D, double phase)}{setNodePhaseOffset(unsigned nodeID, double phase)}}]{\setlength{\rightskip}{0pt plus 5cm}void Matsuoka\+Engine\+::set\+Node\+Phase\+Offset (
+\begin{DoxyParamCaption}
+\item[{unsigned}]{node\+ID, }
+\item[{double}]{phase}
+\end{DoxyParamCaption}
+)}\hypertarget{classMatsuokaEngine_a858deaa3246c884cc0693b494e398849}{}\label{classMatsuokaEngine_a858deaa3246c884cc0693b494e398849}
+Q\+U\+E\+U\+ED A\+C\+T\+I\+ON -\/ sets the phase offset of the node\textquotesingle{}s output (0-\/1) handled via delay \index{Matsuoka\+Engine@{Matsuoka\+Engine}!set\+Node\+Quantiser\+\_\+\+Grid@{set\+Node\+Quantiser\+\_\+\+Grid}}
 \index{set\+Node\+Quantiser\+\_\+\+Grid@{set\+Node\+Quantiser\+\_\+\+Grid}!Matsuoka\+Engine@{Matsuoka\+Engine}}
-\subsubsection{\texorpdfstring{set\+Node\+Quantiser\+\_\+\+Grid()}{setNodeQuantiser\_Grid()}}
-{\footnotesize\ttfamily void Matsuoka\+Engine\+::set\+Node\+Quantiser\+\_\+\+Grid (\begin{DoxyParamCaption}\item[{unsigned}]{node\+ID,  }\item[{\mbox{\hyperlink{classQuantisedEventQueue_ae186d50bd503038452edbbdd0c7c259e}{grid\+Type}}}]{grid }\end{DoxyParamCaption})}
-
+\subsubsection[{\texorpdfstring{set\+Node\+Quantiser\+\_\+\+Grid(unsigned node\+I\+D, grid\+Type grid)}{setNodeQuantiser_Grid(unsigned nodeID, gridType grid)}}]{\setlength{\rightskip}{0pt plus 5cm}void Matsuoka\+Engine\+::set\+Node\+Quantiser\+\_\+\+Grid (
+\begin{DoxyParamCaption}
+\item[{unsigned}]{node\+ID, }
+\item[{{\bf grid\+Type}}]{grid}
+\end{DoxyParamCaption}
+)}\hypertarget{classMatsuokaEngine_aeb46c52bb2a430616aea63732aba7e32}{}\label{classMatsuokaEngine_aeb46c52bb2a430616aea63732aba7e32}
 
 
 sets the grid type for the quantiser for the node 
 
-\mbox{\Hypertarget{classMatsuokaEngine_a1220a5a72f9bf35a9e6cd5a4f999f7e5}\label{classMatsuokaEngine_a1220a5a72f9bf35a9e6cd5a4f999f7e5}} 
 \index{Matsuoka\+Engine@{Matsuoka\+Engine}!set\+Node\+Quantiser\+\_\+\+Multiple@{set\+Node\+Quantiser\+\_\+\+Multiple}}
 \index{set\+Node\+Quantiser\+\_\+\+Multiple@{set\+Node\+Quantiser\+\_\+\+Multiple}!Matsuoka\+Engine@{Matsuoka\+Engine}}
-\subsubsection{\texorpdfstring{set\+Node\+Quantiser\+\_\+\+Multiple()}{setNodeQuantiser\_Multiple()}}
-{\footnotesize\ttfamily void Matsuoka\+Engine\+::set\+Node\+Quantiser\+\_\+\+Multiple (\begin{DoxyParamCaption}\item[{unsigned}]{node\+ID,  }\item[{float}]{mult }\end{DoxyParamCaption})}
+\subsubsection[{\texorpdfstring{set\+Node\+Quantiser\+\_\+\+Multiple(unsigned node\+I\+D, float mult)}{setNodeQuantiser_Multiple(unsigned nodeID, float mult)}}]{\setlength{\rightskip}{0pt plus 5cm}void Matsuoka\+Engine\+::set\+Node\+Quantiser\+\_\+\+Multiple (
+\begin{DoxyParamCaption}
+\item[{unsigned}]{node\+ID, }
+\item[{float}]{mult}
+\end{DoxyParamCaption}
+)}\hypertarget{classMatsuokaEngine_a1220a5a72f9bf35a9e6cd5a4f999f7e5}{}\label{classMatsuokaEngine_a1220a5a72f9bf35a9e6cd5a4f999f7e5}
 
 
+sets the multiplier for grid coarseness (defines no of valid positions on grid and gaps between them) 
 
-sets the multiplier for grid coarseness (defines resolution of grid / no of valid positions on grid) 
-
-\mbox{\Hypertarget{classMatsuokaEngine_a12aafa189a6c9302937a00de6d291d42}\label{classMatsuokaEngine_a12aafa189a6c9302937a00de6d291d42}} 
 \index{Matsuoka\+Engine@{Matsuoka\+Engine}!set\+Node\+Quantiser\+\_\+\+Offset@{set\+Node\+Quantiser\+\_\+\+Offset}}
 \index{set\+Node\+Quantiser\+\_\+\+Offset@{set\+Node\+Quantiser\+\_\+\+Offset}!Matsuoka\+Engine@{Matsuoka\+Engine}}
-\subsubsection{\texorpdfstring{set\+Node\+Quantiser\+\_\+\+Offset()}{setNodeQuantiser\_Offset()}}
-{\footnotesize\ttfamily void Matsuoka\+Engine\+::set\+Node\+Quantiser\+\_\+\+Offset (\begin{DoxyParamCaption}\item[{unsigned}]{node\+ID,  }\item[{float}]{off }\end{DoxyParamCaption})}
+\subsubsection[{\texorpdfstring{set\+Node\+Quantiser\+\_\+\+Offset(unsigned node\+I\+D, float off)}{setNodeQuantiser_Offset(unsigned nodeID, float off)}}]{\setlength{\rightskip}{0pt plus 5cm}void Matsuoka\+Engine\+::set\+Node\+Quantiser\+\_\+\+Offset (
+\begin{DoxyParamCaption}
+\item[{unsigned}]{node\+ID, }
+\item[{float}]{off}
+\end{DoxyParamCaption}
+)}\hypertarget{classMatsuokaEngine_a12aafa189a6c9302937a00de6d291d42}{}\label{classMatsuokaEngine_a12aafa189a6c9302937a00de6d291d42}
 
 
+sets the offset from zero of the valid positions on the grid for the quantiser for the node 
 
-sets the offset of the grid -\/ shifts the grid by this many base units 
-
-\mbox{\Hypertarget{classMatsuokaEngine_a4e564e80779a3cd89cb3d4347920ba7d}\label{classMatsuokaEngine_a4e564e80779a3cd89cb3d4347920ba7d}} 
 \index{Matsuoka\+Engine@{Matsuoka\+Engine}!set\+Node\+Self\+Noise@{set\+Node\+Self\+Noise}}
 \index{set\+Node\+Self\+Noise@{set\+Node\+Self\+Noise}!Matsuoka\+Engine@{Matsuoka\+Engine}}
-\subsubsection{\texorpdfstring{set\+Node\+Self\+Noise()}{setNodeSelfNoise()}}
-{\footnotesize\ttfamily void Matsuoka\+Engine\+::set\+Node\+Self\+Noise (\begin{DoxyParamCaption}\item[{unsigned}]{node\+ID,  }\item[{double}]{amount }\end{DoxyParamCaption})}
+\subsubsection[{\texorpdfstring{set\+Node\+Self\+Noise(unsigned node\+I\+D, double amount)}{setNodeSelfNoise(unsigned nodeID, double amount)}}]{\setlength{\rightskip}{0pt plus 5cm}void Matsuoka\+Engine\+::set\+Node\+Self\+Noise (
+\begin{DoxyParamCaption}
+\item[{unsigned}]{node\+ID, }
+\item[{double}]{amount}
+\end{DoxyParamCaption}
+)}\hypertarget{classMatsuokaEngine_a4e564e80779a3cd89cb3d4347920ba7d}{}\label{classMatsuokaEngine_a4e564e80779a3cd89cb3d4347920ba7d}
 
 
+Q\+U\+E\+U\+ED A\+C\+T\+I\+ON -\/sets the amplitude of white noise to the node input. 
 
-Q\+U\+E\+U\+ED A\+C\+T\+I\+ON -\/sets the amplitude of white noise going into the node. 
-
-\mbox{\Hypertarget{classMatsuokaEngine_aa037d1bcb48e395ef6e789feab20b144}\label{classMatsuokaEngine_aa037d1bcb48e395ef6e789feab20b144}} 
 \index{Matsuoka\+Engine@{Matsuoka\+Engine}!set\+Node\+Synch\+Mode@{set\+Node\+Synch\+Mode}}
 \index{set\+Node\+Synch\+Mode@{set\+Node\+Synch\+Mode}!Matsuoka\+Engine@{Matsuoka\+Engine}}
-\subsubsection{\texorpdfstring{set\+Node\+Synch\+Mode()}{setNodeSynchMode()}}
-{\footnotesize\ttfamily void Matsuoka\+Engine\+::set\+Node\+Synch\+Mode (\begin{DoxyParamCaption}\item[{unsigned}]{node\+ID,  }\item[{\mbox{\hyperlink{classMatsuNode_a725e228db39b8842f851ddf88f640bed}{synch\+Mode}}}]{mode }\end{DoxyParamCaption})}
-
-Q\+U\+E\+U\+ED A\+C\+T\+I\+ON -\/sets synchronisation mode for the node
-\begin{DoxyItemize}
-\item free (no synchronisation),
-\item synch\+Once -\/ synchronise once (on next zero crossing of parent node, this node is also reset to zero crossing state)
-\item synch\+Lock -\/ (synchronisation happens at {\itshape every} parent zero-\/crossing). I have not found synch\+Loc useful. synch\+Once is useful e.\+g. when spawning a new node, 
-\end{DoxyItemize}\mbox{\Hypertarget{classMatsuokaEngine_aa568d548269415a9104a74eaec19d958}\label{classMatsuokaEngine_aa568d548269415a9104a74eaec19d958}} 
-\index{Matsuoka\+Engine@{Matsuoka\+Engine}!set\+Param\+\_\+b@{set\+Param\+\_\+b}}
+\subsubsection[{\texorpdfstring{set\+Node\+Synch\+Mode(unsigned node\+I\+D, synch\+Mode mode)}{setNodeSynchMode(unsigned nodeID, synchMode mode)}}]{\setlength{\rightskip}{0pt plus 5cm}void Matsuoka\+Engine\+::set\+Node\+Synch\+Mode (
+\begin{DoxyParamCaption}
+\item[{unsigned}]{node\+ID, }
+\item[{{\bf synch\+Mode}}]{mode}
+\end{DoxyParamCaption}
+)}\hypertarget{classMatsuokaEngine_aa037d1bcb48e395ef6e789feab20b144}{}\label{classMatsuokaEngine_aa037d1bcb48e395ef6e789feab20b144}
+Q\+U\+E\+U\+ED A\+C\+T\+I\+ON -\/sets synchronisation mode for the node -\/ free, synchronise once (on next parent pos zero crossing, node is reset to zero crossing state), or synch\+Lock (on every pos zero crossing of parent, node is reset to zero crossing state) \index{Matsuoka\+Engine@{Matsuoka\+Engine}!set\+Param\+\_\+b@{set\+Param\+\_\+b}}
 \index{set\+Param\+\_\+b@{set\+Param\+\_\+b}!Matsuoka\+Engine@{Matsuoka\+Engine}}
-\subsubsection{\texorpdfstring{set\+Param\+\_\+b()}{setParam\_b()}}
-{\footnotesize\ttfamily void Matsuoka\+Engine\+::set\+Param\+\_\+b (\begin{DoxyParamCaption}\item[{double}]{val }\end{DoxyParamCaption})}
+\subsubsection[{\texorpdfstring{set\+Param\+\_\+b(double val)}{setParam_b(double val)}}]{\setlength{\rightskip}{0pt plus 5cm}void Matsuoka\+Engine\+::set\+Param\+\_\+b (
+\begin{DoxyParamCaption}
+\item[{double}]{val}
+\end{DoxyParamCaption}
+)}\hypertarget{classMatsuokaEngine_aa568d548269415a9104a74eaec19d958}{}\label{classMatsuokaEngine_aa568d548269415a9104a74eaec19d958}
 
 
+Q\+U\+E\+U\+ED A\+C\+T\+I\+ON -\/ sets the matsuoka\textquotesingle{}s oscillator parameter b. 
 
-Q\+U\+E\+U\+ED A\+C\+T\+I\+ON -\/ sets the matsuoka\textquotesingle{}s oscillator parameter b (adaptation to signal -\/ mainly controls waveshape) 
-
-\mbox{\Hypertarget{classMatsuokaEngine_ad210d56ae83d896c39e72d93a6263035}\label{classMatsuokaEngine_ad210d56ae83d896c39e72d93a6263035}} 
 \index{Matsuoka\+Engine@{Matsuoka\+Engine}!set\+Param\+\_\+c@{set\+Param\+\_\+c}}
 \index{set\+Param\+\_\+c@{set\+Param\+\_\+c}!Matsuoka\+Engine@{Matsuoka\+Engine}}
-\subsubsection{\texorpdfstring{set\+Param\+\_\+c()}{setParam\_c()}}
-{\footnotesize\ttfamily void Matsuoka\+Engine\+::set\+Param\+\_\+c (\begin{DoxyParamCaption}\item[{double}]{val }\end{DoxyParamCaption})}
+\subsubsection[{\texorpdfstring{set\+Param\+\_\+c(double val)}{setParam_c(double val)}}]{\setlength{\rightskip}{0pt plus 5cm}void Matsuoka\+Engine\+::set\+Param\+\_\+c (
+\begin{DoxyParamCaption}
+\item[{double}]{val}
+\end{DoxyParamCaption}
+)}\hypertarget{classMatsuokaEngine_ad210d56ae83d896c39e72d93a6263035}{}\label{classMatsuokaEngine_ad210d56ae83d896c39e72d93a6263035}
 
 
+Q\+U\+E\+U\+ED A\+C\+T\+I\+ON -\/ sets the matsuoka\textquotesingle{}s oscillator parameter C. 
 
-Q\+U\+E\+U\+ED A\+C\+T\+I\+ON -\/ sets the matsuoka\textquotesingle{}s oscillator parameter C (tonic input\+: mainly controls amplitude) 
-
-\mbox{\Hypertarget{classMatsuokaEngine_aba4ab083a57717c7dba5d75ff3d1987a}\label{classMatsuokaEngine_aba4ab083a57717c7dba5d75ff3d1987a}} 
 \index{Matsuoka\+Engine@{Matsuoka\+Engine}!set\+Param\+\_\+g@{set\+Param\+\_\+g}}
 \index{set\+Param\+\_\+g@{set\+Param\+\_\+g}!Matsuoka\+Engine@{Matsuoka\+Engine}}
-\subsubsection{\texorpdfstring{set\+Param\+\_\+g()}{setParam\_g()}}
-{\footnotesize\ttfamily void Matsuoka\+Engine\+::set\+Param\+\_\+g (\begin{DoxyParamCaption}\item[{double}]{val }\end{DoxyParamCaption})}
+\subsubsection[{\texorpdfstring{set\+Param\+\_\+g(double val)}{setParam_g(double val)}}]{\setlength{\rightskip}{0pt plus 5cm}void Matsuoka\+Engine\+::set\+Param\+\_\+g (
+\begin{DoxyParamCaption}
+\item[{double}]{val}
+\end{DoxyParamCaption}
+)}\hypertarget{classMatsuokaEngine_aba4ab083a57717c7dba5d75ff3d1987a}{}\label{classMatsuokaEngine_aba4ab083a57717c7dba5d75ff3d1987a}
 
 
+Q\+U\+E\+U\+ED A\+C\+T\+I\+ON -\/ sets the matsuoka\textquotesingle{}s oscillator parameter g. 
 
-Q\+U\+E\+U\+ED A\+C\+T\+I\+ON -\/ sets the matsuoka\textquotesingle{}s oscillator parameter g (adaptation between neurons\+: mainly controls waveshape) 
-
-\mbox{\Hypertarget{classMatsuokaEngine_a22a2a27ba2ad7f8ea7a4121326ac8a21}\label{classMatsuokaEngine_a22a2a27ba2ad7f8ea7a4121326ac8a21}} 
 \index{Matsuoka\+Engine@{Matsuoka\+Engine}!set\+Param\+\_\+t2\+Overt1@{set\+Param\+\_\+t2\+Overt1}}
 \index{set\+Param\+\_\+t2\+Overt1@{set\+Param\+\_\+t2\+Overt1}!Matsuoka\+Engine@{Matsuoka\+Engine}}
-\subsubsection{\texorpdfstring{set\+Param\+\_\+t2\+Overt1()}{setParam\_t2Overt1()}}
-{\footnotesize\ttfamily void Matsuoka\+Engine\+::set\+Param\+\_\+t2\+Overt1 (\begin{DoxyParamCaption}\item[{double}]{val }\end{DoxyParamCaption})}
+\subsubsection[{\texorpdfstring{set\+Param\+\_\+t2\+Overt1(double val)}{setParam_t2Overt1(double val)}}]{\setlength{\rightskip}{0pt plus 5cm}void Matsuoka\+Engine\+::set\+Param\+\_\+t2\+Overt1 (
+\begin{DoxyParamCaption}
+\item[{double}]{val}
+\end{DoxyParamCaption}
+)}\hypertarget{classMatsuokaEngine_a22a2a27ba2ad7f8ea7a4121326ac8a21}{}\label{classMatsuokaEngine_a22a2a27ba2ad7f8ea7a4121326ac8a21}
 
-Q\+U\+E\+U\+ED A\+C\+T\+I\+ON -\/sets the ratio between the matsuoka\textquotesingle{}s oscillator parameters t2 and t1 -\/ time parameters e.\+g if you set this to 4, and T1 is 1, then T2 will be 4 this ratio affects waveshape. The values for t2 and t1 are not set directly since they are set by set\+Node\+Frequency. \mbox{\Hypertarget{classMatsuokaEngine_a929ade3a9ce6497e47183190255cbfae}\label{classMatsuokaEngine_a929ade3a9ce6497e47183190255cbfae}} 
+
+Q\+U\+E\+U\+ED A\+C\+T\+I\+ON -\/sets the ratio between the matsuoka\textquotesingle{}s oscillator parameters t2 and t1. 
+
 \index{Matsuoka\+Engine@{Matsuoka\+Engine}!set\+Pause@{set\+Pause}}
 \index{set\+Pause@{set\+Pause}!Matsuoka\+Engine@{Matsuoka\+Engine}}
-\subsubsection{\texorpdfstring{set\+Pause()}{setPause()}}
-{\footnotesize\ttfamily void Matsuoka\+Engine\+::set\+Pause (\begin{DoxyParamCaption}\item[{bool}]{pause }\end{DoxyParamCaption})}
+\subsubsection[{\texorpdfstring{set\+Pause(bool pause)}{setPause(bool pause)}}]{\setlength{\rightskip}{0pt plus 5cm}void Matsuoka\+Engine\+::set\+Pause (
+\begin{DoxyParamCaption}
+\item[{bool}]{pause}
+\end{DoxyParamCaption}
+)}\hypertarget{classMatsuokaEngine_a929ade3a9ce6497e47183190255cbfae}{}\label{classMatsuokaEngine_a929ade3a9ce6497e47183190255cbfae}
 
 
+(un)pauses the engine (\hyperlink{classMatsuokaEngine_a4fa468dc0814f1ad92594f7a4d5abd00}{step()} will have no effect while paused 
 
-(un/)pauses the engine (\mbox{\hyperlink{classMatsuokaEngine_a4fa468dc0814f1ad92594f7a4d5abd00}{step()}} will have no effect while paused 
-
-\mbox{\Hypertarget{classMatsuokaEngine_a9057153267968489cd83ca31a1fbd985}\label{classMatsuokaEngine_a9057153267968489cd83ca31a1fbd985}} 
 \index{Matsuoka\+Engine@{Matsuoka\+Engine}!set\+Quantise\+Amount@{set\+Quantise\+Amount}}
 \index{set\+Quantise\+Amount@{set\+Quantise\+Amount}!Matsuoka\+Engine@{Matsuoka\+Engine}}
-\subsubsection{\texorpdfstring{set\+Quantise\+Amount()}{setQuantiseAmount()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily void Matsuoka\+Engine\+::set\+Quantise\+Amount (\begin{DoxyParamCaption}\item[{float}]{amount }\end{DoxyParamCaption})}
+\subsubsection[{\texorpdfstring{set\+Quantise\+Amount(float amount)}{setQuantiseAmount(float amount)}}]{\setlength{\rightskip}{0pt plus 5cm}void Matsuoka\+Engine\+::set\+Quantise\+Amount (
+\begin{DoxyParamCaption}
+\item[{float}]{amount}
+\end{DoxyParamCaption}
+)}\hypertarget{classMatsuokaEngine_a9057153267968489cd83ca31a1fbd985}{}\label{classMatsuokaEngine_a9057153267968489cd83ca31a1fbd985}
 
-sets the strength of quantisation effect (0=no quantisation 1= strict quantisation) 0 means notes are not affected by the quantiser 1 means notes are moved to the nearest quantiser grid position values in between nudge the note towards the nearest grid position, to a greater or lesser degree \mbox{\Hypertarget{classMatsuokaEngine_ae053fd0bdd438fa8a7f4cbd151122f89}\label{classMatsuokaEngine_ae053fd0bdd438fa8a7f4cbd151122f89}} 
+
+sets the strength of quantisation effect (0=no quantisation 1= strict quantisation) 
+
 \index{Matsuoka\+Engine@{Matsuoka\+Engine}!set\+Quantise\+Amount@{set\+Quantise\+Amount}}
 \index{set\+Quantise\+Amount@{set\+Quantise\+Amount}!Matsuoka\+Engine@{Matsuoka\+Engine}}
-\subsubsection{\texorpdfstring{set\+Quantise\+Amount()}{setQuantiseAmount()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily void Matsuoka\+Engine\+::set\+Quantise\+Amount (\begin{DoxyParamCaption}\item[{unsigned}]{node,  }\item[{float}]{amount }\end{DoxyParamCaption})}
-
-\mbox{\Hypertarget{classMatsuokaEngine_a23ee17f0e948af6fcccdaeefa2c4e246}\label{classMatsuokaEngine_a23ee17f0e948af6fcccdaeefa2c4e246}} 
+\subsubsection[{\texorpdfstring{set\+Quantise\+Amount(unsigned node, float amount)}{setQuantiseAmount(unsigned node, float amount)}}]{\setlength{\rightskip}{0pt plus 5cm}void Matsuoka\+Engine\+::set\+Quantise\+Amount (
+\begin{DoxyParamCaption}
+\item[{unsigned}]{node, }
+\item[{float}]{amount}
+\end{DoxyParamCaption}
+)}\hypertarget{classMatsuokaEngine_ae053fd0bdd438fa8a7f4cbd151122f89}{}\label{classMatsuokaEngine_ae053fd0bdd438fa8a7f4cbd151122f89}
 \index{Matsuoka\+Engine@{Matsuoka\+Engine}!set\+Sample\+Rate@{set\+Sample\+Rate}}
 \index{set\+Sample\+Rate@{set\+Sample\+Rate}!Matsuoka\+Engine@{Matsuoka\+Engine}}
-\subsubsection{\texorpdfstring{set\+Sample\+Rate()}{setSampleRate()}}
-{\footnotesize\ttfamily void Matsuoka\+Engine\+::set\+Sample\+Rate (\begin{DoxyParamCaption}\item[{unsigned}]{sample\+Rate }\end{DoxyParamCaption})}
-
-sets the sample rate (expected no of calculations/outputs per second) -\/ used in internal calculations (this value should match the number of times per second you call \mbox{\hyperlink{classMatsuokaEngine_a4fa468dc0814f1ad92594f7a4d5abd00}{step()}} per second) \mbox{\Hypertarget{classMatsuokaEngine_afca77a2464c5852a0dbb9eed2d191ecb}\label{classMatsuokaEngine_afca77a2464c5852a0dbb9eed2d191ecb}} 
-\index{Matsuoka\+Engine@{Matsuoka\+Engine}!set\+Shutdown@{set\+Shutdown}}
+\subsubsection[{\texorpdfstring{set\+Sample\+Rate(unsigned sample\+Rate)}{setSampleRate(unsigned sampleRate)}}]{\setlength{\rightskip}{0pt plus 5cm}void Matsuoka\+Engine\+::set\+Sample\+Rate (
+\begin{DoxyParamCaption}
+\item[{unsigned}]{sample\+Rate}
+\end{DoxyParamCaption}
+)}\hypertarget{classMatsuokaEngine_a23ee17f0e948af6fcccdaeefa2c4e246}{}\label{classMatsuokaEngine_a23ee17f0e948af6fcccdaeefa2c4e246}
+sets the number of calculation steps per second -\/ used in internal calculations (this value must match the number of times per second you call \hyperlink{classMatsuokaEngine_a4fa468dc0814f1ad92594f7a4d5abd00}{step()} ) \index{Matsuoka\+Engine@{Matsuoka\+Engine}!set\+Shutdown@{set\+Shutdown}}
 \index{set\+Shutdown@{set\+Shutdown}!Matsuoka\+Engine@{Matsuoka\+Engine}}
-\subsubsection{\texorpdfstring{set\+Shutdown()}{setShutdown()}}
-{\footnotesize\ttfamily void Matsuoka\+Engine\+::set\+Shutdown (\begin{DoxyParamCaption}\item[{bool}]{shutdown }\end{DoxyParamCaption})}
-
+\subsubsection[{\texorpdfstring{set\+Shutdown(bool shutdown)}{setShutdown(bool shutdown)}}]{\setlength{\rightskip}{0pt plus 5cm}void Matsuoka\+Engine\+::set\+Shutdown (
+\begin{DoxyParamCaption}
+\item[{bool}]{shutdown}
+\end{DoxyParamCaption}
+)}\hypertarget{classMatsuokaEngine_afca77a2464c5852a0dbb9eed2d191ecb}{}\label{classMatsuokaEngine_afca77a2464c5852a0dbb9eed2d191ecb}
 
 
 tells the engine to shutdown 
 
-\mbox{\Hypertarget{classMatsuokaEngine_aa7254e0141ad5763ff6267a8430b30ab}\label{classMatsuokaEngine_aa7254e0141ad5763ff6267a8430b30ab}} 
 \index{Matsuoka\+Engine@{Matsuoka\+Engine}!set\+Unity\+Connection\+Weight@{set\+Unity\+Connection\+Weight}}
 \index{set\+Unity\+Connection\+Weight@{set\+Unity\+Connection\+Weight}!Matsuoka\+Engine@{Matsuoka\+Engine}}
-\subsubsection{\texorpdfstring{set\+Unity\+Connection\+Weight()}{setUnityConnectionWeight()}}
-{\footnotesize\ttfamily void Matsuoka\+Engine\+::set\+Unity\+Connection\+Weight (\begin{DoxyParamCaption}\item[{float}]{unity }\end{DoxyParamCaption})}
+\subsubsection[{\texorpdfstring{set\+Unity\+Connection\+Weight(float unity)}{setUnityConnectionWeight(float unity)}}]{\setlength{\rightskip}{0pt plus 5cm}void Matsuoka\+Engine\+::set\+Unity\+Connection\+Weight (
+\begin{DoxyParamCaption}
+\item[{float}]{unity}
+\end{DoxyParamCaption}
+)}\hypertarget{classMatsuokaEngine_aa7254e0141ad5763ff6267a8430b30ab}{}\label{classMatsuokaEngine_aa7254e0141ad5763ff6267a8430b30ab}
 
 
+sets the input value which should map to weight of 1 when setting connections 
 
-Scales the inputs\+: sets the incoming value which should map to weight of 1 when setting connections. 
-
-\mbox{\Hypertarget{classMatsuokaEngine_a4fa468dc0814f1ad92594f7a4d5abd00}\label{classMatsuokaEngine_a4fa468dc0814f1ad92594f7a4d5abd00}} 
 \index{Matsuoka\+Engine@{Matsuoka\+Engine}!step@{step}}
 \index{step@{step}!Matsuoka\+Engine@{Matsuoka\+Engine}}
-\subsubsection{\texorpdfstring{step()}{step()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
-{\footnotesize\ttfamily void Matsuoka\+Engine\+::step (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+\subsubsection[{\texorpdfstring{step()}{step()}}]{\setlength{\rightskip}{0pt plus 5cm}void Matsuoka\+Engine\+::step (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classMatsuokaEngine_a4fa468dc0814f1ad92594f7a4d5abd00}{}\label{classMatsuokaEngine_a4fa468dc0814f1ad92594f7a4d5abd00}
 
 
+calculate \hyperlink{classCPG}{C\+PG} and populate event queue, 
 
-calculate one step of network calculations, and populate the event queue, 
-
-\mbox{\Hypertarget{classMatsuokaEngine_aedf2583d11befa98a8a9d74c700635d6}\label{classMatsuokaEngine_aedf2583d11befa98a8a9d74c700635d6}} 
 \index{Matsuoka\+Engine@{Matsuoka\+Engine}!step@{step}}
 \index{step@{step}!Matsuoka\+Engine@{Matsuoka\+Engine}}
-\subsubsection{\texorpdfstring{step()}{step()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily void Matsuoka\+Engine\+::step (\begin{DoxyParamCaption}\item[{unsigned}]{node\+ID }\end{DoxyParamCaption})}
+\subsubsection[{\texorpdfstring{step(unsigned node\+I\+D)}{step(unsigned nodeID)}}]{\setlength{\rightskip}{0pt plus 5cm}void Matsuoka\+Engine\+::step (
+\begin{DoxyParamCaption}
+\item[{unsigned}]{node\+ID}
+\end{DoxyParamCaption}
+)}\hypertarget{classMatsuokaEngine_aedf2583d11befa98a8a9d74c700635d6}{}\label{classMatsuokaEngine_aedf2583d11befa98a8a9d74c700635d6}
 
 
+calculate indicated node, 
 
-do one calculation step for the indicated node, 
-
-\mbox{\Hypertarget{classMatsuokaEngine_a12519e69a1b16fe9c07717ded5249cdf}\label{classMatsuokaEngine_a12519e69a1b16fe9c07717ded5249cdf}} 
 \index{Matsuoka\+Engine@{Matsuoka\+Engine}!step\+Bare\+Bones@{step\+Bare\+Bones}}
 \index{step\+Bare\+Bones@{step\+Bare\+Bones}!Matsuoka\+Engine@{Matsuoka\+Engine}}
-\subsubsection{\texorpdfstring{step\+Bare\+Bones()}{stepBareBones()}}
-{\footnotesize\ttfamily void Matsuoka\+Engine\+::step\+Bare\+Bones (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
-
+\subsubsection[{\texorpdfstring{step\+Bare\+Bones()}{stepBareBones()}}]{\setlength{\rightskip}{0pt plus 5cm}void Matsuoka\+Engine\+::step\+Bare\+Bones (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classMatsuokaEngine_a12519e69a1b16fe9c07717ded5249cdf}{}\label{classMatsuokaEngine_a12519e69a1b16fe9c07717ded5249cdf}
 
 
 no syncing, no quantiser, no freq Compensation Calcs etc., 
 
-\mbox{\Hypertarget{classMatsuokaEngine_a9ecbc93a17a602d8358c189363397575}\label{classMatsuokaEngine_a9ecbc93a17a602d8358c189363397575}} 
 \index{Matsuoka\+Engine@{Matsuoka\+Engine}!zero\+Sync@{zero\+Sync}}
 \index{zero\+Sync@{zero\+Sync}!Matsuoka\+Engine@{Matsuoka\+Engine}}
-\subsubsection{\texorpdfstring{zero\+Sync()}{zeroSync()}}
-{\footnotesize\ttfamily void Matsuoka\+Engine\+::zero\+Sync (\begin{DoxyParamCaption}\item[{unsigned}]{node\+ID }\end{DoxyParamCaption})}
-
-
-
-if Set\+Driven has been called, with value other than \char`\"{}none\char`\"{}, this 
-
-
+\subsubsection[{\texorpdfstring{zero\+Sync(unsigned node\+I\+D)}{zeroSync(unsigned nodeID)}}]{\setlength{\rightskip}{0pt plus 5cm}void Matsuoka\+Engine\+::zero\+Sync (
+\begin{DoxyParamCaption}
+\item[{unsigned}]{node\+ID}
+\end{DoxyParamCaption}
+)}\hypertarget{classMatsuokaEngine_a9ecbc93a17a602d8358c189363397575}{}\label{classMatsuokaEngine_a9ecbc93a17a602d8358c189363397575}
+if Set\+Driven has been run, with value other than \char`\"{}none\char`\"{}, this resets the node to its state prior to zero-\/crossing otherwise behaviour is same as reset(node\+I\+D) 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-O\+:/\+Documents/\+Max 7/\+Packages/max\+\_\+cpg/source/\+Matsuoka\+Engine\+\_\+src/\mbox{\hyperlink{MatsuokaEngine_8h}{Matsuoka\+Engine.\+h}}\item 
-O\+:/\+Documents/\+Max 7/\+Packages/max\+\_\+cpg/source/\+Matsuoka\+Engine\+\_\+src/\mbox{\hyperlink{MatsuokaEngine_8cpp}{Matsuoka\+Engine.\+cpp}}\end{DoxyCompactItemize}
+C\+:/\+Users/dan/\+Documents/\+Max 7/\+Packages/max\+\_\+cpg/source/\+Matsuoka\+Engine\+\_\+src/\hyperlink{MatsuokaEngine_8h}{Matsuoka\+Engine.\+h}\item 
+C\+:/\+Users/dan/\+Documents/\+Max 7/\+Packages/max\+\_\+cpg/source/\+Matsuoka\+Engine\+\_\+src/\hyperlink{MatsuokaEngine_8cpp}{Matsuoka\+Engine.\+cpp}\end{DoxyCompactItemize}

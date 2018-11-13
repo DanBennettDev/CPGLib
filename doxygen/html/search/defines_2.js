@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['default_5fcurve_5fx',['DEFAULT_CURVE_X',['../core_8h.html#a1eb87d30999eb98cacdfdc0d11608ae8',1,'core.h']]],
-  ['default_5fcurve_5fy',['DEFAULT_CURVE_Y',['../core_8h.html#ae06f2637bb4eb80c5114d064d209bd09',1,'core.h']]],
   ['default_5fnote_5ffreq',['DEFAULT_NOTE_FREQ',['../core_8h.html#ae0d9de1f64f9f396c43e2f7b34ccc333',1,'core.h']]],
   ['defaultfreqcompensaiton',['DEFAULTFREQCOMPENSAITON',['../core_8h.html#aa8140fe053fef64afe26b20a03e01d4a',1,'core.h']]],
   ['defaultnodefreq',['DEFAULTNODEFREQ',['../core_8h.html#a85ca3a19fb45089953ba6f7095d27b6c',1,'core.h']]],

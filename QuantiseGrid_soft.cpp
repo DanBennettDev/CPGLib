@@ -204,7 +204,7 @@ QuantiseGrid_soft::noteCoordinate  QuantiseGrid_soft::getNoteCoordinate(unsigned
     }
     // variable quantisation: work out how far to move towards the target
     int gridMove = (int)(targetGrid - rawGrid);
-    float move = ((float(gridMove) - _phase) * _quantiseAmount);
+    float move = ((float(gridMove) - rawPhase) * _quantiseAmount);
     uint64_t finalGrid = rawGrid + (int)move;
     // handle numeric wraparound (should only ever happen in first bar, and once per several hours)
     if (finalGrid > (rawGrid + _divisions * 100)) {
@@ -212,14 +212,8 @@ QuantiseGrid_soft::noteCoordinate  QuantiseGrid_soft::getNoteCoordinate(unsigned
         // and should reliably indicate that we've moved backwards to before zero
         finalGrid += ((int)(move) * 2);
     }
-	 //TODO - clearly wrong. Fix this. But check behaviour first
-	float finalPhase = _phase + move - (int)move;
-    //if (finalGrid >= 1.0) {
-    //    finalGrid -= 1.0;
-    //    finalGrid += 1;
-    //}
-    //return noteCoordinate(finalGrid, finalGrid);
 
+	float finalPhase = rawPhase + move - (int)move;
 	if (finalPhase >= 1.0) {
 		finalPhase -= 1.0;
 		finalGrid += 1;

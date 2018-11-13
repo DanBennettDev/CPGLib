@@ -1,9 +1,10 @@
 var searchData=
 [
+  ['rough_20documentation_20for_20neurythmic_20code',['Rough documentation for Neurythmic code',['../index.html',1,'']]],
   ['rate_5finit',['RATE_INIT',['../Matsu__calcs_8h.html#a536759dc6fa7eb63dd37b89a204312f5',1,'RATE_INIT():&#160;Matsu_calcs.h'],['../matsu__signal__calcs_8h.html#a536759dc6fa7eb63dd37b89a204312f5',1,'RATE_INIT():&#160;matsu_signal_calcs.h']]],
   ['rate_5fmax',['RATE_MAX',['../Matsu__calcs_8h.html#ab86d4993e2e4313522d98699d392b0f2',1,'RATE_MAX():&#160;Matsu_calcs.h'],['../matsu__signal__calcs_8h.html#ab86d4993e2e4313522d98699d392b0f2',1,'RATE_MAX():&#160;matsu_signal_calcs.h']]],
   ['rate_5fmin',['RATE_MIN',['../Matsu__calcs_8h.html#a924cb0c4d5e07440ce096af9d63830ea',1,'RATE_MIN():&#160;Matsu_calcs.h'],['../matsu__signal__calcs_8h.html#a924cb0c4d5e07440ce096af9d63830ea',1,'RATE_MIN():&#160;matsu_signal_calcs.h']]],
-  ['readme_2emd',['ReadMe.md',['../ReadMe_8md.html',1,'']]],
+  ['readme_2etxt',['ReadMe.txt',['../ReadMe_8txt.html',1,'']]],
   ['removechild',['removeChild',['../classMatsuNode.html#aa6251aafed3ea1af9ee0548a5707901c',1,'MatsuNode::removeChild(unsigned nodeID)'],['../classMatsuNode.html#a0e170c6154bbc7ba1f668f7d0a9ac274',1,'MatsuNode::removeChild(MatsuNode &amp;node)']]],
   ['removeconnection',['removeConnection',['../classCPG.html#ab2c84c91fc9de378a6ed0a29305244cc',1,'CPG::removeConnection()'],['../classMatsuokaEngine.html#a5a6d42576cafa238d020e62bdc9e2204',1,'MatsuokaEngine::removeConnection()']]],
   ['removeinput',['removeInput',['../classMatsuNode.html#a70d3d593cb1ebb8a909bfc743867d348',1,'MatsuNode']]],

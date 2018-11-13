@@ -6,6 +6,7 @@
 #include "core.h"
 
 #define EVENTPOOLSIZE 1024
+#define TEMPOCHANGETHRESHOLD 0.0001
 
 /*! \class QuantisedEventQueue
 *  \brief Engine: Takes events as inputs and outputs them at the correct quantised interval

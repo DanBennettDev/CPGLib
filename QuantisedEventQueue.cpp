@@ -105,11 +105,13 @@ void QuantisedEventQueue::setSampleRate(unsigned sampleRate)
 
 void QuantisedEventQueue::setTempo(float tempo)
 {
-    float changeTempo = tempo/_tempo;
-    _tempo = tempo;
-    _grid24.setTempo(tempo);
-    _grid32.setTempo(tempo);
-    setNoteDelays();
+    float changeTempo = (tempo/_tempo)-1;
+	if (changeTempo > TEMPOCHANGETHRESHOLD || (-1*changeTempo) > TEMPOCHANGETHRESHOLD) {
+		_tempo = tempo;
+		_grid24.setTempo(tempo);
+		_grid32.setTempo(tempo);
+		setNoteDelays();
+	}
 }
 
 void QuantisedEventQueue::setQuantiseAmount(float amount)

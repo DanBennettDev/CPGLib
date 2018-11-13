@@ -1,252 +1,182 @@
-\hypertarget{Matsu__calcs_8h}{}\section{O\+:/\+Documents/\+Max 7/\+Packages/max\+\_\+cpg/source/\+Matsuoka\+Engine\+\_\+src/\+Matsu\+\_\+calcs.h File Reference}
-\label{Matsu__calcs_8h}\index{O\+:/\+Documents/\+Max 7/\+Packages/max\+\_\+cpg/source/\+Matsuoka\+Engine\+\_\+src/\+Matsu\+\_\+calcs.\+h@{O\+:/\+Documents/\+Max 7/\+Packages/max\+\_\+cpg/source/\+Matsuoka\+Engine\+\_\+src/\+Matsu\+\_\+calcs.\+h}}
-{\ttfamily \#include $<$math.\+h$>$}\newline
+\hypertarget{Matsu__calcs_8h}{}\section{C\+:/\+Users/dan/\+Documents/\+Max 7/\+Packages/max\+\_\+cpg/source/\+Matsuoka\+Engine\+\_\+src/\+Matsu\+\_\+calcs.h File Reference}
+\label{Matsu__calcs_8h}\index{C\+:/\+Users/dan/\+Documents/\+Max 7/\+Packages/max\+\_\+cpg/source/\+Matsuoka\+Engine\+\_\+src/\+Matsu\+\_\+calcs.\+h@{C\+:/\+Users/dan/\+Documents/\+Max 7/\+Packages/max\+\_\+cpg/source/\+Matsuoka\+Engine\+\_\+src/\+Matsu\+\_\+calcs.\+h}}
+{\ttfamily \#include $<$math.\+h$>$}\\*
 \subsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
-class \mbox{\hyperlink{classMatsuCalcs}{Matsu\+Calcs}}
+class \hyperlink{classMatsuCalcs}{Matsu\+Calcs}
 \item 
-struct \mbox{\hyperlink{structMatsuCalcs_1_1matsuoka__internals}{Matsu\+Calcs\+::matsuoka\+\_\+internals}}
+struct \hyperlink{structMatsuCalcs_1_1matsuoka__internals}{Matsu\+Calcs\+::matsuoka\+\_\+internals}
 \end{DoxyCompactItemize}
 \subsection*{Macros}
 \begin{DoxyCompactItemize}
 \item 
-\#define \mbox{\hyperlink{Matsu__calcs_8h_ab9a60dc97be0a5b1ece83675d6c25128}{E\+N\+F\+O\+R\+C\+E\+\_\+\+S\+T\+A\+B\+I\+L\+I\+TY}}~1
+\#define \hyperlink{Matsu__calcs_8h_ab9a60dc97be0a5b1ece83675d6c25128}{E\+N\+F\+O\+R\+C\+E\+\_\+\+S\+T\+A\+B\+I\+L\+I\+TY}~1
 \item 
-\#define \mbox{\hyperlink{Matsu__calcs_8h_a229e86fb6d7f0c397f52603be08e6c05}{S\+T\+A\+B\+I\+L\+I\+SE}}(G,  C1,  C2,  B,  T1,  T2)~enforce\+Stability(G, C1, C2, B, T1, T2);
+\#define \hyperlink{Matsu__calcs_8h_a229e86fb6d7f0c397f52603be08e6c05}{S\+T\+A\+B\+I\+L\+I\+SE}(G,  C1,  C2,  B,  T1,  T2)~enforce\+Stability(G, C1, C2, B, T1, T2);
 \item 
-\#define \mbox{\hyperlink{Matsu__calcs_8h_a9d6ea422d7d30db2e247a8f8b25e941f}{P\+O\+S\+P\+A\+RT}}(X)~(X $>$ 0.\+0 ? X \+: 0.\+0)
+\#define \hyperlink{Matsu__calcs_8h_a9d6ea422d7d30db2e247a8f8b25e941f}{P\+O\+S\+P\+A\+RT}(X)~(X $>$ 0.\+0 ? X \+: 0.\+0)
 \item 
-\#define \mbox{\hyperlink{Matsu__calcs_8h_a12879e1a6c287d5e08b879ba84035201}{N\+E\+G\+P\+A\+RT}}(X)~(X $<$ 0.\+0 ? X \+: 0.\+0)
+\#define \hyperlink{Matsu__calcs_8h_a12879e1a6c287d5e08b879ba84035201}{N\+E\+G\+P\+A\+RT}(X)~(X $<$ 0.\+0 ? X \+: 0.\+0)
 \item 
-\#define \mbox{\hyperlink{Matsu__calcs_8h_a47d0d8de58dbf5f50ac3cf0187855243}{S\+T\+E\+P\+\_\+\+D\+I\+V\+I\+S\+I\+ON}}~8.\+0
+\#define \hyperlink{Matsu__calcs_8h_a47d0d8de58dbf5f50ac3cf0187855243}{S\+T\+E\+P\+\_\+\+D\+I\+V\+I\+S\+I\+ON}~8.\+0
 \item 
-\#define \mbox{\hyperlink{Matsu__calcs_8h_a1d278237cdb3d98f9c4d1ee5f05de1db}{D\+I\+V\+I\+S\+I\+O\+N\+S\+\_\+\+P\+E\+R\+\_\+\+C\+Y\+C\+LE}}~2.\+0
+\#define \hyperlink{Matsu__calcs_8h_a1d278237cdb3d98f9c4d1ee5f05de1db}{D\+I\+V\+I\+S\+I\+O\+N\+S\+\_\+\+P\+E\+R\+\_\+\+C\+Y\+C\+LE}~2.\+0
 \item 
-\#define \mbox{\hyperlink{Matsu__calcs_8h_a560eb1ca0807e463d7f7dddadf4ab339}{S\+T\+E\+P\+\_\+\+M\+IN}}~1
+\#define \hyperlink{Matsu__calcs_8h_a560eb1ca0807e463d7f7dddadf4ab339}{S\+T\+E\+P\+\_\+\+M\+IN}~1
 \item 
-\#define \mbox{\hyperlink{Matsu__calcs_8h_afb1629f78e781dc38b5ded85f69928eb}{S\+T\+E\+P\+\_\+\+M\+AX}}~64
+\#define \hyperlink{Matsu__calcs_8h_afb1629f78e781dc38b5ded85f69928eb}{S\+T\+E\+P\+\_\+\+M\+AX}~64
 \item 
-\#define \mbox{\hyperlink{Matsu__calcs_8h_ad93c2f1fe3539eb1d71a5814f70f302a}{V\+\_\+\+I\+N\+IT}}~0.\+0
+\#define \hyperlink{Matsu__calcs_8h_ad93c2f1fe3539eb1d71a5814f70f302a}{V\+\_\+\+I\+N\+IT}~0.\+0
 \item 
-\#define \mbox{\hyperlink{Matsu__calcs_8h_a536759dc6fa7eb63dd37b89a204312f5}{R\+A\+T\+E\+\_\+\+I\+N\+IT}}~8400.\+0
+\#define \hyperlink{Matsu__calcs_8h_a536759dc6fa7eb63dd37b89a204312f5}{R\+A\+T\+E\+\_\+\+I\+N\+IT}~8400.\+0
 \item 
-\#define \mbox{\hyperlink{Matsu__calcs_8h_a924cb0c4d5e07440ce096af9d63830ea}{R\+A\+T\+E\+\_\+\+M\+IN}}~0.\+0
+\#define \hyperlink{Matsu__calcs_8h_a924cb0c4d5e07440ce096af9d63830ea}{R\+A\+T\+E\+\_\+\+M\+IN}~0.\+0
 \item 
-\#define \mbox{\hyperlink{Matsu__calcs_8h_ab86d4993e2e4313522d98699d392b0f2}{R\+A\+T\+E\+\_\+\+M\+AX}}~44100.\+0
+\#define \hyperlink{Matsu__calcs_8h_ab86d4993e2e4313522d98699d392b0f2}{R\+A\+T\+E\+\_\+\+M\+AX}~44100.\+0
 \item 
-\#define \mbox{\hyperlink{Matsu__calcs_8h_a2cecf911a32863145ed05ab61fa09a61}{X1\+\_\+\+I\+N\+IT}}~0.\+4774
+\#define \hyperlink{Matsu__calcs_8h_a2cecf911a32863145ed05ab61fa09a61}{X1\+\_\+\+I\+N\+IT}~0.\+4774
 \item 
-\#define \mbox{\hyperlink{Matsu__calcs_8h_a61805882c643088a7b99d9599b43b399}{X2\+\_\+\+I\+N\+IT}}~-\/0.\+869708
+\#define \hyperlink{Matsu__calcs_8h_a61805882c643088a7b99d9599b43b399}{X2\+\_\+\+I\+N\+IT}~-\/0.\+869708
 \item 
-\#define \mbox{\hyperlink{Matsu__calcs_8h_a15b93051533e27c16fd4b97f38ba2422}{V1\+\_\+\+I\+N\+IT}}~0.\+129358
+\#define \hyperlink{Matsu__calcs_8h_a15b93051533e27c16fd4b97f38ba2422}{V1\+\_\+\+I\+N\+IT}~0.\+129358
 \item 
-\#define \mbox{\hyperlink{Matsu__calcs_8h_ad4e1c86d8a58e3a2aaacc20e97740d45}{V2\+\_\+\+I\+N\+IT}}~0.\+142406
+\#define \hyperlink{Matsu__calcs_8h_ad4e1c86d8a58e3a2aaacc20e97740d45}{V2\+\_\+\+I\+N\+IT}~0.\+142406
 \item 
-\#define \mbox{\hyperlink{Matsu__calcs_8h_a92fc6336be59cbe96c3db8efbdaeb444}{T1\+\_\+\+I\+N\+IT}}~853.\+855
+\#define \hyperlink{Matsu__calcs_8h_a92fc6336be59cbe96c3db8efbdaeb444}{T1\+\_\+\+I\+N\+IT}~853.\+855
 \item 
-\#define \mbox{\hyperlink{Matsu__calcs_8h_a28efe9719f8c5ee2ab744f1ec0821da3}{T2\+\_\+\+I\+N\+IT}}~3415.\+420
+\#define \hyperlink{Matsu__calcs_8h_a28efe9719f8c5ee2ab744f1ec0821da3}{T2\+\_\+\+I\+N\+IT}~3415.\+420
 \item 
-\#define \mbox{\hyperlink{Matsu__calcs_8h_a0e37b765046be143ca51ec097adf606a}{T\+\_\+\+M\+IN}}~0.\+04
+\#define \hyperlink{Matsu__calcs_8h_a0e37b765046be143ca51ec097adf606a}{T\+\_\+\+M\+IN}~0.\+04
 \item 
-\#define \mbox{\hyperlink{Matsu__calcs_8h_acd0dda75fa865e1efae98e3e2b204ef4}{T\+\_\+\+M\+AX}}~500000.\+0
+\#define \hyperlink{Matsu__calcs_8h_acd0dda75fa865e1efae98e3e2b204ef4}{T\+\_\+\+M\+AX}~500000.\+0
 \item 
-\#define \mbox{\hyperlink{Matsu__calcs_8h_ab4fc9fcf2272b1e1722003c82948cab5}{C\+\_\+\+I\+N\+IT}}~1.\+0
+\#define \hyperlink{Matsu__calcs_8h_ab4fc9fcf2272b1e1722003c82948cab5}{C\+\_\+\+I\+N\+IT}~1.\+0
 \item 
-\#define \mbox{\hyperlink{Matsu__calcs_8h_ab5bb1ed71e1df63e7076f4335fcfdd58}{C\+\_\+\+M\+IN}}~0.\+0
+\#define \hyperlink{Matsu__calcs_8h_ab5bb1ed71e1df63e7076f4335fcfdd58}{C\+\_\+\+M\+IN}~0.\+0
 \item 
-\#define \mbox{\hyperlink{Matsu__calcs_8h_a5d7a7577a04aa3c395820e8195a667f1}{C\+\_\+\+M\+AX}}~100.\+0
+\#define \hyperlink{Matsu__calcs_8h_a5d7a7577a04aa3c395820e8195a667f1}{C\+\_\+\+M\+AX}~100.\+0
 \item 
-\#define \mbox{\hyperlink{Matsu__calcs_8h_a16c6be67c06d904b74c7000e14ede0ad}{B\+\_\+\+I\+N\+IT}}~4.\+07
+\#define \hyperlink{Matsu__calcs_8h_a16c6be67c06d904b74c7000e14ede0ad}{B\+\_\+\+I\+N\+IT}~4.\+07
 \item 
-\#define \mbox{\hyperlink{Matsu__calcs_8h_aee79048b157ba88e895ec7aa6fbfcd53}{B\+\_\+\+M\+IN}}~1.\+0
+\#define \hyperlink{Matsu__calcs_8h_aee79048b157ba88e895ec7aa6fbfcd53}{B\+\_\+\+M\+IN}~1.\+0
 \item 
-\#define \mbox{\hyperlink{Matsu__calcs_8h_a91f9fc76288a0520677dfbe3dfc952a6}{B\+\_\+\+M\+AX}}~1000.\+0
+\#define \hyperlink{Matsu__calcs_8h_a91f9fc76288a0520677dfbe3dfc952a6}{B\+\_\+\+M\+AX}~1000.\+0
 \item 
-\#define \mbox{\hyperlink{Matsu__calcs_8h_ac0fa0cb0b19711f1df64621d2629e3ab}{G\+\_\+\+I\+N\+IT}}~4.\+07
+\#define \hyperlink{Matsu__calcs_8h_ac0fa0cb0b19711f1df64621d2629e3ab}{G\+\_\+\+I\+N\+IT}~4.\+07
 \item 
-\#define \mbox{\hyperlink{Matsu__calcs_8h_ac2b0eed0f97fde7f1f9b11768d4e662e}{G\+\_\+\+M\+IN}}~1.\+0
+\#define \hyperlink{Matsu__calcs_8h_ac2b0eed0f97fde7f1f9b11768d4e662e}{G\+\_\+\+M\+IN}~1.\+0
 \item 
-\#define \mbox{\hyperlink{Matsu__calcs_8h_a44291415d82158c84e78ea8558ed90b2}{G\+\_\+\+M\+AX}}~1000.\+0
+\#define \hyperlink{Matsu__calcs_8h_a44291415d82158c84e78ea8558ed90b2}{G\+\_\+\+M\+AX}~1000.\+0
 \end{DoxyCompactItemize}
 
 
 \subsection{Macro Definition Documentation}
-\mbox{\Hypertarget{Matsu__calcs_8h_a16c6be67c06d904b74c7000e14ede0ad}\label{Matsu__calcs_8h_a16c6be67c06d904b74c7000e14ede0ad}} 
 \index{Matsu\+\_\+calcs.\+h@{Matsu\+\_\+calcs.\+h}!B\+\_\+\+I\+N\+IT@{B\+\_\+\+I\+N\+IT}}
 \index{B\+\_\+\+I\+N\+IT@{B\+\_\+\+I\+N\+IT}!Matsu\+\_\+calcs.\+h@{Matsu\+\_\+calcs.\+h}}
-\subsubsection{\texorpdfstring{B\+\_\+\+I\+N\+IT}{B\_INIT}}
-{\footnotesize\ttfamily \#define B\+\_\+\+I\+N\+IT~4.\+07}
-
-\mbox{\Hypertarget{Matsu__calcs_8h_a91f9fc76288a0520677dfbe3dfc952a6}\label{Matsu__calcs_8h_a91f9fc76288a0520677dfbe3dfc952a6}} 
+\subsubsection[{\texorpdfstring{B\+\_\+\+I\+N\+IT}{B_INIT}}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\+\_\+\+I\+N\+IT~4.\+07}\hypertarget{Matsu__calcs_8h_a16c6be67c06d904b74c7000e14ede0ad}{}\label{Matsu__calcs_8h_a16c6be67c06d904b74c7000e14ede0ad}
 \index{Matsu\+\_\+calcs.\+h@{Matsu\+\_\+calcs.\+h}!B\+\_\+\+M\+AX@{B\+\_\+\+M\+AX}}
 \index{B\+\_\+\+M\+AX@{B\+\_\+\+M\+AX}!Matsu\+\_\+calcs.\+h@{Matsu\+\_\+calcs.\+h}}
-\subsubsection{\texorpdfstring{B\+\_\+\+M\+AX}{B\_MAX}}
-{\footnotesize\ttfamily \#define B\+\_\+\+M\+AX~1000.\+0}
-
-\mbox{\Hypertarget{Matsu__calcs_8h_aee79048b157ba88e895ec7aa6fbfcd53}\label{Matsu__calcs_8h_aee79048b157ba88e895ec7aa6fbfcd53}} 
+\subsubsection[{\texorpdfstring{B\+\_\+\+M\+AX}{B_MAX}}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\+\_\+\+M\+AX~1000.\+0}\hypertarget{Matsu__calcs_8h_a91f9fc76288a0520677dfbe3dfc952a6}{}\label{Matsu__calcs_8h_a91f9fc76288a0520677dfbe3dfc952a6}
 \index{Matsu\+\_\+calcs.\+h@{Matsu\+\_\+calcs.\+h}!B\+\_\+\+M\+IN@{B\+\_\+\+M\+IN}}
 \index{B\+\_\+\+M\+IN@{B\+\_\+\+M\+IN}!Matsu\+\_\+calcs.\+h@{Matsu\+\_\+calcs.\+h}}
-\subsubsection{\texorpdfstring{B\+\_\+\+M\+IN}{B\_MIN}}
-{\footnotesize\ttfamily \#define B\+\_\+\+M\+IN~1.\+0}
-
-\mbox{\Hypertarget{Matsu__calcs_8h_ab4fc9fcf2272b1e1722003c82948cab5}\label{Matsu__calcs_8h_ab4fc9fcf2272b1e1722003c82948cab5}} 
+\subsubsection[{\texorpdfstring{B\+\_\+\+M\+IN}{B_MIN}}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\+\_\+\+M\+IN~1.\+0}\hypertarget{Matsu__calcs_8h_aee79048b157ba88e895ec7aa6fbfcd53}{}\label{Matsu__calcs_8h_aee79048b157ba88e895ec7aa6fbfcd53}
 \index{Matsu\+\_\+calcs.\+h@{Matsu\+\_\+calcs.\+h}!C\+\_\+\+I\+N\+IT@{C\+\_\+\+I\+N\+IT}}
 \index{C\+\_\+\+I\+N\+IT@{C\+\_\+\+I\+N\+IT}!Matsu\+\_\+calcs.\+h@{Matsu\+\_\+calcs.\+h}}
-\subsubsection{\texorpdfstring{C\+\_\+\+I\+N\+IT}{C\_INIT}}
-{\footnotesize\ttfamily \#define C\+\_\+\+I\+N\+IT~1.\+0}
-
-\mbox{\Hypertarget{Matsu__calcs_8h_a5d7a7577a04aa3c395820e8195a667f1}\label{Matsu__calcs_8h_a5d7a7577a04aa3c395820e8195a667f1}} 
+\subsubsection[{\texorpdfstring{C\+\_\+\+I\+N\+IT}{C_INIT}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+\_\+\+I\+N\+IT~1.\+0}\hypertarget{Matsu__calcs_8h_ab4fc9fcf2272b1e1722003c82948cab5}{}\label{Matsu__calcs_8h_ab4fc9fcf2272b1e1722003c82948cab5}
 \index{Matsu\+\_\+calcs.\+h@{Matsu\+\_\+calcs.\+h}!C\+\_\+\+M\+AX@{C\+\_\+\+M\+AX}}
 \index{C\+\_\+\+M\+AX@{C\+\_\+\+M\+AX}!Matsu\+\_\+calcs.\+h@{Matsu\+\_\+calcs.\+h}}
-\subsubsection{\texorpdfstring{C\+\_\+\+M\+AX}{C\_MAX}}
-{\footnotesize\ttfamily \#define C\+\_\+\+M\+AX~100.\+0}
-
-\mbox{\Hypertarget{Matsu__calcs_8h_ab5bb1ed71e1df63e7076f4335fcfdd58}\label{Matsu__calcs_8h_ab5bb1ed71e1df63e7076f4335fcfdd58}} 
+\subsubsection[{\texorpdfstring{C\+\_\+\+M\+AX}{C_MAX}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+\_\+\+M\+AX~100.\+0}\hypertarget{Matsu__calcs_8h_a5d7a7577a04aa3c395820e8195a667f1}{}\label{Matsu__calcs_8h_a5d7a7577a04aa3c395820e8195a667f1}
 \index{Matsu\+\_\+calcs.\+h@{Matsu\+\_\+calcs.\+h}!C\+\_\+\+M\+IN@{C\+\_\+\+M\+IN}}
 \index{C\+\_\+\+M\+IN@{C\+\_\+\+M\+IN}!Matsu\+\_\+calcs.\+h@{Matsu\+\_\+calcs.\+h}}
-\subsubsection{\texorpdfstring{C\+\_\+\+M\+IN}{C\_MIN}}
-{\footnotesize\ttfamily \#define C\+\_\+\+M\+IN~0.\+0}
-
-\mbox{\Hypertarget{Matsu__calcs_8h_a1d278237cdb3d98f9c4d1ee5f05de1db}\label{Matsu__calcs_8h_a1d278237cdb3d98f9c4d1ee5f05de1db}} 
+\subsubsection[{\texorpdfstring{C\+\_\+\+M\+IN}{C_MIN}}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+\_\+\+M\+IN~0.\+0}\hypertarget{Matsu__calcs_8h_ab5bb1ed71e1df63e7076f4335fcfdd58}{}\label{Matsu__calcs_8h_ab5bb1ed71e1df63e7076f4335fcfdd58}
 \index{Matsu\+\_\+calcs.\+h@{Matsu\+\_\+calcs.\+h}!D\+I\+V\+I\+S\+I\+O\+N\+S\+\_\+\+P\+E\+R\+\_\+\+C\+Y\+C\+LE@{D\+I\+V\+I\+S\+I\+O\+N\+S\+\_\+\+P\+E\+R\+\_\+\+C\+Y\+C\+LE}}
 \index{D\+I\+V\+I\+S\+I\+O\+N\+S\+\_\+\+P\+E\+R\+\_\+\+C\+Y\+C\+LE@{D\+I\+V\+I\+S\+I\+O\+N\+S\+\_\+\+P\+E\+R\+\_\+\+C\+Y\+C\+LE}!Matsu\+\_\+calcs.\+h@{Matsu\+\_\+calcs.\+h}}
-\subsubsection{\texorpdfstring{D\+I\+V\+I\+S\+I\+O\+N\+S\+\_\+\+P\+E\+R\+\_\+\+C\+Y\+C\+LE}{DIVISIONS\_PER\_CYCLE}}
-{\footnotesize\ttfamily \#define D\+I\+V\+I\+S\+I\+O\+N\+S\+\_\+\+P\+E\+R\+\_\+\+C\+Y\+C\+LE~2.\+0}
-
-\mbox{\Hypertarget{Matsu__calcs_8h_ab9a60dc97be0a5b1ece83675d6c25128}\label{Matsu__calcs_8h_ab9a60dc97be0a5b1ece83675d6c25128}} 
+\subsubsection[{\texorpdfstring{D\+I\+V\+I\+S\+I\+O\+N\+S\+\_\+\+P\+E\+R\+\_\+\+C\+Y\+C\+LE}{DIVISIONS_PER_CYCLE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\+I\+V\+I\+S\+I\+O\+N\+S\+\_\+\+P\+E\+R\+\_\+\+C\+Y\+C\+LE~2.\+0}\hypertarget{Matsu__calcs_8h_a1d278237cdb3d98f9c4d1ee5f05de1db}{}\label{Matsu__calcs_8h_a1d278237cdb3d98f9c4d1ee5f05de1db}
 \index{Matsu\+\_\+calcs.\+h@{Matsu\+\_\+calcs.\+h}!E\+N\+F\+O\+R\+C\+E\+\_\+\+S\+T\+A\+B\+I\+L\+I\+TY@{E\+N\+F\+O\+R\+C\+E\+\_\+\+S\+T\+A\+B\+I\+L\+I\+TY}}
 \index{E\+N\+F\+O\+R\+C\+E\+\_\+\+S\+T\+A\+B\+I\+L\+I\+TY@{E\+N\+F\+O\+R\+C\+E\+\_\+\+S\+T\+A\+B\+I\+L\+I\+TY}!Matsu\+\_\+calcs.\+h@{Matsu\+\_\+calcs.\+h}}
-\subsubsection{\texorpdfstring{E\+N\+F\+O\+R\+C\+E\+\_\+\+S\+T\+A\+B\+I\+L\+I\+TY}{ENFORCE\_STABILITY}}
-{\footnotesize\ttfamily \#define E\+N\+F\+O\+R\+C\+E\+\_\+\+S\+T\+A\+B\+I\+L\+I\+TY~1}
-
+\subsubsection[{\texorpdfstring{E\+N\+F\+O\+R\+C\+E\+\_\+\+S\+T\+A\+B\+I\+L\+I\+TY}{ENFORCE_STABILITY}}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+N\+F\+O\+R\+C\+E\+\_\+\+S\+T\+A\+B\+I\+L\+I\+TY~1}\hypertarget{Matsu__calcs_8h_ab9a60dc97be0a5b1ece83675d6c25128}{}\label{Matsu__calcs_8h_ab9a60dc97be0a5b1ece83675d6c25128}
 A\+U\+T\+H\+OR\+: Daniel Bennett D\+A\+TE\+: 04/03/2018 D\+E\+S\+C\+R\+I\+P\+T\+I\+ON\+: matsuoka\textquotesingle{}s \char`\"{}\+Neural Oscillator\char`\"{} for Max M\+SP matsuoka oscillator calculations Evaluated via 4th order Runge Kutta method. Max M\+SP infrastructure lives in db.\+matsuoka$\sim$ files
 
 Version\+: 0.\+2
 
-Max M\+SP infrastructure is in db.\+matsuoka.\+h \mbox{\Hypertarget{Matsu__calcs_8h_ac0fa0cb0b19711f1df64621d2629e3ab}\label{Matsu__calcs_8h_ac0fa0cb0b19711f1df64621d2629e3ab}} 
-\index{Matsu\+\_\+calcs.\+h@{Matsu\+\_\+calcs.\+h}!G\+\_\+\+I\+N\+IT@{G\+\_\+\+I\+N\+IT}}
+Max M\+SP infrastructure is in db.\+matsuoka.\+h \index{Matsu\+\_\+calcs.\+h@{Matsu\+\_\+calcs.\+h}!G\+\_\+\+I\+N\+IT@{G\+\_\+\+I\+N\+IT}}
 \index{G\+\_\+\+I\+N\+IT@{G\+\_\+\+I\+N\+IT}!Matsu\+\_\+calcs.\+h@{Matsu\+\_\+calcs.\+h}}
-\subsubsection{\texorpdfstring{G\+\_\+\+I\+N\+IT}{G\_INIT}}
-{\footnotesize\ttfamily \#define G\+\_\+\+I\+N\+IT~4.\+07}
-
-\mbox{\Hypertarget{Matsu__calcs_8h_a44291415d82158c84e78ea8558ed90b2}\label{Matsu__calcs_8h_a44291415d82158c84e78ea8558ed90b2}} 
+\subsubsection[{\texorpdfstring{G\+\_\+\+I\+N\+IT}{G_INIT}}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+\_\+\+I\+N\+IT~4.\+07}\hypertarget{Matsu__calcs_8h_ac0fa0cb0b19711f1df64621d2629e3ab}{}\label{Matsu__calcs_8h_ac0fa0cb0b19711f1df64621d2629e3ab}
 \index{Matsu\+\_\+calcs.\+h@{Matsu\+\_\+calcs.\+h}!G\+\_\+\+M\+AX@{G\+\_\+\+M\+AX}}
 \index{G\+\_\+\+M\+AX@{G\+\_\+\+M\+AX}!Matsu\+\_\+calcs.\+h@{Matsu\+\_\+calcs.\+h}}
-\subsubsection{\texorpdfstring{G\+\_\+\+M\+AX}{G\_MAX}}
-{\footnotesize\ttfamily \#define G\+\_\+\+M\+AX~1000.\+0}
-
-\mbox{\Hypertarget{Matsu__calcs_8h_ac2b0eed0f97fde7f1f9b11768d4e662e}\label{Matsu__calcs_8h_ac2b0eed0f97fde7f1f9b11768d4e662e}} 
+\subsubsection[{\texorpdfstring{G\+\_\+\+M\+AX}{G_MAX}}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+\_\+\+M\+AX~1000.\+0}\hypertarget{Matsu__calcs_8h_a44291415d82158c84e78ea8558ed90b2}{}\label{Matsu__calcs_8h_a44291415d82158c84e78ea8558ed90b2}
 \index{Matsu\+\_\+calcs.\+h@{Matsu\+\_\+calcs.\+h}!G\+\_\+\+M\+IN@{G\+\_\+\+M\+IN}}
 \index{G\+\_\+\+M\+IN@{G\+\_\+\+M\+IN}!Matsu\+\_\+calcs.\+h@{Matsu\+\_\+calcs.\+h}}
-\subsubsection{\texorpdfstring{G\+\_\+\+M\+IN}{G\_MIN}}
-{\footnotesize\ttfamily \#define G\+\_\+\+M\+IN~1.\+0}
-
-\mbox{\Hypertarget{Matsu__calcs_8h_a12879e1a6c287d5e08b879ba84035201}\label{Matsu__calcs_8h_a12879e1a6c287d5e08b879ba84035201}} 
+\subsubsection[{\texorpdfstring{G\+\_\+\+M\+IN}{G_MIN}}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\+\_\+\+M\+IN~1.\+0}\hypertarget{Matsu__calcs_8h_ac2b0eed0f97fde7f1f9b11768d4e662e}{}\label{Matsu__calcs_8h_ac2b0eed0f97fde7f1f9b11768d4e662e}
 \index{Matsu\+\_\+calcs.\+h@{Matsu\+\_\+calcs.\+h}!N\+E\+G\+P\+A\+RT@{N\+E\+G\+P\+A\+RT}}
 \index{N\+E\+G\+P\+A\+RT@{N\+E\+G\+P\+A\+RT}!Matsu\+\_\+calcs.\+h@{Matsu\+\_\+calcs.\+h}}
-\subsubsection{\texorpdfstring{N\+E\+G\+P\+A\+RT}{NEGPART}}
-{\footnotesize\ttfamily \#define N\+E\+G\+P\+A\+RT(\begin{DoxyParamCaption}\item[{}]{X }\end{DoxyParamCaption})~(X $<$ 0.\+0 ? X \+: 0.\+0)}
-
-\mbox{\Hypertarget{Matsu__calcs_8h_a9d6ea422d7d30db2e247a8f8b25e941f}\label{Matsu__calcs_8h_a9d6ea422d7d30db2e247a8f8b25e941f}} 
+\subsubsection[{\texorpdfstring{N\+E\+G\+P\+A\+RT}{NEGPART}}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\+E\+G\+P\+A\+RT(
+\begin{DoxyParamCaption}
+\item[{}]{X}
+\end{DoxyParamCaption}
+)~(X $<$ 0.\+0 ? X \+: 0.\+0)}\hypertarget{Matsu__calcs_8h_a12879e1a6c287d5e08b879ba84035201}{}\label{Matsu__calcs_8h_a12879e1a6c287d5e08b879ba84035201}
 \index{Matsu\+\_\+calcs.\+h@{Matsu\+\_\+calcs.\+h}!P\+O\+S\+P\+A\+RT@{P\+O\+S\+P\+A\+RT}}
 \index{P\+O\+S\+P\+A\+RT@{P\+O\+S\+P\+A\+RT}!Matsu\+\_\+calcs.\+h@{Matsu\+\_\+calcs.\+h}}
-\subsubsection{\texorpdfstring{P\+O\+S\+P\+A\+RT}{POSPART}}
-{\footnotesize\ttfamily \#define P\+O\+S\+P\+A\+RT(\begin{DoxyParamCaption}\item[{}]{X }\end{DoxyParamCaption})~(X $>$ 0.\+0 ? X \+: 0.\+0)}
-
-\mbox{\Hypertarget{Matsu__calcs_8h_a536759dc6fa7eb63dd37b89a204312f5}\label{Matsu__calcs_8h_a536759dc6fa7eb63dd37b89a204312f5}} 
+\subsubsection[{\texorpdfstring{P\+O\+S\+P\+A\+RT}{POSPART}}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\+O\+S\+P\+A\+RT(
+\begin{DoxyParamCaption}
+\item[{}]{X}
+\end{DoxyParamCaption}
+)~(X $>$ 0.\+0 ? X \+: 0.\+0)}\hypertarget{Matsu__calcs_8h_a9d6ea422d7d30db2e247a8f8b25e941f}{}\label{Matsu__calcs_8h_a9d6ea422d7d30db2e247a8f8b25e941f}
 \index{Matsu\+\_\+calcs.\+h@{Matsu\+\_\+calcs.\+h}!R\+A\+T\+E\+\_\+\+I\+N\+IT@{R\+A\+T\+E\+\_\+\+I\+N\+IT}}
 \index{R\+A\+T\+E\+\_\+\+I\+N\+IT@{R\+A\+T\+E\+\_\+\+I\+N\+IT}!Matsu\+\_\+calcs.\+h@{Matsu\+\_\+calcs.\+h}}
-\subsubsection{\texorpdfstring{R\+A\+T\+E\+\_\+\+I\+N\+IT}{RATE\_INIT}}
-{\footnotesize\ttfamily \#define R\+A\+T\+E\+\_\+\+I\+N\+IT~8400.\+0}
-
-\mbox{\Hypertarget{Matsu__calcs_8h_ab86d4993e2e4313522d98699d392b0f2}\label{Matsu__calcs_8h_ab86d4993e2e4313522d98699d392b0f2}} 
+\subsubsection[{\texorpdfstring{R\+A\+T\+E\+\_\+\+I\+N\+IT}{RATE_INIT}}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\+A\+T\+E\+\_\+\+I\+N\+IT~8400.\+0}\hypertarget{Matsu__calcs_8h_a536759dc6fa7eb63dd37b89a204312f5}{}\label{Matsu__calcs_8h_a536759dc6fa7eb63dd37b89a204312f5}
 \index{Matsu\+\_\+calcs.\+h@{Matsu\+\_\+calcs.\+h}!R\+A\+T\+E\+\_\+\+M\+AX@{R\+A\+T\+E\+\_\+\+M\+AX}}
 \index{R\+A\+T\+E\+\_\+\+M\+AX@{R\+A\+T\+E\+\_\+\+M\+AX}!Matsu\+\_\+calcs.\+h@{Matsu\+\_\+calcs.\+h}}
-\subsubsection{\texorpdfstring{R\+A\+T\+E\+\_\+\+M\+AX}{RATE\_MAX}}
-{\footnotesize\ttfamily \#define R\+A\+T\+E\+\_\+\+M\+AX~44100.\+0}
-
-\mbox{\Hypertarget{Matsu__calcs_8h_a924cb0c4d5e07440ce096af9d63830ea}\label{Matsu__calcs_8h_a924cb0c4d5e07440ce096af9d63830ea}} 
+\subsubsection[{\texorpdfstring{R\+A\+T\+E\+\_\+\+M\+AX}{RATE_MAX}}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\+A\+T\+E\+\_\+\+M\+AX~44100.\+0}\hypertarget{Matsu__calcs_8h_ab86d4993e2e4313522d98699d392b0f2}{}\label{Matsu__calcs_8h_ab86d4993e2e4313522d98699d392b0f2}
 \index{Matsu\+\_\+calcs.\+h@{Matsu\+\_\+calcs.\+h}!R\+A\+T\+E\+\_\+\+M\+IN@{R\+A\+T\+E\+\_\+\+M\+IN}}
 \index{R\+A\+T\+E\+\_\+\+M\+IN@{R\+A\+T\+E\+\_\+\+M\+IN}!Matsu\+\_\+calcs.\+h@{Matsu\+\_\+calcs.\+h}}
-\subsubsection{\texorpdfstring{R\+A\+T\+E\+\_\+\+M\+IN}{RATE\_MIN}}
-{\footnotesize\ttfamily \#define R\+A\+T\+E\+\_\+\+M\+IN~0.\+0}
-
-\mbox{\Hypertarget{Matsu__calcs_8h_a229e86fb6d7f0c397f52603be08e6c05}\label{Matsu__calcs_8h_a229e86fb6d7f0c397f52603be08e6c05}} 
+\subsubsection[{\texorpdfstring{R\+A\+T\+E\+\_\+\+M\+IN}{RATE_MIN}}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\+A\+T\+E\+\_\+\+M\+IN~0.\+0}\hypertarget{Matsu__calcs_8h_a924cb0c4d5e07440ce096af9d63830ea}{}\label{Matsu__calcs_8h_a924cb0c4d5e07440ce096af9d63830ea}
 \index{Matsu\+\_\+calcs.\+h@{Matsu\+\_\+calcs.\+h}!S\+T\+A\+B\+I\+L\+I\+SE@{S\+T\+A\+B\+I\+L\+I\+SE}}
 \index{S\+T\+A\+B\+I\+L\+I\+SE@{S\+T\+A\+B\+I\+L\+I\+SE}!Matsu\+\_\+calcs.\+h@{Matsu\+\_\+calcs.\+h}}
-\subsubsection{\texorpdfstring{S\+T\+A\+B\+I\+L\+I\+SE}{STABILISE}}
-{\footnotesize\ttfamily \#define S\+T\+A\+B\+I\+L\+I\+SE(\begin{DoxyParamCaption}\item[{}]{G,  }\item[{}]{C1,  }\item[{}]{C2,  }\item[{}]{B,  }\item[{}]{T1,  }\item[{}]{T2 }\end{DoxyParamCaption})~enforce\+Stability(G, C1, C2, B, T1, T2);}
-
-\mbox{\Hypertarget{Matsu__calcs_8h_a47d0d8de58dbf5f50ac3cf0187855243}\label{Matsu__calcs_8h_a47d0d8de58dbf5f50ac3cf0187855243}} 
+\subsubsection[{\texorpdfstring{S\+T\+A\+B\+I\+L\+I\+SE}{STABILISE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+T\+A\+B\+I\+L\+I\+SE(
+\begin{DoxyParamCaption}
+\item[{}]{G, }
+\item[{}]{C1, }
+\item[{}]{C2, }
+\item[{}]{B, }
+\item[{}]{T1, }
+\item[{}]{T2}
+\end{DoxyParamCaption}
+)~enforce\+Stability(G, C1, C2, B, T1, T2);}\hypertarget{Matsu__calcs_8h_a229e86fb6d7f0c397f52603be08e6c05}{}\label{Matsu__calcs_8h_a229e86fb6d7f0c397f52603be08e6c05}
 \index{Matsu\+\_\+calcs.\+h@{Matsu\+\_\+calcs.\+h}!S\+T\+E\+P\+\_\+\+D\+I\+V\+I\+S\+I\+ON@{S\+T\+E\+P\+\_\+\+D\+I\+V\+I\+S\+I\+ON}}
 \index{S\+T\+E\+P\+\_\+\+D\+I\+V\+I\+S\+I\+ON@{S\+T\+E\+P\+\_\+\+D\+I\+V\+I\+S\+I\+ON}!Matsu\+\_\+calcs.\+h@{Matsu\+\_\+calcs.\+h}}
-\subsubsection{\texorpdfstring{S\+T\+E\+P\+\_\+\+D\+I\+V\+I\+S\+I\+ON}{STEP\_DIVISION}}
-{\footnotesize\ttfamily \#define S\+T\+E\+P\+\_\+\+D\+I\+V\+I\+S\+I\+ON~8.\+0}
-
-\mbox{\Hypertarget{Matsu__calcs_8h_afb1629f78e781dc38b5ded85f69928eb}\label{Matsu__calcs_8h_afb1629f78e781dc38b5ded85f69928eb}} 
+\subsubsection[{\texorpdfstring{S\+T\+E\+P\+\_\+\+D\+I\+V\+I\+S\+I\+ON}{STEP_DIVISION}}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+T\+E\+P\+\_\+\+D\+I\+V\+I\+S\+I\+ON~8.\+0}\hypertarget{Matsu__calcs_8h_a47d0d8de58dbf5f50ac3cf0187855243}{}\label{Matsu__calcs_8h_a47d0d8de58dbf5f50ac3cf0187855243}
 \index{Matsu\+\_\+calcs.\+h@{Matsu\+\_\+calcs.\+h}!S\+T\+E\+P\+\_\+\+M\+AX@{S\+T\+E\+P\+\_\+\+M\+AX}}
 \index{S\+T\+E\+P\+\_\+\+M\+AX@{S\+T\+E\+P\+\_\+\+M\+AX}!Matsu\+\_\+calcs.\+h@{Matsu\+\_\+calcs.\+h}}
-\subsubsection{\texorpdfstring{S\+T\+E\+P\+\_\+\+M\+AX}{STEP\_MAX}}
-{\footnotesize\ttfamily \#define S\+T\+E\+P\+\_\+\+M\+AX~64}
-
-\mbox{\Hypertarget{Matsu__calcs_8h_a560eb1ca0807e463d7f7dddadf4ab339}\label{Matsu__calcs_8h_a560eb1ca0807e463d7f7dddadf4ab339}} 
+\subsubsection[{\texorpdfstring{S\+T\+E\+P\+\_\+\+M\+AX}{STEP_MAX}}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+T\+E\+P\+\_\+\+M\+AX~64}\hypertarget{Matsu__calcs_8h_afb1629f78e781dc38b5ded85f69928eb}{}\label{Matsu__calcs_8h_afb1629f78e781dc38b5ded85f69928eb}
 \index{Matsu\+\_\+calcs.\+h@{Matsu\+\_\+calcs.\+h}!S\+T\+E\+P\+\_\+\+M\+IN@{S\+T\+E\+P\+\_\+\+M\+IN}}
 \index{S\+T\+E\+P\+\_\+\+M\+IN@{S\+T\+E\+P\+\_\+\+M\+IN}!Matsu\+\_\+calcs.\+h@{Matsu\+\_\+calcs.\+h}}
-\subsubsection{\texorpdfstring{S\+T\+E\+P\+\_\+\+M\+IN}{STEP\_MIN}}
-{\footnotesize\ttfamily \#define S\+T\+E\+P\+\_\+\+M\+IN~1}
-
-\mbox{\Hypertarget{Matsu__calcs_8h_a92fc6336be59cbe96c3db8efbdaeb444}\label{Matsu__calcs_8h_a92fc6336be59cbe96c3db8efbdaeb444}} 
+\subsubsection[{\texorpdfstring{S\+T\+E\+P\+\_\+\+M\+IN}{STEP_MIN}}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+T\+E\+P\+\_\+\+M\+IN~1}\hypertarget{Matsu__calcs_8h_a560eb1ca0807e463d7f7dddadf4ab339}{}\label{Matsu__calcs_8h_a560eb1ca0807e463d7f7dddadf4ab339}
 \index{Matsu\+\_\+calcs.\+h@{Matsu\+\_\+calcs.\+h}!T1\+\_\+\+I\+N\+IT@{T1\+\_\+\+I\+N\+IT}}
 \index{T1\+\_\+\+I\+N\+IT@{T1\+\_\+\+I\+N\+IT}!Matsu\+\_\+calcs.\+h@{Matsu\+\_\+calcs.\+h}}
-\subsubsection{\texorpdfstring{T1\+\_\+\+I\+N\+IT}{T1\_INIT}}
-{\footnotesize\ttfamily \#define T1\+\_\+\+I\+N\+IT~853.\+855}
-
-\mbox{\Hypertarget{Matsu__calcs_8h_a28efe9719f8c5ee2ab744f1ec0821da3}\label{Matsu__calcs_8h_a28efe9719f8c5ee2ab744f1ec0821da3}} 
+\subsubsection[{\texorpdfstring{T1\+\_\+\+I\+N\+IT}{T1_INIT}}]{\setlength{\rightskip}{0pt plus 5cm}\#define T1\+\_\+\+I\+N\+IT~853.\+855}\hypertarget{Matsu__calcs_8h_a92fc6336be59cbe96c3db8efbdaeb444}{}\label{Matsu__calcs_8h_a92fc6336be59cbe96c3db8efbdaeb444}
 \index{Matsu\+\_\+calcs.\+h@{Matsu\+\_\+calcs.\+h}!T2\+\_\+\+I\+N\+IT@{T2\+\_\+\+I\+N\+IT}}
 \index{T2\+\_\+\+I\+N\+IT@{T2\+\_\+\+I\+N\+IT}!Matsu\+\_\+calcs.\+h@{Matsu\+\_\+calcs.\+h}}
-\subsubsection{\texorpdfstring{T2\+\_\+\+I\+N\+IT}{T2\_INIT}}
-{\footnotesize\ttfamily \#define T2\+\_\+\+I\+N\+IT~3415.\+420}
-
-\mbox{\Hypertarget{Matsu__calcs_8h_acd0dda75fa865e1efae98e3e2b204ef4}\label{Matsu__calcs_8h_acd0dda75fa865e1efae98e3e2b204ef4}} 
+\subsubsection[{\texorpdfstring{T2\+\_\+\+I\+N\+IT}{T2_INIT}}]{\setlength{\rightskip}{0pt plus 5cm}\#define T2\+\_\+\+I\+N\+IT~3415.\+420}\hypertarget{Matsu__calcs_8h_a28efe9719f8c5ee2ab744f1ec0821da3}{}\label{Matsu__calcs_8h_a28efe9719f8c5ee2ab744f1ec0821da3}
 \index{Matsu\+\_\+calcs.\+h@{Matsu\+\_\+calcs.\+h}!T\+\_\+\+M\+AX@{T\+\_\+\+M\+AX}}
 \index{T\+\_\+\+M\+AX@{T\+\_\+\+M\+AX}!Matsu\+\_\+calcs.\+h@{Matsu\+\_\+calcs.\+h}}
-\subsubsection{\texorpdfstring{T\+\_\+\+M\+AX}{T\_MAX}}
-{\footnotesize\ttfamily \#define T\+\_\+\+M\+AX~500000.\+0}
-
-\mbox{\Hypertarget{Matsu__calcs_8h_a0e37b765046be143ca51ec097adf606a}\label{Matsu__calcs_8h_a0e37b765046be143ca51ec097adf606a}} 
+\subsubsection[{\texorpdfstring{T\+\_\+\+M\+AX}{T_MAX}}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\+\_\+\+M\+AX~500000.\+0}\hypertarget{Matsu__calcs_8h_acd0dda75fa865e1efae98e3e2b204ef4}{}\label{Matsu__calcs_8h_acd0dda75fa865e1efae98e3e2b204ef4}
 \index{Matsu\+\_\+calcs.\+h@{Matsu\+\_\+calcs.\+h}!T\+\_\+\+M\+IN@{T\+\_\+\+M\+IN}}
 \index{T\+\_\+\+M\+IN@{T\+\_\+\+M\+IN}!Matsu\+\_\+calcs.\+h@{Matsu\+\_\+calcs.\+h}}
-\subsubsection{\texorpdfstring{T\+\_\+\+M\+IN}{T\_MIN}}
-{\footnotesize\ttfamily \#define T\+\_\+\+M\+IN~0.\+04}
-
-\mbox{\Hypertarget{Matsu__calcs_8h_a15b93051533e27c16fd4b97f38ba2422}\label{Matsu__calcs_8h_a15b93051533e27c16fd4b97f38ba2422}} 
+\subsubsection[{\texorpdfstring{T\+\_\+\+M\+IN}{T_MIN}}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\+\_\+\+M\+IN~0.\+04}\hypertarget{Matsu__calcs_8h_a0e37b765046be143ca51ec097adf606a}{}\label{Matsu__calcs_8h_a0e37b765046be143ca51ec097adf606a}
 \index{Matsu\+\_\+calcs.\+h@{Matsu\+\_\+calcs.\+h}!V1\+\_\+\+I\+N\+IT@{V1\+\_\+\+I\+N\+IT}}
 \index{V1\+\_\+\+I\+N\+IT@{V1\+\_\+\+I\+N\+IT}!Matsu\+\_\+calcs.\+h@{Matsu\+\_\+calcs.\+h}}
-\subsubsection{\texorpdfstring{V1\+\_\+\+I\+N\+IT}{V1\_INIT}}
-{\footnotesize\ttfamily \#define V1\+\_\+\+I\+N\+IT~0.\+129358}
-
-\mbox{\Hypertarget{Matsu__calcs_8h_ad4e1c86d8a58e3a2aaacc20e97740d45}\label{Matsu__calcs_8h_ad4e1c86d8a58e3a2aaacc20e97740d45}} 
+\subsubsection[{\texorpdfstring{V1\+\_\+\+I\+N\+IT}{V1_INIT}}]{\setlength{\rightskip}{0pt plus 5cm}\#define V1\+\_\+\+I\+N\+IT~0.\+129358}\hypertarget{Matsu__calcs_8h_a15b93051533e27c16fd4b97f38ba2422}{}\label{Matsu__calcs_8h_a15b93051533e27c16fd4b97f38ba2422}
 \index{Matsu\+\_\+calcs.\+h@{Matsu\+\_\+calcs.\+h}!V2\+\_\+\+I\+N\+IT@{V2\+\_\+\+I\+N\+IT}}
 \index{V2\+\_\+\+I\+N\+IT@{V2\+\_\+\+I\+N\+IT}!Matsu\+\_\+calcs.\+h@{Matsu\+\_\+calcs.\+h}}
-\subsubsection{\texorpdfstring{V2\+\_\+\+I\+N\+IT}{V2\_INIT}}
-{\footnotesize\ttfamily \#define V2\+\_\+\+I\+N\+IT~0.\+142406}
-
-\mbox{\Hypertarget{Matsu__calcs_8h_ad93c2f1fe3539eb1d71a5814f70f302a}\label{Matsu__calcs_8h_ad93c2f1fe3539eb1d71a5814f70f302a}} 
+\subsubsection[{\texorpdfstring{V2\+\_\+\+I\+N\+IT}{V2_INIT}}]{\setlength{\rightskip}{0pt plus 5cm}\#define V2\+\_\+\+I\+N\+IT~0.\+142406}\hypertarget{Matsu__calcs_8h_ad4e1c86d8a58e3a2aaacc20e97740d45}{}\label{Matsu__calcs_8h_ad4e1c86d8a58e3a2aaacc20e97740d45}
 \index{Matsu\+\_\+calcs.\+h@{Matsu\+\_\+calcs.\+h}!V\+\_\+\+I\+N\+IT@{V\+\_\+\+I\+N\+IT}}
 \index{V\+\_\+\+I\+N\+IT@{V\+\_\+\+I\+N\+IT}!Matsu\+\_\+calcs.\+h@{Matsu\+\_\+calcs.\+h}}
-\subsubsection{\texorpdfstring{V\+\_\+\+I\+N\+IT}{V\_INIT}}
-{\footnotesize\ttfamily \#define V\+\_\+\+I\+N\+IT~0.\+0}
-
-\mbox{\Hypertarget{Matsu__calcs_8h_a2cecf911a32863145ed05ab61fa09a61}\label{Matsu__calcs_8h_a2cecf911a32863145ed05ab61fa09a61}} 
+\subsubsection[{\texorpdfstring{V\+\_\+\+I\+N\+IT}{V_INIT}}]{\setlength{\rightskip}{0pt plus 5cm}\#define V\+\_\+\+I\+N\+IT~0.\+0}\hypertarget{Matsu__calcs_8h_ad93c2f1fe3539eb1d71a5814f70f302a}{}\label{Matsu__calcs_8h_ad93c2f1fe3539eb1d71a5814f70f302a}
 \index{Matsu\+\_\+calcs.\+h@{Matsu\+\_\+calcs.\+h}!X1\+\_\+\+I\+N\+IT@{X1\+\_\+\+I\+N\+IT}}
 \index{X1\+\_\+\+I\+N\+IT@{X1\+\_\+\+I\+N\+IT}!Matsu\+\_\+calcs.\+h@{Matsu\+\_\+calcs.\+h}}
-\subsubsection{\texorpdfstring{X1\+\_\+\+I\+N\+IT}{X1\_INIT}}
-{\footnotesize\ttfamily \#define X1\+\_\+\+I\+N\+IT~0.\+4774}
-
-\mbox{\Hypertarget{Matsu__calcs_8h_a61805882c643088a7b99d9599b43b399}\label{Matsu__calcs_8h_a61805882c643088a7b99d9599b43b399}} 
+\subsubsection[{\texorpdfstring{X1\+\_\+\+I\+N\+IT}{X1_INIT}}]{\setlength{\rightskip}{0pt plus 5cm}\#define X1\+\_\+\+I\+N\+IT~0.\+4774}\hypertarget{Matsu__calcs_8h_a2cecf911a32863145ed05ab61fa09a61}{}\label{Matsu__calcs_8h_a2cecf911a32863145ed05ab61fa09a61}
 \index{Matsu\+\_\+calcs.\+h@{Matsu\+\_\+calcs.\+h}!X2\+\_\+\+I\+N\+IT@{X2\+\_\+\+I\+N\+IT}}
 \index{X2\+\_\+\+I\+N\+IT@{X2\+\_\+\+I\+N\+IT}!Matsu\+\_\+calcs.\+h@{Matsu\+\_\+calcs.\+h}}
-\subsubsection{\texorpdfstring{X2\+\_\+\+I\+N\+IT}{X2\_INIT}}
-{\footnotesize\ttfamily \#define X2\+\_\+\+I\+N\+IT~-\/0.\+869708}
-
+\subsubsection[{\texorpdfstring{X2\+\_\+\+I\+N\+IT}{X2_INIT}}]{\setlength{\rightskip}{0pt plus 5cm}\#define X2\+\_\+\+I\+N\+IT~-\/0.\+869708}\hypertarget{Matsu__calcs_8h_a61805882c643088a7b99d9599b43b399}{}\label{Matsu__calcs_8h_a61805882c643088a7b99d9599b43b399}

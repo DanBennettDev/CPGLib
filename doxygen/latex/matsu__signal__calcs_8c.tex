@@ -1,65 +1,107 @@
-\hypertarget{matsu__signal__calcs_8c}{}\section{O\+:/\+Documents/\+Max 7/\+Packages/max\+\_\+cpg/source/\+Matsuoka\+Engine\+\_\+src/matsu\+\_\+signal\+\_\+calcs.c File Reference}
-\label{matsu__signal__calcs_8c}\index{O\+:/\+Documents/\+Max 7/\+Packages/max\+\_\+cpg/source/\+Matsuoka\+Engine\+\_\+src/matsu\+\_\+signal\+\_\+calcs.\+c@{O\+:/\+Documents/\+Max 7/\+Packages/max\+\_\+cpg/source/\+Matsuoka\+Engine\+\_\+src/matsu\+\_\+signal\+\_\+calcs.\+c}}
-{\ttfamily \#include \char`\"{}matsu\+\_\+signal\+\_\+calcs.\+h\char`\"{}}\newline
+\hypertarget{matsu__signal__calcs_8c}{}\section{C\+:/\+Users/dan/\+Documents/\+Max 7/\+Packages/max\+\_\+cpg/source/\+Matsuoka\+Engine\+\_\+src/matsu\+\_\+signal\+\_\+calcs.c File Reference}
+\label{matsu__signal__calcs_8c}\index{C\+:/\+Users/dan/\+Documents/\+Max 7/\+Packages/max\+\_\+cpg/source/\+Matsuoka\+Engine\+\_\+src/matsu\+\_\+signal\+\_\+calcs.\+c@{C\+:/\+Users/dan/\+Documents/\+Max 7/\+Packages/max\+\_\+cpg/source/\+Matsuoka\+Engine\+\_\+src/matsu\+\_\+signal\+\_\+calcs.\+c}}
+{\ttfamily \#include \char`\"{}matsu\+\_\+signal\+\_\+calcs.\+h\char`\"{}}\\*
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-double \mbox{\hyperlink{matsu__signal__calcs_8c_ae62d332ebc5546c3383ffa7c98643d9b}{matsuoka\+\_\+calc\+\_\+next\+Val\+\_\+\+RK}} (double in, double t1, double t2, double c1, double c2, double b, double g, \mbox{\hyperlink{matsu__signal__calcs_8h_a85c8282343cc3ecc22272a1897cbc410}{matsuoka\+\_\+internals}} $\ast$internals)
+double \hyperlink{matsu__signal__calcs_8c_ae62d332ebc5546c3383ffa7c98643d9b}{matsuoka\+\_\+calc\+\_\+next\+Val\+\_\+\+RK} (double in, double t1, double t2, double c1, double c2, double b, double g, \hyperlink{matsu__signal__calcs_8h_a85c8282343cc3ecc22272a1897cbc410}{matsuoka\+\_\+internals} $\ast$internals)
 \item 
-void \mbox{\hyperlink{matsu__signal__calcs_8c_adec9e53d21d36209ac08722ad4a19e62}{matsuoka\+\_\+rk\+Step}} (double in, double t1recip, double t2recip, double c1, double c2, double b, double g, \mbox{\hyperlink{matsu__signal__calcs_8h_a85c8282343cc3ecc22272a1897cbc410}{matsuoka\+\_\+internals}} $\ast$internals)
+void \hyperlink{matsu__signal__calcs_8c_adec9e53d21d36209ac08722ad4a19e62}{matsuoka\+\_\+rk\+Step} (double in, double t1recip, double t2recip, double c1, double c2, double b, double g, \hyperlink{matsu__signal__calcs_8h_a85c8282343cc3ecc22272a1897cbc410}{matsuoka\+\_\+internals} $\ast$internals)
 \item 
-\mbox{\hyperlink{matsu__signal__calcs_8h_a85c8282343cc3ecc22272a1897cbc410}{matsuoka\+\_\+internals}} \mbox{\hyperlink{matsu__signal__calcs_8c_acedccb7875e8bc7e921a451aa16dca36}{matsuoka\+\_\+calc\+\_\+deriv}} (double in, double t1recip, double t2recip, double c1, double c2, double b, double g, \mbox{\hyperlink{matsu__signal__calcs_8h_a85c8282343cc3ecc22272a1897cbc410}{matsuoka\+\_\+internals}} internals)
+\hyperlink{matsu__signal__calcs_8h_a85c8282343cc3ecc22272a1897cbc410}{matsuoka\+\_\+internals} \hyperlink{matsu__signal__calcs_8c_acedccb7875e8bc7e921a451aa16dca36}{matsuoka\+\_\+calc\+\_\+deriv} (double in, double t1recip, double t2recip, double c1, double c2, double b, double g, \hyperlink{matsu__signal__calcs_8h_a85c8282343cc3ecc22272a1897cbc410}{matsuoka\+\_\+internals} internals)
 \item 
-\mbox{\hyperlink{matsu__signal__calcs_8h_a85c8282343cc3ecc22272a1897cbc410}{matsuoka\+\_\+internals}} \mbox{\hyperlink{matsu__signal__calcs_8c_a63dfa1cccc9dbbd5c547ed39cf183172}{matsuoka\+\_\+euler\+Step}} (\mbox{\hyperlink{matsu__signal__calcs_8h_a85c8282343cc3ecc22272a1897cbc410}{matsuoka\+\_\+internals}} init, \mbox{\hyperlink{matsu__signal__calcs_8h_a85c8282343cc3ecc22272a1897cbc410}{matsuoka\+\_\+internals}} deriv, double step)
+\hyperlink{matsu__signal__calcs_8h_a85c8282343cc3ecc22272a1897cbc410}{matsuoka\+\_\+internals} \hyperlink{matsu__signal__calcs_8c_a63dfa1cccc9dbbd5c547ed39cf183172}{matsuoka\+\_\+euler\+Step} (\hyperlink{matsu__signal__calcs_8h_a85c8282343cc3ecc22272a1897cbc410}{matsuoka\+\_\+internals} init, \hyperlink{matsu__signal__calcs_8h_a85c8282343cc3ecc22272a1897cbc410}{matsuoka\+\_\+internals} deriv, double step)
 \item 
-void \mbox{\hyperlink{matsu__signal__calcs_8c_a60207ddd53e9369447e008dd126f998c}{matsuoka\+\_\+enforce\+Stability}} (double $\ast$g, double $\ast$c1, double $\ast$c2, double b, double t1, double t2\+Recip)
+void \hyperlink{matsu__signal__calcs_8c_a60207ddd53e9369447e008dd126f998c}{matsuoka\+\_\+enforce\+Stability} (double $\ast$g, double $\ast$c1, double $\ast$c2, double b, double t1, double t2\+Recip)
 \item 
-void \mbox{\hyperlink{matsu__signal__calcs_8c_aabf90041169047c601b1978d5788b5ba}{matsuoka\+\_\+fix\+N\+AN}} (\mbox{\hyperlink{matsu__signal__calcs_8h_a85c8282343cc3ecc22272a1897cbc410}{matsuoka\+\_\+internals}} $\ast$internals)
+void \hyperlink{matsu__signal__calcs_8c_aabf90041169047c601b1978d5788b5ba}{matsuoka\+\_\+fix\+N\+AN} (\hyperlink{matsu__signal__calcs_8h_a85c8282343cc3ecc22272a1897cbc410}{matsuoka\+\_\+internals} $\ast$internals)
 \item 
-double \mbox{\hyperlink{matsu__signal__calcs_8c_a9335a53f7797375b889262b11e20e47b}{matsuoka\+\_\+calc\+\_\+next\+Val}} (double in, double t1, double t2, double c1, double c2, double b, double g, \mbox{\hyperlink{matsu__signal__calcs_8h_a85c8282343cc3ecc22272a1897cbc410}{matsuoka\+\_\+internals}} $\ast$internals)
+double \hyperlink{matsu__signal__calcs_8c_a9335a53f7797375b889262b11e20e47b}{matsuoka\+\_\+calc\+\_\+next\+Val} (double in, double t1, double t2, double c1, double c2, double b, double g, \hyperlink{matsu__signal__calcs_8h_a85c8282343cc3ecc22272a1897cbc410}{matsuoka\+\_\+internals} $\ast$internals)
 \end{DoxyCompactItemize}
 
 
 \subsection{Function Documentation}
-\mbox{\Hypertarget{matsu__signal__calcs_8c_acedccb7875e8bc7e921a451aa16dca36}\label{matsu__signal__calcs_8c_acedccb7875e8bc7e921a451aa16dca36}} 
 \index{matsu\+\_\+signal\+\_\+calcs.\+c@{matsu\+\_\+signal\+\_\+calcs.\+c}!matsuoka\+\_\+calc\+\_\+deriv@{matsuoka\+\_\+calc\+\_\+deriv}}
 \index{matsuoka\+\_\+calc\+\_\+deriv@{matsuoka\+\_\+calc\+\_\+deriv}!matsu\+\_\+signal\+\_\+calcs.\+c@{matsu\+\_\+signal\+\_\+calcs.\+c}}
-\subsubsection{\texorpdfstring{matsuoka\+\_\+calc\+\_\+deriv()}{matsuoka\_calc\_deriv()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{matsu__signal__calcs_8h_a85c8282343cc3ecc22272a1897cbc410}{matsuoka\+\_\+internals}} matsuoka\+\_\+calc\+\_\+deriv (\begin{DoxyParamCaption}\item[{double}]{in,  }\item[{double}]{t1recip,  }\item[{double}]{t2recip,  }\item[{double}]{c1,  }\item[{double}]{c2,  }\item[{double}]{b,  }\item[{double}]{g,  }\item[{\mbox{\hyperlink{matsu__signal__calcs_8h_a85c8282343cc3ecc22272a1897cbc410}{matsuoka\+\_\+internals}}}]{internals }\end{DoxyParamCaption})}
-
-\mbox{\Hypertarget{matsu__signal__calcs_8c_a9335a53f7797375b889262b11e20e47b}\label{matsu__signal__calcs_8c_a9335a53f7797375b889262b11e20e47b}} 
+\subsubsection[{\texorpdfstring{matsuoka\+\_\+calc\+\_\+deriv(double in, double t1recip, double t2recip, double c1, double c2, double b, double g, matsuoka\+\_\+internals internals)}{matsuoka_calc_deriv(double in, double t1recip, double t2recip, double c1, double c2, double b, double g, matsuoka_internals internals)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf matsuoka\+\_\+internals} matsuoka\+\_\+calc\+\_\+deriv (
+\begin{DoxyParamCaption}
+\item[{double}]{in, }
+\item[{double}]{t1recip, }
+\item[{double}]{t2recip, }
+\item[{double}]{c1, }
+\item[{double}]{c2, }
+\item[{double}]{b, }
+\item[{double}]{g, }
+\item[{{\bf matsuoka\+\_\+internals}}]{internals}
+\end{DoxyParamCaption}
+)}\hypertarget{matsu__signal__calcs_8c_acedccb7875e8bc7e921a451aa16dca36}{}\label{matsu__signal__calcs_8c_acedccb7875e8bc7e921a451aa16dca36}
 \index{matsu\+\_\+signal\+\_\+calcs.\+c@{matsu\+\_\+signal\+\_\+calcs.\+c}!matsuoka\+\_\+calc\+\_\+next\+Val@{matsuoka\+\_\+calc\+\_\+next\+Val}}
 \index{matsuoka\+\_\+calc\+\_\+next\+Val@{matsuoka\+\_\+calc\+\_\+next\+Val}!matsu\+\_\+signal\+\_\+calcs.\+c@{matsu\+\_\+signal\+\_\+calcs.\+c}}
-\subsubsection{\texorpdfstring{matsuoka\+\_\+calc\+\_\+next\+Val()}{matsuoka\_calc\_nextVal()}}
-{\footnotesize\ttfamily double matsuoka\+\_\+calc\+\_\+next\+Val (\begin{DoxyParamCaption}\item[{double}]{in,  }\item[{double}]{t1,  }\item[{double}]{t2,  }\item[{double}]{c1,  }\item[{double}]{c2,  }\item[{double}]{b,  }\item[{double}]{g,  }\item[{\mbox{\hyperlink{matsu__signal__calcs_8h_a85c8282343cc3ecc22272a1897cbc410}{matsuoka\+\_\+internals}} $\ast$}]{internals }\end{DoxyParamCaption})}
-
-\mbox{\Hypertarget{matsu__signal__calcs_8c_ae62d332ebc5546c3383ffa7c98643d9b}\label{matsu__signal__calcs_8c_ae62d332ebc5546c3383ffa7c98643d9b}} 
+\subsubsection[{\texorpdfstring{matsuoka\+\_\+calc\+\_\+next\+Val(double in, double t1, double t2, double c1, double c2, double b, double g, matsuoka\+\_\+internals $\ast$internals)}{matsuoka_calc_nextVal(double in, double t1, double t2, double c1, double c2, double b, double g, matsuoka_internals *internals)}}]{\setlength{\rightskip}{0pt plus 5cm}double matsuoka\+\_\+calc\+\_\+next\+Val (
+\begin{DoxyParamCaption}
+\item[{double}]{in, }
+\item[{double}]{t1, }
+\item[{double}]{t2, }
+\item[{double}]{c1, }
+\item[{double}]{c2, }
+\item[{double}]{b, }
+\item[{double}]{g, }
+\item[{{\bf matsuoka\+\_\+internals} $\ast$}]{internals}
+\end{DoxyParamCaption}
+)}\hypertarget{matsu__signal__calcs_8c_a9335a53f7797375b889262b11e20e47b}{}\label{matsu__signal__calcs_8c_a9335a53f7797375b889262b11e20e47b}
 \index{matsu\+\_\+signal\+\_\+calcs.\+c@{matsu\+\_\+signal\+\_\+calcs.\+c}!matsuoka\+\_\+calc\+\_\+next\+Val\+\_\+\+RK@{matsuoka\+\_\+calc\+\_\+next\+Val\+\_\+\+RK}}
 \index{matsuoka\+\_\+calc\+\_\+next\+Val\+\_\+\+RK@{matsuoka\+\_\+calc\+\_\+next\+Val\+\_\+\+RK}!matsu\+\_\+signal\+\_\+calcs.\+c@{matsu\+\_\+signal\+\_\+calcs.\+c}}
-\subsubsection{\texorpdfstring{matsuoka\+\_\+calc\+\_\+next\+Val\+\_\+\+R\+K()}{matsuoka\_calc\_nextVal\_RK()}}
-{\footnotesize\ttfamily double matsuoka\+\_\+calc\+\_\+next\+Val\+\_\+\+RK (\begin{DoxyParamCaption}\item[{double}]{in,  }\item[{double}]{t1,  }\item[{double}]{t2,  }\item[{double}]{c1,  }\item[{double}]{c2,  }\item[{double}]{b,  }\item[{double}]{g,  }\item[{\mbox{\hyperlink{matsu__signal__calcs_8h_a85c8282343cc3ecc22272a1897cbc410}{matsuoka\+\_\+internals}} $\ast$}]{internals }\end{DoxyParamCaption})}
-
-\mbox{\Hypertarget{matsu__signal__calcs_8c_a60207ddd53e9369447e008dd126f998c}\label{matsu__signal__calcs_8c_a60207ddd53e9369447e008dd126f998c}} 
+\subsubsection[{\texorpdfstring{matsuoka\+\_\+calc\+\_\+next\+Val\+\_\+\+R\+K(double in, double t1, double t2, double c1, double c2, double b, double g, matsuoka\+\_\+internals $\ast$internals)}{matsuoka_calc_nextVal_RK(double in, double t1, double t2, double c1, double c2, double b, double g, matsuoka_internals *internals)}}]{\setlength{\rightskip}{0pt plus 5cm}double matsuoka\+\_\+calc\+\_\+next\+Val\+\_\+\+RK (
+\begin{DoxyParamCaption}
+\item[{double}]{in, }
+\item[{double}]{t1, }
+\item[{double}]{t2, }
+\item[{double}]{c1, }
+\item[{double}]{c2, }
+\item[{double}]{b, }
+\item[{double}]{g, }
+\item[{{\bf matsuoka\+\_\+internals} $\ast$}]{internals}
+\end{DoxyParamCaption}
+)}\hypertarget{matsu__signal__calcs_8c_ae62d332ebc5546c3383ffa7c98643d9b}{}\label{matsu__signal__calcs_8c_ae62d332ebc5546c3383ffa7c98643d9b}
 \index{matsu\+\_\+signal\+\_\+calcs.\+c@{matsu\+\_\+signal\+\_\+calcs.\+c}!matsuoka\+\_\+enforce\+Stability@{matsuoka\+\_\+enforce\+Stability}}
 \index{matsuoka\+\_\+enforce\+Stability@{matsuoka\+\_\+enforce\+Stability}!matsu\+\_\+signal\+\_\+calcs.\+c@{matsu\+\_\+signal\+\_\+calcs.\+c}}
-\subsubsection{\texorpdfstring{matsuoka\+\_\+enforce\+Stability()}{matsuoka\_enforceStability()}}
-{\footnotesize\ttfamily void matsuoka\+\_\+enforce\+Stability (\begin{DoxyParamCaption}\item[{double $\ast$}]{g,  }\item[{double $\ast$}]{c1,  }\item[{double $\ast$}]{c2,  }\item[{double}]{b,  }\item[{double}]{t1,  }\item[{double}]{t2\+Recip }\end{DoxyParamCaption})}
-
-\mbox{\Hypertarget{matsu__signal__calcs_8c_a63dfa1cccc9dbbd5c547ed39cf183172}\label{matsu__signal__calcs_8c_a63dfa1cccc9dbbd5c547ed39cf183172}} 
+\subsubsection[{\texorpdfstring{matsuoka\+\_\+enforce\+Stability(double $\ast$g, double $\ast$c1, double $\ast$c2, double b, double t1, double t2\+Recip)}{matsuoka_enforceStability(double *g, double *c1, double *c2, double b, double t1, double t2Recip)}}]{\setlength{\rightskip}{0pt plus 5cm}void matsuoka\+\_\+enforce\+Stability (
+\begin{DoxyParamCaption}
+\item[{double $\ast$}]{g, }
+\item[{double $\ast$}]{c1, }
+\item[{double $\ast$}]{c2, }
+\item[{double}]{b, }
+\item[{double}]{t1, }
+\item[{double}]{t2\+Recip}
+\end{DoxyParamCaption}
+)}\hypertarget{matsu__signal__calcs_8c_a60207ddd53e9369447e008dd126f998c}{}\label{matsu__signal__calcs_8c_a60207ddd53e9369447e008dd126f998c}
 \index{matsu\+\_\+signal\+\_\+calcs.\+c@{matsu\+\_\+signal\+\_\+calcs.\+c}!matsuoka\+\_\+euler\+Step@{matsuoka\+\_\+euler\+Step}}
 \index{matsuoka\+\_\+euler\+Step@{matsuoka\+\_\+euler\+Step}!matsu\+\_\+signal\+\_\+calcs.\+c@{matsu\+\_\+signal\+\_\+calcs.\+c}}
-\subsubsection{\texorpdfstring{matsuoka\+\_\+euler\+Step()}{matsuoka\_eulerStep()}}
-{\footnotesize\ttfamily \mbox{\hyperlink{matsu__signal__calcs_8h_a85c8282343cc3ecc22272a1897cbc410}{matsuoka\+\_\+internals}} matsuoka\+\_\+euler\+Step (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{matsu__signal__calcs_8h_a85c8282343cc3ecc22272a1897cbc410}{matsuoka\+\_\+internals}}}]{init,  }\item[{\mbox{\hyperlink{matsu__signal__calcs_8h_a85c8282343cc3ecc22272a1897cbc410}{matsuoka\+\_\+internals}}}]{deriv,  }\item[{double}]{step }\end{DoxyParamCaption})}
-
-\mbox{\Hypertarget{matsu__signal__calcs_8c_aabf90041169047c601b1978d5788b5ba}\label{matsu__signal__calcs_8c_aabf90041169047c601b1978d5788b5ba}} 
+\subsubsection[{\texorpdfstring{matsuoka\+\_\+euler\+Step(matsuoka\+\_\+internals init, matsuoka\+\_\+internals deriv, double step)}{matsuoka_eulerStep(matsuoka_internals init, matsuoka_internals deriv, double step)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf matsuoka\+\_\+internals} matsuoka\+\_\+euler\+Step (
+\begin{DoxyParamCaption}
+\item[{{\bf matsuoka\+\_\+internals}}]{init, }
+\item[{{\bf matsuoka\+\_\+internals}}]{deriv, }
+\item[{double}]{step}
+\end{DoxyParamCaption}
+)}\hypertarget{matsu__signal__calcs_8c_a63dfa1cccc9dbbd5c547ed39cf183172}{}\label{matsu__signal__calcs_8c_a63dfa1cccc9dbbd5c547ed39cf183172}
 \index{matsu\+\_\+signal\+\_\+calcs.\+c@{matsu\+\_\+signal\+\_\+calcs.\+c}!matsuoka\+\_\+fix\+N\+AN@{matsuoka\+\_\+fix\+N\+AN}}
 \index{matsuoka\+\_\+fix\+N\+AN@{matsuoka\+\_\+fix\+N\+AN}!matsu\+\_\+signal\+\_\+calcs.\+c@{matsu\+\_\+signal\+\_\+calcs.\+c}}
-\subsubsection{\texorpdfstring{matsuoka\+\_\+fix\+N\+A\+N()}{matsuoka\_fixNAN()}}
-{\footnotesize\ttfamily void matsuoka\+\_\+fix\+N\+AN (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{matsu__signal__calcs_8h_a85c8282343cc3ecc22272a1897cbc410}{matsuoka\+\_\+internals}} $\ast$}]{internals }\end{DoxyParamCaption})}
-
-\mbox{\Hypertarget{matsu__signal__calcs_8c_adec9e53d21d36209ac08722ad4a19e62}\label{matsu__signal__calcs_8c_adec9e53d21d36209ac08722ad4a19e62}} 
+\subsubsection[{\texorpdfstring{matsuoka\+\_\+fix\+N\+A\+N(matsuoka\+\_\+internals $\ast$internals)}{matsuoka_fixNAN(matsuoka_internals *internals)}}]{\setlength{\rightskip}{0pt plus 5cm}void matsuoka\+\_\+fix\+N\+AN (
+\begin{DoxyParamCaption}
+\item[{{\bf matsuoka\+\_\+internals} $\ast$}]{internals}
+\end{DoxyParamCaption}
+)}\hypertarget{matsu__signal__calcs_8c_aabf90041169047c601b1978d5788b5ba}{}\label{matsu__signal__calcs_8c_aabf90041169047c601b1978d5788b5ba}
 \index{matsu\+\_\+signal\+\_\+calcs.\+c@{matsu\+\_\+signal\+\_\+calcs.\+c}!matsuoka\+\_\+rk\+Step@{matsuoka\+\_\+rk\+Step}}
 \index{matsuoka\+\_\+rk\+Step@{matsuoka\+\_\+rk\+Step}!matsu\+\_\+signal\+\_\+calcs.\+c@{matsu\+\_\+signal\+\_\+calcs.\+c}}
-\subsubsection{\texorpdfstring{matsuoka\+\_\+rk\+Step()}{matsuoka\_rkStep()}}
-{\footnotesize\ttfamily void matsuoka\+\_\+rk\+Step (\begin{DoxyParamCaption}\item[{double}]{in,  }\item[{double}]{t1recip,  }\item[{double}]{t2recip,  }\item[{double}]{c1,  }\item[{double}]{c2,  }\item[{double}]{b,  }\item[{double}]{g,  }\item[{\mbox{\hyperlink{matsu__signal__calcs_8h_a85c8282343cc3ecc22272a1897cbc410}{matsuoka\+\_\+internals}} $\ast$}]{internals }\end{DoxyParamCaption})}
-
+\subsubsection[{\texorpdfstring{matsuoka\+\_\+rk\+Step(double in, double t1recip, double t2recip, double c1, double c2, double b, double g, matsuoka\+\_\+internals $\ast$internals)}{matsuoka_rkStep(double in, double t1recip, double t2recip, double c1, double c2, double b, double g, matsuoka_internals *internals)}}]{\setlength{\rightskip}{0pt plus 5cm}void matsuoka\+\_\+rk\+Step (
+\begin{DoxyParamCaption}
+\item[{double}]{in, }
+\item[{double}]{t1recip, }
+\item[{double}]{t2recip, }
+\item[{double}]{c1, }
+\item[{double}]{c2, }
+\item[{double}]{b, }
+\item[{double}]{g, }
+\item[{{\bf matsuoka\+\_\+internals} $\ast$}]{internals}
+\end{DoxyParamCaption}
+)}\hypertarget{matsu__signal__calcs_8c_adec9e53d21d36209ac08722ad4a19e62}{}\label{matsu__signal__calcs_8c_adec9e53d21d36209ac08722ad4a19e62}

@@ -132,7 +132,6 @@ float ScalingCurve::_lookup(float lookup)
 
 		// 
 		int cursor = 0;
-		float y = 0;
 		while (cursor < _curve.size() && _curve[cursor].x <= lookup) {
 			cursor++;
 		}

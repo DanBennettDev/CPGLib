@@ -1,15 +1,30 @@
-\hypertarget{QuantisedEventQueue_8h}{}\section{O\+:/\+Documents/\+Max 7/\+Packages/max\+\_\+cpg/source/\+Matsuoka\+Engine\+\_\+src/\+Quantised\+Event\+Queue.h File Reference}
-\label{QuantisedEventQueue_8h}\index{O\+:/\+Documents/\+Max 7/\+Packages/max\+\_\+cpg/source/\+Matsuoka\+Engine\+\_\+src/\+Quantised\+Event\+Queue.\+h@{O\+:/\+Documents/\+Max 7/\+Packages/max\+\_\+cpg/source/\+Matsuoka\+Engine\+\_\+src/\+Quantised\+Event\+Queue.\+h}}
-{\ttfamily \#include $<$cstdint$>$}\newline
-{\ttfamily \#include $<$list$>$}\newline
-{\ttfamily \#include $<$vector$>$}\newline
-{\ttfamily \#include $<$mutex$>$}\newline
-{\ttfamily \#include \char`\"{}Quantise\+Grid\+\_\+soft.\+h\char`\"{}}\newline
-{\ttfamily \#include \char`\"{}core.\+h\char`\"{}}\newline
+\hypertarget{QuantisedEventQueue_8h}{}\section{C\+:/\+Users/dan/\+Documents/\+Max 7/\+Packages/max\+\_\+cpg/source/\+Matsuoka\+Engine\+\_\+src/\+Quantised\+Event\+Queue.h File Reference}
+\label{QuantisedEventQueue_8h}\index{C\+:/\+Users/dan/\+Documents/\+Max 7/\+Packages/max\+\_\+cpg/source/\+Matsuoka\+Engine\+\_\+src/\+Quantised\+Event\+Queue.\+h@{C\+:/\+Users/dan/\+Documents/\+Max 7/\+Packages/max\+\_\+cpg/source/\+Matsuoka\+Engine\+\_\+src/\+Quantised\+Event\+Queue.\+h}}
+{\ttfamily \#include $<$cstdint$>$}\\*
+{\ttfamily \#include $<$array$>$}\\*
+{\ttfamily \#include $<$mutex$>$}\\*
+{\ttfamily \#include \char`\"{}Quantise\+Grid\+\_\+soft.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}core.\+h\char`\"{}}\\*
 \subsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
-class \mbox{\hyperlink{classQuantisedEventQueue}{Quantised\+Event\+Queue}}
+class \hyperlink{classQuantisedEventQueue}{Quantised\+Event\+Queue}
 \begin{DoxyCompactList}\small\item\em Engine\+: Takes events as inputs and outputs them at the correct quantised interval correct quantised interval depends on settings, quantiser grid size, etc. introduces a delay. Push pull quantiser -\/ moves incoming events to nearest beat. \end{DoxyCompactList}\item 
-struct \mbox{\hyperlink{structQuantisedEventQueue_1_1outputEvent}{Quantised\+Event\+Queue\+::output\+Event}}
+struct \hyperlink{structQuantisedEventQueue_1_1outputEvent}{Quantised\+Event\+Queue\+::output\+Event}
 \begin{DoxyCompactList}\small\item\em struct specifying for the events the queue quantises \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{QuantisedEventQueue_8h_a215e3e0f6ae30669500f3efc7121c0b4}{E\+V\+E\+N\+T\+P\+O\+O\+L\+S\+I\+ZE}~1024
+\item 
+\#define \hyperlink{QuantisedEventQueue_8h_a4a5eb006915edcc598c78db59cc59f43}{T\+E\+M\+P\+O\+C\+H\+A\+N\+G\+E\+T\+H\+R\+E\+S\+H\+O\+LD}~0.\+0001
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\index{Quantised\+Event\+Queue.\+h@{Quantised\+Event\+Queue.\+h}!E\+V\+E\+N\+T\+P\+O\+O\+L\+S\+I\+ZE@{E\+V\+E\+N\+T\+P\+O\+O\+L\+S\+I\+ZE}}
+\index{E\+V\+E\+N\+T\+P\+O\+O\+L\+S\+I\+ZE@{E\+V\+E\+N\+T\+P\+O\+O\+L\+S\+I\+ZE}!Quantised\+Event\+Queue.\+h@{Quantised\+Event\+Queue.\+h}}
+\subsubsection[{\texorpdfstring{E\+V\+E\+N\+T\+P\+O\+O\+L\+S\+I\+ZE}{EVENTPOOLSIZE}}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\+V\+E\+N\+T\+P\+O\+O\+L\+S\+I\+ZE~1024}\hypertarget{QuantisedEventQueue_8h_a215e3e0f6ae30669500f3efc7121c0b4}{}\label{QuantisedEventQueue_8h_a215e3e0f6ae30669500f3efc7121c0b4}
+\index{Quantised\+Event\+Queue.\+h@{Quantised\+Event\+Queue.\+h}!T\+E\+M\+P\+O\+C\+H\+A\+N\+G\+E\+T\+H\+R\+E\+S\+H\+O\+LD@{T\+E\+M\+P\+O\+C\+H\+A\+N\+G\+E\+T\+H\+R\+E\+S\+H\+O\+LD}}
+\index{T\+E\+M\+P\+O\+C\+H\+A\+N\+G\+E\+T\+H\+R\+E\+S\+H\+O\+LD@{T\+E\+M\+P\+O\+C\+H\+A\+N\+G\+E\+T\+H\+R\+E\+S\+H\+O\+LD}!Quantised\+Event\+Queue.\+h@{Quantised\+Event\+Queue.\+h}}
+\subsubsection[{\texorpdfstring{T\+E\+M\+P\+O\+C\+H\+A\+N\+G\+E\+T\+H\+R\+E\+S\+H\+O\+LD}{TEMPOCHANGETHRESHOLD}}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\+E\+M\+P\+O\+C\+H\+A\+N\+G\+E\+T\+H\+R\+E\+S\+H\+O\+LD~0.\+0001}\hypertarget{QuantisedEventQueue_8h_a4a5eb006915edcc598c78db59cc59f43}{}\label{QuantisedEventQueue_8h_a4a5eb006915edcc598c78db59cc59f43}

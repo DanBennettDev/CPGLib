@@ -8,6 +8,7 @@ var searchData=
   ['t2overt1',['T2OverT1',['../classMatsuNode.html#aed801e1d0363292efc99bb02f1911386a082a8ec4c12853282b09b34982d82a23',1,'MatsuNode']]],
   ['t_5fmax',['T_MAX',['../Matsu__calcs_8h.html#acd0dda75fa865e1efae98e3e2b204ef4',1,'T_MAX():&#160;Matsu_calcs.h'],['../matsu__signal__calcs_8h.html#acd0dda75fa865e1efae98e3e2b204ef4',1,'T_MAX():&#160;matsu_signal_calcs.h']]],
   ['t_5fmin',['T_MIN',['../Matsu__calcs_8h.html#a0e37b765046be143ca51ec097adf606a',1,'T_MIN():&#160;Matsu_calcs.h'],['../matsu__signal__calcs_8h.html#a0e37b765046be143ca51ec097adf606a',1,'T_MIN():&#160;matsu_signal_calcs.h']]],
-  ['tick',['tick',['../classQuantisedEventQueue.html#a97055bead1291aef1d540640fcb61bf9',1,'QuantisedEventQueue::tick()'],['../classQuantiseGrid__hard.html#a0303c9a37394b191715fac5aafb51ea6',1,'QuantiseGrid_hard::tick()'],['../classQuantiseGrid__soft.html#a2af018d83f17638adb6483c85b67435f',1,'QuantiseGrid_soft::tick()']]],
+  ['tempochangethreshold',['TEMPOCHANGETHRESHOLD',['../QuantisedEventQueue_8h.html#a4a5eb006915edcc598c78db59cc59f43',1,'QuantisedEventQueue.h']]],
+  ['tick',['tick',['../classQuantisedEventQueue.html#a97055bead1291aef1d540640fcb61bf9',1,'QuantisedEventQueue::tick()'],['../classQuantiseGrid__soft.html#a2af018d83f17638adb6483c85b67435f',1,'QuantiseGrid_soft::tick()']]],
   ['twopi',['TWOPI',['../core_8h.html#a4912c64aec0c943b7985db6cb61ff83a',1,'core.h']]]
 ];
