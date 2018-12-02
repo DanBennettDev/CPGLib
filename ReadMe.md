@@ -4,7 +4,7 @@ For background see [this page](https://danbennettdev.github.io/projects/cpg_crea
 
 The library is documented using doxygen - see index.html in ./doxygen/html/
 
-** Note - this is an 0.x release. I think probably fairly stable now, but it's possible substantial changes may appear **
+**Note - this is an 0.x release. I think probably fairly stable now, but it's possible substantial changes may appear**
 
 ## Overview
 
