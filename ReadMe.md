@@ -4,6 +4,8 @@ For background see [this page](https://danbennettdev.github.io/projects/cpg_crea
 
 The library is documented using doxygen - see index.html in ./doxygen/html/
 
+** Note - this is an 0.x release. I think probably fairly stable now, but it's possible substantial changes may appear **
+
 ## Overview
 
 This is a static library which implements a Central Pattern Generator (%CPG) network - a neural network that generates adaptive rhythm. Using its default configuration this library will let you simulate a CPG network at a sample-rate (DEFAULTSAMPLERATE) suitable for generating event triggers and control-rate signals. It will generate an event-trigger once per cycle of each node in the network - you can then use these triggers in your application to drive visual or sonic events. The library allows you to build a rhythm-generating CPG network and interact with it in a fairly straightforward way. You can add and change connections between nodes, directly set the cycle frequencies of nodes, and apply rhythmic quantisation to the outputs. It is possible to use the library in many other ways - which will probably become apparent as you investigate further.
