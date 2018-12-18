@@ -10,6 +10,7 @@ support
 build
 tests
 *.o
+*.a
 *.dylib
 tmp
 .DS_Store
@@ -347,3 +348,10 @@ ASALocalRun/
 
 # Local History for Visual Studio
 .localhistory/
+
+# CMake output
+*CMakeCache.txt
+*CMakeFiles
+*Makefile
+*cmake_install.cmake
+
