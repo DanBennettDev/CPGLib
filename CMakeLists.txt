@@ -16,7 +16,6 @@ aux_source_directory(${CMAKE_CURRENT_SOURCE_DIR} MAT_SOURCES)
 
 add_library(MatsuokaEngine STATIC ${MAT_SOURCES})
 
-
 if (CMAKE_BUILD_TYPE STREQUAL "Debug")
 	add_definitions(
 		-DDEBUG

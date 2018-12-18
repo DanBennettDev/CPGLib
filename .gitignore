@@ -10,6 +10,7 @@ support
 build
 tests
 *.o
+*.so
 *.a
 *.dylib
 tmp
@@ -355,3 +356,5 @@ ASALocalRun/
 *Makefile
 *cmake_install.cmake
 
+# Python binding related guff
+pybindings/venv/
