@@ -34,6 +34,12 @@ public:
         unsigned sourceID;  /*!< Unique identifier of the node which is the source of the input. */ 
         double weight;      /*!< Scaling multiplier for the input signal. Typically 0.0 to c5.0 */ 
         double phase;       /*!< Phase offset for the input signal. 0.0 to 1.0 */ 
+
+        bool operator == (const input &rhs)
+        {
+            // TODO: Re-think this, it was brainless in order to allow python bindings build
+            return sourceID == rhs.sourceID;
+        }
     };
 
 

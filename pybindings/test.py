@@ -44,6 +44,8 @@ class MatsuNode(unittest.TestCase):
             iterable = True
         assert iterable, "get_input_ids doesnt provide an iterator"
 
+# TODO: test MatsuokaEngine.h bindings
+
 if __name__ == "__main__":
     print('\nTesting bindings...\n')
     unittest.main()
