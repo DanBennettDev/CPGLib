@@ -44,7 +44,29 @@ class MatsuNode(unittest.TestCase):
             iterable = True
         assert iterable, "get_input_ids doesnt provide an iterator"
 
-# TODO: test MatsuokaEngine.h bindings
+class MatsuokaEngine(unittest.TestCase):
+    def setUp(self):
+        self.engine = cpglib.MatsuokaEngine()
+
+    def runTest(self):
+        # Test callback propagation from py fn to cpp fn pointer
+        callback_fn = lambda int_arg, float_arg: int_arg+float_arg
+        callback = False
+        try:
+            self.engine.set_event_callback(callback_fn)
+        except:
+            pass
+        else:
+            callback = True
+        assert callback, "set_event_callback didn't receive python function"
+
+        # Test Initialised engine using one other, using sample_rate property
+        assert self.engine.sample_rate == 1000
+        self.engine.sample_rate = 2000
+        self.engine.do_queued_actions()
+        assert self.engine.sample_rate == 2000
+        new_engine = cpglib.MatsuokaEngine(self.engine)
+        assert self.engine.sample_rate == 2000
 
 if __name__ == "__main__":
     print('\nTesting bindings...\n')
